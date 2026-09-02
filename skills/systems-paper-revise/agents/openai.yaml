@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systems Paper Revise"
+  short_description: "Evidence-safe revision for systems papers"
+  default_prompt: "Use $systems-paper-revise to revise the material I specify and iterate until no actionable issues remain."
