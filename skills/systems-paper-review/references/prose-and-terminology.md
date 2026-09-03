@@ -104,6 +104,16 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 - **Repair direction:** Select the correct relation or write it explicitly.
 - **Sources:** [USER-NOTES], [ERNST]. Checked 2026-09-01.
 
+## PT-10A — High-level wording remains specific and discriminating
+
+- **Nature:** General systems-writing principle with claim-precision consequences.
+- **Reviewer attack:** “The prose sounds abstract, but it could describe almost any system and does not explain why this design follows.”
+- **Check:** Reduce the sentence to its claimed relation. A useful high-level statement names the exact constraint or failed assumption, the leverage or change, and the resulting property or tradeoff. Apply three tests: substitute unrelated system/component names and see whether the sentence remains equally true; ask whether it predicts the need for the major mechanism or study choice; identify the condition and boundary of what follows. Flag bare claims that a system `supports`, `enables`, `addresses`, `improves`, `decouples`, or `virtualizes` without precise objects and consequences.
+- **Severity:** `S1` when the central idea or design derivation is unrecoverable; `S2` when a paragraph loses specificity; `S3` for one vague sentence.
+- **Exceptions / false positives:** A short roadmap may remain broad when adjacent text immediately supplies the discriminating relation. A technical term may compactly encode a previously defined relation.
+- **Repair direction:** State the shortest exact constraint → change → consequence relation, then place mechanism names and operations below it. Do not replace concrete detail with generic abstraction.
+- **Sources:** [USER-NOTES], [OSDI-SOSP-CORPUS], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
+
 ## Sentence logic and grammar
 
 ## PT-11 — Every sentence has one recoverable proposition structure
@@ -200,10 +210,10 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “Padded noun phrases, weak verb phrases, metadiscourse, and repeated qualifiers obscure the technical point,” or “overcompression removes conditions.”
-- **Check:** Inspect `there is/are`, nominalizations, `have an effect on`, redundant framing, repeated content, excessive adjectives/adverbs, and avoidable jargon. Also test whether deletion loses actor, condition, contrast, or uncertainty.
+- **Check:** Inspect `there is/are`, nominalizations, weak verb phrases, redundant framing, repeated content, excessive adjectives/adverbs, metadiscourse, and avoidable jargon. Apply the deletion test: if removing the sentence or phrase loses no necessary inference, definition, evidence, boundary, or handoff, it has not earned its space. Also verify that compression does not lose actor, condition, contrast, or uncertainty.
 - **Severity:** `S2` recurring; `S3` local.
 - **Exceptions / false positives:** Terminological repetition often improves precision; not every phrasal verb has an exact simple replacement.
-- **Repair direction:** Use direct verbs and simple words, remove redundancy, but preserve all semantic constraints.
+- **Repair direction:** Put the main actor/action relation early, use the exact technical verb, and remove text that performs no reasoning role while preserving all semantic constraints.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
 
 ## PT-21 — Transitions express real relations, not variety for its own sake
@@ -283,15 +293,16 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 For every sentence in scope:
 
 1. State its proposition and evidence status.
-2. Resolve technical terms, referents, agents, units, and quantifiers.
-3. Validate modifier, negation, comparison, coordination, and condition scope.
-4. Check grammar/punctuation in the source language.
-5. Remove redundancy only after all meaning is accounted for.
+2. If it is high-level, apply substitution, prediction, and boundary tests.
+3. Resolve technical terms, referents, agents, units, quantifiers, and epistemic strength.
+4. Validate modifier, negation, comparison, coordination, condition, and inter-sentence relation.
+5. Check grammar/punctuation in the source language.
+6. Apply the deletion test only after all meaning is accounted for.
 
 For every paragraph in scope:
 
 1. State the local claim.
 2. Label each sentence as claim, reason, mechanism, evidence, qualification, example, or transition.
-3. Flag missing roles, unrelated roles, circular explanation, and unsupported inference.
-4. Treat rendered line count and one-word final lines as layout diagnostics, not universal writing defects.
-
+3. Read the first and last sentences together: record the opening promise and the closing answer, implication, boundary, or handoff.
+4. Flag missing roles, unrelated roles, circular explanation, unsupported inference, premature mechanism detail, and a closing sentence that strands the local claim.
+5. Treat rendered line count and one-word final lines as layout diagnostics, not universal writing defects.

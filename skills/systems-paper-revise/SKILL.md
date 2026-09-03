@@ -1,88 +1,70 @@
 ---
 name: systems-paper-revise
-description: "Directly revise explicitly scoped computer-systems research prose or LaTeX after reviewer feedback or at an author's request. Use when the user asks to polish, rewrite, restructure, strengthen, fix review findings, or iterate a systems manuscript. May change sentences, paragraphs, section order, narrative, and claim strength while preserving evidence, technical meaning, citations, numbers, macros, and author intent. Never fabricate facts, literature, data, experiments, or completed work. After each edit, apply the systems-paper-review gate and repeat without Git operations until no actionable in-scope issues remain or missing evidence or author decisions block progress."
+description: "Draft or revise explicitly scoped computer-systems paper prose. Use to make an argument more problem-driven, high-level, concise, logically precise, evidence-bounded, and publication-quality in wording without changing supported technical meaning or inventing research content."
 ---
 
 # Systems Paper Revise
 
-Revise the requested systems-paper material directly and drive it to an evidence-safe fixed point. Solve argument and evidence problems before polishing wording.
+Write the requested material as one precise scientific argument. The default result is manuscript-ready prose that is shorter, more specific, and easier to retell—not an account of the editing process.
 
-## Non-negotiable contract
+## Contract
 
-1. Edit only the scope named by the user. Do not inspect or change neighboring files for context unless they are explicitly added to scope. A named `main.tex` means only that file; a full LaTeX dependency closure is editable only when the user explicitly scopes the whole LaTeX project or names its files.
-2. For pasted text, return revised text in chat. For editable Markdown or LaTeX files, edit them directly. Treat PDFs as read-only unless the user also supplies an editable source.
-3. Do not create backup copies. Preserve unrelated user changes.
-4. Neither the root nor any subagent may run `git status`, `git diff`, `git add`, `git commit`, `git restore`, or any other Git command during the automated review-revise loop. The human examines the Git diff only after the loop.
-5. Never fabricate or imply nonexistent facts, citations, implementation, experiments, measurements, comparisons, guarantees, or completed future work.
-6. Preserve supported technical meaning, numbers, units, equations, citations, labels, references, commands, code identifiers, and custom macros unless a requested change requires otherwise and evidence supports it.
-7. A missing experiment, source, implementation fact, or author choice is a blocker. Narrow or qualify a claim when justified; do not write around missing evidence.
+- Work only on the passage or files the user names. Do not inspect neighboring material without permission.
+- Preserve supported facts, conditions, numbers, citations, equations, identifiers, macros, terminology, and author intent. Never convert plans, hypotheses, or plausible mechanisms into completed work.
+- Use the source language unless translation is requested. Preserve deliberate voice; remove generic academic filler.
+- Return prose in chat for pasted material and edit explicitly named source files directly. Treat PDFs as read-only without editable source.
+- Do not create backups or use Git during an automated review-revise loop.
+- Expose missing evidence, context, sources, or author choices as blockers; prose cannot repair them.
 
-## Load the right references
+## Load references proportionally
 
-Always read:
+Read [revision-protocol.md](references/revision-protocol.md). Read [change-safety.md](references/change-safety.md) for file edits or prose containing technical values, equations, citations, macros, or other fragile tokens. Read [revision-strategies.md](references/revision-strategies.md) only for structural or multi-finding problems.
 
-- [revision-protocol.md](references/revision-protocol.md)
-- [convergence-loop.md](references/convergence-loop.md)
-- [change-safety.md](references/change-safety.md)
+Use [convergence-loop.md](references/convergence-loop.md) only when iteration is requested or interacting edits warrant it, and [multi-agent-revision.md](references/multi-agent-revision.md) only for a sufficiently large authorized scope. Use the sibling [systems-paper-review](../systems-paper-review/SKILL.md) gate for substantial argument, evidence, or submission judgments; a narrow wording edit needs only the relevant local checks.
 
-Read [revision-strategies.md](references/revision-strategies.md) for structural or multi-finding revisions.
+## Writing method
 
-For a full paper, multiple substantial sections, or manuscript-plus-artifact loop, also read [multi-agent-revision.md](references/multi-agent-revision.md). Use specialized subagents only for read-only review and verification. The root agent is the sole writer for pasted text and the only agent permitted to modify in-scope files.
+### 1. Fix the intellectual job before the words
 
-This skill uses the sibling `systems-paper-review` skill as its gate. Read that skill's `SKILL.md`, `references/review-protocol.md`, `references/source-registry.md`, and every domain reference relevant to the current scope. Resolve the sibling from the common `skills/` directory; if it is unavailable, state that the required review gate is missing and do not claim convergence.
+State internally, in one sentence, the question this scope must answer and the exact answer supported by the evidence. For a paragraph, this is its local obligation. For a section or paper, recover the controlling thesis and only the dependencies needed to support it.
 
-## Revision workflow
+Begin from the reader's unresolved problem or inference. Do not begin from the system name, component list, or a generic claim that the topic is important unless that sentence also identifies the consequential tension.
 
-### 1. Freeze scope and invariants
+### 2. Write at the highest informative level
 
-Record the exact editable object, source language, user goal, permitted restructuring depth, immutable technical tokens, and missing context. Follow the source language unless translation is requested; keep deliberately mixed-language material mixed.
+`High-level` means causal compression, not vagueness. Express the smallest relation that explains the design or finding:
 
-### 2. Establish the initial defect ledger
+```text
+binding constraint -> leverage or changed assumption -> action/abstraction -> resulting property and boundary
+```
 
-Apply `systems-paper-review` without editing. When the scope warrants parallel review and collaboration tools are available, delegate the applicable reviewer roles under the sibling skill's orchestration protocol, wait for all roles, and synthesize their findings. Convert the resulting in-scope confirmed defects and actionable unresolved risks into a working ledger. Style preferences enter the ledger only when the user requests that style or they materially impair clarity.
+This is a reasoning test, not a mandatory sentence template. Concrete mechanisms should instantiate that relation; they should not replace it.
 
-### 3. Choose the smallest evidence-safe repair
+Apply three tests:
 
-Repair in this order:
+- **Substitution:** If unrelated system and component names could replace the current names without changing the sentence, it is too generic.
+- **Prediction:** The principle-level account should explain why the major mechanisms or study choices are necessary. If it cannot, it is too weak or too detached from the design.
+- **Boundary:** State what follows, under which condition, and what does not follow. Do not collapse a mechanism, capability, guarantee, and measured result into one claim.
 
-1. unsupported, contradictory, or overbroad claims;
-2. missing argument links and system/evaluation logic;
-3. section and paragraph organization;
-4. terminology, figure/table/LaTeX consistency;
-5. sentence-level clarity and grammar;
-6. optional style preferences.
+### 3. Build the paragraph as a dependency chain
 
-For each item, choose among adding already available evidence, making reasoning explicit, qualifying the claim, deleting the unsupported claim, reorganizing the scoped material, or marking an author/evidence blocker. Do not manufacture support.
+The first sentence establishes the paragraph's decision-relevant claim, tension, or question. Each middle sentence performs one necessary role—reason, mechanism, evidence, qualification, example, or transition—and connects given information to one new proposition. Order prerequisites before consequences and evidence before the inference it licenses.
 
-### 4. Edit directly
+The last sentence delivers the supported answer, implication, limitation, or next necessary question. It must pay off the opening without merely repeating it. Move trailing implementation detail earlier or delete it when it strands the paragraph.
 
-The root agent is the sole writer. Do not delegate file or pasted-text mutation and do not allow multiple agents to edit shared content concurrently. Make coherent batches of changes rather than repeatedly paraphrasing isolated sentences. Structural edits may reorder or split in-scope sentences, paragraphs, or sections when allowed. Maintain the preservation checks in [change-safety.md](references/change-safety.md).
+### 4. Make every sentence exact and economical
 
-### 5. Re-run the full in-scope gate
+- Put the main actor and action early unless the object is intentionally the focus.
+- Prefer a precise verb over a noun phrase plus a weak verb. Name what is mapped, isolated, delayed, enforced, measured, or compared.
+- Keep one principal assertion per sentence; attach only the conditions needed to interpret it.
+- Place quantifiers, conditions, comparisons, and epistemic strength next to the claim they bound.
+- Use a transition only when the underlying relation—cause, contrast, consequence, condition, or example—is real.
+- Delete a sentence if removing it loses no necessary inference, definition, evidence, boundary, or handoff. Between equally precise versions, choose the shorter one.
 
-Review the complete revised scope, not only changed lines. A fix may create a new terminology mismatch, dangling reference, evidence gap, or repetition. Use the same rule set, reviewer roles, and venue overlay as the initial pass. In multi-agent mode, send each reviewer the full revised scope, wait for every applicable role, then let the root reconcile regressions, duplicates, and conflicting judgments before the next edit.
+### 5. Gate the prose, not the process
 
-### 6. Iterate to a fixed point
+Read the result once as a skeptical systems reviewer. Verify that the problem licenses the principle, the principle predicts the mechanism, the evidence licenses the conclusion, and every paragraph opening is paid off by its ending. Then check terminology and grammar without weakening the logic.
 
-Follow [convergence-loop.md](references/convergence-loop.md). Continue while an evidence-safe edit can resolve an actionable issue. Stop only when:
+## Output
 
-- no actionable in-scope issue and no `B1`–`B4` blocker remains, producing a locally clean fixed point; or
-- no actionable edit remains and at least one issue requires missing evidence, unavailable context, a new experiment, a new citation decision, or an author decision, producing a blocked fixed point; or
-- further edits oscillate or cease making measurable progress.
-
-Blocked takes precedence over locally clean whenever any `B1`–`B4` item remains.
-
-There is no fixed number of rounds and no score threshold. A locally clean fixed point is not proof of publication readiness.
-
-## Output contract
-
-After file edits or a returned text revision, report in the user's language:
-
-1. exact scope revised;
-2. substantive changes grouped by argument, evidence, structure, and prose;
-3. preserved invariants and validation performed;
-4. loop outcome and number of completed review-revise rounds;
-5. unresolved blockers, with the precise evidence or decision needed;
-6. human-review handoff, explicitly stating that Git was not used during the loop.
-
-Do not emit a separate report file unless the user asks for one. Do not claim `all problems are solved` outside the frozen scope.
+Lead with the revised or newly drafted manuscript text. Do not expose internal outlines, ledgers, archetype labels, rule IDs, or review rounds unless the user asks. After the prose, report only material blockers or a compact note about consequential changes and validation. Do not bury the deliverable under process narration.

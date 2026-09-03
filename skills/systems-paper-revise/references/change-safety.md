@@ -1,6 +1,6 @@
 # Change Safety and Meaning Preservation
 
-Use this checklist before and after every edit batch. A revision is unsafe if it improves prose while changing unsupported facts, technical behavior, evidence scope, author intent, or executable document structure.
+Use this checklist before and after every draft or edit batch. A revision is unsafe if it improves prose while changing unsupported facts, technical behavior, evidence scope, author intent, or executable document structure.
 
 ## CS-01 — Preserve the frozen scope
 
@@ -100,6 +100,13 @@ Use this checklist before and after every edit batch. A revision is unsafe if it
 - **After:** Confirm suggestions do not change technical semantics and passes do not overclaim readiness.
 - **Failure response:** Reject false positive or record limitation; do not edit solely to silence a tool.
 
+## CS-15 — Preserve distinctive argument assets and author voice
+
+- **Invariant:** Revision retains the strongest supported examples, counterexamples, principle statements, result framings, honest boundaries, and deliberate voice unless a higher-priority scientific finding requires change.
+- **Before:** Record each asset and the reasoning job it performs; distinguish voice from ambiguity, hype, or terminology drift.
+- **After:** Check that restructuring did not replace concrete reasoning with generic academic prose, flatten useful emphasis, or remove the memorable object that helps a reviewer retell the thesis.
+- **Failure response:** Restore or strengthen the asset at its most useful location. Do not preserve wording that makes an unsupported claim merely because it is distinctive.
+
 ## Preservation snapshot
 
 Before a nontrivial batch, maintain this internal snapshot:
@@ -113,6 +120,7 @@ Citations + supported propositions:
 Equations/identifiers/macros/labels:
 Canonical terminology:
 Author-intent choices:
+Argument assets and voice choices to preserve/amplify:
 ```
 
 After the batch, check every line. If an item changes, link it to a finding, evidence, and resolution test.
@@ -135,5 +143,4 @@ Hedging is not a substitute for missing evidence. If the claim is essential and 
 
 ## Sources
 
-Meaning-preservation principles derive from the sibling review rules and evidence hierarchy, plus revision patterns in [BRANDON-EVIDENCE], [YSLAB-REVISION], and [SIMCHOWITZ-WRITING]. Source keys are defined in the sibling `source-registry.md`. Last reconciled 2026-09-01.
-
+Meaning-preservation principles derive from the sibling review rules and evidence hierarchy, plus revision patterns in [BRANDON-EVIDENCE], [YSLAB-REVISION], and [SIMCHOWITZ-WRITING]. Source keys are defined in the sibling `source-registry.md`. Last reconciled 2026-09-03.

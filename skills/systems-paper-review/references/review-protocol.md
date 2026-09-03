@@ -1,6 +1,6 @@
 # Adversarial Review Protocol
 
-Use this protocol for every review. It defines scope control, evidence discipline, independent passes, finding calibration, completeness, and the final gate. Domain reference files define the individual `RC`, `TS`, `EV`, `AR`, `SS`, `PT`, `FL`, and `VO` rules.
+Use this protocol for every review. It defines scope control, evidence discipline, independent passes, finding calibration, completeness, and the final gate. Domain reference files define the individual `PA`, `TH`, `RC`, `DD`, `TS`, `EV`, `ER`, `AR`, `SS`, `PT`, `FL`, and `VO` rules or routing contracts.
 
 For a large scope reviewed with collaboration tools, execute the applicable passes through the role assignments in [multi-agent-orchestration.md](multi-agent-orchestration.md). The pass definitions, evidence requirements, and output schema remain unchanged; only execution is parallelized.
 
@@ -41,6 +41,17 @@ Assign one or more evidence classes to every finding.
 | `U` | Evidence unavailable under current scope | Identify unresolved risk and required context | Declare a confirmed defect that depends on unseen material |
 
 For external verification, record source, direct URL, publication/version or venue cycle, and date checked. If sources disagree, report the disagreement.
+
+### Argument-state overlay
+
+When reviewing notes, an incomplete draft, or a paper whose promises exceed visible evidence, also classify each candidate proposition:
+
+- `established`: directly supported by authorized manuscript/artifact evidence or an allowed verified source;
+- `inference`: follows from established premises but must retain calibrated force;
+- `planned`: proposed mechanism, experiment, result, citation, or writing move that is not completed evidence;
+- `blocked`: requires new data, source, mechanism detail, context, or author decision.
+
+Never let a fluent narrative promote `planned` or `blocked` material into an established contribution. This overlay diagnoses what a defensible paper could currently claim; it does not authorize the reviewer to draft it.
 
 ## 3. Finding status
 
@@ -92,27 +103,30 @@ Run all applicable passes separately. Maintain an internal coverage ledger so an
 
 ### Pass P2 — PC/chair contribution case
 
-- Ask what problem matters, what insight is new, what was built or established, and why a systems audience should care.
+- Select the primary paper archetype and reconstruct one controlling thesis plus its supporting-claim hierarchy. Do not force a design-paper template onto empirical or operational work.
+- When several stories remain plausible, compare their primary claim, decisive evidence, missing support, and scientific tradeoff. Treat a choice that changes author intent as unresolved.
+- Ask what problem/question matters, what failed assumption or binding constraint makes it unresolved, what intellectual move changes understanding or capability, what was built or established, what decisive evidence supports it, and why a systems audience should care.
 - Stress novelty against the closest alternatives, not a generic field summary.
-- Apply all assessable `RC` rules and venue criteria.
+- Apply assessable `PA`, `TH`, and `RC` rules and venue criteria.
 
 ### Pass P3 — domain-expert technical attack
 
-- Reconstruct the system model, mechanism, invariants, lifecycle, failure behavior, and assumptions.
+- Reconstruct the design derivation from observed failure/property through constraint, requirement, mechanism, invariant/effect, tradeoff, and decisive test. Then reconstruct system model, lifecycle, failure behavior, and assumptions.
 - Search for counterexamples, hidden state, concurrency/failure gaps, unsafe generalization, and mechanism/claim mismatch.
-- Apply `TS` rules.
+- Apply `DD` and `TS` rules.
 
 ### Pass P4 — evaluation skeptic
 
-- Create a claim-to-evidence matrix.
+- Predict the decisive evidence from the thesis before examining the paper's emphasis. Create a claim-to-evidence matrix and check whether headline results mirror the contribution hierarchy.
 - Test research questions, baselines, workloads, metrics, setup, uncertainty, negative results, and conclusion strength.
-- Apply `EV` rules; apply `AR` when artifacts are in scope.
+- Apply `TH`, `EV`, and `ER` rules; apply `AR` when artifacts are in scope.
 
 ### Pass P5 — non-specialist systems reader
 
 - Read linearly without importing unstated domain knowledge.
-- Track first use of terms, antecedents, paragraph promises, section transitions, figure callouts, and cognitive load.
-- Apply `SS`, `PT`, and `FL` rules.
+- Track first use of terms, antecedents, the problem → intellectual move → realization ladder, paragraph-opening promises, paragraph-closing implications/handoffs, section transitions, examples, figure callouts, headline-result payoff, and cognitive load.
+- For a broken or incomplete argument, build a read-only reader-obligation outline: each unit's entering question, claim/answer, required mechanism/evidence, and closing implication/handoff. Use it to locate the first broken dependency, not to write replacement prose.
+- Apply `TH`, `ER`, `SS`, `PT`, and relevant `FL` rules.
 
 ### Pass P6 — internal and artifact consistency
 
@@ -137,7 +151,7 @@ Keep an attack only if grounded in evidence or recorded as an unresolved risk wi
 
 - Merge identical root causes; retain every affected location.
 - Split findings that need different fixes or have different decision impacts.
-- Revisit every central claim and every applicable rule family.
+- Revisit the controlling thesis, each supporting claim, every major mechanism/finding, each decisive result, and every applicable rule family.
 - Verify that “no finding” means inspected and passed, not forgotten.
 
 ## 6. Rule application record
@@ -152,9 +166,9 @@ For each rule family, record one coverage state:
 
 Never claim exhaustive review without disclosing not-assessable families. Exhaustiveness is relative to the frozen scope and observable evidence.
 
-## 7. Finding schema
+## 7. Layered finding schema
 
-Use this exact structure for every distinct finding:
+Use the full structure for every `S0`/`S1` finding and for any lower-severity finding whose diagnosis, evidence, or repair is non-obvious:
 
 ```text
 [F-###] Short diagnostic title
@@ -173,18 +187,23 @@ Sources: <rule source keys; add live URL/date for external facts>
 
 Use stable finding numbers within one report. Quote only the minimum text needed to anchor a location.
 
+For a straightforward `S2`/`S3` item, use a compact ledger row instead of repeating boilerplate:
+
+| ID | Rule | Location | Status / severity / confidence | Problem and consequence | Repair / resolution test |
+|---|---|---|---|---|---|
+
+Compact form does not authorize omission. Expand an item whenever the evidence class, reviewer attack, or scientific consequence would otherwise be ambiguous. Group repeated symptoms under one root cause and list every affected location.
+
 ## 8. Report schema
 
-### Scope and limits
+### Editorial decision brief
 
-- In scope
-- Explicitly out of scope
-- Input form and language
-- Venue/cycle, if named
-- External/tool checks performed
-- Evidence unavailable because of scope
-
-### Verdict
+- Scope and material evidence limits.
+- Primary/secondary paper archetype and any unresolved routing choice.
+- One-sentence thesis reconstruction in the reviewer’s words; if impossible, say why rather than inventing one.
+- Verdict with calibrated confidence.
+- Strongest argument assets to preserve or amplify: only evidence-backed examples, claims, figures, results, or passages that materially help the paper.
+- Decision-dominant rejection threats. Prefer the smallest set that explains the verdict; the ledger carries completeness.
 
 One of:
 
@@ -194,13 +213,18 @@ One of:
 
 Add one paragraph explaining the decisive reason and confidence. Never translate `clear within scope` into `the paper is publishable`.
 
-### Top rejection threats
+### Thesis, design, and evidence diagnosis
 
-List every `S0`, then the decision-dominant `S1` items. Do not impose a fixed count.
+- Give the thesis-support hierarchy and reader-memory result for an argument-bearing scope.
+- Give the design-derivation break for a design-bearing scope.
+- Give the headline-evidence mismatch for an evaluation-bearing scope.
+- Distinguish established, inferential, planned, and blocked propositions when the material is incomplete.
+- If stories compete, show the alternatives and scientific tradeoff without choosing against author intent.
+- State the highest-level reconstruction blueprint before local findings. If the hierarchy itself is wrong, give an archetype/thesis/evidence/reader-obligation outline and say that global restructuring is required; do not supply replacement prose.
 
 ### Exhaustive findings ledger
 
-Give all findings in severity order; within severity, follow reading order. Include style preferences last and only if useful.
+Give all materially distinct findings in severity order; within severity, follow reading order. Use the full schema for severe/non-obvious findings and compact rows for straightforward local findings. Include style preferences last and only if useful.
 
 ### Claim-evidence matrix
 
@@ -213,7 +237,7 @@ Use `covered`, `partially covered`, `unsupported`, or `not assessable`.
 
 ### Coverage summary
 
-List P1–P8 status and each relevant rule family status. Name rules or objects not assessable and why.
+List P1–P8 status and each relevant rule family status, including archetype/thesis/design-derivation/argument-object coverage where applicable. Name rules or objects not assessable and why.
 
 ### Gate result and next evidence
 
@@ -234,4 +258,4 @@ Do not:
 
 ## Sources
 
-Protocol design synthesizes [OPENAI-SKILL-CREATOR], [DEERFLOW-REVIEW], [CHAN-DUAL-LENS], [LEVIN-REDELL], [OSDI-CFP], [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES], and [SYSTEMS-GUIDE]. See [source-registry.md](source-registry.md). Last reconciled 2026-09-01.
+Protocol design synthesizes [OPENAI-SKILL-CREATOR], [DEERFLOW-REVIEW], [CHAN-DUAL-LENS], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS], [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES], and [SYSTEMS-GUIDE]. See [source-registry.md](source-registry.md). Last reconciled 2026-09-03.

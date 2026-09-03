@@ -8,7 +8,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The figure is decorative, combines unrelated stories, or requires reconstructing its purpose from the paper.”
-- **Check:** State the figure's intended question and takeaway. Verify panels/elements support it and the text uses it as evidence rather than merely mentioning it.
+- **Check:** State the figure's intended reader question and takeaway. For early motivation/overview figures, also apply [examples-figures-results.md](examples-figures-results.md): determine whether the object reveals a mismatch, boundary, causal path, system model, workflow, or intellectual move rather than merely repeating nouns. Verify panels/elements support the message and the text uses it in the argument rather than merely mentioning it.
 - **Severity:** `S2`; `S1` if a central claim depends on an unreadable/ambiguous figure.
 - **Exceptions / false positives:** Overview figures may communicate architecture/workflow rather than one numerical claim; they still need a coherent purpose.
 - **Repair direction:** Remove unrelated content, split panels, or clarify the question/takeaway without adding unsupported annotation.
@@ -78,7 +78,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 
 - **Nature:** Hard internal-consistency condition.
 - **Reviewer attack:** “The diagram shows components, trust paths, ordering, inputs, or outputs that the prose omits or contradicts.”
-- **Check:** Cross-check actors, boundaries, labels, arrow direction, stage order, optional paths, inputs/outputs, and legend with in-scope overview/design.
+- **Check:** Cross-check actors, boundaries, labels, arrow direction, stage order, optional paths, inputs/outputs, and legend with in-scope overview/design. Separately ask whether the figure makes the design's governing relation visible; technical consistency cannot rescue an architecture diagram that communicates only a component inventory.
 - **Severity:** `S0` if mismatch invalidates central reasoning; `S1`/`S2` otherwise.
 - **Exceptions / false positives:** Diagrams intentionally abstract details; caption/text must state the abstraction where it matters.
 - **Repair direction:** Reconcile one system model and mark omitted/optional paths explicitly.
@@ -254,4 +254,3 @@ When rendering is in scope, inspect every page at normal reading scale and zoome
 - page count and required metadata under live venue rules.
 
 Do not report “LaTeX passes” from compilation alone; compilation and visual inspection answer different questions.
-

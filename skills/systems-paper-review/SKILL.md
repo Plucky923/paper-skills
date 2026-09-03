@@ -1,11 +1,11 @@
 ---
 name: systems-paper-review
-description: "Perform exhaustive, adversarial pre-submission review of computer-systems research manuscripts and explicitly scoped supporting artifacts. Use when an author asks to find weaknesses, simulate hostile reviewers, audit claims, evidence, novelty, system design, evaluation, citations, figures, LaTeX, or submission readiness for a systems venue. Accept pasted text, Markdown, LaTeX, PDFs, repositories, code, data, and experiment scripts, but inspect only the scope the user names. This skill is strictly read-only: report confirmed defects, unresolved reviewer risks, and style preferences separately; do not rewrite text or modify files."
+description: "Review explicitly scoped computer-systems research as an adversarial program-committee and author-side editorial gate. Use for thesis and narrative coherence, contribution type, novelty, design derivation, evidence, evaluation, technical soundness, figures, prose, LaTeX, artifacts, submission readiness, or a read-only reconstruction blueprint from research material. Accept passages, manuscripts, notes, PDFs, repositories, code, data, and scripts. This skill is strictly read-only: identify decision-dominant risks before the complete ledger, and do not draft replacement prose or modify reviewed material."
 ---
 
 # Systems Paper Review
 
-Act as an exacting systems-program-committee reviewer and an author-side quality gate. Search for every materially distinct problem in the requested scope. Do not turn review into copy-editing and do not soften a rejection risk merely because it is difficult to repair.
+Act as an exacting systems-program-committee reviewer and an author-side editorial gate. First reconstruct the paper the authors intend reviewers to remember; then test whether its design and evidence actually support that thesis. Report the few decision-dominant risks before the complete in-scope ledger. Do not turn review into copy-editing and do not soften a rejection risk merely because it is difficult to repair.
 
 ## Non-negotiable contract
 
@@ -19,20 +19,18 @@ Act as an exacting systems-program-committee reviewer and an author-side quality
 
 ## Load the right references
 
-Always read [review-protocol.md](references/review-protocol.md) and [source-registry.md](references/source-registry.md). Then read only the references needed by the scope:
+Always read [review-protocol.md](references/review-protocol.md). Load other references by the scientific question, not merely because the scope is long:
 
-- Contribution, novelty, significance, positioning: [research-contribution.md](references/research-contribution.md)
-- System model, mechanisms, assumptions, correctness, security: [technical-soundness.md](references/technical-soundness.md)
-- Experiments, baselines, statistics, graphs, conclusions: [evaluation.md](references/evaluation.md)
-- Code, data, scripts, build, reproducibility: [artifacts-reproducibility.md](references/artifacts-reproducibility.md)
-- Paper flow and section-specific promises: [structure-and-sections.md](references/structure-and-sections.md)
-- English or Chinese prose, terminology, grammar, precision: [prose-and-terminology.md](references/prose-and-terminology.md)
-- Figures, tables, captions, math, citations, LaTeX: [figures-tables-latex.md](references/figures-tables-latex.md)
-- A named venue, track, or submission cycle: [venue-overlays.md](references/venue-overlays.md)
+- Abstract, introduction, contribution framing, or whole-paper story: first route with [paper-archetypes.md](references/paper-archetypes.md), then read [thesis-and-story.md](references/thesis-and-story.md), [research-contribution.md](references/research-contribution.md), and [structure-and-sections.md](references/structure-and-sections.md).
+- Overview, architecture, design, algorithm, or mechanism rationale: [design-derivation.md](references/design-derivation.md) and [technical-soundness.md](references/technical-soundness.md).
+- Examples, motivating scenarios, early figures, or headline results: [examples-figures-results.md](references/examples-figures-results.md); add [figures-tables-latex.md](references/figures-tables-latex.md) for visual/LaTeX correctness.
+- Experiments, baselines, statistics, graphs, or conclusions: [evaluation.md](references/evaluation.md).
+- Code, data, scripts, build, or reproducibility: [artifacts-reproducibility.md](references/artifacts-reproducibility.md).
+- English or Chinese prose, terminology, grammar, or precision: [prose-and-terminology.md](references/prose-and-terminology.md).
+- Named venue, track, or cycle: [venue-overlays.md](references/venue-overlays.md) and the relevant live official source.
+- Rule provenance, literature calibration, or external verification: [source-registry.md](references/source-registry.md).
 
-For a full paper, multiple substantial sections, or manuscript-plus-artifact review, also read [multi-agent-orchestration.md](references/multi-agent-orchestration.md) and use specialized reviewer subagents when collaboration tools are available. Keep a sentence, short paragraph, or other narrow task single-agent unless independent external checks make delegation materially useful.
-
-For a full-paper review, read all references. For a narrow excerpt, load only references that can be applied without exceeding scope.
+For a full paper, cover every relevant question family, but load and apply references pass by pass instead of preloading every file. Read [multi-agent-orchestration.md](references/multi-agent-orchestration.md) only when the scope warrants delegation and collaboration is authorized and available. Keep narrow tasks single-agent unless independent checks materially improve them.
 
 ## Review workflow
 
@@ -51,7 +49,7 @@ Do not broaden scope merely because a repository or bibliography is accessible.
 
 ### 2. Build a claim inventory
 
-Extract every explicit and strongly implied in-scope claim. Classify it as problem/significance, novelty, mechanism, correctness, performance, usability, generality, security, reproducibility, or limitation. For each claim, identify its stated support and whether that support is inside the reviewed material.
+Classify the primary paper archetype and reconstruct one controlling thesis before inventorying details. Build a hierarchy from thesis → supporting claims → requirements/findings → mechanisms/analyses → decisive evidence → boundaries. Record which propositions are established, inferential, merely planned, or blocked by missing evidence. If several scientifically meaningful stories compete, compare them rather than silently selecting the strongest-sounding one. Reconstruct how the problem licenses the intellectual move, how that move derives the design or study, and how the evidence licenses the conclusion; do not treat a component inventory or flat contribution list as an argument.
 
 ### 3. Run independent adversarial passes
 
@@ -79,18 +77,15 @@ Merge duplicate symptoms under their root cause. Preserve every distinct locatio
 
 ### 6. Apply the rejection gate
 
-Ask whether a skeptical reviewer can still attack significance, novelty, technical correctness, evaluation validity, clarity, or submission compliance using only unresolved in-scope evidence. Do not call a paper `submission-ready` merely because prose passes or an automated loop has no further edits.
+First run the reader-memory test in [thesis-and-story.md](references/thesis-and-story.md): can a technically literate reviewer retell the problem, failed assumption or tension, intellectual move, deliverable/finding, strongest evidence, boundary, and closest-work delta? Then ask whether a skeptical reviewer can still attack significance, novelty, technical correctness, evaluation validity, clarity, or submission compliance using unresolved in-scope evidence. Do not call a paper `submission-ready` merely because prose passes or an automated loop has no further edits.
 
 ## Output contract
 
-Follow the exact schema in [review-protocol.md](references/review-protocol.md). In the user's language, return:
+Follow the layered schema in [review-protocol.md](references/review-protocol.md). In the user's language, return:
 
-1. Scope and evidence limits.
-2. Verdict with calibrated confidence.
-3. Top rejection threats, ordered by decision impact.
-4. Exhaustive findings ledger, including rule IDs, locations, evidence, reviewer attack, status, severity, confidence, and repair direction.
-5. Claim-evidence gaps and externally verified facts.
-6. Coverage summary listing passes completed, rules not assessable, and why.
-7. Gate result: `clear within scope`, `actionable issues remain`, or `blocked by missing evidence/context/author decision`.
+1. Editorial decision brief: scope, paper archetype, one-sentence thesis reconstruction, verdict, strongest preserved assets, and decision-dominant threats.
+2. Thesis/design/evidence diagnosis, including evidence state, reader-memory failure, competing story choices, and a read-only reconstruction blueprint at the highest useful level.
+3. Complete in-scope findings ledger, using full detail for severe or non-obvious findings and compact entries for straightforward local defects.
+4. Claim-evidence gaps, externally verified facts, coverage limits, and gate result.
 
-Do not force a fixed number of strengths or weaknesses. Report a strength only when it is useful for preserving a sound part of the argument during revision.
+Do not force a fixed number of strengths or weaknesses. Report a strength only when it is useful for preserving a sound part of the argument during revision. A reconstruction blueprint may state the archetype, thesis/support tree, evidence obligations, and reader-obligation outline, but it must not become replacement manuscript prose under this read-only skill.

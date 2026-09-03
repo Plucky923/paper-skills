@@ -6,19 +6,19 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 
 - **Nature:** Hard scientific-validity condition.
 - **Reviewer attack:** “The paper's strongest contribution is never directly evaluated.”
-- **Check:** Build a claim-to-evidence matrix covering correctness, performance, overhead, scalability, robustness, usability, security, generality, and practicality as claimed. Identify whether support is experiment, proof, analysis, case study, artifact, or external fact.
+- **Check:** Build a claim-to-evidence matrix covering correctness, performance, overhead, scalability, robustness, usability, security, generality, and practicality as claimed. Identify whether support is experiment, proof, analysis, case study, artifact, or external fact. Use the thesis-support hierarchy in [thesis-and-story.md](thesis-and-story.md) to verify that the decisive evidence and headline results cover the primary claims before secondary measurements.
 - **Severity:** `S0` for a central unsupported conclusion; `S1` for partial coverage; `S2` for secondary claims.
 - **Exceptions / false positives:** Some premises may be established by cited primary evidence; verify that the cited source actually supports the same conditions.
 - **Repair direction:** Add an appropriate test using real evidence, replace with a supported claim, or remove it. Do not add invented results.
 - **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE]. Checked 2026-09-01.
 
-## EV-02 — Research questions precede experiment selection
+## EV-02 — Evidence is selected by recoverable scientific questions
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The evaluation is a collection of favorable plots rather than tests of explicit hypotheses or system questions.”
-- **Check:** For each experiment, state the question, independent variables, outcomes, controlled factors, expected causal link, and which claim it can falsify. Flag plots with no decision role.
+- **Check:** For each experiment, proof, case study, or operational observation, recover the question, outcomes, relevant conditions/controls, permitted inference, and which claim it can challenge. The question may be explicit or inferable from a tightly coupled finding/intervention narrative. Flag evidence objects with no decision role.
 - **Severity:** `S1` when experiment design cannot establish claims; otherwise `S2`.
-- **Exceptions / false positives:** Exploratory or measurement studies can pose descriptive questions rather than hypotheses, but must still define what is being characterized.
+- **Exceptions / false positives:** Do not require an enumerated RQ list or one evaluation section. Exploratory, measurement, and operational studies may pose descriptive questions and interleave method, observation, and intervention, but must still make each inference auditable.
 - **Repair direction:** Organize experiments around questions and remove or demote non-evidentiary plots.
 - **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [HEISER-BENCH]. Checked 2026-09-01.
 
@@ -248,4 +248,3 @@ Do not declare a defect merely because the evaluation lacks:
 - every cited prior system as an executable baseline.
 
 Instead, state the inference that is currently unsupported and the least burdensome valid evidence that would support it.
-

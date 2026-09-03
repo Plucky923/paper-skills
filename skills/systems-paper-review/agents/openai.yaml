@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Review"
   short_description: "Adversarial review for systems papers"
-  default_prompt: "Use $systems-paper-review to find every actionable reviewer concern in the material I specify."
+  default_prompt: "Use $systems-paper-review to reconstruct this systems paper's thesis and evidence-bounded argument blueprint, identify decision-dominant risks, and audit the scope I specify without rewriting it."

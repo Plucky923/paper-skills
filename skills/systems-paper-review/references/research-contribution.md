@@ -22,21 +22,21 @@ Apply these rules to the contribution case: problem, importance, central insight
 - **Repair direction:** Add already available scale/consequence evidence, explain why the boundary matters, or qualify the claim.
 - **Sources:** [LEVIN-REDELL], [OSDI-CFP], [ERNST]. Checked 2026-09-01.
 
-## RC-03 — The paper states one intelligible central idea
+## RC-03 — The paper states one intelligible, principle-level central idea
 
 - **Nature:** General best practice and diagnostic heuristic.
 - **Reviewer attack:** “I can list components but cannot tell what intellectual idea makes the system work.”
-- **Check:** Attempt a one- or two-sentence reconstruction of the causal insight: observed structure → exploitation or mechanism → benefit. Distinguish the insight from the system name, implementation inventory, goal, and result.
+- **Check:** First use [paper-archetypes.md](paper-archetypes.md) to identify whether the intellectual contribution is a mechanism, finding, taxonomy, operational lesson, or other form. Then attempt a one- or two-sentence reconstruction of its causal or inferential move: binding constraint/question → observation/leverage → changed abstraction/action or revised understanding → resulting property/finding/tradeoff. Distinguish it from the system name, component inventory, step sequence, goal, and result.
 - **Severity:** `S1` if the contribution appears to be an unprincipled bundle; `S2` if the idea exists but is hard to recover.
 - **Exceptions / false positives:** Some papers contribute a measurement result, experience report, negative result, or dataset rather than a new algorithm; the central intellectual contribution must still be explicit.
-- **Repair direction:** Name the unifying insight and connect each major component to it; remove or demote unrelated optimizations.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL]. Checked 2026-09-01.
+- **Repair direction:** State the unifying principle before its realization, connect each major component to it, and remove or demote unrelated optimizations.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
 
 ## RC-04 — Contribution type and deliverable are explicit
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paper alternates between claiming a new principle, system, algorithm, study, and engineering implementation.”
-- **Check:** Classify each claimed contribution: problem characterization, insight/theory, algorithm/protocol, system/design, implementation, measurement/experience, artifact/dataset, or evaluation result. Verify verbs and evidence match the type.
+- **Check:** Classify each claimed contribution: problem characterization, insight/theory, algorithm/protocol, system/design, implementation, measurement/experience, artifact/dataset, or evaluation result. Use [thesis-and-story.md](thesis-and-story.md) to distinguish the controlling thesis, decision-relevant supporting claims, enabling mechanisms, implementation facts, and evidence. Verify verbs and evidence match the type.
 - **Severity:** `S1` when ambiguity inflates novelty or misdirects evaluation; otherwise `S2`.
 - **Exceptions / false positives:** A paper may make several types of contribution, but their hierarchy and evidence must be clear.
 - **Repair direction:** Rewrite contribution statements around deliverables and validated claims; separate primary from enabling contributions.
@@ -76,7 +76,7 @@ Apply these rules to the contribution case: problem, importance, central insight
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The system is a bag of optimizations with no necessity, interaction, or transferable idea.”
-- **Check:** For every major component, ask which stated challenge it resolves, why existing/simple alternatives fail, how it interacts with other components, and what contribution remains if it is removed.
+- **Check:** Apply [design-derivation.md](design-derivation.md): for every major component, identify the problem-derived requirement it discharges, why existing/simple alternatives fail, how it interacts with other mechanisms, which property/tradeoff follows, and what contribution remains if it is removed.
 - **Severity:** `S1` if coherence is central to novelty; otherwise `S2`.
 - **Exceptions / false positives:** Independent techniques are acceptable if the paper explicitly frames and evaluates them as separate contributions.
 - **Repair direction:** Expose dependencies and co-design logic, demote incidental optimizations, or separate claims.
@@ -146,9 +146,8 @@ Apply these rules to the contribution case: problem, importance, central insight
 
 Before closing this family, answer:
 
-1. Can a reviewer state the problem, consequence, central idea, deliverable, and strongest result without guessing?
+1. Can a reviewer pass the reader-memory test in [thesis-and-story.md](thesis-and-story.md) without guessing or listing components?
 2. Is the closest-work delta precise and externally defensible where checked?
 3. Do assumptions or shifted costs erase the advance?
 4. Does every contribution promise map to evidence or an explicit limitation?
 5. Which `RC` rules were not assessable under scope?
-

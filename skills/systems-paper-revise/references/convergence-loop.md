@@ -3,10 +3,11 @@
 The loop is a fixed-point search over the frozen scope:
 
 ```text
-freeze scope
-  -> adversarial review (parallel read-only roles when warranted)
+freeze scope and evidence
+  -> recover the scoped writing obligation
+  -> adversarial review or missing-text dependency check
   -> actionable ledger
-  -> root-only evidence-safe edit batch
+  -> root-only evidence-safe writing batch
   -> preservation checks
   -> full in-scope re-review (same read-only roles)
   -> repeat or stop
@@ -33,19 +34,22 @@ Track findings by stable ID across rounds.
 
 ## Round 0 — Baseline
 
-1. Freeze the scope and invariants.
-2. Run the complete applicable sibling review protocol before editing. When multi-agent mode applies, wait for every applicable read-only reviewer role and let the root consolidate one ledger.
-3. Create the claim inventory, claim-evidence matrix, and finding ledger.
-4. Record baseline counts by severity/status, not a single score.
-5. Separate repairable items from blockers.
+1. Freeze the scope, evidence classes, and invariants.
+2. If prose exists, run the complete applicable sibling review protocol. If prose is missing, identify the minimum reader promise, supported answer, dependencies, and handoff required by the requested scope.
+3. When multi-agent review applies, wait for every applicable read-only reviewer role and let the root consolidate one ledger.
+4. Create the applicable claim inventory, claim-evidence matrix, and working ledger.
+5. Record baseline counts by severity/status when findings exist, not a single score.
+6. Separate writable obligations or repairable findings from blockers.
 
 Do not skip Round 0 even when the user supplies reviewer comments; those comments can miss regressions and may contain invalid proposed fixes.
 
 ## Each edit round
 
-### A. Select a dependency-safe batch
+### A. Select the correct scale and a dependency-safe batch
 
-Choose the highest-impact root cause whose repair does not depend on an unresolved blocker. Prefer one batch that can close multiple dependent findings, for example:
+Before selecting sentences, apply the local-repair and structural-rebuild rules in `revision-protocol.md`. A requested missing passage starts from its minimal reader obligation and evidence dependencies. When a rebuild is triggered, first establish an evidence-bounded thesis/support tree and dependency outline, then repair section roles and only afterward draft paragraphs. `Smallest` means the smallest coherent scope that completes the obligation or closes the root cause, not the fewest changed words.
+
+Choose the highest-impact writing obligation or root cause that does not depend on an unresolved blocker. Prefer one batch that can close multiple dependencies, for example:
 
 - calibrate a central claim before reorganizing its evidence paragraph;
 - define the system model before polishing component descriptions;
@@ -58,17 +62,19 @@ Avoid simultaneous changes whose semantic interactions cannot be audited.
 
 Before editing, list values/tokens/meanings that must remain unchanged. Use `change-safety.md`.
 
-### C. Apply the smallest coherent repair
+### C. Apply the correctly scoped writing repair
 
 The root is the sole writer. Reviewer subagents must be idle or read-only while this batch is applied.
 
-An edit is admissible only if:
+A draft or edit is admissible only if:
 
 1. it remains inside scope;
 2. every added factual proposition has evidence;
-3. it addresses the diagnosed root cause;
+3. it completes a declared writing obligation or addresses the diagnosed root cause;
 4. it preserves technical intent or openly calibrates it;
 5. it does not hide a limitation or unresolved finding.
+
+After adding missing prose or rebuilding structure, verify that the outline and prose make the problem, thesis hierarchy, design derivation, and decisive evidence mutually consistent. After a local repair, verify that it did not silently change any of those structures.
 
 ### D. Run local preservation checks
 
@@ -86,14 +92,15 @@ Reapply every relevant review pass to the entire frozen scope. Do not inspect on
 
 ### F. Decide whether another round can make progress
 
-Continue if at least one actionable finding has an admissible repair and the previous round did at least one of the following:
+Continue if at least one missing writing obligation or actionable finding has an admissible writing move and the previous round did at least one of the following:
 
+- discharged a declared reader obligation with evidence-bounded prose;
 - closed a finding's resolution test;
 - reduced an evidence-backed severity, affected-claim set, or unresolved condition;
 - passed a predeclared intermediate resolution test needed for the next repair;
 - unlocked a dependency that makes a specific next repair admissible.
 
-An `improved but open` finding counts as progress only when the ledger records one of these observable changes and names the next admissible repair. A smaller word count or more fluent wording alone is not progress.
+An incomplete obligation or `improved but open` finding counts as progress only when the ledger records one of these observable changes and names the next admissible move. A larger draft, smaller word count, or more fluent wording alone is not progress.
 
 One unsuccessful repair does not create a dead state. Continue with a distinct, predeclared admissible alternative when it addresses the same root cause through a materially different change and the repeated-failure stop condition has not been met. Record why the alternative can satisfy the unresolved test. Stop only when the repeated-failure criterion is met or no specific admissible alternative remains.
 
@@ -103,6 +110,7 @@ One unsuccessful repair does not create a dead state. Continue with a distinct, 
 
 Declare `fixed point — no actionable issue remains within scope` only when:
 
+- every declared writing obligation in scope has either been discharged or exposed as a blocker;
 - every applicable review pass has been rerun after the last edit;
 - no `S0`–`S3` confirmed defect remains;
 - no unresolved reviewer risk has an evidence-safe in-scope edit available;
@@ -192,4 +200,4 @@ When the user provides comments after inspecting the diff:
 
 ## Sources
 
-This loop operationalizes the user's requested human-after-loop Git workflow and the sibling review gate. It also adapts staged revision patterns from [YSLAB-REVISION] and [SIMCHOWITZ-WRITING] without fixed round counts. Source keys are in the sibling `source-registry.md`. Last reconciled 2026-09-01.
+This loop operationalizes the user's requested human-after-loop Git workflow and the sibling review gate. It also adapts staged revision patterns from [YSLAB-REVISION] and [SIMCHOWITZ-WRITING] without fixed round counts. Source keys are in the sibling `source-registry.md`. Last reconciled 2026-09-03.

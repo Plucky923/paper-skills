@@ -66,10 +66,11 @@ For file scopes, provide explicit paths. For a named range, provide anchors or l
 Every role receives:
 
 - `review-protocol.md`;
-- `source-registry.md`;
 - this frozen packet;
 - only its role-specific references;
 - the same finding schema and evidence/status/severity definitions.
+
+Also provide `source-registry.md` or the relevant verified official source only to roles that need provenance, literature calibration, novelty verification, or venue rules. Do not preload it into purely internal technical or prose checks.
 
 Do not send one role another role's raw reasoning. Independence is useful; the root handles reconciliation after results return.
 
@@ -118,11 +119,13 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
+- `paper-archetypes.md`
+- `thesis-and-story.md`
 - `research-contribution.md`
 - `venue-overlays.md` when a venue/cycle is named
 - section contracts `SS-12`–`SS-16`, `SS-21`–`SS-24` when those sections are in scope
 
-**Inspect:** problem reality/significance, central idea, contribution type, closest-work delta, nontriviality, co-design, lessons, limitations, audience/venue fit, introduction promises, and conclusion alignment.
+**Inspect:** primary archetype, controlling thesis, supporting-claim hierarchy, problem reality/significance, intellectual move, contribution type, closest-work delta, nontriviality, co-design, lessons, limitations, audience/venue fit, introduction promises, reader-memory result, and conclusion alignment.
 
 **Do not:** attempt a detailed correctness proof, benchmark audit, or prose rewrite unless a local issue directly changes the contribution case.
 
@@ -132,11 +135,12 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
+- `design-derivation.md`
 - `technical-soundness.md`
 - relevant `research-contribution.md` rules only when assumptions or implementation maturity alter the contribution
 - relevant externally verified primary technical sources when permitted
 
-**Inspect:** actors, boundaries, assumptions, threat/fault/workload model, mechanisms, invariants, lifecycle, concurrency, failure/recovery, edge cases, design choices, cost boundaries, scale, security/privacy, implementation status, and internal technical consistency.
+**Inspect:** constraint-to-requirement-to-mechanism derivation, actors, boundaries, assumptions, threat/fault/workload model, mechanisms, invariants, lifecycle, concurrency, failure/recovery, edge cases, design choices, alternatives, cost boundaries, scale, security/privacy, implementation status, and internal technical consistency.
 
 **Do not:** infer missing implementation behavior, run unauthorized artifact operations, or treat a plausible counterexample as confirmed without evidence.
 
@@ -146,11 +150,13 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
+- relevant `thesis-and-story.md` headline-evidence rules
+- `examples-figures-results.md` when headline results or motivating measurements are in scope
 - `evaluation.md`
 - `artifacts-reproducibility.md` only when artifacts are explicitly in scope
 - quantitative-integrity rules `FL-03`–`FL-05`, `FL-09`–`FL-10`
 
-**Inspect:** claim-evidence mapping, research questions, baselines/configurations, workloads/data separation, metrics, measured boundary, procedure, repetition/uncertainty/statistics, end-to-end and mechanism evidence, sensitivity, negative results, graphical truth, interpretation, reproducibility, and artifact consistency.
+**Inspect:** thesis-to-decisive-evidence alignment, headline-result hierarchy, claim-evidence mapping, recoverable questions, baselines/configurations, workloads/data separation, metrics, measured boundary, procedure, repetition/uncertainty/statistics, end-to-end and mechanism evidence, sensitivity, negative results, graphical truth, interpretation, reproducibility, and artifact consistency.
 
 **Do not:** change code/data/scripts, install dependencies, run commands that can write or affect external state, fabricate a missing experiment, or equate a repository's existence with reproducibility. Request root-brokered execution evidence when needed.
 
@@ -160,11 +166,13 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
+- relevant `thesis-and-story.md` reader-memory and attention rules
+- `examples-figures-results.md` when examples, early figures, or headline results are in scope
 - `structure-and-sections.md`
 - `prose-and-terminology.md`
 - `figures-tables-latex.md`, excluding quantitative-validity judgments already owned by R3
 
-**Inspect:** global and local flow, dependency order, section/paragraph promises, terminology, definitions, referents, claim language, grammar in the source language, figure/table readability, captions/callouts, citations/references, math notation, LaTeX correctness, and rendered layout when in scope.
+**Inspect:** reader-memory result, global and local flow, dependency order, section/paragraph promises, examples and counterexamples, argumentative work of early figures, terminology, definitions, referents, claim language, grammar in the source language, figure/table readability, captions/callouts, citations/references, math notation, LaTeX correctness, and rendered layout when in scope.
 
 **Do not:** downgrade unsupported science to a style issue, impose nonuniversal house preferences, rewrite text, or compile/render the project. Inspect root-brokered rendered evidence when available.
 
@@ -290,4 +298,4 @@ Lower latency or fewer main-context tokens count as improvement only if final co
 
 ## Sources
 
-This protocol applies the review principles in this skill and the orchestration guidance in [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]. OpenAI documents that Codex can follow skill instructions requesting delegation, that parallel read-heavy work is a strong use case, that the root synthesizes results, and that parallel work costs more tokens and is a poor fit for shared mutable state. See [source-registry.md](source-registry.md). Last checked 2026-09-02.
+This protocol applies the review principles in this skill and the orchestration guidance in [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]. OpenAI documents that Codex can follow skill instructions requesting delegation, that parallel read-heavy work is a strong use case, that the root synthesizes results, and that parallel work costs more tokens and is a poor fit for shared mutable state. See [source-registry.md](source-registry.md). Last checked 2026-09-03.

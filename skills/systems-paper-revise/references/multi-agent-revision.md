@@ -1,6 +1,6 @@
 # Multi-Agent Review–Revise Loop
 
-Use this protocol when a revision scope is large enough to benefit from specialized parallel review. It extends `convergence-loop.md`; every Git-free, scope, evidence, blocker, and convergence rule still applies.
+Use this protocol when a writing or revision scope is large enough to benefit from specialized parallel review. It extends `convergence-loop.md`; every Git-free, scope, evidence, blocker, and convergence rule still applies.
 
 The invariant is:
 
@@ -9,7 +9,7 @@ specialized subagents read and review in parallel
                ↓
 root consolidates one evidence-backed ledger
                ↓
-root is the only writer and edits serially
+root is the only writer and writes serially
                ↓
 specialized subagents re-review the complete revised scope
                ↓
@@ -24,7 +24,7 @@ Use this multi-agent loop when:
 
 - `systems-paper-review` selects multi-agent mode for the same frozen scope;
 - several independent reviewer lenses are applicable;
-- the revision contains structural, technical, evaluation, and presentation concerns that can be reviewed independently;
+- the scoped writing contains structural, technical, evaluation, and presentation concerns that can be reviewed independently;
 - the expected coverage or latency benefit justifies extra token and coordination cost.
 
 Keep the loop single-agent for a sentence, short paragraph, narrow local fix, or strongly sequential argument where parallel roles would repeat the same work.
@@ -38,6 +38,7 @@ If collaboration tools are unavailable, run the same reviewer roles sequentially
 The root alone may:
 
 - freeze scope and preservation invariants;
+- recover the scoped writing obligation and own the evidence and thesis structures required at that scale;
 - create and verify the content manifest for each review wave;
 - construct and own the finding ledger;
 - resolve duplicate/conflicting findings;
@@ -68,26 +69,27 @@ Reviewer subagents may not:
 
 ## 3. Phase A — Parallel baseline review
 
-1. Root freezes scope and invariants using `revision-protocol.md` and `change-safety.md`.
+1. Root freezes scope, evidence, writing obligation, and invariants using `revision-protocol.md` and `change-safety.md`.
 2. Root reads the sibling `systems-paper-review/references/multi-agent-orchestration.md`.
 3. Root creates one immutable review packet, shared claim inventory, and non-Git content manifest under the sibling orchestration protocol.
 4. Root spawns each applicable reviewer role as one strictly read-only subagent.
 5. Roles run concurrently up to the available limit and in waves beyond it.
 6. Root waits for every applicable role.
-7. Root recomputes the content manifest. If scoped content changed, root rejects stale results, halts, and requires user recovery or explicit authorization of the current content before creating a new baseline and rerunning every affected role. Only an unchanged manifest permits scope verification and consolidation into the baseline ledger.
+7. Root recomputes the content manifest. If scoped content changed, root rejects stale judgments, halts, and requires user recovery or explicit authorization of the current content before creating a new baseline and rerunning every affected role. Only an unchanged manifest permits scope verification and consolidation into the working ledger.
 
-Do not begin editing while a required baseline role remains outstanding. Starting from an incomplete ledger can optimize prose around a later-discovered fatal flaw.
+Do not begin writing while a required baseline role remains outstanding. Starting from an incomplete evidence model or ledger can optimize prose around a later-discovered fatal flaw.
 
 ## 4. Phase B — Root synthesis and repair selection
 
-For every returned finding, root must:
+For every missing writing obligation or returned finding, root must:
 
 1. verify location, evidence, rule, and scope;
 2. merge true duplicates while preserving every affected claim/location;
 3. resolve cross-role disagreement from evidence, not majority vote;
-4. map the finding to `E1`–`E5` or `B1`–`B4`;
+4. map a repair finding to `E1`–`E5`, and map any missing evidence or decision to `B1`–`B4`;
 5. order repairs by scientific dependency;
-6. select one coherent, auditable edit batch.
+6. apply the global-rebuild triggers in `revision-protocol.md` and select the smallest coherent repair scope that closes the root cause;
+7. select one coherent, auditable edit batch.
 
 Typical cross-role interactions:
 
@@ -98,16 +100,19 @@ Typical cross-role interactions:
 
 If alternatives encode different contribution priorities, system models, or author intent, record `B4 — author decision` instead of choosing rhetorically.
 
-## 5. Phase C — Single-writer edit
+## 5. Phase C — Single-writer revision
 
 The root performs the selected edit batch directly.
 
 Before editing:
 
 - capture the preservation snapshot from `change-safety.md`;
-- state the findings the batch intends to close;
+- capture the preserve/amplify map for strong examples, figures, result framings, terminology, boundaries, and author voice;
+- state the writing obligations or findings the batch intends to close;
 - state exact resolution tests;
 - confirm no blocker is being disguised as prose work.
+
+When a global rebuild is triggered, establish the archetype route, thesis-support tree, design-derivation map, headline-evidence map, and dependency outline before the root edits sentences. Reviewer subagents may assess those structures but may not author the replacement text.
 
 During editing:
 
@@ -118,7 +123,7 @@ During editing:
 - do not ask a subagent to draft replacement prose that the root applies blindly;
 - preserve supported claims, numbers, citations, equations, identifiers, macros, limitations, and source language.
 
-After editing, run local non-Git preservation checks before asking reviewers to inspect the new state. Then freeze a **post-edit, pre-command** content manifest for every scoped object and a non-content source-tree inventory of paths/types/sizes needed to detect newly created caches or generated files without reading out-of-scope contents.
+After writing, run local non-Git preservation checks before asking reviewers to inspect the new state. Then freeze a **post-edit, pre-command** content manifest for every scoped object and a non-content source-tree inventory of paths/types/sizes needed to detect newly created caches or generated files without reading out-of-scope contents.
 
 Any compile, render, lint, test, benchmark, or script execution is root-only. Before running it, assess filesystem, network, device, database, credential, and external-service effects. Prefer a read-only sandbox/mount for the source; use a fresh isolated temporary directory outside the source tree for every writable output/cache; and serialize execution while reviewer subagents are inactive. After execution, recompute both the post-edit content manifest and source-tree inventory. If either changes, halt and treat it as an unauthorized side effect. If read-only isolation or complete side-effect detection is unavailable, keep the validation as a blocker rather than running it.
 
@@ -226,4 +231,4 @@ Human feedback starts a new frozen-scope, Git-free loop under the same role arch
 
 ## Sources
 
-This protocol combines the sibling multi-agent review protocol with the evidence and convergence constraints in this skill. It follows [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]: delegate independent read-heavy work, retain root synthesis, respect runtime concurrency, account for additional token use, and avoid parallel writes to shared mutable state. Source keys are defined in the sibling `systems-paper-review/references/source-registry.md`. Last checked 2026-09-02.
+This protocol combines the sibling multi-agent review protocol with the evidence and convergence constraints in this skill. It follows [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]: delegate independent read-heavy work, retain root synthesis, respect runtime concurrency, account for additional token use, and avoid parallel writes to shared mutable state. Source keys are defined in the sibling `systems-paper-review/references/source-registry.md`. Last checked 2026-09-03.

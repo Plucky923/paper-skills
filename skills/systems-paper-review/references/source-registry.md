@@ -1,6 +1,6 @@
 # Source Registry and Rule Precedence
 
-This registry defines the evidence hierarchy behind the review rules. Reference files cite the stable source keys below. The rules are operational syntheses, not quotations. They were last reconciled on **2026-09-02**.
+This registry defines the evidence hierarchy behind the review rules. Reference files cite the stable source keys below. The rules are operational syntheses, not quotations. They were last reconciled on **2026-09-03**.
 
 ## Source hierarchy
 
@@ -104,15 +104,55 @@ These sources illustrate common systems-PC criteria and are also entry points fo
 
 ### [OSDI-CFP]
 
-**Source:** USENIX, [OSDI 2026 Call for Papers](https://www.usenix.org/conference/osdi26/call-for-papers), checked 2026-09-01.
+**Source:** USENIX, [OSDI 2026 Call for Papers](https://www.usenix.org/conference/osdi26/call-for-papers), checked 2026-09-03.
 
 **Supports:** Novelty, significance, interest, clarity, relevance, correctness, practical system contribution, and sound conclusions.
 
 ### [SOSP-CFP]
 
-**Source:** ACM SIGOPS, [SOSP 2026 Call for Papers](https://sigops.org/s/conferences/sosp/2026/cfp.html), checked 2026-09-01.
+**Source:** ACM SIGOPS, [SOSP 2026 Call for Papers](https://sigops.org/s/conferences/sosp/2026/cfp.html), checked 2026-09-03.
 
 **Supports:** Systems scope and current submission/policy checks for SOSP 2026 only.
+
+### [OSDI-SOSP-CORPUS]
+
+**Index sources:** Official accepted-paper or technical-session pages for [OSDI 2020](https://www.usenix.org/conference/osdi20/accepted-papers), [OSDI 2022](https://www.usenix.org/conference/osdi22/technical-sessions), [OSDI 2023](https://www.usenix.org/conference/osdi23/technical-sessions), [OSDI 2024](https://www.usenix.org/conference/osdi24/technical-sessions), [OSDI 2025](https://www.usenix.org/conference/osdi25/technical-sessions), [OSDI 2026](https://www.usenix.org/conference/osdi26/technical-sessions), [SOSP 2021](https://sigops.org/s/conferences/sosp/2021/toc.html), [SOSP 2023](https://sigops.org/s/conferences/sosp/2023/toc.html), [SOSP 2024](https://sigops.org/s/conferences/sosp/2024/schedule.html), and [SOSP 2025](https://sigops.org/s/conferences/sosp/2025/accepted.html), checked 2026-09-03.
+
+**Corpus:** 600 accepted-paper records, including 490 extractable abstracts. A stratified close-reading set contained 30 full papers from OSDI and SOSP, spanning award and non-award papers and abstraction/interface, performance, distributed systems, storage, verification, security, measurement/experience, operational, and ML-systems contributions. Twenty-nine introductions were reliably extractable for structural checks; selected papers were also inspected in rendered form.
+
+**Representative close reads:** [Delos](https://www.usenix.org/conference/osdi20/presentation/balakrishnan), [Cancellation in Systems Software](https://www.usenix.org/conference/osdi22/presentation/sethi), [Ensō](https://www.usenix.org/conference/osdi23/presentation/sadok), [ServiceLab](https://www.usenix.org/conference/osdi24/presentation/chow), [Basilisk](https://www.usenix.org/conference/osdi25/presentation/zhang-tony), [Omniglot](https://www.usenix.org/conference/osdi25/presentation/schuermann), [large-scale LLM data pipelines](https://www.usenix.org/conference/osdi26/presentation/chen-luofan), [Semisolates and Try](https://www.usenix.org/conference/osdi26/presentation/lamprou), [Colloid](https://www.cs.cornell.edu/~ragarwal/pubs/colloid.pdf), and [Wasabi](https://bastoica.github.io/files/papers/2024_sosp_wasabi.pdf). These examples calibrate different archetypes; no individual paper is a universal writing model.
+
+**Observed abstract calibration:** A surface-marker scan found problem/limitation language before proposal language in 384/490 abstracts (78.4%), proposal-first openings in 57/490 (11.6%), quantified results in 302/490 (61.6%), and result/evidence language in the final sentence of 373/490 (76.1%). These lexical counts corroborate close reading but do not identify causal structure by themselves.
+
+**Observed full-text calibration:** Among 29 extractable introductions, 23 used a concrete example/scenario marker, 14 referred to Figure 1 or 2 early, 28 previewed evaluation/results/production evidence, 24 gave a concrete quantified result, and 17 used an explicit contribution list. Only four used the literal word `insight`, even though the intellectual move was usually recoverable without that label.
+
+**Supports:** Paper-archetype routing; function-over-form checks; problem or tension made recoverable before detailed mechanism; thesis-to-design-to-evidence alignment; running examples and early figures as optional reasoning devices; headline-result hierarchy; and evidence-bearing abstract/introduction endings.
+
+**Limits:** The abstract analysis uses lexical heuristics, not semantic or causal annotation. The close-reading set is purposive rather than a random sample. Accepted-paper patterns are not official rules, rejected-paper controls are unavailable, and no observed feature should be presented as causing acceptance. Use the corpus to challenge brittle templates, not to create new ones.
+
+## Award-paper exposition samples
+
+These samples calibrate how successful papers expose an argument; awards do not make every sentence a universal model. Use the samples to test whether a reader can recover problem, constraint, insight, principle, realization, and evidence—not to imitate phrasing, paragraph count, or section order.
+
+### [OSDI-BEST-SAMPLE]
+
+**Sources:** USENIX's official [Best Papers list](https://www.usenix.org/conferences/best-papers); the OSDI 2025 best-paper pages for [Basilisk](https://www.usenix.org/conference/osdi25/presentation/zhang-tony) and [Omniglot](https://www.usenix.org/conference/osdi25/presentation/schuermann); and the OSDI 2026 best-paper pages for [Semisolates and Try](https://www.usenix.org/conference/osdi26/presentation/lamprou), [Ambulance](https://www.usenix.org/conference/osdi26/presentation/giridharan), and [large-scale LLM data pipelines](https://www.usenix.org/conference/osdi26/presentation/chen-luofan). Abstracts and introduction openings checked 2026-09-03.
+
+**Supports:** Empirical calibration of problem-first openings, causal abstraction, concise statement of the central idea, and evidence-bounded endings in recent OSDI award papers.
+
+**Observed pattern:** The papers differ in style, but they make the motivating failure, constraint, or operational cost recoverable before—or in the same breath as—the solution. Their high-level descriptions name the leverage or changed constraint that makes the result possible before expanding into components. Operational papers may begin with quantified production evidence rather than a new abstraction.
+
+**Limit:** This is a small purposive sample, not an official OSDI writing rule or proof that the pattern causes acceptance.
+
+### [SOSP-BEST-SAMPLE]
+
+**Sources:** The official [SOSP 2024 awards page](https://sigops.org/s/conferences/sosp/2024/); award papers [OZZ](https://doi.org/10.1145/3694715.3695944), [LazyLog](https://doi.org/10.1145/3694715.3695983), and [FBDetect](https://doi.org/10.1145/3694715.3695977). Abstracts and introduction openings checked 2026-09-03.
+
+**Supports:** Empirical calibration of problem-driven narrowing, principle-before-realization exposition, paragraph-level claim/support/implication flow, and the distinct evidence-first form used by operational systems papers.
+
+**Observed pattern:** LazyLog turns an eager-ordering cost into a timing insight and then an abstraction; OZZ turns an uncontrolled source of nondeterminism into an observable and controllable testing target; FBDetect begins with the measured production cost and derives the design challenges. These are different argument shapes with the same requirement that each mechanism answer an already visible problem.
+
+**Limit:** This is a small purposive sample, not an official SOSP writing rule or a mandatory narrative template.
 
 ### [NSDI-CFP]
 

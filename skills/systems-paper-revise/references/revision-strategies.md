@@ -1,6 +1,6 @@
 # Revision Strategies by Root Cause
 
-Use this map after the initial adversarial review. Choose a strategy from the finding's root cause and available evidence, not from surface symptoms. Structural and claim repairs precede prose polishing.
+Use this map when a writing problem is structural or spans multiple findings. Choose a strategy from the root cause and available evidence, not from surface symptoms. Structural and claim repairs precede prose polishing.
 
 ## Strategy selection
 
@@ -9,7 +9,7 @@ For any finding, ask in order:
 1. Is the claim true and supported under the stated conditions?
 2. Is the support already inside the editable scope or an allowed verified source?
 3. Is the problem missing evidence, missing reasoning, poor organization, ambiguous language, or incorrect formatting?
-4. What is the smallest change that closes the resolution test without changing author intent?
+4. What is the smallest coherent scope that closes the root cause without changing author intent: phrase, sentence, paragraph, section, or the full authorized argument?
 5. Could the change create a contradiction or new promise elsewhere in scope?
 
 Use one of five evidence-safe moves:
@@ -19,6 +19,8 @@ Use one of five evidence-safe moves:
 - **Reorganize** existing content around dependencies.
 - **Calibrate/delete a claim** that exceeds support.
 - **Block** when new evidence or author intent is required.
+
+Use a global in-scope rebuild when the sibling review cannot recover one controlling thesis, the paper follows the wrong archetype contract, mechanisms do not derive from requirements, decisive evidence does not support the primary claims, or local edits retain contradictory section promises. Build the archetype route, thesis-support tree, design-derivation map, and headline-evidence map before rewriting. Otherwise keep the repair local.
 
 ## Contribution and positioning (`RC`)
 
@@ -31,8 +33,8 @@ Use one of five evidence-safe moves:
 
 ### Unclear central idea/co-design (`RC-03`, `RC-08`, `RC-10`)
 
-- Write an internal causal skeleton: observation → exploited structure → mechanism → effect.
-- Reorder components by this dependency.
+- Write an internal causal skeleton at the principle level: binding constraint → observation/leverage → changed abstraction or action → resulting property/tradeoff.
+- State that principle before the realization, then reorder components by how they instantiate it.
 - Connect each component to one challenge/design choice; demote incidental optimizations.
 - If several contribution hierarchies are equally valid, mark `B4` rather than choosing the most marketable one.
 
@@ -87,7 +89,7 @@ Use one of five evidence-safe moves:
 
 ### Broken claim-to-evidence map (`EV-01`–`EV-03`)
 
-- Organize evaluation around explicit research questions and falsifiable claims.
+- Organize evaluation around recoverable scientific questions and falsifiable claims. Questions may be expressed through prose or an interleaved finding/intervention structure rather than an enumerated RQ list.
 - State what each experiment can and cannot establish.
 - If design is observational, remove unsupported causal language.
 - If a central claim has no evidence, add `B1`; prose cannot close it.
@@ -130,21 +132,24 @@ Use one of five evidence-safe moves:
 
 ### Global flow (`SS-01`–`SS-06`)
 
-- Build a dependency outline before editing prose.
+- Select the primary contract from the sibling `paper-archetypes.md` before building an argument spine. A mechanism paper may use reader/setting → consequential problem → binding constraint → intellectual move → requirements → mechanisms → evidence → bounded implication; empirical and operational papers require their own positive contracts.
+- Build an abstraction ladder for every central idea: constraint → leverage → action/change → resulting property or tradeoff. A high-level sentence must explain this causal relation; component names and operation sequences belong below it. Reject a sentence that is interchangeable across unrelated systems, cannot predict the need for the major mechanisms, or hides the condition/boundary of the resulting property.
 - Move definitions before substantive use; delete unused terminology.
 - Separate overview (model/workflow) from design (mechanism/rationale) and implementation (realization/status).
 - Add cross-references only where retrieval is genuinely costly.
 
-### Paragraphs/lists (`SS-07`–`SS-11`)
+### Paragraphs/lists (`SS-07`–`SS-11`, including `SS-09A`)
 
-- Write each paragraph's local claim; label support, mechanism, evidence, qualification, transition.
-- Split independent claims; merge fragments; reorder prerequisite before consequence.
+- Write each paragraph's local reasoning obligation; label support, mechanism, evidence, qualification, and transition.
+- Draft or inspect the first/last-sentence pair before polishing the middle: the opening makes the local promise, while the ending gives the supported answer, implication, boundary, or next necessary question. Do not append a redundant summary when the logical close is already clear.
+- Split independent claims; merge fragments; order prerequisite before consequence and evidence before the inference it licenses.
+- Delete any middle sentence whose removal loses no inference, definition, evidence, boundary, or necessary handoff.
 - Make bullets parallel along one dimension.
 - Do not optimize rendered line count at the expense of logic.
 
 ### Abstract/introduction (`SS-12`–`SS-14`)
 
-- Preserve the shortest complete decision case: problem/consequence → gap/root cause → idea/mechanism → deliverable → bounded evidence/result.
+- Preserve the shortest complete decision case required by the selected archetype. Judge functions, not fixed sentence order, explicit contribution bullets, or use of the word `insight`.
 - Remove low-level detail before removing a required causal link.
 - Cross-check every abstract number/superlative with evidence.
 - Do not force a fixed sentence or paragraph count.
@@ -160,14 +165,24 @@ Use one of five evidence-safe moves:
 - Discussion: keep material limitations and adoption costs visible.
 - Conclusion: synthesize supported lessons; delete new claims.
 
+### Examples, figures, and headline results (`ER`, `TH-05`–`TH-08`)
+
+- Preserve or introduce a running example only when it executes a difficult inference, exposes an exact failure boundary, or makes mechanism interaction cheaper to understand.
+- Give each early figure one argumentative job: reveal a mismatch/boundary, define the model, show a causal path/workflow, or visualize the intellectual move. Do not add a diagram merely because successful papers often have one.
+- Align abstract/introduction headline results with the thesis-support hierarchy. Keep the condition, comparison, uncertainty/scope, and implication attached to each decisive result.
+- Move enough motivation evidence before the requirement it licenses; leave full methodology and secondary results later.
+- Allocate attention to novelty and uncertainty. Compress commodity background, implementation inventory, repeated motivation, and results that do not alter the decision case.
+
 ## Prose and terminology (`PT`)
 
 - Create a canonical glossary before changing repeated technical words.
 - Define only terms the intended reader needs; keep definitions local and nonrecursive.
-- Replace vague quantifiers and loaded adjectives only when the exact supported quantity/property is available; otherwise delete or qualify.
-- Calibrate epistemic verbs to evidence.
-- Resolve modifier/pronoun/comparison/coordination scope before shortening.
-- Prefer direct verbs and simple structures, but retain necessary conditions and precise repetition.
+- Reduce each difficult sentence to actor → action → object/property, plus only the condition or qualification needed to interpret it. Put that main relation before secondary clauses.
+- Replace generic verbs and nominalizations with the exact operation or relation: what maps, isolates, defers, constrains, measures, compares, or causes what. Do not use `enables`, `supports`, `addresses`, or `improves` without naming the capability, mechanism, or metric.
+- Keep one principal assertion per sentence. Resolve modifier, pronoun, negation, comparison, coordination, and condition scope before shortening.
+- Link sentences through given information → new proposition. Add `therefore`, `however`, or causal language only when the stated premises entail that relation.
+- Replace vague quantifiers and loaded adjectives only when the exact supported quantity/property is available; otherwise delete or qualify. Calibrate epistemic verbs to evidence.
+- Delete metadiscourse, repeated setup, and sentences that add no necessary reasoning role. Preserve exact technical repetition when a synonym would change or blur meaning.
 - Use active/passive and `we` according to agency, not a blanket ban.
 - Follow source language and venue style for tense, number spelling, punctuation, and abbreviations.
 
@@ -229,5 +244,4 @@ Do not insert this diagnostic text into the manuscript unless the user asks for 
 
 ## Sources
 
-Strategies map directly to the sibling `systems-paper-review` rule IDs and the evidence-safe workflow in this skill. They also synthesize staged revision approaches from [YSLAB-REVISION], [SIMCHOWITZ-WRITING], and [BRANDON-EVIDENCE]. Source keys are defined in the sibling registry. Last reconciled 2026-09-01.
-
+Strategies map directly to the sibling `systems-paper-review` rule IDs and the evidence-safe workflow in this skill. They also synthesize staged revision approaches from [YSLAB-REVISION], [SIMCHOWITZ-WRITING], and [BRANDON-EVIDENCE]. Source keys are defined in the sibling registry. Last reconciled 2026-09-03.

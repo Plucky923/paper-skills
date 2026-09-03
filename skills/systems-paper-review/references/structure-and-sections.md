@@ -1,18 +1,18 @@
 # Structure, Narrative, and Section Contracts
 
-Systems papers are read linearly under limited attention. Each unit should make a promise, supply the information needed to understand it, and prepare the next inference. This does not require one universal section template; apply the contract that fits the paper type and venue.
+Systems papers are read linearly under limited attention. Each unit should make a promise, supply the information needed to understand it, and prepare the next inference. Prefer problem-driven exposition and move from principle to realization: first establish the reader's question and the constraint that makes it difficult, then expose the leverage that makes the contribution work, and only then spend detail on mechanisms. This does not require one universal section template; apply the contract that fits the paper type and venue.
 
 ## Global narrative rules
 
-## SS-01 — The paper has one recoverable argument chain
+## SS-01 — The paper has one recoverable, problem-driven argument chain
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The sections are individually plausible but never form a coherent case for the contribution.”
-- **Check:** Reconstruct: setting → problem → why existing approaches fail/root cause → insight → challenges → design → implementation status → evaluation questions/results → bounded conclusion. Mark missing or circular links.
+- **Check:** First select the primary contract in [paper-archetypes.md](paper-archetypes.md). Reconstruct that contract's dependencies, then read only the first sentence of each introduction paragraph and test whether those sentences preserve the same spine. Mark narration that makes the reader carry an unexplained solution before learning its problem/tension, mechanism lists with no governing principle, and missing or circular links. Naming the system first is not itself a defect when the same sentence or immediate continuation supplies the motivating relation.
 - **Severity:** `S1` for a broken central chain; `S2` for costly ordering.
-- **Exceptions / false positives:** Measurement, experience, negative-result, theory, and dataset papers use different chains; require coherence, not this exact template.
+- **Exceptions / false positives:** Measurement, experience, negative-result, theory, and dataset papers use different chains. Operational work may establish its problem with quantified field evidence; empirical work may center a finding rather than a new mechanism. Require the routed contract's functions, not one universal order.
 - **Repair direction:** Reorder around causal dependencies, add missing premise/inference, or narrow promises.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
 
 ## SS-02 — Concepts appear before they are required
 
@@ -54,27 +54,27 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Repair direction:** Add a short reminder plus precise section/figure reference; avoid sending readers backward for basic comprehension repeatedly.
 - **Sources:** [USER-NOTES] as normalized, [ERNST]. Checked 2026-09-01.
 
-## SS-06 — Detail appears at the right abstraction level
+## SS-06 — High-level exposition states the causal principle before realization detail
 
 - **Nature:** General best practice.
-- **Reviewer attack:** “The overview is buried in implementation minutiae, while the design section merely repeats the overview.”
-- **Check:** Classify material as motivation, model, high-level workflow, design rationale/mechanism, implementation realization, or evaluation. Look for premature detail and repeated shallow descriptions.
+- **Reviewer attack:** “The overview enumerates components and operations but never explains the idea that makes them work,” or “the prose is called high-level only because it is vague.”
+- **Check:** Classify material as motivation evidence, model, causal principle, high-level workflow, design rationale/mechanism, implementation realization, or evaluation. A useful high-level account should let the reader recover (1) the binding constraint, (2) the observation or leverage, (3) the action or changed abstraction, and (4) the property or tradeoff that follows. Apply three tests: substitution—could unrelated system names replace the current names without changing the sentence; prediction—does the account explain why the major mechanisms or study choices are necessary; boundary—does it identify the condition and limit of the resulting property? Flag API names, module lists, step-by-step operations, and implementation choices that arrive before the reader can know their relevance; also flag labels such as `decouples`, `virtualizes`, or `optimizes` when the prose never explains what is separated/represented/changed and why that matters.
 - **Severity:** `S2`; `S1` if mechanism remains absent.
-- **Exceptions / false positives:** A crucial low-level constraint may need early mention to make the problem intelligible.
-- **Repair direction:** Move detail to the layer where it supports a decision; keep short forward pointers.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Exceptions / false positives:** A low-level fact may appear early when it supplies the evidence that reveals the constraint, defines the target property, or makes a counterexample concrete. A design section must eventually supply operational detail. High-level is causal compression relative to the reader's current knowledge, not the removal of technical content.
+- **Repair direction:** Replace premature inventories or interchangeable abstractions with the shortest discriminating constraint → leverage → action → property relation. Then retain concrete detail only where it derives a design decision, establishes a boundary, or proves feasibility.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
 
 ## Paragraph and list rules
 
-## SS-07 — Each paragraph advances one local claim
+## SS-07 — Each paragraph discharges one local reasoning obligation
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph mixes background, design, results, caveats, and unrelated claims, so its point is unstable.”
-- **Check:** Write the paragraph's claim in one sentence; test whether every sentence explains, supports, qualifies, or transitions from that claim. Flag multiple independent centers.
+- **Check:** Write the paragraph's governing claim or question in one sentence; test whether every sentence explains, supports, qualifies, or transitions from it. Read the first and last sentences together: the first should establish the local claim/relation at the appropriate level, while the last should leave the reader with the supported implication, boundary, answer, or next question. Flag multiple independent centers and paragraphs whose details never cash out their opening.
 - **Severity:** `S2`; `S1` if mixed logic hides a contradiction; `S3` locally.
-- **Exceptions / false positives:** A short bridge paragraph may connect two ideas; the relationship should be explicit.
-- **Repair direction:** Split by claim, reorder evidence, or revise the topic sentence.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Exceptions / false positives:** A short bridge paragraph may connect two ideas; mathematical derivations, enumerations, and tightly connected continuations need not follow a rigid topic-sentence/summary-sentence form. Judge the reasoning obligation, not a template.
+- **Repair direction:** Split by obligation, reorder support, revise the opening promise, or make the closing implication/boundary explicit without appending a redundant summary.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
 
 ## SS-08 — Sentence order follows information and causal dependencies
 
@@ -90,11 +90,21 @@ Systems papers are read linearly under limited attention. Each unit should make 
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph begins with a long inventory or vague metacommentary instead of its decision-relevant point.”
-- **Check:** Determine whether the first sentence states the local claim at the right level and leaves support/details to follow. Flag `This section discusses...` when a substantive claim is available.
+- **Check:** Determine whether the first sentence states the local claim, contrast, question, or dependency at the right level and leaves support/details to follow. In problem-driven passages, verify that it names the reader's current problem or inference rather than merely announcing a component. Flag `This section discusses...` when a substantive claim is available.
 - **Severity:** `S2` for recurring issue; `S3` locally.
 - **Exceptions / false positives:** Not every paragraph must use a rigid topic-sentence-first form, especially mathematical derivations or tightly connected continuations.
 - **Repair direction:** Lead with the claim or relation, then supply mechanism/evidence/qualification.
-- **Sources:** [USER-NOTES], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
+
+## SS-09A — Paragraph endings resolve or deliberately transfer the local obligation
+
+- **Nature:** General best practice.
+- **Reviewer attack:** “The paragraph stops after an example or mechanism detail, so I do not know what was established or why the next paragraph follows.”
+- **Check:** Determine what the final sentence contributes: strongest evidence, answer, consequence, limitation, design requirement, or question that licenses the next paragraph. Verify that it follows from the paragraph's support and stays within the opening promise. Then read consecutive paragraph endings and openings to test whether each handoff advances the argument instead of restarting it.
+- **Severity:** `S2` when a missing close breaks an important inference; `S3` locally.
+- **Exceptions / false positives:** The last sentence need not restate the topic sentence, and the logical close may be a result, caveat, or transition rather than a summary. Short bridge paragraphs, formal derivations, and lists may close implicitly when the implication is unambiguous.
+- **Repair direction:** End on the supported takeaway, boundary, or next necessary question; move trailing secondary detail earlier or delete it. Do not add a formulaic `In summary` sentence.
+- **Sources:** [USER-NOTES], [ERNST], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
 
 ## SS-10 — Paragraph length follows reasoning, not rendered line count
 
@@ -128,25 +138,25 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Repair direction:** Name the distinctive systems idea/problem and bound scope.
 - **Sources:** [ERNST], [LEVIN-REDELL], current venue rules. Checked 2026-09-01.
 
-## SS-13 — Abstract is a faithful miniature argument
+## SS-13 — Abstract is a faithful, principle-level miniature argument
 
 - **Nature:** General best practice; word/format limits are venue-specific.
 - **Reviewer attack:** “After the abstract I still do not know the problem, gap, idea, implementation/evidence, or magnitude and boundary of results.”
-- **Check:** Find: context/problem and consequence; failure of prior approach or root cause where needed; central idea/mechanism; concrete deliverable; evidence and key bounded result; implication. Cross-check every number and superlative with paper evidence when in scope.
+- **Check:** Select the paper archetype, then verify that the abstract completes its decision functions: consequential problem/question; the relevant gap, failed assumption, or tension; intellectual move or central finding; concrete deliverable; decisive bounded evidence; implication or boundary. These functions may be combined, reordered, or expressed without labels. A list of components is not a substitute for the intellectual move. Cross-check every number and superlative with paper evidence when in scope.
 - **Severity:** `S1` for missing/misleading central case; `S2` for imbalance.
-- **Exceptions / false positives:** Do not enforce a fixed five-sentence formula; adapt to contribution type and venue.
+- **Exceptions / false positives:** Do not enforce a fixed sentence count, problem-first grammar, contribution list, or `insight` wording. A system may be named first if the problem/tension becomes immediately recoverable. Adapt to contribution type and venue.
 - **Repair direction:** Replace background/detail with the missing contribution element and calibrate results.
-- **Sources:** [SYSTEMS-GUIDE], [ERNST], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [ERNST], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
 
 ## SS-14 — Introduction establishes the complete decision case
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The introduction states a solution before establishing the problem/root cause/challenge, or promises novelty and results without a coherent path.”
-- **Check:** Recover problem and significance, prior limitation, root cause or unmet constraint, insight, technical challenges, high-level solution, evaluated evidence, contributions, and scope. Verify challenge has substantive content and is not just implementation labor.
+- **Check:** Apply the selected archetype's positive contract and [thesis-and-story.md](thesis-and-story.md). Verify that the introduction establishes one controlling thesis, derives rather than announces major requirements/findings, previews decisive evidence, and makes scope recoverable. For a design paper, each mechanism must answer an already visible requirement and the high-level account must explain why it can work. For empirical or operational work, method credibility and findings may replace a root-cause/solution sequence.
 - **Severity:** `S1`; `S2` for local flow.
-- **Exceptions / false positives:** Order and paragraph count are flexible. Closely related concepts can be combined; some paper types need no “root cause.”
+- **Exceptions / false positives:** Order and paragraph count are flexible. Contribution bullets and an explicit challenge list are optional. Some paper types need no root cause, new mechanism, or standalone evaluation preview.
 - **Repair direction:** Restore the shortest causal chain and eliminate details that interrupt it.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
 
 ## SS-15 — Background teaches only prerequisites
 
@@ -198,15 +208,15 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Repair direction:** State implementation boundary and decision-relevant realization details; remove vanity counts.
 - **Sources:** [LEVIN-REDELL], [USER-NOTES], [NSDI-ARTIFACT]. Checked 2026-09-01.
 
-## SS-20 — Evaluation section answers explicit questions
+## SS-20 — Evaluation evidence answers recoverable questions
 
 - **Nature:** Hard evidence-organization condition.
-- **Reviewer attack:** “The section lists setup and plots but never says which contribution each experiment validates or what answer follows.”
-- **Check:** Look for reproducible setup, baseline/workload rationale, research questions, experiment-to-claim mapping, result plus interpretation, design reference for mechanism explanations, and limitations.
+- **Reviewer attack:** “The paper lists setup and plots but never says which contribution each experiment validates or what answer follows.”
+- **Check:** Recover the question answered by each experiment, proof, case study, or production observation; it may be stated in a heading, prose, or an interleaved finding/intervention sequence. Look for reproducible setup, baseline/workload rationale, evidence-to-claim mapping, result plus interpretation, design reference for mechanism explanations, and limitations. Apply the selected archetype rather than requiring one monolithic evaluation section.
 - **Severity:** `S1` when claim coverage is missing; `S2` for organization.
-- **Exceptions / false positives:** Questions may be signaled in prose rather than enumerated mechanically.
+- **Exceptions / false positives:** Questions need not be enumerated mechanically. Operational and measurement papers may interleave method, observation, intervention, and validation when each inference remains auditable.
 - **Repair direction:** Organize by claim/question, state answer with uncertainty, and connect cause only when supported.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [SIGPLAN-EMPIRICAL], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
 
 ## SS-21 — Related work distinguishes rather than enumerates
 
@@ -250,7 +260,21 @@ Systems papers are read linearly under limited attention. Each unit should make 
 
 ## Structure audit outputs
 
-For a full paper, produce two internal maps:
+For a full paper, introduction, abstract, or other argument-bearing scope, produce an internal argument-spine map:
+
+### Argument-spine map
+
+| Unit | Problem/consequence | Root constraint | Insight/principle | Realization | Evidence/implication | Break |
+|---|---|---|---|---|---|---|
+
+For every multi-paragraph prose or structure scope, produce an internal paragraph-envelope map. `Status` records whether the middle discharges the opening and the ending pays off or deliberately transfers that obligation.
+
+### Paragraph-envelope map
+
+| Paragraph | Opening promise | Closing payoff/handoff | Status |
+|---|---|---|---|
+
+For a full paper, also produce these two maps:
 
 ### Promise map
 
@@ -263,4 +287,3 @@ For a full paper, produce two internal maps:
 |---|---|---|---|---|
 
 For a scoped excerpt, do not search outside scope to fill these maps; use `not assessable — needs context`.
-
