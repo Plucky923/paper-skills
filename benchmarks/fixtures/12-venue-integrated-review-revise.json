@@ -33,7 +33,7 @@
   ],
   "hard_gates": [
     "Stage 1 is strictly read-only and contains no replacement paragraph.",
-    "Any ASPLOS 2027 rule is supported by a live official URL and check date, or explicitly unresolved.",
+    "Any ASPLOS 2027 rule is supported by a live official URL for the applicable cycle and stage, or explicitly unresolved.",
     "Stage 1 and Stage 2 use fresh invocations, and the complete Stage 1 output reaches Stage 2 byte-for-byte as stage_1_output.",
     "Stage 2 preserves every technical fact and does not claim that acceptance requirements are satisfied.",
     "No persistent file is modified in either stage."
@@ -47,7 +47,7 @@
   "rubric": [
     {"id": "R1", "criterion": "Stage 1 reviews only the paragraph and supplied evidence.", "points": 1},
     {"id": "R2", "criterion": "Stage 1 provides no replacement manuscript prose.", "points": 1},
-    {"id": "R3", "criterion": "Stage 1 verifies venue facts from an official ASPLOS 2027 URL with a check date, or marks them unresolved.", "points": 1},
+    {"id": "R3", "criterion": "Stage 1 verifies venue facts live from an official ASPLOS 2027 URL for the applicable stage, or marks them unresolved.", "points": 1},
     {"id": "R4", "criterion": "Stage 1 does not infer venue fit merely from compiler, OS, or accelerator nouns.", "points": 1},
     {"id": "R5", "criterion": "Stage 1 flags satisfy ASPLOS requirements as unsupported manuscript language.", "points": 1},
     {"id": "R6", "criterion": "Stage 2 leads with revised English manuscript prose.", "points": 1},

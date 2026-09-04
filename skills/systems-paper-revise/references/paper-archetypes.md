@@ -83,7 +83,7 @@ production setting and stakes
   → transferable lesson and unresolved limit
 ```
 
-Scale and deployment history are evidence when they establish the phenomenon, intervention, or SLO outcome. Convert experience into knowledge another system can apply under stated conditions; deployment alone is not the lesson.
+Scale and longitudinal deployment data are evidence when they establish the phenomenon, intervention, or SLO outcome. Convert experience into knowledge another system can apply under stated conditions; deployment alone is not the lesson.
 
 ## Hybrid study plus tool
 

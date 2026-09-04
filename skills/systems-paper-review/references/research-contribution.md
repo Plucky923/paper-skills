@@ -10,7 +10,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S0` if the central problem is contradicted by the paper's own evidence.
 - **Exceptions / false positives:** A theoretical or exploratory systems paper may motivate a capability or boundary rather than a deployed pain point, but must still state why that question matters.
 - **Repair direction:** Supply in-scope evidence, make the causal chain explicit, or narrow the problem statement. Do not invent prevalence or impact.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [SYSTEMS-GUIDE].
 
 ## RC-02 — Significance follows from consequences, not adjectives
 
@@ -20,7 +20,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for a missing significance case; `S2` for local overstatement.
 - **Exceptions / false positives:** Importance can be qualitative when the consequence is inherently categorical, such as violating isolation; the premise still needs support.
 - **Repair direction:** Add already available scale/consequence evidence, explain why the boundary matters, or qualify the claim.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [ERNST]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [ERNST].
 
 ## RC-03 — The paper states one intelligible, principle-level central idea
 
@@ -30,7 +30,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` if the contribution appears to be an unprincipled bundle; `S2` if the idea exists but is hard to recover.
 - **Exceptions / false positives:** Some papers contribute a measurement result, experience report, negative result, or dataset rather than a new algorithm; the central intellectual contribution must still be explicit.
 - **Repair direction:** State the unifying principle before its realization, connect each major component to it, and remove or demote unrelated optimizations.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [FIVE-VENUE-CORPUS].
 
 ## RC-04 — Contribution type and deliverable are explicit
 
@@ -40,7 +40,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` when ambiguity inflates novelty or misdirects evaluation; otherwise `S2`.
 - **Exceptions / false positives:** A paper may make several types of contribution, but their hierarchy and evidence must be clear.
 - **Repair direction:** Rewrite contribution statements around deliverables and validated claims; separate primary from enabling contributions.
-- **Sources:** [OSDI-CFP], [LEVIN-REDELL], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [LEVIN-REDELL], [SYSTEMS-GUIDE].
 
 ## RC-05 — Novelty is relative to the closest alternatives
 
@@ -50,7 +50,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S0` if a central “first” claim is demonstrably false; `S1` for missing or weak differentiation; `S2` for incomplete local positioning.
 - **Exceptions / false positives:** In a scoped introduction without related work, missing detailed comparison may be `needs context`; an absolute novelty claim inside it remains reviewable.
 - **Repair direction:** Replace broad novelty language with a precise capability/assumption/mechanism delta, cite the closest source, or narrow the claim.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [SYSTEMS-GUIDE].
 
 ## RC-06 — “First,” “only,” and superlatives survive an open-world test
 
@@ -60,7 +60,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S0` if externally disproved and central.
 - **Exceptions / false positives:** A bounded claim such as “among the evaluated open-source systems under workload W” may be supported.
 - **Repair direction:** Bound the population, date, metric, and conditions; change to “to our knowledge” only if a credible search was performed—this phrase does not itself supply evidence.
-- **Sources:** [ERNST], [LEVIN-REDELL], [BRANDON-EVIDENCE]. Checked 2026-09-01.
+- **Sources:** [ERNST], [LEVIN-REDELL], [BRANDON-EVIDENCE].
 
 ## RC-07 — The advance is nontrivial under its assumptions
 
@@ -70,7 +70,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S0` when the claimed advance depends entirely on an undisclosed relaxed problem.
 - **Exceptions / false positives:** Careful engineering can be a valuable systems contribution when it yields a surprising capability, reusable lesson, or compelling real implementation; do not demand algorithmic novelty universally.
 - **Repair direction:** Make the hard constraint and design reasoning explicit; measure shifted costs; calibrate the contribution type.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [SYSTEMS-GUIDE].
 
 ## RC-08 — Components form a coherent co-design
 
@@ -80,7 +80,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` if coherence is central to novelty; otherwise `S2`.
 - **Exceptions / false positives:** Independent techniques are acceptable if the paper explicitly frames and evaluates them as separate contributions.
 - **Repair direction:** Expose dependencies and co-design logic, demote incidental optimizations, or separate claims.
-- **Sources:** [USER-NOTES], [LEVIN-REDELL], [JENSEN-SYSTEMS-SKILL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [LEVIN-REDELL], [JENSEN-SYSTEMS-SKILL].
 
 ## RC-09 — Claims distinguish idea, prototype, implementation, and deployment
 
@@ -90,7 +90,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S0` for material misrepresentation; `S1` for unresolved maturity mismatch.
 - **Exceptions / false positives:** A paper may legitimately evaluate a model, simulator, trace-driven prototype, or partial implementation if clearly labeled and conclusions are bounded.
 - **Repair direction:** State implementation boundary, unsupported components, environment, and what conclusions the prototype can establish.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [NSDI-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [NSDI-ARTIFACT].
 
 ## RC-10 — The contribution yields lessons beyond one implementation
 
@@ -100,7 +100,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for venues/papers centered on general insight; `S2` for otherwise strong experience or artifact papers.
 - **Exceptions / false positives:** A uniquely valuable infrastructure, dataset, or operational experience can be significant without a new algorithm.
 - **Repair direction:** Extract supported design lessons and conditions; do not claim universal generality from a single instance.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP].
 
 ## RC-11 — Scope conditions and limitations are visible
 
@@ -110,7 +110,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S0` when a hidden condition invalidates the central conclusion; otherwise `S1` or `S2`.
 - **Exceptions / false positives:** Not every theoretical corner case needs space. Conditions material to correctness, adoption, or headline results do.
 - **Repair direction:** State the boundary near the claim, justify its realism, test sensitivity where needed, and include limitations without burying them.
-- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL].
 
 ## RC-12 — Venue and audience fit are argued, not assumed
 
@@ -130,7 +130,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for a central broken promise; `S2` for mapping/wording mismatch.
 - **Exceptions / false positives:** A scoped introduction review can assess whether promises are testable but cannot confirm fulfillment without later sections; mark `needs context`.
 - **Repair direction:** Supply evidence, align the claim with what is delivered, or remove/demote the promise.
-- **Sources:** [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [ERNST]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [ERNST].
 
 ## RC-14 — Related-work grouping supports reasoning
 
@@ -140,7 +140,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` when novelty depends on a missing/incorrect comparison; `S2` for list-like exposition.
 - **Exceptions / false positives:** A short scoped passage may only signpost categories; detailed support may appear elsewhere.
 - **Repair direction:** Reorganize around decision-relevant dimensions and state precise deltas; avoid strawman descriptions.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [ERNST]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [ERNST].
 
 ## Completion questions
 

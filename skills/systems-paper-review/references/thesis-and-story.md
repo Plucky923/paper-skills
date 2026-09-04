@@ -82,4 +82,4 @@ The maps are diagnostic. Do not paste them into the manuscript unless the user a
 
 ## Sources
 
-These rules synthesize [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [SYSTEMS-GUIDE], and observed thesis/evidence alignment in [FIVE-VENUE-CORPUS]. The memory test and map are author-side diagnostics, not official review forms. Last reconciled 2026-09-03.
+These rules synthesize [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [SYSTEMS-GUIDE], and observed thesis/evidence alignment in [FIVE-VENUE-CORPUS]. The memory test and map are author-side diagnostics, not official review forms.

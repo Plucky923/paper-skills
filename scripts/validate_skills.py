@@ -49,7 +49,7 @@ EXPECTED_PROVENANCE_FILES = [
         "install_path": "research/systems-paper-writing-requirements.md",
         "consumers": ["systems-paper-review"],
         "preservation": "byte_exact",
-        "sha256": "67c5083de30bf7f76e86f603e04b94094119a1c4d160f5386f68419c3d3bf21b",
+        "sha256": "ef89a56dfb648657dbb89545c008f41d35dd6c38c9768684bb719fd319945263",
     }
 ]
 EXPECTED_ACCEPTANCE = {

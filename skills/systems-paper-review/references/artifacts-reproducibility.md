@@ -10,7 +10,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S1`; `S0` if a different version materially contradicts results.
 - **Exceptions / false positives:** A development checkout can be reviewed, but conclusions must say it is not an immutable submission snapshot.
 - **Repair direction:** Provide immutable version metadata and mapping to manuscript; do not create a tag or commit during review.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT].
 
 ## AR-02 — Every artifact-backed claim maps to an observable object
 
@@ -20,7 +20,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` for a central nonexistent/contradictory object; `S1` for incomplete mapping.
 - **Exceptions / false positives:** Theory/analysis claims may not map to executable code; state the alternate evidence.
 - **Repair direction:** Add documentation and traceable pipeline, supply missing artifact, or narrow claim.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL].
 
 ## AR-03 — Build and setup are specified from a clean environment
 
@@ -30,7 +30,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S1` if setup opacity blocks central validation; `S2` for recoverable detail.
 - **Exceptions / false positives:** Specialized hardware or private infrastructure is acceptable when intrinsic and documented, with emulation/trace alternatives where feasible.
 - **Repair direction:** Pin dependencies, document prerequisites and clean setup, or state access limits.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT].
 
 ## AR-04 — Instructions are executable, ordered, and diagnostic
 
@@ -40,7 +40,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S1` if no path reaches central results; `S2` otherwise.
 - **Exceptions / false positives:** Expert-targeted artifacts may assume standard domain tools, but nonstandard state must be explicit.
 - **Repair direction:** Add a minimal smoke path and full reproduction path with observable checkpoints.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT].
 
 ## AR-05 — A smoke test distinguishes setup failure from research failure
 
@@ -50,7 +50,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S2`; `S1` when full validation is otherwise impractical and opaque.
 - **Exceptions / false positives:** Extremely simple or non-executable artifacts may not need a separate smoke test.
 - **Repair direction:** Provide a fast sanity path and clearly separate it from full results.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT].
 
 ## AR-06 — Workloads, datasets, and traces have provenance and legal access
 
@@ -60,7 +60,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` for fabricated/unauthorized/materially different data; `S1` for missing central provenance; `S2` for detail.
 - **Exceptions / false positives:** Restricted data can be scientifically valid with transparent provenance, controlled access, synthetic/aggregate alternatives, and bounded reproducibility claims.
 - **Repair direction:** Document and archive lawful inputs/transforms/checksums; provide access or qualify claims.
-- **Sources:** [SIGPLAN-EMPIRICAL], [NSDI-ARTIFACT], [ACM-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [NSDI-ARTIFACT], [ACM-ARTIFACT].
 
 ## AR-07 — Randomness and nondeterminism are controlled and exposed
 
@@ -70,7 +70,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S1` for central unstable evidence; `S2` otherwise.
 - **Exceptions / false positives:** Fixed seeds aid replay but do not by themselves establish robustness; deterministic systems may mark this not applicable.
 - **Repair direction:** Record seeds and environment, repeat independent runs, report variability and failures.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [NSDI-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [NSDI-ARTIFACT].
 
 ## AR-08 — Raw results are preserved separately from derived results
 
@@ -80,7 +80,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` for evidence fabrication/manipulation; `S1` for unauditable central results; `S2` otherwise.
 - **Exceptions / false positives:** Massive raw data may be represented by documented aggregates plus hashes/access path.
 - **Repair direction:** Separate and document raw/processed/generated layers; automate transformations; record exclusions.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL].
 
 ## AR-09 — Figure and table regeneration matches the manuscript
 
@@ -90,7 +90,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` for material contradiction; `S1` for unresolved mismatch; `S3` for cosmetic drift.
 - **Exceptions / false positives:** Platform noise may cause bounded variation; artifact should state tolerance and paper aggregation.
 - **Repair direction:** Reconcile source of truth, record expected tolerance/version, regenerate consistently, or correct claims.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [HEISER-BENCH].
 
 ## AR-10 — Error handling does not convert failures into success
 
@@ -100,7 +100,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` if it can produce false central results; `S1` otherwise.
 - **Exceptions / false positives:** Intentional best-effort processing is valid when failures are counted and conclusions reflect them.
 - **Repair direction:** Fail clearly or record/include failures; validate input/output completeness; document retry/exclusion.
-- **Sources:** [SIGPLAN-EMPIRICAL], [NSDI-ARTIFACT], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [NSDI-ARTIFACT], [HEISER-BENCH].
 
 ## AR-11 — Paper, configuration, and implementation constants agree
 
@@ -110,7 +110,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` if material to headline result; `S1`/`S2` otherwise.
 - **Exceptions / false positives:** Artifact may include additional configurations; identify the one used for the paper.
 - **Repair direction:** Establish one source of truth, document overrides, and align paper/scripts.
-- **Sources:** [NSDI-ARTIFACT], [SIGPLAN-EMPIRICAL], [USER-NOTES]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [SIGPLAN-EMPIRICAL], [USER-NOTES].
 
 ## AR-12 — Artifact availability is not conflated with functionality or reproducibility
 
@@ -120,7 +120,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S1` for inflated artifact claims; `S0` for a verified policy/badge misrepresentation.
 - **Exceptions / false positives:** An artifact can be valuable at one level without satisfying the others.
 - **Repair direction:** Use exact level and evidence; follow current badge terminology.
-- **Sources:** [ACM-ARTIFACT], [NSDI-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [ACM-ARTIFACT], [NSDI-ARTIFACT].
 
 ## AR-13 — Security, privacy, credentials, and anonymity are protected
 
@@ -140,7 +140,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S0` for unlawful or impossible claimed distribution; `S1` for central unresolved access; `S2` for incomplete notices.
 - **Exceptions / false positives:** Closed or noncommercial components can be valid if clearly disclosed and consistent with claims/venue rules.
 - **Repair direction:** Clarify permissions and dependencies, replace/repackage lawfully, or narrow availability/reuse claims.
-- **Sources:** [ACM-ARTIFACT], [NSDI-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [ACM-ARTIFACT], [NSDI-ARTIFACT].
 
 ## AR-15 — Documentation states resource and time expectations
 
@@ -150,7 +150,7 @@ Apply these rules only when code, data, scripts, environments, logs, or artifact
 - **Severity:** `S1` if central reproduction is infeasible without disclosure; otherwise `S2`.
 - **Exceptions / false positives:** Exact time varies; give tested reference environment and range.
 - **Repair direction:** Document expected resources/time and meaningful reduced path; never imply reduced path reproduces full numbers.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT].
 
 ## Artifact execution discipline
 
@@ -170,4 +170,3 @@ When execution is authorized and in scope:
 |---|---|---|---|---|---|
 
 Use `match`, `partial`, `mismatch`, `not runnable`, `not inspected`, or `not in scope`. A repository's mere existence never yields `match`.
-

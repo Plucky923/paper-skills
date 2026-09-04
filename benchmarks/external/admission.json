@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "policy_version": "evidence-aligned-v2",
+  "evidence_note": "research/external-benchmark-admission.md",
+  "sources": {
+    "pararev": {
+      "state": "admitted",
+      "task": "revision",
+      "role": "restricted_human_revision_evaluation",
+      "adapter_policy": "pararev-conservative-two-annotation-v1",
+      "evaluation": "New outputs need blind human judgments and a technical-meaning preservation gate. Author revisions are comparison context, not factual or exact-match gold.",
+      "allowed_claim": "A scoped adapted paragraph-revision task; not an official score or a systems-venue acceptance result.",
+      "required_inputs": [
+        "original_paragraph",
+        "revision_instruction"
+      ],
+      "evidence": [
+        "https://aclanthology.org/2025.wraicogs-1.4/",
+        "https://huggingface.co/datasets/taln-ls2n/pararev/blob/e61dc8a43ae067513208e75f79b49f9928dcbec3/README.md",
+        "https://aclanthology.org/2025.acl-long.335/"
+      ]
+    },
+    "parareval": {
+      "state": "admitted",
+      "task": "judge_calibration",
+      "role": "judge_calibration_auxiliary_not_writing_rank",
+      "adapter_policy": "fixed-pairs-separate-annotators-v1",
+      "evaluation": "Local categorical agreement on fixed A/B outputs, retaining annotator disagreements. It does not score a newly generated revision.",
+      "allowed_claim": "A judge-calibration observation, not skill writing quality, scientific factuality, or validated judge reliability after one example.",
+      "required_inputs": [
+        "original_paragraph",
+        "revision_instruction",
+        "candidate_A",
+        "candidate_B"
+      ],
+      "evidence": [
+        "https://aclanthology.org/2025.acl-long.335/",
+        "https://github.com/JourdanL/parareval/blob/1465234acae83a213b9121735a5c23c175197172/README.md"
+      ]
+    }
+  }
+}

@@ -12,7 +12,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` if a central claim becomes ambiguous; `S3` locally.
 - **Exceptions / false positives:** Widely standard terms for the target audience need no textbook definition; an intuitive use may precede a precise formalization if signposted.
 - **Repair direction:** Add a minimal local definition, example, or contrast; avoid definition chains.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-02 — One concept has one stable name
 
@@ -22,7 +22,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` if technical identity is unclear; `S2` recurring; `S3` isolated.
 - **Exceptions / false positives:** Synonyms can improve ordinary prose, but technical terms should remain stable. Do not vary a precise term merely to avoid repetition.
 - **Repair direction:** Select a canonical term and explicitly define any hierarchy/alias.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## PT-03 — Paired and categorical terms use symmetric dimensions
 
@@ -32,7 +32,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` when taxonomy supports novelty or evaluation.
 - **Exceptions / false positives:** Natural systems categories may overlap; state that they are examples or independent dimensions.
 - **Repair direction:** Rename by one dimension, use a two-dimensional taxonomy, or remove false opposition.
-- **Sources:** [USER-NOTES], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST].
 
 ## PT-04 — Acronyms and abbreviations follow actual conventions
 
@@ -42,7 +42,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` for ambiguity/inconsistency; `S3` surface; venue violation per overlay.
 - **Exceptions / false positives:** Well-known audience acronyms may be used without expansion if venue style permits. Avoid defining an acronym used only once or twice.
 - **Repair direction:** Use the official/full term, define once, and standardize.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## PT-05 — Quantifiers are bounded and auditable
 
@@ -52,7 +52,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for a claim-driving ambiguity; `S2` otherwise; `S3` if harmless.
 - **Exceptions / false positives:** Indefinite quantifiers are valid when exact count is unknown/irrelevant and no stronger inference follows.
 - **Repair direction:** Provide measured quantity/range, name examples, bound the population, or delete the unnecessary quantifier.
-- **Sources:** [USER-NOTES], [ERNST], [BRANDON-EVIDENCE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [BRANDON-EVIDENCE].
 
 ## PT-06 — Epistemic strength matches evidence
 
@@ -62,7 +62,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S0`/`S1` for unsupported guarantee or proof; `S2` for recurring miscalibration.
 - **Exceptions / false positives:** `We assume` is correct when declaring a model assumption; it is not weak wording to delete. Appropriate uncertainty is scientific precision.
 - **Repair direction:** Change verb/quantifier, state evidence and conditions, or add the missing validation.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [SIGPLAN-EMPIRICAL].
 
 ## PT-06A — Technical verbs name the exact mechanism relation
 
@@ -72,7 +72,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S0`/`S1` when a central guarantee or causal claim is false; `S2` for recurring ambiguity; `S3` locally.
 - **Exceptions / false positives:** A compact technical verb is sufficient when its relation and boundary were defined nearby.
 - **Repair direction:** Name the narrowest supported relation and move the condition next to it.
-- **Sources:** [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL]. Checked 2026-09-03.
+- **Sources:** [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL].
 
 ## PT-07 — Loaded adjectives and emotional adverbs have evidence or are removed
 
@@ -82,7 +82,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if it overstates a scientific claim; `S3` style.
 - **Exceptions / false positives:** `Surprisingly` can signal a result that contradicts an explicit hypothesis, and `significant` can be statistically defined; state why.
 - **Repair direction:** Replace with the measured property or remove.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## PT-08 — Numbers include scale, comparator, and appropriate precision
 
@@ -92,7 +92,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for a misleading headline number; `S2` for missing context; `S3` for rounding inconsistency.
 - **Exceptions / false positives:** Exact integer facts and parameter settings may need no “large/small” interpretation.
 - **Repair direction:** Add comparator/absolute value/range and reduce false precision; preserve raw evidence.
-- **Sources:** [USER-NOTES] as normalized, [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## PT-09 — Units and notation are semantically and typographically consistent
 
@@ -102,7 +102,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for numerical meaning error; `S2` recurring ambiguity; `S3` typography.
 - **Exceptions / false positives:** Follow field/venue convention for spaces between number and unit; do not ban `~` universally.
 - **Repair direction:** Choose canonical units/macros, convert accurately, and apply consistent spacing.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## PT-10 — `e.g.` and `i.e.` retain distinct meanings
 
@@ -112,7 +112,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if scope changes; `S3` otherwise.
 - **Exceptions / false positives:** Plain `for example` or `that is` may be clearer, especially in Chinese/English mixed prose.
 - **Repair direction:** Select the correct relation or write it explicitly.
-- **Sources:** [USER-NOTES], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST].
 
 ## PT-10A — High-level wording remains specific and discriminating
 
@@ -122,7 +122,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` when the central idea or design derivation is unrecoverable; `S2` when a paragraph loses specificity; `S3` for one vague sentence.
 - **Exceptions / false positives:** A short roadmap may remain broad when adjacent text immediately supplies the discriminating relation. A technical term may compactly encode a previously defined relation.
 - **Repair direction:** Restore the shortest supported causal relation at the appropriate abstraction level; retain lower-level detail only where it changes a decision, property, or boundary.
-- **Sources:** [USER-NOTES], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [FIVE-VENUE-CORPUS].
 
 ## Sentence logic and grammar
 
@@ -134,7 +134,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` if a central technical statement has multiple readings; `S2` recurring; `S3` local grammar.
 - **Exceptions / false positives:** Long sentences are not defects by length alone; complex structure is justified when it mirrors a precise relationship clearly.
 - **Repair direction:** Split independent assertions, restore the actor/relation, or reorder the sentence so the main claim governs its qualifications.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## PT-12 — Modifiers have unambiguous attachment and scope
 
@@ -144,7 +144,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` if technical meaning changes; `S2`/`S3` otherwise.
 - **Exceptions / false positives:** Grammar and semantics can unambiguously select a non-nearest antecedent; do not flag proximity alone.
 - **Repair direction:** Move modifier, name antecedent, repeat noun, or split sentence.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-13 — Pronouns and demonstratives have unique antecedents
 
@@ -154,7 +154,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` if claim meaning changes; `S2`/`S3` otherwise.
 - **Exceptions / false positives:** Immediate singular antecedents need no noun repetition.
 - **Repair direction:** Replace with a precise noun phrase or state the proposition being referenced.
-- **Sources:** [ERNST], [HEISER-STYLE], [USER-NOTES]. Checked 2026-09-01.
+- **Sources:** [ERNST], [HEISER-STYLE], [USER-NOTES].
 
 ## PT-14 — Articles, countability, number, and agreement are correct in English
 
@@ -164,7 +164,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if recurring/ambiguous; `S3` local.
 - **Exceptions / false positives:** Not every bare noun is wrong; mass, plural generic, proper, and attributive nouns are valid.
 - **Repair direction:** Add/remove article, pluralize, or choose the correct mass/count construction without changing referent.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-15 — Coordination and parallelism preserve category and scope
 
@@ -174,7 +174,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for altered technical logic; `S2`/`S3` otherwise.
 - **Exceptions / false positives:** Venue style may choose punctuation; meaning governs.
 - **Repair direction:** Make elements grammatically/conceptually parallel and repeat ambiguous operators.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-16 — Comparison has an explicit and like-for-like target
 
@@ -184,7 +184,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for headline result; `S2` otherwise.
 - **Exceptions / false positives:** A target can be inherited from an immediately clear sentence/figure.
 - **Repair direction:** State both targets and metric under matched conditions; correct arithmetic language.
-- **Sources:** [USER-NOTES], [SIGPLAN-EMPIRICAL], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SIGPLAN-EMPIRICAL], [ERNST].
 
 ## PT-16A — Necessary and sufficient conditions are not interchanged
 
@@ -193,7 +193,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Check:** For `requires`, identify evidence that the condition is necessary; for `ensures` or `guarantees`, identify the assumptions and enforcement/proof that make it sufficient. Treat `helps`, `permits`, and `is associated with` as weaker relations and verify the conclusion does not silently strengthen them.
 - **Severity:** `S0`/`S1` when the error supports a central design or correctness claim; `S2` locally.
 - **Repair direction:** Use the weakest accurate relation, add the missing premise/evidence, or narrow the conclusion.
-- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE]. Checked 2026-09-03.
+- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## PT-17 — Tense follows knowledge status, not a rigid section rule
 
@@ -203,7 +203,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if status is misleading; `S3` otherwise.
 - **Exceptions / false positives:** Disciplines and venues vary. Evaluation need not be mechanically all past tense, and design need not be mechanically all present tense.
 - **Repair direction:** Align tense with temporal/epistemic status.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-18 — Active/passive voice identifies the important agent
 
@@ -213,7 +213,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if responsibility is technically ambiguous; `S3`/`S4` style.
 - **Exceptions / false positives:** Methods/design sections may use passive voice correctly. Do not rewrite merely to satisfy an active-voice quota.
 - **Repair direction:** Name the actor or use active voice where it clarifies responsibility.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-19 — First-person `we` is used purposefully
 
@@ -223,7 +223,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if agency/claim basis is unclear; `S3`/`S4` style.
 - **Exceptions / false positives:** `We propose`, `we implement`, and `we evaluate` are standard academic constructions; do not ban them.
 - **Repair direction:** Use the true agent or direct claim; retain `we` where it clarifies author responsibility.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-20 — Sentence economy preserves necessary logic
 
@@ -233,7 +233,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` recurring; `S3` local.
 - **Exceptions / false positives:** Terminological repetition often improves precision; not every phrasal verb has an exact simple replacement.
 - **Repair direction:** Put the main actor/action relation early, use the exact technical verb, and remove text that performs no reasoning role while preserving all semantic constraints.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## PT-21 — Transitions express real relations, not variety for its own sake
 
@@ -243,7 +243,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` for false logic; `S3` for repetition.
 - **Exceptions / false positives:** Repetition of a precise transition is preferable to an inaccurate synonym.
 - **Repair direction:** Repair underlying organization or choose the exact relation; omit transition if adjacency is sufficient.
-- **Sources:** [USER-NOTES] as normalized, [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST].
 
 ## PT-22 — Punctuation reflects logical structure
 
@@ -253,7 +253,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if meaning changes; `S3` otherwise.
 - **Exceptions / false positives:** Publisher and language conventions vary; verify venue/template before enforcing typography.
 - **Repair direction:** Match punctuation to clause relation or split sentence.
-- **Sources:** [USER-NOTES], [ERNST], [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## PT-23 — Compound modifiers and collocations are idiomatic and exact
 
@@ -263,7 +263,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` if meaning is wrong; `S3` style/grammar.
 - **Exceptions / false positives:** Compound hyphenation varies by dictionary/template and may be omitted after adverbs ending in `-ly`.
 - **Repair direction:** Use established field wording or direct construction; preserve technical nuance.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## PT-24 — Number spelling follows a declared style, not a universal ten rule
 
@@ -273,7 +273,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S3` for inconsistency; `S4` preference; venue violation per overlay.
 - **Exceptions / false positives:** “Spell integers below ten” is common but not universal and can conflict with technical parallelism.
 - **Repair direction:** Apply one documented style consistently without changing numerical value.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## Chinese-specific checks
 
@@ -287,7 +287,7 @@ Use the canonical [Chinese systems-writing calibration](../../systems-paper-revi
 - **Severity:** `S1` if technical meaning changes; `S2` recurring; `S3` local.
 - **Exceptions / false positives:** Chinese legitimately omits recoverable subjects and uses topic-comment structure; flag only real ambiguity/cost.
 - **Repair direction:** Name the actor/object, shorten modifier chains, split propositions, and state causal/conditional relation.
-- **Sources:** [USER-NOTES], generalized reader-oriented principles from [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], generalized reader-oriented principles from [ERNST].
 
 ## PT-25A — Chinese-to-English review preserves logic rather than word order
 
@@ -297,7 +297,7 @@ Use the canonical [Chinese systems-writing calibration](../../systems-paper-revi
 - **Severity:** `S0`/`S1` when technical meaning changes; `S2` for a recurring ambiguity; `S3` locally.
 - **Exceptions / false positives:** Review only the supplied translation unless the user explicitly requests a new translation; this read-only skill identifies the required logical repair but does not draft it.
 - **Repair direction:** Name the lost or strengthened proposition and the relation that must be restored.
-- **Sources:** [FIVE-VENUE-CORPUS], [USER-NOTES]. Checked 2026-09-03.
+- **Sources:** [FIVE-VENUE-CORPUS], [USER-NOTES].
 
 ## PT-26 — Chinese–English terminology mixing is controlled
 
@@ -307,7 +307,7 @@ Use the canonical [Chinese systems-writing calibration](../../systems-paper-revi
 - **Severity:** `S2` for conceptual ambiguity; `S3` style.
 - **Exceptions / false positives:** Deliberately bilingual drafts may retain both languages; consistency still matters.
 - **Repair direction:** Declare equivalence once and use the canonical form appropriate to audience.
-- **Sources:** [USER-NOTES], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST].
 
 ## PT-27 — Chinese punctuation and enumeration preserve hierarchy
 
@@ -317,7 +317,7 @@ Use the canonical [Chinese systems-writing calibration](../../systems-paper-revi
 - **Severity:** `S2` if logical grouping changes; `S3` typography.
 - **Exceptions / false positives:** Follow publisher/template style for mixed punctuation.
 - **Repair direction:** Make hierarchy explicit and normalize punctuation without altering technical tokens.
-- **Sources:** [USER-NOTES], house style unless venue specifies otherwise. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], house style unless venue specifies otherwise.
 
 ## Local prose audit sequence
 

@@ -55,4 +55,4 @@ Apply this map to examples, Figure 1/2, contribution bullets, and headline resul
 
 ## Sources
 
-These rules combine [SYSTEMS-GUIDE], [HEISER-STYLE], [SIGPLAN-EMPIRICAL], and observations in [FIVE-VENUE-CORPUS]. Corpus frequency is calibration, not a requirement. Last reconciled 2026-09-03.
+These rules combine [SYSTEMS-GUIDE], [HEISER-STYLE], [SIGPLAN-EMPIRICAL], and observations in [FIVE-VENUE-CORPUS]. Corpus frequency is calibration, not a requirement.

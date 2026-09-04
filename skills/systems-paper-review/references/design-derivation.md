@@ -66,4 +66,4 @@ For multi-mechanism systems, inspect both directions: every requirement needs a 
 
 ## Sources
 
-This derivation model operationalizes [LEVIN-REDELL], [SYSTEMS-GUIDE], the system and evidence criteria in [OSDI-CFP] and [SOSP-CFP], and recurring constraint-to-mechanism structures in [FIVE-VENUE-CORPUS]. Last reconciled 2026-09-03.
+This derivation model operationalizes [LEVIN-REDELL], [SYSTEMS-GUIDE], the system and evidence criteria in [OSDI-CFP] and [SOSP-CFP], and recurring constraint-to-mechanism structures in [FIVE-VENUE-CORPUS].

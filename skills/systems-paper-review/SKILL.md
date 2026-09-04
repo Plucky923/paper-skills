@@ -48,7 +48,7 @@ For a full paper, cover every applicable family in passes rather than preloading
 
 Keep lenses independent even when one is favorable. In multi-agent work, the root owns scope, the shared claim inventory, coverage, deduplication, conflicts, and verdict; each subagent gets one bounded read-only lens.
 
-4. **Verify selectively.** Use primary or official sources only for in-scope claims. Verify a named venue's current official rules live and record date plus URL. Follow [review-protocol.md](references/review-protocol.md) for any command-producing check; skip it when complete isolation and side-effect detection are unavailable.
+4. **Verify selectively.** Use primary or official sources only for in-scope claims. Verify a named venue's current official rules live and cite the direct URL. Follow [review-protocol.md](references/review-protocol.md) for any command-producing check; skip it when complete isolation and side-effect detection are unavailable.
 5. **Consolidate and gate.** Merge symptoms under root causes while preserving distinct locations, claims, and consequences. Run the [reader-memory test](references/thesis-and-story.md) only when the scope contains an abstract, introduction, or enough of the paper to carry its decision case; for a sentence or paragraph, test only whether its local claim, support, inference, and boundary are recoverable. Then test whether unresolved evidence still supports an in-scope attack on significance, novelty, correctness, evaluation validity, clarity, or compliance. Prose quality or a clean automated pass alone never establishes submission readiness.
 
 ## Output

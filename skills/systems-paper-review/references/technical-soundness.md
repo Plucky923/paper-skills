@@ -10,7 +10,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S1`; `S0` if the central guarantee is meaningless without the missing boundary.
 - **Exceptions / false positives:** A conventional model may be concise, but unusual deviations and security-relevant boundaries must be explicit.
 - **Repair direction:** State entities, authority, state, interfaces, and excluded responsibilities; align overview, figure, and mechanism.
-- **Sources:** [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP].
 
 ## TS-02 — Assumptions are explicit, necessary, and plausible
 
@@ -20,7 +20,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` if a hidden/false assumption invalidates the central claim; otherwise `S1`.
 - **Exceptions / false positives:** Strong assumptions are acceptable when bounded, motivated, and reflected in claims.
 - **Repair direction:** Expose and justify the assumption, add validation/fallback, or narrow the claim.
-- **Sources:** [LEVIN-REDELL], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## TS-03 — Threat, fault, and workload models match claims
 
@@ -30,7 +30,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for a central mismatch; otherwise `S1`.
 - **Exceptions / false positives:** Non-security papers need not invent a threat model, but still require relevant fault/workload boundaries.
 - **Repair direction:** Align the model and quantifiers; justify exclusions; add evidence or weaken the property.
-- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL].
 
 ## TS-04 — Every major mechanism has a causal role
 
@@ -40,7 +40,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S1` for central mechanism gaps; `S2` for secondary components.
 - **Exceptions / false positives:** Standard implementation components may be summarized if their behavior is conventional and not part of the claim.
 - **Repair direction:** Add operational detail and causal link; remove decorative components from the contribution story.
-- **Sources:** [SYSTEMS-GUIDE], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [LEVIN-REDELL].
 
 ## TS-05 — Inputs, outputs, state, and lifecycle are complete
 
@@ -50,7 +50,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S1` if omitted lifecycle can break the property; otherwise `S2`.
 - **Exceptions / false positives:** A paper may abstract routine setup, but must not abstract state transitions that change outcomes.
 - **Repair direction:** Describe phase transitions, conditions, and state ownership; add pseudocode/state machine if it reduces ambiguity.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [ERNST].
 
 ## TS-06 — Invariants and guarantees have an enforcement story
 
@@ -60,7 +60,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for an unsupported central guarantee; `S1` otherwise.
 - **Exceptions / false positives:** Empirical reliability claims may be probabilistic; their language and evidence must reflect that.
 - **Repair direction:** Define and justify the invariant, test all paths, replace a guarantee with observed behavior, or narrow its domain.
-- **Sources:** [OSDI-CFP], [LEVIN-REDELL], [BRANDON-EVIDENCE]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [LEVIN-REDELL], [BRANDON-EVIDENCE].
 
 ## TS-07 — Concurrency, ordering, and time are specified where relevant
 
@@ -70,7 +70,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for a counterexample to correctness; `S1` for a major unresolved gap.
 - **Exceptions / false positives:** Sequential/offline components can mark this not applicable.
 - **Repair direction:** State ordering model and synchronization; handle or exclude races explicitly; add proof/test evidence.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP].
 
 ## TS-08 — Failure detection, containment, and recovery are coherent
 
@@ -80,7 +80,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for central correctness/data loss; `S1` for major availability risk; `S2` for unclaimed operational gap.
 - **Exceptions / false positives:** Failure behavior outside the explicit model may be a limitation rather than defect if the exclusion is realistic and visible.
 - **Repair direction:** Add failure path and state reconciliation, justify exclusion, or narrow reliability claims.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [OSDI-CFP].
 
 ## TS-09 — Edge cases and degenerate inputs do not defeat the method
 
@@ -90,7 +90,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for a valid central counterexample; `S1`/`S2` for unresolved coverage.
 - **Exceptions / false positives:** Do not enumerate irrelevant combinatorial cases; select cases from the mechanism and claim domain.
 - **Repair direction:** Handle, detect, or exclude the case and test the boundary.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [LEVIN-REDELL].
 
 ## TS-10 — Design choices are compared with credible alternatives
 
@@ -100,7 +100,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S1` when novelty/necessity depends on the choice; otherwise `S2`.
 - **Exceptions / false positives:** Routine implementation choices need not all be defended. Focus on choices that affect claims, cost, correctness, or generality.
 - **Repair direction:** State decision criteria and compare fairly through reasoning, evidence, or targeted evaluation.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL].
 
 ## TS-11 — Costs are accounted at the same boundary as benefits
 
@@ -110,7 +110,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for materially deceptive accounting; otherwise `S1`.
 - **Exceptions / false positives:** Excluding a one-time cost is acceptable when explicitly amortized over a justified lifetime and separately reported.
 - **Repair direction:** Report complete costs and breakouts; justify amortization; qualify claims.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL].
 
 ## TS-12 — Scalability reasoning identifies the limiting resource
 
@@ -120,7 +120,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S1` for unsupported headline scalability; `S2` for missing secondary analysis.
 - **Exceptions / false positives:** A fixed-scale appliance or embedded system may not claim general scale.
 - **Repair direction:** Expose limiting resource, test sensitivity/range, or bound the scale claim.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [OSDI-CFP].
 
 ## TS-13 — Security and privacy reasoning covers new attack surfaces
 
@@ -130,7 +130,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for a direct counterexample to a central property; `S1` for major unresolved exposure.
 - **Exceptions / false positives:** Do not demand a full security analysis from unrelated benign components, but report material safety consequences of privileged operation.
 - **Repair direction:** Define threat boundary, enforce least privilege/validation, evaluate attacks, or narrow claims.
-- **Sources:** [OSDI-CFP], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [LEVIN-REDELL].
 
 ## TS-14 — Implementation feasibility and status support the design
 
@@ -140,7 +140,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` for misrepresentation; `S1` for central missing feasibility evidence.
 - **Exceptions / false positives:** Design/theory papers may intentionally stop before production implementation if framed and evaluated accordingly.
 - **Repair direction:** Disclose status and boundary; add feasibility evidence; narrow deliverable claims.
-- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [NSDI-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [OSDI-CFP], [NSDI-ARTIFACT].
 
 ## TS-15 — Technical notation, algorithms, and examples agree
 
@@ -150,7 +150,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` if it invalidates a central result; otherwise `S1`/`S2`/`S3` by consequence.
 - **Exceptions / false positives:** Equivalent notations are acceptable if correspondence is explicit.
 - **Repair direction:** Select one authoritative definition, reconcile every representation, and add domain/base conditions.
-- **Sources:** [ERNST], [LEVIN-REDELL], [USER-NOTES]. Checked 2026-09-01.
+- **Sources:** [ERNST], [LEVIN-REDELL], [USER-NOTES].
 
 ## TS-16 — Generality claims identify what transfers
 
@@ -160,7 +160,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S1` for a central unsupported generality claim; `S2` for unclear transfer cost.
 - **Exceptions / false positives:** A narrowly scoped system can be valuable without generality if significance is established in that scope.
 - **Repair direction:** State transfer conditions and porting effort, evaluate more instances where necessary, or narrow the claim.
-- **Sources:** [LEVIN-REDELL], [SIGPLAN-EMPIRICAL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [SIGPLAN-EMPIRICAL], [OSDI-CFP].
 
 ## TS-17 — Limitations do not contradict the operating story
 
@@ -170,7 +170,7 @@ Reconstruct the proposed system as if implementing, operating, or attacking it. 
 - **Severity:** `S0` if the caveat collapses the central contribution; otherwise `S1`.
 - **Exceptions / false positives:** Honest limitations are a strength when they bound rather than negate the contribution.
 - **Repair direction:** Reframe problem and claims consistently; justify prevalence; add mitigation or evaluation.
-- **Sources:** [OSDI-CFP], [LEVIN-REDELL], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [LEVIN-REDELL], [SIGPLAN-EMPIRICAL].
 
 ## Soundness reconstruction template
 
@@ -189,4 +189,3 @@ Before closing the pass, fill this table from in-scope evidence:
 | Exclusions/limitations | | | |
 
 Any blank central row is either a finding or explicitly not assessable under scope.
-

@@ -40,7 +40,7 @@ Assign one or more evidence classes to every finding.
 | `I` | Explicit inference from `M`, `A`, or `X` | Predict a plausible reviewer attack | Present the inference as an observed fact |
 | `U` | Evidence unavailable under current scope | Identify unresolved risk and required context | Declare a confirmed defect that depends on unseen material |
 
-For external verification, record source, direct URL, publication/version or venue cycle, and date checked. If sources disagree, report the disagreement.
+For external verification, record the source, direct URL, and applicable publication or venue cycle. If sources disagree, report the disagreement.
 
 ### Argument-state overlay
 
@@ -182,7 +182,7 @@ Reviewer attack: <the strongest concise objection a reviewer could make>
 Why it matters: <affected claim, decision criterion, or reader inference>
 Repair direction: <what must change or be supplied; no replacement prose>
 Resolution test: <observable condition that closes the finding>
-Sources: <rule source keys; add live URL/date for external facts>
+Sources: <rule source keys; add a live source URL for external facts>
 ```
 
 Use stable finding numbers within one report. Quote only the minimum text needed to anchor a location.
@@ -258,4 +258,4 @@ Do not:
 
 ## Sources
 
-Protocol design synthesizes [OPENAI-SKILL-CREATOR], [DEERFLOW-REVIEW], [CHAN-DUAL-LENS], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES], and [SYSTEMS-GUIDE]. See [source-registry.md](source-registry.md). Last reconciled 2026-09-03.
+Protocol design synthesizes [OPENAI-SKILL-CREATOR], [DEERFLOW-REVIEW], [CHAN-DUAL-LENS], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES], and [SYSTEMS-GUIDE]. See [source-registry.md](source-registry.md).

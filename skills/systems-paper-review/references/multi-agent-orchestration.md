@@ -298,4 +298,4 @@ Lower latency or fewer main-context tokens count as improvement only if final co
 
 ## Sources
 
-This protocol applies the review principles in this skill and the orchestration guidance in [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]. OpenAI documents that Codex can follow skill instructions requesting delegation, that parallel read-heavy work is a strong use case, that the root synthesizes results, and that parallel work costs more tokens and is a poor fit for shared mutable state. See [source-registry.md](source-registry.md). Last checked 2026-09-03.
+This protocol applies the review principles in this skill and the orchestration guidance in [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]. OpenAI documents that Codex can follow skill instructions requesting delegation, that parallel read-heavy work is a strong use case, that the root synthesizes results, and that parallel work costs more tokens and is a poor fit for shared mutable state. See [source-registry.md](source-registry.md).

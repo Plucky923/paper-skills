@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "pararev",
+      "title": "ParaRev: manually annotated scientific paragraph revision subset",
+      "upstream": "https://huggingface.co/datasets/taln-ls2n/pararev",
+      "revision": "e61dc8a43ae067513208e75f79b49f9928dcbec3",
+      "license": "CC-BY-NC-SA-4.0 (declared in pinned README; no standalone LICENSE supplied)",
+      "usage": "Local noncommercial research evaluation; retain attribution and license. Third-party manuscript text remains in ignored cache, not repository fixtures.",
+      "role": "revision_input",
+      "adapter": "paperbench.revision:load_pararev",
+      "default_fetch": true,
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/datasets/taln-ls2n/pararev/resolve/e61dc8a43ae067513208e75f79b49f9928dcbec3/README.md",
+          "sha256": "b05064e83e326bc579903bf03cb817f4d01fadcb9698da1f101091b5ca09eadc",
+          "size_bytes": 4523
+        },
+        {
+          "path": "pararev_manual_annot_subset.jsonl",
+          "url": "https://huggingface.co/datasets/taln-ls2n/pararev/resolve/e61dc8a43ae067513208e75f79b49f9928dcbec3/pararev_manual_annot_subset.jsonl",
+          "sha256": "163a9f5d4492146c6fb4fb5d800d9df1d8e7d71c25f67007e1f04ee4bd085dc9",
+          "size_bytes": 2183063
+        }
+      ],
+      "notes": [
+        "Original paper: https://aclanthology.org/2025.wraicogs-1.4/",
+        "Pinned release: 641 paragraph records, 470 double annotated; 328 have no instruction, 55 one, 258 two (516 official evaluation inputs). The integration uses the manual subset, not the 48k full corpus.",
+        "The HF train split label is packaging, not a leakage-safe evaluation split. Group related cases by source paper; both instructions from a paragraph are dependent.",
+        "Default conservative adapter requires two instructions and both annotations restricted to rewriting/concision, then rejects explicit deletion, addition, replacement, protected-content changes, and external lookup requests. pararev_selection_report records every excluded annotation slot without manuscript text.",
+        "The conservative policy selects 300 instruction cases from 150 paragraphs at this pinned release. This is an adapted subset, not the official 516-input score.",
+        "Selection is not proof of preserved technical meaning. Human semantic checks remain required; author revisions are comparison context, not exact-match or factual-correctness gold.",
+        "Instructions are retrospective human annotations over author before/after paragraphs. The source is PDF-derived English scientific text, not a raw-LaTeX compile benchmark.",
+        "No standalone upstream LICENSE exists at this revision; the pinned README is the recorded license declaration. Upstream article rights and redistribution conditions still require separate attention."
+      ]
+    },
+    {
+      "id": "parareval",
+      "title": "ParaReval: human pairwise evaluation of scientific paragraph revisions",
+      "upstream": "https://github.com/JourdanL/parareval",
+      "revision": "1465234acae83a213b9121735a5c23c175197172",
+      "license": "CC0-1.0 for the released repository; underlying ParaRev/article text rights remain separate",
+      "usage": "Local calibration of a judge on fixed A/B outputs. Do not use human judgments as a new revision generation reference or redistribute upstream manuscript text in fixtures.",
+      "role": "judge_calibration",
+      "adapter": "paperbench.revision:load_parareval",
+      "default_fetch": true,
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/JourdanL/parareval/1465234acae83a213b9121735a5c23c175197172/README.md",
+          "sha256": "1ed6cfa2c5d42f3b12f351c2e2d501ccb540c485eef5ad9cdd3697dda96b8a92",
+          "size_bytes": 4091
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://raw.githubusercontent.com/JourdanL/parareval/1465234acae83a213b9121735a5c23c175197172/LICENSE",
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "size_bytes": 7048
+        },
+        {
+          "path": "parareval.jsonl",
+          "url": "https://raw.githubusercontent.com/JourdanL/parareval/1465234acae83a213b9121735a5c23c175197172/parareval.jsonl",
+          "sha256": "9c00c2035fe991518848bc319cc7466622c94904a323580722be5b240c745b09",
+          "size_bytes": 5009814
+        },
+        {
+          "path": "parareval_second_annotation.jsonl",
+          "url": "https://raw.githubusercontent.com/JourdanL/parareval/1465234acae83a213b9121735a5c23c175197172/parareval_second_annotation.jsonl",
+          "sha256": "fc84646c622bb79cef21ccb4656924649258403dd0d0522cfab4d0abc40824ff",
+          "size_bytes": 397859
+        }
+      ],
+      "notes": [
+        "Original paper: https://aclanthology.org/2025.acl-long.335/",
+        "Pinned release: 1548 primary comparison records plus 129 second annotations, derived from 258 ParaRev paragraphs and two instructions each. Secondary annotations are merged into their primary pairing, not counted as 129 extra independent tasks.",
+        "A/B order and candidate outputs are fixed. Human annotations and generator identities never enter input; the original author's reference paragraph is omitted entirely from judge input.",
+        "One upstream candidate B is the empty string (pairing 1592); it is retained as an observed failure, not silently dropped or replaced.",
+        "Correctness means human editorial acceptability, not independent factual verification. Human disagreements are retained, not converted into invented consensus labels.",
+        "Local score_parareval measures flat-JSON per-field agreement against each human annotation; it excludes derived correctness booleans and extended_choice. This is not an official paper metric and not a score for a newly generated revision.",
+        "No independent train/dev/test is supplied. Group and hold out by source paper; avoid ParaRev/ParaReval overlap when training or calibrating a judge.",
+        "The CC0 repository license does not clear rights in underlying ParaRev or source-article text. Cache all third-party text locally and do not include it in committed test fixtures."
+      ]
+    }
+  ]
+}

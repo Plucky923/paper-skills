@@ -16,11 +16,11 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
 
 - **Nature:** Hard evidence rule.
 - **Reviewer attack / consequence:** “The compliance advice came from a stale blog, call aggregator, prior cycle, or search snippet.”
-- **Check:** Prefer official conference domain and publisher/society author resources. Follow linked policies/templates. Record direct URLs and checked date. Use archived pages only for the named past cycle.
+- **Check:** Prefer official conference domain and publisher/society author resources. Follow linked policies/templates and record direct URLs. Apply each page only to the cycle and stage it governs.
 - **Severity:** `S0` if wrong advice would invalidate submission; otherwise `S1`.
 - **Exceptions / false positives:** Organizers may publish official updates on a linked submission site or society page; verify provenance.
 - **Repair direction:** Replace with official current source and record discrepancies.
-- **Sources:** [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-HISTORICAL], [NSDI-CFP], [ACM-TEMPLATE], [USENIX-TEMPLATE].
+- **Sources:** [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING], [NSDI-CFP], [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## VO-03 — Hard requirements are separated from reviewer preferences
 
@@ -40,30 +40,30 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
 - **Severity:** `S0` for clear out-of-scope; `S1` for weak fit.
 - **Exceptions / false positives:** Interdisciplinary work may fit through its systems/architecture/networking/security contribution; topic keywords alone are not sufficient.
 - **Repair direction:** Clarify the target-community advance or choose a fitting venue/track.
-- **Sources:** Live target CFP; examples [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-HISTORICAL], [NSDI-CFP].
+- **Sources:** Live target CFP; examples [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING], [NSDI-CFP].
 
 ## VO-04A — Apply venue emphasis without flattening the contribution
 
 - **Nature:** Review calibration; live official criteria control.
-- **Check:** Use the dated snapshot below to select reviewer questions, then verify the target cycle and track before reporting compliance.
+- **Check:** Use the cycle-specific examples below to select reviewer questions, then verify the target cycle and track before reporting compliance.
 
-| Snapshot checked 2026-09-03 | Decision emphasis | Writing risk to inspect |
+| Venue/cycle example | Decision emphasis | Writing risk to inspect |
 |---|---|---|
-| OSDI 2027 preliminary, with finalized OSDI 2026 as fallback | Significant systems problem, compelling advance, potential research/practice impact; operational knowledge is a valid contribution | An application result that never becomes a systems advance; an operational story with scale but no reusable knowledge |
+| OSDI 2027 / OSDI 2026 | Significant systems problem, compelling advance, potential research/practice impact; operational knowledge is a valid contribution | An application result that never becomes a systems advance; an operational story with scale but no reusable knowledge |
 | SOSP 2026 | New territory or an important research dialogue; design, implementation, analysis, evaluation, deployment, and measurement can carry the contribution | Principles reduced to slogans, or a narrow artifact with no transferable insight |
 | EuroSys 2027 | Benefits, limitations, and advantage over prior work; experience lessons should be general, rigorous, quantitative, and useful | Benefits presented without cost/boundary, or deployment scale substituted for a transferable lesson |
 | ASPLOS 2027 | Substantive advance to architecture, OS, PL, or a new domain connected to at least one of those pillars; pros/cons and implementation status matter | Merely using a pillar technique, unexplained cross-layer necessity, or an overclaimed incomplete implementation |
-| USENIX ATC 2025, historical only | Practical implementation and experimental evidence, with pros/cons and implementation status | Treating pragmatism as a lower evidence standard or treating ATC as a current submission target |
+| USENIX ATC, writing reference | Practical implementation and experimental evidence, with pros/cons and implementation status | Treating pragmatism as a lower evidence standard or treating ATC as a current submission target |
 
-- **Severity:** Use the live venue's consequence. A mismatch with this snapshot alone is not noncompliance.
+- **Severity:** Use the live venue's consequence. A mismatch with these examples alone is not noncompliance.
 - **Repair direction:** Name the actual target-community advance and apply its current official rubric without distorting the contribution type.
-- **Sources:** [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-HISTORICAL].
+- **Sources:** [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING].
 
 ## VO-04B — Rapid-review page boundaries are applied only when official
 
 - **Nature:** Hard venue rule where currently enacted; otherwise diagnostic heuristic.
-- **Check:** Verify the exact review stage and what reviewers are instructed to read. ASPLOS 2027 formally uses a first-two-page rapid review and requires those pages to be self-contained. The OSDI 2027 preliminary CFP only describes a possible early-review procedure; it is not a final rule. For other venues, a two-page test may diagnose discoverability but cannot establish noncompliance.
-- **Severity:** `S0`/`S1` by the live ASPLOS rule or another confirmed rule; otherwise report only the underlying reader risk.
+- **Check:** Verify the exact review stage and what reviewers are instructed to read. If the live target CFP requires a first-two-page rapid review, enforce its stated self-containment requirements. Distinguish an enacted procedure from a possibility described in a preliminary CFP. Otherwise, a two-page test may diagnose discoverability but cannot establish noncompliance.
+- **Severity:** `S0`/`S1` by the confirmed live venue rule; otherwise report only the underlying reader risk.
 - **Exceptions / false positives:** Page boundaries and stages can change before submission. Never transfer one venue's rapid-review rule to another.
 - **Repair direction:** Put the decision case and credibility preview inside the actual reviewed unit; do not cram in mechanism inventory merely to satisfy a diagnostic.
 - **Sources:** [ASPLOS-CFP], [OSDI-CFP]. Live verification required.
@@ -170,8 +170,6 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
    Track/round:
    Stage:
    Official URL:
-   Last updated on page (if shown):
-   Checked at <date/time/timezone>:
    ```
 
 4. Extract only rules relevant to the in-scope material.
@@ -181,8 +179,8 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
 
 ## Official entry points studied
 
-- [OSDI 2027 preliminary CFP](https://www.usenix.org/conference/osdi27/call-for-papers)
-- [OSDI 2026 finalized CFP](https://www.usenix.org/conference/osdi26/call-for-papers)
+- [OSDI 2027 CFP](https://www.usenix.org/conference/osdi27/call-for-papers)
+- [OSDI 2026 CFP](https://www.usenix.org/conference/osdi26/call-for-papers)
 - [SOSP 2026 CFP](https://sigops.org/s/conferences/sosp/2026/cfp.html)
 - [NSDI 2027 CFP](https://www.usenix.org/conference/nsdi27/call-for-papers)
 - [EuroSys 2027 CFP](https://2027.eurosys.org/cfp.html)
@@ -192,11 +190,11 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
 - [USENIX paper templates](https://www.usenix.org/conferences/author-resources/paper-templates)
 - [ACM proceedings templates](https://www.acm.org/publications/proceedings-template)
 
-These links were checked 2026-09-03 as research inputs. They are not automatically the current target for a future request; ATC is historical.
+These cycle-specific links are research entry points, not automatically the current target for a request. Verify the target cycle and each page's status live; ATC is a writing reference, not a submission target.
 
 ## Venue compliance table
 
-| Rule | Classification | Official source/date | In-scope evidence | Status | Consequence | Required action |
+| Rule | Classification | Official source | In-scope evidence | Status | Consequence | Required action |
 |---|---|---|---|---|---|---|
 
 Use `compliant`, `noncompliant`, `not assessable`, `not applicable`, or `source conflict`. A paper can be scientifically strong and still fail a hard submission rule; report these dimensions separately.

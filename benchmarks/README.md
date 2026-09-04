@@ -5,6 +5,11 @@ This directory tests observable behavior of `systems-paper-review` and
 fixture passages are synthetic so the benchmark can be distributed without
 copying paper text.
 
+The [external benchmark integration](external/README.md) adds pinned public
+paragraph-revision tasks (ParaRev) and fixed-output judge calibration
+(ParaReval). No external review benchmark is currently admitted. These limited
+diagnostics do not replace the acceptance procedure below.
+
 ## Layers
 
 Run the deterministic structural layer first:
@@ -51,7 +56,7 @@ performing its distinct role.
 
 Use the same model, reasoning effort, tool availability, locale, and time budget
 for both trees. If a fixture needs live venue verification, run both versions in
-the same time window and retain the retrieved official URLs and dates.
+the same time window and retain the retrieved official URLs and relevant rules.
 
 ## Gates and acceptance
 

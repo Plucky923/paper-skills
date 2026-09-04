@@ -1,7 +1,5 @@
 # OSDI、SOSP、EuroSys、USENIX ATC 与 ASPLOS 系统论文写作要求调研
 
-更新日期：2026-09-03
-
 ## 结论
 
 这些会议共同要求的不是一种“顶会腔”，而是一条可以被审稿人快速检查的科学论证：
@@ -20,15 +18,15 @@
 
 ### 正式规则语料
 
-本文以截至 2026-09-03 可获得的最新官方材料为准：
+下列官方材料用于归纳写作要求。涉及投稿合规时，须另行核对目标会议、届次和阶段的现行规则：
 
-- [OSDI 2027 preliminary CFP](https://www.usenix.org/conference/osdi27/call-for-papers)，并用已定稿的 [OSDI 2026 CFP](https://www.usenix.org/conference/osdi26/call-for-papers) 补充简洁性和 Operational Systems track 的说明；
+- [OSDI 2027 CFP](https://www.usenix.org/conference/osdi27/call-for-papers)，并用 [OSDI 2026 CFP](https://www.usenix.org/conference/osdi26/call-for-papers) 补充简洁性和 Operational Systems track 的说明；
 - [SOSP 2026 CFP](https://sigops.org/s/conferences/sosp/2026/cfp.html)；
 - [EuroSys 2027 CFP](https://2027.eurosys.org/cfp.html)；
 - [ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/)；
 - 最后一届 [USENIX ATC 2025 CFP](https://www.usenix.org/conference/atc25/call-for-papers) 及其更具体的 [submission instructions](https://www.usenix.org/conference/atc25/submission-instructions)。
 
-评价实验文字时，本文还采用 ASPLOS 2027 明确引用的 [SIGPLAN Empirical Evaluation Guidelines](https://www.sigplan.org/Resources/EmpiricalEvaluation/) 及其 checklist，以及 systems artifact evaluation 的 [evaluator guide](https://sysartifacts.github.io/evaluator-guide.html)。关于问题、创新、现实性、经验、设计选择、假设、聚焦和表达的讨论，本文参考 SOSP 9 PC 主席基于当届投稿总结的 [How (and How Not) to Write a Good Systems Paper](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html)；它发表于 1983 年，是重要的历史性一手经验，而不是今天任何会议的正式规则。
+评价实验文字时，本文还采用 ASPLOS 2027 明确引用的 [SIGPLAN Empirical Evaluation Guidelines](https://www.sigplan.org/Resources/EmpiricalEvaluation/) 及其 checklist，以及 systems artifact evaluation 的 [evaluator guide](https://sysartifacts.github.io/evaluator-guide.html)。关于问题、创新、现实性、经验、设计选择、假设、聚焦和表达的讨论，本文参考 SOSP 9 PC 主席基于当届投稿总结的 [How (and How Not) to Write a Good Systems Paper](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html)；它是一手写作经验，而不是任何会议的现行正式规则。
 
 ### 论文语料
 
@@ -93,15 +91,15 @@
 
 ## Venue-specific emphasis
 
-| Venue | 当前正式重点 | 对写作的含义 |
+| Venue | 所引用的评审重点 | 对写作的含义 |
 |---|---|---|
 | OSDI | 创新系统研究以及量化或有洞察力的系统经验；潜在影响未来系统研究或实践，并能引起相当部分 OSDI 读者兴趣。面向 ML 等新领域的工作还必须接入 systems prior work、与已有系统技术比较，并说明新场景产生了什么新的 systems challenge。[OSDI 2027 CFP](https://www.usenix.org/conference/osdi27/call-for-papers) | Introduction 要把应用目标翻译成系统问题，不能只报告领域指标更好。Research track 强调原创推进；Operational Systems track 可以不提出新算法，但应通过部署、反例、新规模验证或经验增加公共系统知识。 |
 | SOSP | 偏好探索新领域、推进重要研究对话，或从先进实现、部署和测量中获得洞察；正式范围覆盖 design、implementation、analysis、evaluation 和 deployment。[SOSP 2026 CFP](https://sigops.org/s/conferences/sosp/2026/cfp.html) | “Principles” 不是要求每篇论文写成理论论文。更稳妥的目标是让具体系统产生可迁移的 insight，并让非狭窄子领域读者理解其重要性、机制和边界。 |
 | EuroSys | 评价必须清楚展示方案的收益、限制及相对 prior work 的优势。Experience paper 的 lesson 必须可推广、有严格定量分析支持且对社区有用。[EuroSys 2027 CFP](https://2027.eurosys.org/cfp.html) | Evaluation 不是优势展示区，而是收益—成本—边界的闭合论证。部署规模不能自动转化为贡献；论文必须提炼其他系统在什么条件下能够复用的知识。 |
-| ASPLOS | 必须对四类 conference pillar 至少一类作出实质贡献：architecture、operating systems、programming languages，或引入 entirely new domains；第四类仍须与前三个核心知识域中的至少一个具有实质联系。仅仅使用某一 pillar 的技术不等于推进它。官方还要求展示 pros/cons、披露已实现和未实现部分、避免 overclaim，并遵循 SIGPLAN empirical guidelines。[ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/) | 跨层论文应说明每一层为何不可被局部替代，以及跨层协同如何因果地产生结果。2027 rapid review 只读前两页且要求它们自包含，因此前两页必须交付问题、相对推进、核心方法和可信度预览。 |
-| USENIX ATC | 2025 正式标准强调 implementation、experimental results、practical solution、pros/cons、统计方法及明确披露实现范围；short paper 与 full paper 的评审标准相同，只是 scope 更小。[ATC 2025 instructions](https://www.usenix.org/conference/atc25/submission-instructions) | ATC 的历史风格允许工程和部署贡献，但绝不降低完整性或证据标准。它适合作为 production pragmatism 的写作参照，而不是当前投稿目标。 |
+| ASPLOS | 必须对四类 conference pillar 至少一类作出实质贡献：architecture、operating systems、programming languages，或引入 entirely new domains；第四类仍须与前三个核心知识域中的至少一个具有实质联系。仅仅使用某一 pillar 的技术不等于推进它。官方还要求展示 pros/cons、披露已实现和未实现部分、避免 overclaim，并遵循 SIGPLAN empirical guidelines。[ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/) | 跨层论文应说明每一层为何不可被局部替代，以及跨层协同如何因果地产生结果。若目标阶段正式要求前两页自包含，这两页就必须交付问题、相对推进、核心方法和可信度预览。 |
+| USENIX ATC | 2025 正式标准强调 implementation、experimental results、practical solution、pros/cons、统计方法及明确披露实现范围；short paper 与 full paper 的评审标准相同，只是 scope 更小。[ATC 2025 instructions](https://www.usenix.org/conference/atc25/submission-instructions) | ATC 的评审标准允许工程和部署贡献，但绝不降低完整性或证据标准。它适合作为 production pragmatism 的写作参照，而不是当前投稿目标。 |
 
-USENIX 已宣布 [ATC 在 2025 年后终止](https://www.usenix.org/blog/usenix-atc-announcement)，所以本文只把它作为历史写作传统。OSDI 2027 的 CFP 目前仍是 preliminary：可能只读前几页的 early review 尚未最终确定；不能把它写成既定规则。与之不同，ASPLOS 2027 的两页 rapid review 已经明确生效。
+USENIX 已宣布 [ATC 终止](https://www.usenix.org/blog/usenix-atc-announcement)，所以本文只把它作为写作参照。是否采用 early review 或两页 rapid review，必须以目标届次和阶段的正式规则为准；preliminary CFP 中的可能安排不能当作既定要求。
 
 ## “High-level” 的可执行定义
 
@@ -137,7 +135,7 @@ USENIX 已宣布 [ATC 在 2025 年后终止](https://www.usenix.org/blog/usenix-
 - **Mechanism** 说明系统如何实现该原则，例如“加载器验证代码页并在映射后撤销写权限”。
 - **Implementation detail** 说明具体工程实现，例如数据结构、函数、批量大小和线程布局。
 
-高层段落应先让 principle 成立，再给足够 mechanism 使读者相信它不是口号；只有会影响正确性、性能、可部署性或复现性的 implementation detail 才进入正文。历史性的 SOSP 写作总结同样强调：系统论文不应把所有组件等深描述，而应聚焦新颖或异常且支撑主线的部分；好论文不仅描述选择，还解释为什么这样选择以及实际结果是否符合原始理由。[Levin and Redell](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html)
+高层段落应先让 principle 成立，再给足够 mechanism 使读者相信它不是口号；只有会影响正确性、性能、可部署性或复现性的 implementation detail 才进入正文。Levin 和 Redell 的写作总结同样强调：系统论文不应把所有组件等深描述，而应聚焦新颖或异常且支撑主线的部分；好论文不仅描述选择，还解释为什么这样选择以及实际结果是否符合原始理由。[Levin and Redell](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html)
 
 ## 整篇论文的论证结构
 
@@ -150,7 +148,7 @@ USENIX 已宣布 [ATC 在 2025 年后终止](https://www.usenix.org/blog/usenix-
 
 论文不能通过“简化版叙事”和“技术版正文”讲两个不同故事。更有效的组织是逐层展开同一条 claim：段落首句和图注先给可检查的高层判断，随后提供使专家能够验证该判断的机制与证据。第一层负责可发现性，第二层负责可信度。
 
-ASPLOS 2027 的前两页 rapid review 使第一层成为正式筛选界面；对其他 venue，把前两页当作压力测试仍然有价值，但不是它们当前全部采用的硬规则。OSDI 2027 只说明可能引入类似初筛，最终规则仍待更新。[ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/) [OSDI 2027 preliminary CFP](https://www.usenix.org/conference/osdi27/call-for-papers)
+若目标阶段正式采用前两页 rapid review，第一层就是筛选界面；否则，把前两页当作压力测试仍有价值，但不能据此判断投稿违规。核对规则时，应区分已经实施的要求与 preliminary CFP 中的可能安排。[ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/) [OSDI 2027 CFP](https://www.usenix.org/conference/osdi27/call-for-papers)
 
 ### 先确定贡献类型，再确定叙事
 
@@ -193,7 +191,7 @@ Title 应让目标读者识别研究对象和核心推进，而不是先解码�
 
 第二个 title 没有预先宣称尚未证明的性能，却明确了论文改变的技术关系。`First`、`Scalable`、`Practical`、`Secure` 等词只有在正文能够给出相应范围与证据时才应进入标题。标题不应比结论更强。
 
-Title 还必须服从投稿 track 的正式命名要求。例如 OSDI 2027 要求 Operational Systems track 的标题以 `(Operational Systems)` 结尾；这属于 venue-specific 格式，不能推广为普通标题规则。[OSDI 2027 preliminary CFP](https://www.usenix.org/conference/osdi27/call-for-papers)
+Title 还必须服从投稿 track 的正式命名要求。例如所引用的 OSDI 2027 CFP 要求 Operational Systems track 的标题以 `(Operational Systems)` 结尾；这属于 venue-specific 格式，使用前须核对目标届次，不能推广为普通标题规则。[OSDI 2027 CFP](https://www.usenix.org/conference/osdi27/call-for-papers)
 
 ### Abstract
 
@@ -228,13 +226,13 @@ Introduction 必须在读者进入实现细节之前完成“为什么这篇论�
 
 这些步骤可以合并、重排或按论文类型替换，但因果依赖不能倒置。若读者尚不知道问题和约束，组件名称没有意义；若尚不知道主张，实验数字也没有解释对象。
 
-ASPLOS 2027 已确定只阅读前两页的 rapid review，并明确要求前两页自包含；OSDI 2027 也在考虑类似初筛但尚未确定。[ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/) [OSDI 2027 preliminary CFP](https://www.usenix.org/conference/osdi27/call-for-papers) 即使不为某个 venue 投稿，这也是有用的压力测试：读者只读 title、abstract、introduction 前半部分，能否准确说出 problem、delta、insight、system reality 和 evidence plan？
+正式的 rapid review 要求须从目标会议的官方 CFP 核实。[ASPLOS 2027 CFP](https://www.asplos-conference.org/asplos2027/cfp/) [OSDI 2027 CFP](https://www.usenix.org/conference/osdi27/call-for-papers) 即使没有这项要求，前两页仍是有用的压力测试：读者只读 title、abstract、introduction 前半部分，能否准确说出 problem、delta、insight、system reality 和 evidence plan？
 
 Contribution list 应列知识增量，而不是工作日志：新的 insight/abstraction、由此产生的系统或方法、以及验证该推进的证据。`We implemented 12K lines of code` 可以证明投入或现实性，却通常不是独立的 scientific contribution。
 
 ### Background 与 motivation
 
-只保留主论证依赖的背景。每个背景段应回答“读者必须知道什么，才能理解下一项限制或设计选择？”术语在首次承担推理作用前定义；不要先让读者记住一个尚无语义的名字，再承诺后文解释。历史 SOSP 写作总结明确批评无关背景、只描述解法却要求读者猜问题，以及在术语定义前大量前向引用。[Levin and Redell](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html)
+只保留主论证依赖的背景。每个背景段应回答“读者必须知道什么，才能理解下一项限制或设计选择？”术语在首次承担推理作用前定义；不要先让读者记住一个尚无语义的名字，再承诺后文解释。Levin 和 Redell 的写作总结明确批评无关背景、只描述解法却要求读者猜问题，以及在术语定义前大量前向引用。[Levin and Redell](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html)
 
 Motivation 不能用人为弱化的 baseline 制造 gap。应先给现象，再定位原因，最后把原因转化为 design requirement：
 

@@ -12,7 +12,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S2`; `S1` if a central claim depends on an unreadable/ambiguous figure.
 - **Exceptions / false positives:** Overview figures may communicate architecture/workflow rather than one numerical claim; they still need a coherent purpose.
 - **Repair direction:** Remove unrelated content, split panels, or clarify the question/takeaway without adding unsupported annotation.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [HEISER-STYLE].
 
 ## FL-02 — Visual encodings have explicit, stable semantics
 
@@ -22,7 +22,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` if it can reverse interpretation; `S2` recurring; `S3` cosmetic.
 - **Exceptions / false positives:** Ordinary spatial structure need not be overexplained when unambiguous; decorative styling should not mimic data encoding.
 - **Repair direction:** Define, remove, or standardize the encoding; use redundant shape/pattern/text for critical distinctions.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE].
 
 ## FL-03 — Graphs do not visually exaggerate or suppress results
 
@@ -32,7 +32,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S0` for materially misleading presentation; `S1` for ambiguous headline result.
 - **Exceptions / false positives:** Truncated axes, logs, and compact vertical dimensions can be appropriate when labeled and matched to the question.
 - **Repair direction:** Use an honest scale/representation, disclose transforms, and include absolute/reference values where needed. Never optimize the chart solely to display superiority.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES] as normalized. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES] as normalized.
 
 ## FL-04 — Uncertainty and missing data are visible
 
@@ -42,7 +42,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` if uncertainty can change conclusion; `S2` otherwise.
 - **Exceptions / false positives:** Deterministic/exact data need no error bars; state why when not obvious.
 - **Repair direction:** Display/define appropriate uncertainty and missing/failure cases; qualify conclusions.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## FL-05 — Baseline and “ours” styling does not replace labels or fairness
 
@@ -52,7 +52,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S2` if misleading/ambiguous; `S3`/`S4` style.
 - **Exceptions / false positives:** Emphasis is acceptable when all data remain equally legible.
 - **Repair direction:** Label clearly, standardize across figures, and keep emphasis subordinate to truthful values.
-- **Sources:** [USER-NOTES] as normalized, [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [HEISER-BENCH].
 
 ## FL-06 — Figures remain readable at final size and common viewing modes
 
@@ -62,7 +62,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` if central evidence cannot be read; `S2` recurring; `S3` detail; official accessibility violation per overlay.
 - **Exceptions / false positives:** Dense diagrams may justify smaller secondary labels if still readable and not decision-critical.
 - **Repair direction:** Simplify, enlarge, use redundant encodings, and select accessible colors.
-- **Sources:** [USER-NOTES], current publisher/venue accessibility instructions. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], current publisher/venue accessibility instructions.
 
 ## FL-07 — Layout expresses structure without collision or waste
 
@@ -72,7 +72,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S2` if comprehension suffers; `S3` presentation.
 - **Exceptions / false positives:** Diagonal/irregular layout is valid when it encodes topology, geometry, or sequence better than a grid.
 - **Repair direction:** Align/group by semantics, route arrows cleanly, and rebalance density.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE].
 
 ## FL-08 — Architecture/workflow figures match the technical text
 
@@ -82,7 +82,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S0` if mismatch invalidates central reasoning; `S1`/`S2` otherwise.
 - **Exceptions / false positives:** Diagrams intentionally abstract details; caption/text must state the abstraction where it matters.
 - **Repair direction:** Reconcile one system model and mark omitted/optional paths explicitly.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL].
 
 ## Tables
 
@@ -94,7 +94,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` for misleading central comparison; `S2` otherwise.
 - **Exceptions / false positives:** Repeated units may be in caption/header rather than every cell.
 - **Repair direction:** Add exact schema/conditions and use consistent precision/notation.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES].
 
 ## FL-10 — Highlighting corresponds to a declared rule
 
@@ -104,7 +104,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S0` for deceptive selection; `S1` for incorrect headline emphasis; `S3` style.
 - **Exceptions / false positives:** Highlighting a chosen configuration rather than a winner is valid if labeled.
 - **Repair direction:** State/apply one rule and account for ties/uncertainty.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL].
 
 ## FL-11 — Table resizing does not destroy readability
 
@@ -114,7 +114,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S2` if unreadable; `S3` presentation.
 - **Exceptions / false positives:** Modest proportional scaling can be acceptable within template legibility.
 - **Repair direction:** Reduce columns/precision, split/rotate where allowed, redesign headers, or use approved scaling.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## Captions and callouts
 
@@ -126,7 +126,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` if central evidence is ambiguous; `S2` otherwise.
 - **Exceptions / false positives:** Details can live in setup when caption supplies a precise pointer and remains interpretable.
 - **Repair direction:** Add only information required for correct interpretation and a bounded takeaway; move extended analysis to prose.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [HEISER-STYLE].
 
 ## FL-13 — Prose callout states what the object establishes
 
@@ -136,7 +136,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` if evidence-to-claim link is absent; `S2` otherwise.
 - **Exceptions / false positives:** A compact overview diagram may be explained across several nearby paragraphs.
 - **Repair direction:** State the observed result with number/condition and bounded implication.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [ERNST].
 
 ## FL-14 — Caption punctuation follows complete-sentence and template logic
 
@@ -168,7 +168,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` if evidence/argument is misdirected; `S2`/`S3` locally.
 - **Exceptions / false positives:** Macro packages differ; validate rendered result rather than enforcing one command.
 - **Repair direction:** Correct target/key/noun and use project convention consistently.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## FL-17 — Citation placement and spacing preserve meaning
 
@@ -178,7 +178,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S1` for misattribution/missing support; `S2` ambiguity; `S3` spacing.
 - **Exceptions / false positives:** A citation at a sentence boundary can support a well-defined preceding clause; repeated citations need not follow every mention.
 - **Repair direction:** Move/add precise citations and follow template spacing; verify source support separately.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## FL-18 — Custom macros preserve semantics and portability
 
@@ -188,7 +188,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S0` for leaked confidential/review notes or compile failure; `S1` for semantic inconsistency; `S2`/`S3` otherwise.
 - **Exceptions / false positives:** Macros for recurring system names/terms are useful; not every repeated term needs a macro.
 - **Repair direction:** Centralize genuinely repeated tokens, remove annotations, avoid fragile spacing, and preserve template commands.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## FL-19 — Quotes, code, identifiers, and emphasis use semantic markup
 
@@ -198,7 +198,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S2` if semantic distinction is lost; `S3` typography.
 - **Exceptions / false positives:** System names often use project macros and may not be monospaced; follow venue/project convention.
 - **Repair direction:** Use semantic commands/macros and consistent identifier spelling.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## FL-20 — Mathematical notation is typed and defined correctly
 
@@ -208,7 +208,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S0` for invalid central derivation; `S1` for ambiguous core notation; `S2`/`S3` local.
 - **Exceptions / false positives:** Standard notation need not be exhaustively defined if unambiguous to audience.
 - **Repair direction:** Define/reconcile notation, use math mode/semantic macros, and correct dimensional errors.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## FL-21 — Heading and spacing hacks obey the current template
 
@@ -228,7 +228,7 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 - **Severity:** `S2` when interpretation suffers; `S3`/`S4` layout; venue violation per overlay.
 - **Exceptions / false positives:** LaTeX may move floats for valid layout reasons; exact adjacency is not always possible.
 - **Repair direction:** Adjust callout/order/float options within template, redesign size/aspect, or add a precise reference.
-- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## FL-23 — Asset format preserves quality and submission compatibility
 

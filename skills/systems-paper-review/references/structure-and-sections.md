@@ -12,7 +12,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for a broken central chain; `S2` for costly ordering.
 - **Exceptions / false positives:** Measurement, experience, negative-result, theory, and dataset papers use different chains. Operational work may establish its problem with quantified field evidence; empirical work may center a finding rather than a new mechanism. Require the routed contract's functions, not one universal order.
 - **Repair direction:** Reorder around causal dependencies, add missing premise/inference, or narrow promises.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS].
 
 ## SS-01A — Broad and expert readers receive the same decision case
 
@@ -22,13 +22,13 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` when the two layers imply different central claims; `S2` when discoverability or verification is unnecessarily costly.
 - **Exceptions / false positives:** A broad account may omit detail, but it may not change technical meaning or hide a condition that controls the conclusion.
 - **Repair direction:** Align both layers to one bounded claim; expose the minimum premise needed early and place verification depth where experts can audit it.
-- **Sources:** [FIVE-VENUE-CORPUS] and current venue criteria. Checked 2026-09-03.
+- **Sources:** [FIVE-VENUE-CORPUS] and current venue criteria.
 
 ## SS-01B — The first two pages pass the correct stress test
 
 - **Nature:** Hard only when the live venue rules make it a review stage; otherwise diagnostic heuristic.
 - **Reviewer attack:** “A rapid reader cannot recover why the work matters, what advances, why it may work, what exists, or what evidence will decide the claim.”
-- **Check:** When the first two pages are in scope, test whether title, abstract, and opening introduction jointly expose the problem, closest-work delta, intellectual move, deliverable or study, credibility preview, and material boundary. As of 2026-09-03 this is a binding rapid-review interface for ASPLOS 2027. OSDI 2027 mentions a possible early-review stage only in a preliminary CFP; do not enforce it as a final rule. For other venues, report failure as a reader-risk diagnostic, not noncompliance.
+- **Check:** When the first two pages are in scope, test whether title, abstract, and opening introduction jointly expose the problem, closest-work delta, intellectual move, deliverable or study, credibility preview, and material boundary. Treat this as a binding rapid-review interface only when the live official CFP confirms it for the target venue, cycle, and stage. A possible procedure in a preliminary CFP is not a final rule. Otherwise, report failure as a reader-risk diagnostic, not noncompliance.
 - **Severity:** By live venue rule; otherwise `S1` only when the decision case is genuinely unrecoverable, not merely because an item appears after an arbitrary page boundary.
 - **Exceptions / false positives:** Do not expand a narrow excerpt review to unseen pages. Different archetypes may preview method credibility or findings rather than a new mechanism.
 - **Repair direction:** Move the missing decision premise or credibility signal before secondary background/detail while preserving the paper's archetype.
@@ -42,7 +42,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` when misunderstanding changes a central claim; `S3` locally.
 - **Exceptions / false positives:** A brief intuitive preview may precede a formal definition if clearly signposted.
 - **Repair direction:** Move or add a minimal local definition, defer the use, or add a precise pointer.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## SS-03 — Introduced concepts earn their cognitive cost
 
@@ -52,7 +52,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S3` for isolated excess.
 - **Exceptions / false positives:** A term can support precise discussion even if used only a few times; judge necessity.
 - **Repair direction:** Remove/inline it, combine terms, or use it consistently in later reasoning.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## SS-04 — Section promises match delivered content
 
@@ -62,7 +62,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for a central broken promise; `S2` otherwise.
 - **Exceptions / false positives:** A short transition need not recap every detail.
 - **Repair direction:** Supply promised content, change the promise/heading, or move unrelated content.
-- **Sources:** [SYSTEMS-GUIDE], [ERNST], [JENSEN-SYSTEMS-SKILL]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [ERNST], [JENSEN-SYSTEMS-SKILL].
 
 ## SS-05 — Cross-section references reduce retrieval cost
 
@@ -72,7 +72,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` when reasoning depends on retrieval; `S3` otherwise.
 - **Exceptions / false positives:** Recently introduced, memorable, or standard concepts need no repetitive pointer.
 - **Repair direction:** Add a short reminder plus precise section/figure reference; avoid sending readers backward for basic comprehension repeatedly.
-- **Sources:** [USER-NOTES] as normalized, [ERNST]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST].
 
 ## SS-06 — High-level exposition states the causal principle before realization detail
 
@@ -82,7 +82,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` if mechanism remains absent.
 - **Exceptions / false positives:** A low-level fact may appear early when it supplies the evidence that reveals the constraint, defines the target property, or makes a counterexample concrete. A design section must eventually supply operational detail. High-level is causal compression relative to the reader's current knowledge, not the removal of technical content.
 - **Repair direction:** Restore the shortest discriminating causal relation and its evidence pointer, then retain only detail that derives a decision, establishes a boundary, or proves feasibility.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [FIVE-VENUE-CORPUS].
 
 ## Paragraph and list rules
 
@@ -94,7 +94,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` if mixed logic hides a contradiction; `S3` locally.
 - **Exceptions / false positives:** A short bridge paragraph may connect two ideas; mathematical derivations, enumerations, and tightly connected continuations need not follow a rigid topic-sentence/summary-sentence form. Judge the reasoning obligation, not a template.
 - **Repair direction:** Split by obligation, reorder support, revise the opening promise, or make the closing implication/boundary explicit without appending a redundant summary.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [FIVE-VENUE-CORPUS].
 
 ## SS-08 — Sentence order follows information and causal dependencies
 
@@ -104,7 +104,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S3` for one rough transition.
 - **Exceptions / false positives:** Repetition of an exact word is not required; conceptual continuity is.
 - **Repair direction:** Reorder, add the missing relation, use an explicit transition only when the logic is not already obvious.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## SS-09 — Topic sentences are informative, not overloaded
 
@@ -114,7 +114,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` for recurring issue; `S3` locally.
 - **Exceptions / false positives:** Not every paragraph must use a rigid topic-sentence-first form, especially mathematical derivations or tightly connected continuations.
 - **Repair direction:** Lead with the claim or relation, then supply mechanism/evidence/qualification.
-- **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS].
 
 ## SS-09A — Paragraph endings resolve or deliberately transfer the local obligation
 
@@ -124,7 +124,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` when a missing close breaks an important inference; `S3` locally.
 - **Exceptions / false positives:** The last sentence need not restate the topic sentence, and the logical close may be a result, caveat, or transition rather than a summary. Short bridge paragraphs, formal derivations, and lists may close implicitly when the implication is unambiguous.
 - **Repair direction:** End on the supported takeaway, boundary, or next necessary question; move trailing secondary detail earlier or delete it. Do not add a formulaic `In summary` sentence.
-- **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS].
 
 ## SS-10 — Paragraph length follows reasoning, not rendered line count
 
@@ -134,7 +134,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2` when logic is obscured; `S3` or `S4` for layout only.
 - **Exceptions / false positives:** Necessary proof/algorithm exposition can be longer; short transition paragraphs can be valid.
 - **Repair direction:** Split where the reader's question or evidence role changes; merge fragments that jointly discharge one obligation; restore the missing logical bridge before shortening.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## SS-11 — Lists are parallel and introduced by a governing claim
 
@@ -144,7 +144,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S3` for surface parallelism.
 - **Exceptions / false positives:** Short label/value lists need no full topic sentence in every item.
 - **Repair direction:** Choose one organizing dimension, rewrite lead-in, merge/split items, and align syntax.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## Section contracts
 
@@ -156,7 +156,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` for material misrepresentation; venue violations follow `VO` severity.
 - **Exceptions / false positives:** Memorable system names are acceptable when paired with an informative subtitle/title phrase.
 - **Repair direction:** Name the distinctive systems idea/problem and bound scope.
-- **Sources:** [ERNST], [LEVIN-REDELL], current venue rules. Checked 2026-09-01.
+- **Sources:** [ERNST], [LEVIN-REDELL], current venue rules.
 
 ## SS-13 — Abstract is a faithful, principle-level miniature argument
 
@@ -166,7 +166,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for missing/misleading central case; `S2` for imbalance.
 - **Exceptions / false positives:** Do not enforce a fixed sentence count, problem-first grammar, contribution list, or `insight` wording. A system may be named first if the problem/tension becomes immediately recoverable. Adapt to contribution type and venue.
 - **Repair direction:** Replace background/detail with the missing contribution element and calibrate results.
-- **Sources:** [SYSTEMS-GUIDE], [ERNST], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [SYSTEMS-GUIDE], [ERNST], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS].
 
 ## SS-14 — Introduction establishes the complete decision case
 
@@ -176,7 +176,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S2` for local flow.
 - **Exceptions / false positives:** Order and paragraph count are flexible. Contribution bullets and an explicit challenge list are optional. Some paper types need no root cause, new mechanism, or standalone evaluation preview.
 - **Repair direction:** Restore the shortest causal chain and eliminate details that interrupt it.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS].
 
 ## SS-15 — Background teaches only prerequisites
 
@@ -186,7 +186,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S2`; `S1` if contribution ownership becomes ambiguous.
 - **Exceptions / false positives:** An interdisciplinary audience may need more background; explain it at the level used later.
 - **Repair direction:** Remove unused exposition, move comparisons to motivation/related work, and mark original content.
-- **Sources:** [SYSTEMS-GUIDE], [ERNST], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [ERNST], [LEVIN-REDELL].
 
 ## SS-16 — Motivation makes prior limitations causal and fair
 
@@ -196,7 +196,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S0` for materially false positioning.
 - **Exceptions / false positives:** Empirical motivation can be a measurement study; causal language still needs evidence.
 - **Repair direction:** Use accurate categories, precise limitations, and bounded claims; remove strawmen.
-- **Sources:** [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP].
 
 ## SS-17 — Overview defines model and workflow without replacing design
 
@@ -206,7 +206,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` when model/workflow is unrecoverable; `S2` for abstraction imbalance.
 - **Exceptions / false positives:** A separate overview is optional if introduction/design already provide these functions clearly.
 - **Repair direction:** Add a compact model/workflow and map later sections; remove premature detail.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE].
 
 ## SS-18 — Design explains why and how, not just what
 
@@ -216,7 +216,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S0` for a fatal hidden gap.
 - **Exceptions / false positives:** Standard mechanisms may be cited rather than rederived; adaptations must be explained.
 - **Repair direction:** Add causal/operational detail and rationale, use pseudocode/figure when clearer, remove repetitive overview prose.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL].
 
 ## SS-19 — Implementation separates realization from intellectual design
 
@@ -226,7 +226,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for maturity mismatch; `S2` for unclear detail.
 - **Exceptions / false positives:** Some venues/papers integrate implementation into design.
 - **Repair direction:** State implementation boundary and decision-relevant realization details; remove vanity counts.
-- **Sources:** [LEVIN-REDELL], [USER-NOTES], [NSDI-ARTIFACT]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [USER-NOTES], [NSDI-ARTIFACT].
 
 ## SS-20 — Evaluation evidence answers recoverable questions
 
@@ -236,7 +236,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` when claim coverage is missing; `S2` for organization.
 - **Exceptions / false positives:** Questions need not be enumerated mechanically. Operational and measurement papers may interleave method, observation, intervention, and validation when each inference remains auditable.
 - **Repair direction:** Organize by claim/question, state answer with uncertainty, and connect cause only when supported.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [SIGPLAN-EMPIRICAL], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [SIGPLAN-EMPIRICAL], [FIVE-VENUE-CORPUS].
 
 ## SS-21 — Related work distinguishes rather than enumerates
 
@@ -244,9 +244,9 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Reviewer attack:** “The section is a bibliography dump or hides the closest comparison among broad categories.”
 - **Check:** Group by decision-relevant dimensions, cite accurate representative and closest work, state fair similarities/differences, and connect to contribution without repeating motivation.
 - **Severity:** `S1` for missing/false closest-work positioning; `S2` for organization.
-- **Exceptions / false positives:** Historical or survey contributions may need chronology; use it only when chronology advances the argument.
+- **Exceptions / false positives:** Studies of system evolution and surveys may need chronology; use it only when chronology advances the argument.
 - **Repair direction:** Reorganize by mechanism/assumption/capability and add precise comparison.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [ERNST]. Checked 2026-09-01.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [ERNST].
 
 ## SS-22 — Discussion and limitations interpret boundaries honestly
 
@@ -256,7 +256,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1`; `S0` if hidden limitation negates central claim.
 - **Exceptions / false positives:** Limitations may appear throughout rather than in a dedicated section.
 - **Repair direction:** State material boundaries and consequences; separate mitigation already implemented from future work.
-- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL].
 
 ## SS-23 — Conclusion closes the established argument without adding claims
 
@@ -266,7 +266,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S1` for new/overbroad central claim; `S2` for weak synthesis.
 - **Exceptions / false positives:** A concise implication can be inferential if clearly labeled and grounded.
 - **Repair direction:** Remove/narrow new claims and synthesize supported lessons and conditions.
-- **Sources:** [ERNST], [LEVIN-REDELL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [ERNST], [LEVIN-REDELL], [OSDI-CFP].
 
 ## SS-24 — Appendix and supplement are not required to rescue the main argument
 

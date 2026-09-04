@@ -1,0 +1,8 @@
+# Third-party benchmark texts and all derived model/judge outputs stay local.
+/benchmarks/external/cache/
+/benchmarks/external/work/
+/benchmarks/external/runs/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store

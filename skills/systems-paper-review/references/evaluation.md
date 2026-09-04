@@ -10,7 +10,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` for a central unsupported conclusion; `S1` for partial coverage; `S2` for secondary claims.
 - **Exceptions / false positives:** Some premises may be established by cited primary evidence; verify that the cited source actually supports the same conditions.
 - **Repair direction:** Add an appropriate test using real evidence, replace with a supported claim, or remove it. Do not add invented results.
-- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## EV-02 — Evidence is selected by recoverable scientific questions
 
@@ -20,7 +20,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` when experiment design cannot establish claims; otherwise `S2`.
 - **Exceptions / false positives:** Do not require an enumerated RQ list or one evaluation section. Exploratory, measurement, and operational studies may pose descriptive questions and interleave method, observation, and intervention, but must still make each inference auditable.
 - **Repair direction:** Organize experiments around questions and remove or demote non-evidentiary plots.
-- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [HEISER-BENCH].
 
 ## EV-03 — The study design matches the inference
 
@@ -30,7 +30,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` for a central invalid inference; otherwise `S1`.
 - **Exceptions / false positives:** Controlled systems experiments may establish causal effects without population random sampling, but generalization remains bounded to tested conditions.
 - **Repair direction:** Change design, add controls, triangulate evidence, or narrow conclusion type.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-04 — Baselines answer the real comparison
 
@@ -40,7 +40,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1`; `S0` if omission makes the headline advantage knowingly misleading.
 - **Exceptions / false positives:** An unavailable/proprietary baseline can be excluded with evidence, limitations, and a defensible substitute; do not demand every cited work.
 - **Repair direction:** Add/configure the missing comparator, justify exclusion, or narrow comparative claims.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [OSDI-CFP].
 
 ## EV-05 — Baseline configurations are fair and reproducible
 
@@ -50,7 +50,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` for material manipulation; otherwise `S1`.
 - **Exceptions / false positives:** Default settings may represent real practice if justified and sensitivity is checked where defaults matter.
 - **Repair direction:** Equalize resources/effort/objective, disclose settings, add sensitivity, or qualify the comparison.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL].
 
 ## EV-06 — Workloads represent the claim domain
 
@@ -60,7 +60,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1`; `S0` if the selected workload contradicts the advertised use case.
 - **Exceptions / false positives:** A microbenchmark is valid for isolating a mechanism when clearly labeled and paired with evidence adequate for end-to-end claims.
 - **Repair direction:** Add representative/diverse cases, justify scope, or narrow generalization.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## EV-07 — Calibration, training, tuning, and evaluation data are separated
 
@@ -70,7 +70,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` for central leaked results; otherwise `S1`.
 - **Exceptions / false positives:** Online/adaptive systems may learn from deployment traffic, but evaluation must model that lifecycle and use future/held-out outcomes appropriately.
 - **Repair direction:** Create disjoint evaluation, nested selection, temporal split, or explicitly characterize in-sample behavior.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-08 — Metrics correspond to user/system objectives
 
@@ -80,7 +80,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1`; `S0` if the headline conclusion uses an invalid metric.
 - **Exceptions / false positives:** Proxy metrics are acceptable when validated or clearly framed as proxies.
 - **Repair direction:** Report direct outcomes or validate the proxy; add complementary metrics and bounds.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [ERNST]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [ERNST].
 
 ## EV-09 — Numerators, denominators, aggregation, and units are explicit
 
@@ -90,7 +90,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` for headline ambiguity/error; `S2`/`S3` locally.
 - **Exceptions / false positives:** Space-constrained captions may defer details to setup, but the paper must provide them somewhere in scope for a full review.
 - **Repair direction:** Define population/formula/unit, show absolute values alongside ratios when useful, and correct arithmetic.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES].
 
 ## EV-10 — The measured boundary includes all material costs
 
@@ -100,7 +100,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` if intentionally/m materially misleading; otherwise `S1`.
 - **Exceptions / false positives:** Component measurements can isolate a mechanism if labeled and not promoted to total-system claims.
 - **Repair direction:** Report end-to-end and component costs; justify amortization and deployment frequency; narrow claims.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL].
 
 ## EV-11 — Measurement procedure controls transient and environmental effects
 
@@ -110,7 +110,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` when uncontrolled effects are comparable to claimed gain; otherwise `S2`.
 - **Exceptions / false positives:** Controls depend on system; do not demand CPU pinning for experiments where it is irrelevant.
 - **Repair direction:** Control, randomize, pair, monitor, or explicitly model the factor; repeat under representative conditions.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL].
 
 ## EV-12 — Replication and variability are reported
 
@@ -120,7 +120,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` when uncertainty could reverse a central conclusion; `S2` otherwise.
 - **Exceptions / false positives:** A deterministic exhaustive proof/check or uniquely expensive full deployment may justify alternatives, but must explain uncertainty and limitations.
 - **Repair direction:** Repeat independent units, report distribution/intervals, expose seeds, or weaken stability claims.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-13 — Statistical analysis fits the design and question
 
@@ -130,7 +130,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` for an invalid central inference; `S2` for incomplete reporting.
 - **Exceptions / false positives:** Statistical significance testing is not mandatory for every deterministic or controlled systems benchmark. Require the uncertainty treatment needed by the actual noise and claim.
 - **Repair direction:** Use an appropriate model/test/interval, report effect size, or make descriptive conclusions.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-14 — End-to-end evidence and microanalysis play distinct roles
 
@@ -140,7 +140,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` if the missing level leaves the central claim unsupported; otherwise `S2`.
 - **Exceptions / false positives:** A component paper or measurement study may legitimately focus on one level.
 - **Repair direction:** Add the missing evidence level, connect it causally, or narrow contribution.
-- **Sources:** [SYSTEMS-GUIDE], [HEISER-BENCH], [LEVIN-REDELL]. Checked 2026-09-01.
+- **Sources:** [SYSTEMS-GUIDE], [HEISER-BENCH], [LEVIN-REDELL].
 
 ## EV-15 — Ablation is used when component necessity is claimed
 
@@ -150,7 +150,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` for unsupported central attribution; `S2` otherwise.
 - **Exceptions / false positives:** Ablation may be infeasible or nonsensical for inseparable invariants, safety mechanisms, or one-piece algorithms; analytical or targeted evidence can substitute.
 - **Repair direction:** Add a valid isolation study, explain inseparability with other evidence, or stop assigning the effect to one component.
-- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL].
 
 ## EV-16 — Sensitivity, scalability, and operating envelope are tested
 
@@ -160,7 +160,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` for unsupported broad claims; `S2` for incomplete characterization.
 - **Exceptions / false positives:** Do not demand sweeping knobs unrelated to the mechanism or intended deployment.
 - **Repair direction:** Test decision-relevant range and boundary; report safe/efficient operating envelope; narrow claims.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [OSDI-CFP].
 
 ## EV-17 — Negative, null, and failure results are not hidden
 
@@ -170,7 +170,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` for deceptive selective reporting; `S1` for major unresolved selection risk.
 - **Exceptions / false positives:** Space limits justify summarized complete results or supplements, not silent outcome-based omission.
 - **Repair direction:** Report all prespecified/relevant outcomes and exclusions; analyze failures; qualify the claim.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-18 — Graphical presentation preserves quantitative truth
 
@@ -180,7 +180,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S0` for materially misleading presentation; `S1` for ambiguous headline plot; `S2` for correct but difficult display.
 - **Exceptions / false positives:** Nonzero axes, log scales, normalized values, and compressed aspect ratios are valid when clearly labeled and suited to the question.
 - **Repair direction:** Choose the representation that answers the research question honestly; disclose transformations; include absolute values or alternate view where needed.
-- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES] as normalized. Checked 2026-09-01.
+- **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES] as normalized.
 
 ## EV-19 — Result interpretation separates observation, cause, and speculation
 
@@ -190,7 +190,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` for a central unsupported explanation; `S2` locally.
 - **Exceptions / false positives:** A plausible explanation is useful when explicitly marked as hypothesis and not used as proof.
 - **Repair direction:** Add diagnostic/ablation evidence, state uncertainty, or remove causal language.
-- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [ERNST]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [ERNST].
 
 ## EV-20 — Practical significance accompanies relative gains
 
@@ -200,7 +200,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` if headline impact is materially overstated; `S2` otherwise.
 - **Exceptions / false positives:** Small absolute changes can matter near hard thresholds; explain the threshold.
 - **Repair direction:** Add absolute scale/context and tradeoff; calibrate adjectives and precision.
-- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES].
 
 ## EV-21 — Reproducibility information is sufficient to audit results
 
@@ -210,7 +210,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1` when opacity prevents confidence in central measurements; `S2` for missing secondary detail; `S0` for verified submission-rule breach.
 - **Exceptions / false positives:** Security, privacy, licensing, or infrastructure limits may restrict release, but methodology and alternative access/validation should be as complete as possible.
 - **Repair direction:** Add precise environment/procedure and archive inputs/outputs; follow current artifact rules.
-- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+- **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL].
 
 ## EV-22 — Evaluation limitations bound the conclusion
 
@@ -220,7 +220,7 @@ Evaluation is an argument from observations to claims. Judge whether the design 
 - **Severity:** `S1`; `S0` if conclusion directly contradicts scope.
 - **Exceptions / false positives:** A limitations section need not enumerate implausible threats; it must surface decision-relevant ones.
 - **Repair direction:** State boundary, justify representativeness, triangulate, or narrow conclusion.
-- **Sources:** [SIGPLAN-EMPIRICAL], [OSDI-CFP]. Checked 2026-09-01.
+- **Sources:** [SIGPLAN-EMPIRICAL], [OSDI-CFP].
 
 ## Claim-to-evidence matrix
 
