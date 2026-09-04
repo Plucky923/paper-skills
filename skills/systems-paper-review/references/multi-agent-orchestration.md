@@ -65,7 +65,7 @@ For file scopes, provide explicit paths. For a named range, provide anchors or l
 
 Every role receives:
 
-- `review-protocol.md`;
+- [review-protocol.md](review-protocol.md);
 - this frozen packet;
 - only its role-specific references;
 - the same finding schema and evidence/status/severity definitions.
@@ -119,10 +119,10 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
-- `paper-archetypes.md`
-- `thesis-and-story.md`
-- `research-contribution.md`
-- `venue-overlays.md` when a venue/cycle is named
+- [paper-archetypes.md](paper-archetypes.md)
+- [thesis-and-story.md](thesis-and-story.md)
+- [research-contribution.md](research-contribution.md)
+- [venue-overlays.md](venue-overlays.md) when a venue/cycle is named
 - section contracts `SS-12`–`SS-16`, `SS-21`–`SS-24` when those sections are in scope
 
 **Inspect:** primary archetype, controlling thesis, supporting-claim hierarchy, problem reality/significance, intellectual move, contribution type, closest-work delta, nontriviality, co-design, lessons, limitations, audience/venue fit, introduction promises, reader-memory result, and conclusion alignment.
@@ -135,9 +135,9 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
-- `design-derivation.md`
-- `technical-soundness.md`
-- relevant `research-contribution.md` rules only when assumptions or implementation maturity alter the contribution
+- [design-derivation.md](design-derivation.md)
+- [technical-soundness.md](technical-soundness.md)
+- relevant [research-contribution.md](research-contribution.md) rules only when assumptions or implementation maturity alter the contribution
 - relevant externally verified primary technical sources when permitted
 
 **Inspect:** constraint-to-requirement-to-mechanism derivation, actors, boundaries, assumptions, threat/fault/workload model, mechanisms, invariants, lifecycle, concurrency, failure/recovery, edge cases, design choices, alternatives, cost boundaries, scale, security/privacy, implementation status, and internal technical consistency.
@@ -150,10 +150,10 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
-- relevant `thesis-and-story.md` headline-evidence rules
-- `examples-figures-results.md` when headline results or motivating measurements are in scope
-- `evaluation.md`
-- `artifacts-reproducibility.md` only when artifacts are explicitly in scope
+- relevant [thesis-and-story.md](thesis-and-story.md) headline-evidence rules
+- [examples-figures-results.md](examples-figures-results.md) when headline results or motivating measurements are in scope
+- [evaluation.md](evaluation.md)
+- [artifacts-reproducibility.md](artifacts-reproducibility.md) only when artifacts are explicitly in scope
 - quantitative-integrity rules `FL-03`–`FL-05`, `FL-09`–`FL-10`
 
 **Inspect:** thesis-to-decisive-evidence alignment, headline-result hierarchy, claim-evidence mapping, recoverable questions, baselines/configurations, workloads/data separation, metrics, measured boundary, procedure, repetition/uncertainty/statistics, end-to-end and mechanism evidence, sensitivity, negative results, graphical truth, interpretation, reproducibility, and artifact consistency.
@@ -166,11 +166,11 @@ Assign each applicable role to one distinct subagent. Do not create one subagent
 
 **Load:**
 
-- relevant `thesis-and-story.md` reader-memory and attention rules
-- `examples-figures-results.md` when examples, early figures, or headline results are in scope
-- `structure-and-sections.md`
-- `prose-and-terminology.md`
-- `figures-tables-latex.md`, excluding quantitative-validity judgments already owned by R3
+- relevant [thesis-and-story.md](thesis-and-story.md) reader-memory and attention rules
+- [examples-figures-results.md](examples-figures-results.md) when examples, early figures, or headline results are in scope
+- [structure-and-sections.md](structure-and-sections.md)
+- [prose-and-terminology.md](prose-and-terminology.md)
+- [figures-tables-latex.md](figures-tables-latex.md), excluding quantitative-validity judgments already owned by R3
 
 **Inspect:** reader-memory result, global and local flow, dependency order, section/paragraph promises, examples and counterexamples, argumentative work of early figures, terminology, definitions, referents, claim language, grammar in the source language, figure/table readability, captions/callouts, citations/references, math notation, LaTeX correctness, and rendered layout when in scope.
 
@@ -218,7 +218,7 @@ Each role prompt must state:
 - prohibition on compiling, rendering, tests, scripts, or any command that may write or affect external state;
 - requirement to inspect every applicable assigned rule;
 - requirement to distinguish confirmed defects, unresolved risks, and preferences;
-- the finding schema from `review-protocol.md`;
+- the finding schema from [review-protocol.md](review-protocol.md);
 - a role coverage summary and not-assessable rules;
 - no final paper-wide verdict;
 - no descendant delegation unless authorized;

@@ -1,0 +1,55 @@
+{
+  "id": "chinese-translation",
+  "title": "Translate Chinese technical logic rather than surface order",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "把下面中文改写成准确、简洁的英文系统论文表述。先修复中文里省略的主语和过强因果，不要逐词翻译：\n\n通过将验证移到加载阶段，从而消除了运行时开销，并保证代码安全。实验在三个应用上观察到调用延迟降低 12–18%。",
+  "scope": {
+    "authorized": ["the Chinese passage", "the supplied design and evaluation facts"],
+    "excluded": ["other security properties", "other applications", "formal proof", "implementation source"],
+    "output_language": "English"
+  },
+  "evidence": {
+    "design_facts": [
+      "The loader validates code pages before execution and makes those pages immutable afterward.",
+      "Steady-state calls skip repeated code-page validation.",
+      "Dynamically loaded plugins are excluded."
+    ],
+    "evaluation_facts": [
+      "Across three evaluated applications, call latency was 12-18% lower than with per-call validation."
+    ],
+    "unsupported": ["zero total runtime overhead", "general code safety", "formal guarantee"]
+  },
+  "protected_tokens": ["loader", "code pages", "immutable", "dynamically loaded plugins", "three", "12–18%", "per-call validation"],
+  "forbidden_actions": [
+    "use passive wording that hides the loader or steady-state calls",
+    "claim all runtime overhead is eliminated",
+    "claim general code safety or a formal guarantee",
+    "drop the dynamic-plugin exclusion"
+  ],
+  "hard_gates": [
+    "The English text identifies the actors and separate mechanism, property, and measurement claims.",
+    "The 12-18% result retains its baseline and three-application scope.",
+    "The dynamic-plugin boundary remains visible."
+  ],
+  "expected_behavior": [
+    "Translate the logical relations, not the Chinese word order.",
+    "Explain that immutability makes load-time validation reusable for steady-state calls.",
+    "Calibrate security language to the supplied page-integrity property.",
+    "Report the evaluation separately from the mechanism prediction."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns natural manuscript-ready English prose.", "points": 1},
+    {"id": "R2", "criterion": "Makes the loader the actor for validation.", "points": 1},
+    {"id": "R3", "criterion": "States that code pages become immutable after validation.", "points": 1},
+    {"id": "R4", "criterion": "Explains that steady-state calls skip repeated validation.", "points": 1},
+    {"id": "R5", "criterion": "Does not claim zero total runtime overhead.", "points": 1},
+    {"id": "R6", "criterion": "Does not claim a general or formal code-safety guarantee.", "points": 1},
+    {"id": "R7", "criterion": "Retains the dynamically loaded plugin exclusion.", "points": 1},
+    {"id": "R8", "criterion": "Preserves the three-application evaluation scope.", "points": 1},
+    {"id": "R9", "criterion": "Preserves 12–18% exactly.", "points": 1},
+    {"id": "R10", "criterion": "Preserves per-call validation as the comparison baseline.", "points": 1},
+    {"id": "R11", "criterion": "Separates design causality from empirical observation.", "points": 1},
+    {"id": "R12", "criterion": "Avoids empty adverbs and mechanical By ... is improved syntax.", "points": 1}
+  ]
+}

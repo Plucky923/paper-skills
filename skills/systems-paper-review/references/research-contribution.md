@@ -1,6 +1,6 @@
 # Research Contribution and Positioning
 
-Apply these rules to the contribution case: problem, importance, central insight, novelty, lessons, limitations, and venue relevance. For a narrow excerpt, assess only locally visible claims and mark dependencies on unseen sections as `needs context`.
+Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) and [positive contracts](../../systems-paper-revise/references/paper-archetypes.md) first. Apply this audit layer to the contribution case: problem, importance, central insight, novelty, lessons, limitations, and venue relevance. For a narrow excerpt, assess only locally visible claims and mark dependencies on unseen sections as `needs context`.
 
 ## RC-01 — The problem is concrete and real
 
@@ -30,7 +30,7 @@ Apply these rules to the contribution case: problem, importance, central insight
 - **Severity:** `S1` if the contribution appears to be an unprincipled bundle; `S2` if the idea exists but is hard to recover.
 - **Exceptions / false positives:** Some papers contribute a measurement result, experience report, negative result, or dataset rather than a new algorithm; the central intellectual contribution must still be explicit.
 - **Repair direction:** State the unifying principle before its realization, connect each major component to it, and remove or demote unrelated optimizations.
-- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
+- **Sources:** [LEVIN-REDELL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## RC-04 — Contribution type and deliverable are explicit
 

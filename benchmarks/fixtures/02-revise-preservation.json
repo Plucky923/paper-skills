@@ -1,0 +1,49 @@
+{
+  "id": "revise-preservation",
+  "title": "Preserve quantitative and epistemic boundaries",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "请把下面一段改得更简洁、更准确，保持英文，不要增加事实：\n\nUnder crash-stop failures, \\sys{} recovered 97.3\\% of interrupted requests in our 128-node experiment (Fig.~\\ref{fig:recovery}) \\cite{lee2026}. We plan to evaluate Byzantine faults in future work.",
+  "scope": {
+    "authorized": ["the pasted paragraph"],
+    "excluded": ["the cited paper", "the figure", "LaTeX preamble", "neighboring manuscript text", "new experiments"],
+    "output_language": "English"
+  },
+  "evidence": {
+    "established": ["97.3 percent of interrupted requests recovered in one 128-node experiment under crash-stop failures"],
+    "planned": ["evaluation under Byzantine faults"],
+    "unknown": ["other cluster sizes", "other failure models", "causal explanation"]
+  },
+  "protected_tokens": ["\\sys{}", "97.3\\%", "128-node", "Fig.~\\ref{fig:recovery}", "\\cite{lee2026}", "crash-stop", "Byzantine"],
+  "forbidden_actions": [
+    "open the citation or figure",
+    "change a protected LaTeX token",
+    "turn future work into completed work",
+    "generalize beyond the evaluated condition"
+  ],
+  "hard_gates": [
+    "Every protected token remains exact.",
+    "The Byzantine evaluation remains explicitly planned rather than completed.",
+    "The result remains bounded to crash-stop failures and the 128-node experiment."
+  ],
+  "expected_behavior": [
+    "Lead with manuscript-ready English prose.",
+    "Preserve the measured value, denominator object, scale, failure model, figure, and citation.",
+    "Keep future work epistemically separate from observed results.",
+    "Do not narrate an editing workflow."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns revised English prose before commentary.", "points": 1},
+    {"id": "R2", "criterion": "Preserves \\sys{} exactly.", "points": 1},
+    {"id": "R3", "criterion": "Preserves 97.3\\% exactly.", "points": 1},
+    {"id": "R4", "criterion": "Preserves the 128-node experimental boundary.", "points": 1},
+    {"id": "R5", "criterion": "Preserves the crash-stop condition.", "points": 1},
+    {"id": "R6", "criterion": "Preserves Fig.~\\ref{fig:recovery} exactly.", "points": 1},
+    {"id": "R7", "criterion": "Preserves \\cite{lee2026} exactly and in a valid support position.", "points": 1},
+    {"id": "R8", "criterion": "Keeps Byzantine evaluation as future work.", "points": 1},
+    {"id": "R9", "criterion": "Does not add a cause for recovery success.", "points": 1},
+    {"id": "R10", "criterion": "Does not broaden the result to all requests, systems, or scales.", "points": 1},
+    {"id": "R11", "criterion": "Improves economy without dropping a scientific condition.", "points": 1},
+    {"id": "R12", "criterion": "Limits any post-prose note to a material blocker or consequential validation.", "points": 1}
+  ]
+}

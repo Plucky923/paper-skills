@@ -122,10 +122,10 @@ Inspect source and rendered output when both are explicitly in scope. Source cor
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “I cannot interpret the figure/table without searching for dataset, metric, condition, abbreviations, or panel meaning.”
-- **Check:** Verify object purpose, what is compared, essential setup/normalization, encodings, panel labels, uncertainty, and takeaway where appropriate. Avoid duplicating a full paragraph.
+- **Check:** Verify object purpose, what is compared, essential setup/normalization, encodings, panel labels, uncertainty, takeaway, and any boundary needed to prevent an overbroad reading. Avoid duplicating a full paragraph.
 - **Severity:** `S1` if central evidence is ambiguous; `S2` otherwise.
 - **Exceptions / false positives:** Details can live in setup when caption supplies a precise pointer and remains interpretable.
-- **Repair direction:** Add only information required for correct interpretation; move extended analysis to prose.
+- **Repair direction:** Add only information required for correct interpretation and a bounded takeaway; move extended analysis to prose.
 - **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [HEISER-STYLE]. Checked 2026-09-01.
 
 ## FL-13 — Prose callout states what the object establishes

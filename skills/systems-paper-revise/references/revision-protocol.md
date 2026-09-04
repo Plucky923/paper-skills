@@ -1,86 +1,102 @@
-# Direct Revision Protocol
+# Direct Composition and Revision Protocol
 
-Use one evidence-safe path for both existing prose and explicitly requested missing prose. Diagnose the scientific or rhetorical obligation first; write only after the intended claim and its support are clear.
+Use this protocol for the ordinary writer-first path. It shares one evidence and output contract while routing composition and revision through different starting states.
 
 ## 1. Freeze scope and authority
 
 Record internally:
 
 ```text
-Editable object and explicit exclusions:
-User's intended claim or outcome:
+Editable text or file objects:
+Explicit exclusions and unavailable context:
+Compose or revise:
+Requested unit and reader obligation:
 Source and output language:
+Author's intended claim or outcome:
 Permitted restructuring depth:
 Authoritative evidence:
-Technical tokens and argument assets to preserve:
-Missing context, evidence, source, or author decision:
+Protected technical content:
+Missing evidence, context, source, or author choice:
 ```
 
 Interpret scope narrowly:
 
 | Input | Authorized action |
 |---|---|
-| Pasted passage | Return only its revised version |
-| Notes/evidence plus a requested passage | Draft only that passage from the supplied material |
-| Named paragraph, section, file, or file set | Edit only those objects |
-| Named `main.tex` | Do not assume included files, figures, bibliography, or build configuration are in scope |
-| Explicit whole LaTeX project | Freeze the authorized manuscript dependency set; exclude unrelated repository files |
-| PDF without editable source | Propose changes or blockers; do not pretend to edit the PDF source |
+| Pasted prose | Revise only that prose and return it in chat. |
+| Notes or evidence plus a requested passage | Compose only that passage from the supplied material. |
+| Named paragraph, section, file, or file set | Edit only those objects. |
+| Named `main.tex` | Treat included files, bibliography, figures, and build configuration as unavailable unless separately named. |
+| Explicit whole LaTeX project | Freeze the manuscript dependency set needed for that paper; unrelated repository files remain outside scope. |
+| PDF without editable source | Return proposed prose or blockers; the PDF itself remains unchanged. |
 
-Do not open out-of-scope material to repair an antecedent, definition, citation, figure, experiment, or fact. Make a safe local qualification or state exactly what context is needed.
+When an antecedent, definition, citation, figure, experiment, or fact lies outside scope, either write a locally safe formulation or name the exact missing context. Accessibility is not authorization.
 
-Evidence authority is, in order: explicit author correction or decision; in-scope manuscript/artifact evidence; permitted primary-source verification; clearly labeled inference. Reviewer feedback proves that an objection exists, not that its factual suggestion is correct.
+Rank evidence as follows: an explicit author correction or decision; in-scope manuscript or artifact evidence; a permitted and verified primary source; a clearly marked inference from established premises. Reviewer feedback establishes that an objection exists, not that its factual suggestion is correct.
 
-Classify every proposition as established, inferred, planned, or blocked. Never invent numbers or citations, assume implementation behavior, describe future experiments in the past tense, or use fluency as evidence.
+Treat review and venue-audit output as editorial metadata unless authorized evidence independently establishes the proposition. Do not import severity labels, evidence-state labels, venue taxonomy, pillar mappings, reviewer hypotheses, or repair directions into manuscript prose merely because they appear in an upstream review. A claim marked missing, blocked, unsupported, or unresolved must not reappear as a positive fit, novelty, causality, or compliance statement during revision.
 
-## 2. Recover the one writing obligation
+Keep established, inferred, planned, and blocked propositions distinct. Fluency does not promote a plan, hypothesis, placeholder, or plausible mechanism into completed work.
 
-For existing prose, reduce symptoms to the earliest broken dependency: unsupported claim, missing premise, imprecise abstraction, misplaced evidence, unstable paragraph center, ambiguous sentence, or surface error. For missing prose, identify the local promise, supported answer, required premises/evidence, and final implication or handoff.
+## 2. Route the writing mode
 
-Do not build a paper-wide story model for a local passage. At larger scope, recover only the contribution contract, controlling thesis, and claim dependencies that govern the requested material.
+### Compose from evidence or notes
 
-For a nontrivial revision, preserve a compact internal map of the strongest existing assets: precise problem statement, counterexample, principle sentence, running example, decisive result, honest boundary, stable terminology, and distinctive voice. Preserve an asset because it performs a reasoning job, not merely because it sounds polished.
+Use this branch when the requested prose does not yet exist.
 
-## 3. Choose the repair scale
+1. Identify the section or paragraph contract in [writing-core.md](writing-core.md). When contribution type controls the contract, route through [paper-archetypes.md](paper-archetypes.md).
+2. Extract the strongest supported answer, the premises required to understand it, the evidence that changes its credibility, and its material boundary.
+3. Build the shortest dependency outline that completes the reader obligation. Select evidence by function; do not preserve note order or include every true detail.
+4. Draft one manuscript-ready version. Add an inferential bridge only when it follows from established premises; otherwise narrow the claim or expose the missing item.
 
-Use the smallest coherent scope that closes the root cause:
+Composition is complete when the requested unit performs its section role, each material claim has support, and omitted notes do not change the decision case.
 
-- **Local:** The thesis and section role are sound; repair a bounded claim, dependency, paragraph, term, or sentence.
-- **Structural:** Rebuild the authorized organization when theses compete, the contribution contract is wrong, mechanisms do not follow from problem-derived requirements, headline evidence does not support the main claim, or local edits retain contradictory promises.
+### Revise existing prose
 
-For structural work, construct only the shortest supported dependency chain before drafting: problem → binding constraint → principle → realization → evidence → bounded implication. If different chains imply different scientific contributions, audiences, assumptions, or claims, stop for an author decision.
+Use this branch when prose already exists.
 
-Repair in scientific-dependency order: factual support and claim strength; problem/principle/mechanism/evidence alignment; section and paragraph order; terminology and technical consistency; sentence economy and grammar. Do not polish material scheduled for deletion.
+1. Recover the passage's governing claim or question, supported answer, evidence, boundary, and deliberate voice.
+2. Diagnose the earliest broken dependency: false or overbroad claim, missing premise, imprecise abstraction, misplaced evidence, unstable paragraph center, ambiguous sentence, or surface error.
+3. Choose the smallest coherent repair scale: phrase, sentence, paragraph, section, or the complete authorized argument. `Smallest` means the least scope that closes the root cause, not the fewest changed words.
+4. Rewrite coherently. Reorder, split, merge, delete, demote, or add supported material as required by the repair; avoid polishing text that the repair removes.
 
-Permitted moves are: correct from authoritative evidence, expose an already warranted inference, reorganize supported material, calibrate or delete an unsupported claim, or add supported content. Missing evidence, source verification, context, or author intent remains a blocker.
+Revision is complete when the root cause is closed across the entire scoped passage and the repair introduces no semantic or rhetorical regression.
 
-## 4. Write and preserve meaning
+## 3. Resolve structural uncertainty before prose
 
-Apply the writing method in `SKILL.md`. In particular, high-level prose must be both abstract and discriminating: it should name the exact constraint, change, consequence, and boundary rather than replacing mechanism detail with broad verbs such as `supports`, `enables`, or `improves`.
+Use [revision-strategies.md](revision-strategies.md) when theses compete, the contribution contract is wrong, mechanisms do not follow from requirements, headline evidence does not support the central claim, or several findings interact.
 
-For Markdown or plain text, preserve heading levels, links, code spans, citations, identifiers, comments, and intentional formatting. For LaTeX, preserve commands, labels, citation keys, math, environments, comments, custom macros, escaping, encoding, and project conventions unless the requested correction targets them. Do not reflow unrelated lines.
+When two defensible versions imply different technical meanings, contribution hierarchies, assumptions, audiences, or trade-offs, present the alternatives and request an author decision. Ordinary wording choices should resolve to one conservative draft.
 
-Edit figures, tables, code, data, or scripts only when the user explicitly includes them. Never change data or analysis to obtain a favorable result. If a code or analysis correction changes outputs, manuscript claims that depend on the old outputs become unverified until the experiment is rerun and checked.
+## 4. Write at the right level
 
-## 5. Validate the result
+Apply [writing-core.md](writing-core.md) as the single source for argument, high-level exposition, paragraphs, sentences, wording, section contracts, and concision. Apply [chinese-writing.md](chinese-writing.md) when the source or output prose is Chinese or when translating from Chinese.
 
-Re-read the complete frozen scope, not only edited sentences. Check:
+For file edits and fragile technical content, take the preservation snapshot and run the checks in [change-safety.md](change-safety.md). Edit figures, tables, code, data, or scripts only when the user explicitly includes those objects. A correction that changes experimental output leaves dependent manuscript claims unverified until the relevant evidence is regenerated and checked.
 
-1. the opening claim or question is answered;
-2. each sentence adds a necessary proposition;
-3. causal, conditional, comparative, and evidential relations are valid;
-4. the high-level account passes substitution, prediction, and boundary tests;
-5. each paragraph ending pays off or deliberately transfers its opening obligation;
-6. facts, numbers, units, citations, identifiers, equations, macros, terminology, limitations, and evidence status remain correct.
+## 5. Run the lightweight gate
 
-Compile, render, lint, or test only when relevant dependencies are in scope and the action is authorized. Name what was actually checked; never use a clean tool result to claim publication readiness.
+Re-read the complete frozen scope, not only changed sentences. Confirm:
+
+1. the requested section or paragraph obligation is discharged;
+2. the problem, intellectual move, realization, evidence, and boundary form the appropriate dependency chain;
+3. every high-level claim passes distinction, prediction, falsification, and evidence tests;
+4. each paragraph has one discoverable and resolved obligation without a forced opening or ending template;
+5. each sentence has one dominant assertion, valid logical relations, explicit scope, unique referents, and stable terminology;
+6. the result is the shortest complete argument, with no lost premise, causal bridge, evidence scope, cost, or limitation;
+7. facts, numbers, units, citations, equations, identifiers, macros, and evidence status remain correct.
+8. review labels, venue-audit language, and unresolved propositions have not leaked into manuscript prose as facts.
+
+Compile, render, lint, or test only when the relevant dependencies are explicitly in scope and the action is authorized. State what a tool actually checked; a clean tool result does not establish publication readiness.
+
+Use [convergence-loop.md](convergence-loop.md) instead of repeating ad hoc paraphrases when the user explicitly requests iteration or interacting edits require a fixed-point search.
 
 ## 6. Return the deliverable first
 
-For pasted material, output manuscript-ready prose before any commentary. For file edits, state the exact edited objects. Then mention only consequential claim/structure changes, validations actually performed, and unresolved blockers. Do not expose the internal maps or a long checklist unless requested.
+For pasted material, lead with the manuscript-ready prose. For file edits, name the exact edited objects. Then report only:
 
-If the user requested an iterative loop, report its final state compactly: locally clean within scope, blocked by a named missing item, or stopped because distinct edits no longer reduce the same defect. Confirm that Git was not used during the loop.
+- a consequential claim, structure, or content deletion/change;
+- validation actually performed;
+- a blocker that requires evidence, context, source verification, or author choice.
 
-## Sources
-
-This protocol applies the evidence and review standards in the sibling `systems-paper-review` references and the OSDI/SOSP corpus calibration recorded in its `source-registry.md`. Source keys include [OSDI-SOSP-CORPUS], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE], [YSLAB-REVISION], [BRANDON-EVIDENCE], and [SIMCHOWITZ-WRITING]. Last reconciled 2026-09-03.
+Keep internal maps and diagnostics private unless requested. Do not create a separate report file unless the user asks for one.

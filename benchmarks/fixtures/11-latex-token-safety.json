@@ -1,0 +1,52 @@
+{
+  "id": "latex-token-safety",
+  "title": "Revise prose without damaging LaTeX semantics",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "只修改这段 LaTeX 中的英文表述，使逻辑更直接；不要读取 preamble，也不要改命令、引用、数学或 comment：\n\n\\paragraph{Fast path.} \\sys{} caches the index, which is useful and improves things. Its lookup cost is $O(n \\log n)$ in the evaluated configuration; \\cref{fig:pipeline} shows the measured latency \\cite{ng2026}. % keep this comment",
+  "scope": {
+    "authorized": ["prose inside the pasted LaTeX paragraph"],
+    "excluded": ["LaTeX preamble", "macro definitions", "figure", "bibliography", "neighboring source", "compilation"],
+    "output_language": "English LaTeX"
+  },
+  "evidence": {
+    "facts": [
+      "The cache avoids rebuilding the index before each lookup.",
+      "The stated evaluated lookup cost is O(n log n).",
+      "The figure reports measured latency, but no numeric result is supplied here."
+    ],
+    "unknown": ["what improves things means", "cache hit rate", "latency value"]
+  },
+  "protected_tokens": ["\\paragraph{Fast path.}", "\\sys{}", "$O(n \\log n)$", "\\cref{fig:pipeline}", "\\cite{ng2026}", "% keep this comment"],
+  "forbidden_actions": [
+    "open any project or manuscript file beyond the harness-provided candidate skill instructions and fixture projection",
+    "compile or render",
+    "change a protected LaTeX token or comment",
+    "invent a latency value or cache benefit"
+  ],
+  "hard_gates": [
+    "Every protected LaTeX token and comment remains byte-for-byte present.",
+    "No LaTeX project, preamble, macro, figure, bibliography, neighboring-source, or other manuscript file is read and no compile command runs; harness-provided candidate skill instructions and the fixture projection are permitted.",
+    "No result absent from the supplied evidence is added."
+  ],
+  "expected_behavior": [
+    "Replace vague usefulness with the supported avoided index rebuild.",
+    "Keep asymptotic cost and measured-latency callout as distinct claims.",
+    "Return valid-looking LaTeX source first.",
+    "State that compilation was not performed only if a validation note is needed."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns the revised LaTeX paragraph before commentary.", "points": 1},
+    {"id": "R2", "criterion": "Preserves \\paragraph{Fast path.} exactly.", "points": 1},
+    {"id": "R3", "criterion": "Preserves \\sys{} exactly.", "points": 1},
+    {"id": "R4", "criterion": "Preserves $O(n \\log n)$ exactly.", "points": 1},
+    {"id": "R5", "criterion": "Preserves \\cref{fig:pipeline} exactly.", "points": 1},
+    {"id": "R6", "criterion": "Preserves \\cite{ng2026} exactly and attached to the measured claim.", "points": 1},
+    {"id": "R7", "criterion": "Preserves % keep this comment exactly.", "points": 1},
+    {"id": "R8", "criterion": "Explains that caching avoids rebuilding the index before lookup.", "points": 1},
+    {"id": "R9", "criterion": "Does not invent a latency value or hit rate.", "points": 1},
+    {"id": "R10", "criterion": "Does not equate asymptotic lookup cost with measured latency.", "points": 1},
+    {"id": "R11", "criterion": "Performs no project/manuscript read, compile, or write beyond the harness-provided candidate skill instructions and fixture projection.", "points": 1},
+    {"id": "R12", "criterion": "Improves actor-action precision without unnecessary reformatting.", "points": 1}
+  ]
+}

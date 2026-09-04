@@ -1,6 +1,6 @@
 # Prose, Terminology, and Language Precision
 
-Apply these rules after argument and evidence. Surface polish cannot repair an unsupported claim. Review English, Chinese, or deliberately mixed text in its source language; do not translate unless requested.
+Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) before auditing high-level, paragraph, sentence, logic, or concision quality. For Chinese or Chinese-to-English text, also read the canonical [Chinese calibration](../../systems-paper-revise/references/chinese-writing.md). This file adds review-specific checks and severity; surface polish cannot repair an unsupported claim, and review never supplies replacement prose.
 
 ## Terminology and claim language
 
@@ -58,11 +58,21 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 
 - **Nature:** Hard accuracy condition.
 - **Reviewer attack:** “The authors claim to ensure/determine/prove when they only observe, or hedge a conclusion that their evidence directly establishes.”
-- **Check:** Calibrate `show`, `demonstrate`, `establish`, `prove`, `ensure`, `guarantee`, `suggest`, `indicate`, `may`, `assume`, `believe`, `hope`, and Chinese equivalents against evidence type and scope.
+- **Check:** Apply the evidence-verb distinctions in the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md). Calibrate `show`, `demonstrate`, `establish`, `prove`, `ensure`, `guarantee`, `suggest`, `indicate`, `observe`, and Chinese equivalents against evidence type, inference, assumptions, and scope.
 - **Severity:** `S0`/`S1` for unsupported guarantee or proof; `S2` for recurring miscalibration.
 - **Exceptions / false positives:** `We assume` is correct when declaring a model assumption; it is not weak wording to delete. Appropriate uncertainty is scientific precision.
 - **Repair direction:** Change verb/quantifier, state evidence and conditions, or add the missing validation.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [SIGPLAN-EMPIRICAL]. Checked 2026-09-01.
+
+## PT-06A — Technical verbs name the exact mechanism relation
+
+- **Nature:** Hard precision condition when the verb carries a technical claim.
+- **Reviewer attack:** “The prose says the system `supports`, `enables`, `handles`, or `eliminates` something without identifying the changed operation, enforcement path, or remaining condition.”
+- **Check:** Recover the actor, action, object, condition, and consequence. Distinguish implementation from enforcement; permission from causation; removal from displacement off a common or critical path; measured reduction from a guarantee; and an observed association from a mechanism claim. Treat the canonical precision-verb table as semantic distinctions, not a replacement-word list.
+- **Severity:** `S0`/`S1` when a central guarantee or causal claim is false; `S2` for recurring ambiguity; `S3` locally.
+- **Exceptions / false positives:** A compact technical verb is sufficient when its relation and boundary were defined nearby.
+- **Repair direction:** Name the narrowest supported relation and move the condition next to it.
+- **Sources:** [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL]. Checked 2026-09-03.
 
 ## PT-07 — Loaded adjectives and emotional adverbs have evidence or are removed
 
@@ -108,22 +118,22 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 
 - **Nature:** General systems-writing principle with claim-precision consequences.
 - **Reviewer attack:** “The prose sounds abstract, but it could describe almost any system and does not explain why this design follows.”
-- **Check:** Reduce the sentence to its claimed relation. A useful high-level statement names the exact constraint or failed assumption, the leverage or change, and the resulting property or tradeoff. Apply three tests: substitute unrelated system/component names and see whether the sentence remains equally true; ask whether it predicts the need for the major mechanism or study choice; identify the condition and boundary of what follows. Flag bare claims that a system `supports`, `enables`, `addresses`, `improves`, `decouples`, or `virtualizes` without precise objects and consequences.
+- **Check:** Apply all four canonical high-level tests: substitution, prediction, boundary/counterexample, and evidence. Record the exact relation that is missing rather than merely calling the prose vague.
 - **Severity:** `S1` when the central idea or design derivation is unrecoverable; `S2` when a paragraph loses specificity; `S3` for one vague sentence.
 - **Exceptions / false positives:** A short roadmap may remain broad when adjacent text immediately supplies the discriminating relation. A technical term may compactly encode a previously defined relation.
-- **Repair direction:** State the shortest exact constraint → change → consequence relation, then place mechanism names and operations below it. Do not replace concrete detail with generic abstraction.
-- **Sources:** [USER-NOTES], [OSDI-SOSP-CORPUS], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
+- **Repair direction:** Restore the shortest supported causal relation at the appropriate abstraction level; retain lower-level detail only where it changes a decision, property, or boundary.
+- **Sources:** [USER-NOTES], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## Sentence logic and grammar
 
-## PT-11 — Every sentence has one recoverable proposition structure
+## PT-11 — Every sentence has one dominant assertion
 
 - **Nature:** Hard readability/grammar condition.
 - **Reviewer attack:** “I cannot determine actor, action, object, condition, contrast, or main assertion.”
-- **Check:** Locate the main clause and logical operators. Flag fragments, run-ons, overloaded embeddings, ambiguous coordination, missing subjects/verbs, and clauses whose relationship must be guessed.
+- **Check:** Locate the dominant assertion and the conditions, reasons, contrasts, or qualifications subordinate to it. Flag fragments, run-ons, unrelated co-dominant claims, overloaded embeddings, ambiguous coordination, missing actors/actions, and relations that must be guessed. Length alone is not evidence of failure.
 - **Severity:** `S1` if a central technical statement has multiple readings; `S2` recurring; `S3` local grammar.
 - **Exceptions / false positives:** Long sentences are not defects by length alone; complex structure is justified when it mirrors a precise relationship clearly.
-- **Repair direction:** Split by proposition, restore explicit actor/relation, or reorder main claim before qualifications.
+- **Repair direction:** Split independent assertions, restore the actor/relation, or reorder the sentence so the main claim governs its qualifications.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
 
 ## PT-12 — Modifiers have unambiguous attachment and scope
@@ -176,6 +186,15 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 - **Repair direction:** State both targets and metric under matched conditions; correct arithmetic language.
 - **Sources:** [USER-NOTES], [SIGPLAN-EMPIRICAL], [ERNST]. Checked 2026-09-01.
 
+## PT-16A — Necessary and sufficient conditions are not interchanged
+
+- **Nature:** Hard logical condition.
+- **Reviewer attack:** “The manuscript moves from `X requires Y` to `Y guarantees X`, or from co-occurrence to sufficiency, without ruling out other mechanisms.”
+- **Check:** For `requires`, identify evidence that the condition is necessary; for `ensures` or `guarantees`, identify the assumptions and enforcement/proof that make it sufficient. Treat `helps`, `permits`, and `is associated with` as weaker relations and verify the conclusion does not silently strengthen them.
+- **Severity:** `S0`/`S1` when the error supports a central design or correctness claim; `S2` locally.
+- **Repair direction:** Use the weakest accurate relation, add the missing premise/evidence, or narrow the conclusion.
+- **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE]. Checked 2026-09-03.
+
 ## PT-17 — Tense follows knowledge status, not a rigid section rule
 
 - **Nature:** General best practice / house style.
@@ -210,7 +229,7 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “Padded noun phrases, weak verb phrases, metadiscourse, and repeated qualifiers obscure the technical point,” or “overcompression removes conditions.”
-- **Check:** Inspect `there is/are`, nominalizations, weak verb phrases, redundant framing, repeated content, excessive adjectives/adverbs, metadiscourse, and avoidable jargon. Apply the deletion test: if removing the sentence or phrase loses no necessary inference, definition, evidence, boundary, or handoff, it has not earned its space. Also verify that compression does not lose actor, condition, contrast, or uncertainty.
+- **Check:** Apply the canonical concision priority: preserve claim and boundary, necessary premise, decisive causal link, credibility-changing evidence, then required definition. Inspect nominalizations, weak verb phrases, redundant framing, metadiscourse, and avoidable jargon. Apply the deletion test only after accounting for meaning. Repetition is justified when each layer adds a distinct function—for example conclusion in the abstract, derivation in the introduction, realization in design, and support in evaluation; flag only repetition that adds no role.
 - **Severity:** `S2` recurring; `S3` local.
 - **Exceptions / false positives:** Terminological repetition often improves precision; not every phrasal verb has an exact simple replacement.
 - **Repair direction:** Put the main actor/action relation early, use the exact technical verb, and remove text that performs no reasoning role while preserving all semantic constraints.
@@ -258,15 +277,27 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 
 ## Chinese-specific checks
 
+Use the canonical [Chinese systems-writing calibration](../../systems-paper-revise/references/chinese-writing.md) as the source of truth. The checks below determine whether a defect is visible and consequential within the authorized review scope.
+
 ## PT-25 — Chinese technical prose makes agents and logical relations explicit
 
 - **Nature:** Hard clarity condition.
 - **Reviewer attack:** “省略主语、指代或连接关系后，无法判断是谁执行、什么导致什么，或结论适用于哪一层。”
-- **Check:** Inspect zero subjects, repeated `其/该/这`, long modifier chains before `的`, `通过…使得…` ambiguity, topic shifts, and English technical terms inserted without grammatical integration.
+- **Check:** Inspect zero subjects, repeated `其/该/这`, long modifier chains before `的`, topic shifts, and English technical terms inserted without grammatical integration. For every `通过—从而—进而—最终` chain, verify each arrow separately and distinguish mechanism prediction from measured result. Flag empty `针对……问题，提出……方法` shells when the sentence supplies neither the concrete failure nor the technical change.
 - **Severity:** `S1` if technical meaning changes; `S2` recurring; `S3` local.
 - **Exceptions / false positives:** Chinese legitimately omits recoverable subjects and uses topic-comment structure; flag only real ambiguity/cost.
 - **Repair direction:** Name the actor/object, shorten modifier chains, split propositions, and state causal/conditional relation.
 - **Sources:** [USER-NOTES], generalized reader-oriented principles from [ERNST]. Checked 2026-09-01.
+
+## PT-25A — Chinese-to-English review preserves logic rather than word order
+
+- **Nature:** Hard meaning-preservation condition when translation is in scope.
+- **Reviewer attack:** “The English is grammatical but preserves an omitted Chinese actor, ambiguous `从而`, or inflated evidence claim.”
+- **Check:** Compare source and translation for actor, dominant assertion, condition, causal arrows, evidence strength, quantifier, and boundary. Literal order is irrelevant; proposition equivalence is decisive.
+- **Severity:** `S0`/`S1` when technical meaning changes; `S2` for a recurring ambiguity; `S3` locally.
+- **Exceptions / false positives:** Review only the supplied translation unless the user explicitly requests a new translation; this read-only skill identifies the required logical repair but does not draft it.
+- **Repair direction:** Name the lost or strengthened proposition and the relation that must be restored.
+- **Sources:** [FIVE-VENUE-CORPUS], [USER-NOTES]. Checked 2026-09-03.
 
 ## PT-26 — Chinese–English terminology mixing is controlled
 
@@ -293,9 +324,9 @@ Apply these rules after argument and evidence. Surface polish cannot repair an u
 For every sentence in scope:
 
 1. State its proposition and evidence status.
-2. If it is high-level, apply substitution, prediction, and boundary tests.
-3. Resolve technical terms, referents, agents, units, quantifiers, and epistemic strength.
-4. Validate modifier, negation, comparison, coordination, condition, and inter-sentence relation.
+2. If it is high-level, apply substitution, prediction, boundary/counterexample, and evidence tests.
+3. Resolve technical terms, referents, agents, units, quantifiers, mechanism verbs, and epistemic strength.
+4. Validate modifier, negation, comparison, coordination, condition, necessary/sufficient relation, and inter-sentence logic.
 5. Check grammar/punctuation in the source language.
 6. Apply the deletion test only after all meaning is accounted for.
 

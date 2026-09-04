@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "installation_mode": "bundle",
+  "required_skills": [
+    "systems-paper-review",
+    "systems-paper-revise"
+  ],
+  "install_mappings": [
+    {
+      "source": "skills/systems-paper-review",
+      "install_path": "skills/systems-paper-review",
+      "kind": "directory"
+    },
+    {
+      "source": "skills/systems-paper-revise",
+      "install_path": "skills/systems-paper-revise",
+      "kind": "directory"
+    },
+    {
+      "source": "research/systems-paper-writing-requirements.md",
+      "install_path": "research/systems-paper-writing-requirements.md",
+      "kind": "file"
+    }
+  ],
+  "provenance_files": [
+    {
+      "source": "research/systems-paper-writing-requirements.md",
+      "install_path": "research/systems-paper-writing-requirements.md",
+      "consumers": ["systems-paper-review"],
+      "preservation": "byte_exact",
+      "sha256": "67c5083de30bf7f76e86f603e04b94094119a1c4d160f5386f68419c3d3bf21b"
+    }
+  ],
+  "behavioral_acceptance": {
+    "fixture_count": 12,
+    "minimum_score_per_fixture": 10,
+    "allow_regression": false,
+    "require_all_hard_gates": true,
+    "improvement_required": "higher_total_or_closed_observed_failure",
+    "require_closure_record": true
+  },
+  "canonical_references": [
+    {
+      "path": "skills/systems-paper-revise/references/writing-core.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise"]
+    },
+    {
+      "path": "skills/systems-paper-revise/references/paper-archetypes.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise"]
+    },
+    {
+      "path": "skills/systems-paper-revise/references/chinese-writing.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise"]
+    },
+    {
+      "path": "skills/systems-paper-review/references/review-protocol.md",
+      "consumers": ["systems-paper-review"]
+    },
+    {
+      "path": "skills/systems-paper-revise/references/revision-protocol.md",
+      "consumers": ["systems-paper-revise"]
+    }
+  ]
+}

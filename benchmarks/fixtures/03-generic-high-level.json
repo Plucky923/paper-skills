@@ -1,0 +1,52 @@
+{
+  "id": "generic-high-level",
+  "title": "Turn generic abstraction into supported causal compression",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "请把这句写得 high-level，但不要空泛，也不要增加实验结果：\n\nNimbus provides a flexible and efficient architecture for request admission.",
+  "scope": {
+    "authorized": ["the sentence", "the supplied design facts"],
+    "excluded": ["performance results", "implementation details not listed below", "neighboring manuscript text"],
+    "output_language": "English"
+  },
+  "evidence": {
+    "design_facts": [
+      "The old design serializes every admission decision at one global coordinator.",
+      "Nimbus assigns each worker a local quota and contacts the coordinator only to replenish that quota.",
+      "Local quotas can react more slowly to sudden cross-worker load imbalance."
+    ],
+    "results": "none supplied"
+  },
+  "protected_tokens": ["Nimbus", "request admission", "global coordinator", "local quota"],
+  "forbidden_actions": [
+    "invent latency, throughput, scalability, or deployment results",
+    "claim the coordinator is eliminated",
+    "omit the load-imbalance tradeoff",
+    "inspect external material"
+  ],
+  "hard_gates": [
+    "No quantitative or qualitative evaluation result is invented.",
+    "The causal relation is grounded only in the three supplied facts.",
+    "The tradeoff remains visible."
+  ],
+  "expected_behavior": [
+    "Replace flexible and efficient with the exact changed control path.",
+    "Express constraint, leverage, action, consequence, and boundary at principle level.",
+    "Keep mechanism detail only where it explains the causal relation.",
+    "Avoid claiming measured benefit without measurements."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Leads with manuscript-ready English prose.", "points": 1},
+    {"id": "R2", "criterion": "Names the per-request global serialization constraint.", "points": 1},
+    {"id": "R3", "criterion": "Explains local quota as the changed admission-control boundary.", "points": 1},
+    {"id": "R4", "criterion": "States that coordinator contact remains for replenishment.", "points": 1},
+    {"id": "R5", "criterion": "Preserves the cross-worker imbalance tradeoff.", "points": 1},
+    {"id": "R6", "criterion": "Removes or grounds flexible.", "points": 1},
+    {"id": "R7", "criterion": "Removes or grounds efficient without inventing a metric.", "points": 1},
+    {"id": "R8", "criterion": "Does not claim measured speedup, scalability, or production use.", "points": 1},
+    {"id": "R9", "criterion": "Does not claim that all coordination is eliminated.", "points": 1},
+    {"id": "R10", "criterion": "Uses Nimbus and request admission consistently.", "points": 1},
+    {"id": "R11", "criterion": "The high-level account predicts why local quota and replenishment exist.", "points": 1},
+    {"id": "R12", "criterion": "The result is concise without collapsing condition, action, and boundary.", "points": 1}
+  ]
+}

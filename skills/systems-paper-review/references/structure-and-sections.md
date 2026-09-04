@@ -1,6 +1,6 @@
 # Structure, Narrative, and Section Contracts
 
-Systems papers are read linearly under limited attention. Each unit should make a promise, supply the information needed to understand it, and prepare the next inference. Prefer problem-driven exposition and move from principle to realization: first establish the reader's question and the constraint that makes it difficult, then expose the leverage that makes the contribution work, and only then spend detail on mechanisms. This does not require one universal section template; apply the contract that fits the paper type and venue.
+Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) and [positive contracts](../../systems-paper-revise/references/paper-archetypes.md) for the writing model. This file adds review-specific attacks, severity, exceptions, and diagnostic maps; it does not replace those definitions.
 
 ## Global narrative rules
 
@@ -8,11 +8,31 @@ Systems papers are read linearly under limited attention. Each unit should make 
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The sections are individually plausible but never form a coherent case for the contribution.”
-- **Check:** First select the primary contract in [paper-archetypes.md](paper-archetypes.md). Reconstruct that contract's dependencies, then read only the first sentence of each introduction paragraph and test whether those sentences preserve the same spine. Mark narration that makes the reader carry an unexplained solution before learning its problem/tension, mechanism lists with no governing principle, and missing or circular links. Naming the system first is not itself a defect when the same sentence or immediate continuation supplies the motivating relation.
+- **Check:** First select the primary contract in [paper-archetypes.md](paper-archetypes.md) and reconstruct its dependencies. Use the first sentences of introduction paragraphs as a quick skeleton diagnostic, then inspect each paragraph's opening region and ending or handoff before declaring the spine broken; a short continuation may place its local obligation after the first sentence. Mark narration that makes the reader carry an unexplained solution before learning its problem/tension, mechanism lists with no governing principle, and missing or circular links. Naming the system first is not itself a defect when the same sentence or immediate continuation supplies the motivating relation.
 - **Severity:** `S1` for a broken central chain; `S2` for costly ordering.
 - **Exceptions / false positives:** Measurement, experience, negative-result, theory, and dataset papers use different chains. Operational work may establish its problem with quantified field evidence; empirical work may center a finding rather than a new mechanism. Require the routed contract's functions, not one universal order.
 - **Repair direction:** Reorder around causal dependencies, add missing premise/inference, or narrow promises.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
+
+## SS-01A — Broad and expert readers receive the same decision case
+
+- **Nature:** General best practice.
+- **Reviewer attack:** “The abstract, introduction, overview, and captions advertise one simple story, but the technical sections establish a different or narrower claim.”
+- **Check:** Run two readings over the same claim hierarchy. At broad-reader depth, recover the problem, delta, intellectual move, system or study reality, decisive evidence, and boundary without specialized mechanism detail. At expert depth, trace the model, assumptions, invariant, mechanism, setup, and uncertainty that discharge that same case. Flag contradictions, silent quantifier changes, and a first-layer promise that the second layer never validates.
+- **Severity:** `S1` when the two layers imply different central claims; `S2` when discoverability or verification is unnecessarily costly.
+- **Exceptions / false positives:** A broad account may omit detail, but it may not change technical meaning or hide a condition that controls the conclusion.
+- **Repair direction:** Align both layers to one bounded claim; expose the minimum premise needed early and place verification depth where experts can audit it.
+- **Sources:** [FIVE-VENUE-CORPUS] and current venue criteria. Checked 2026-09-03.
+
+## SS-01B — The first two pages pass the correct stress test
+
+- **Nature:** Hard only when the live venue rules make it a review stage; otherwise diagnostic heuristic.
+- **Reviewer attack:** “A rapid reader cannot recover why the work matters, what advances, why it may work, what exists, or what evidence will decide the claim.”
+- **Check:** When the first two pages are in scope, test whether title, abstract, and opening introduction jointly expose the problem, closest-work delta, intellectual move, deliverable or study, credibility preview, and material boundary. As of 2026-09-03 this is a binding rapid-review interface for ASPLOS 2027. OSDI 2027 mentions a possible early-review stage only in a preliminary CFP; do not enforce it as a final rule. For other venues, report failure as a reader-risk diagnostic, not noncompliance.
+- **Severity:** By live venue rule; otherwise `S1` only when the decision case is genuinely unrecoverable, not merely because an item appears after an arbitrary page boundary.
+- **Exceptions / false positives:** Do not expand a narrow excerpt review to unseen pages. Different archetypes may preview method credibility or findings rather than a new mechanism.
+- **Repair direction:** Move the missing decision premise or credibility signal before secondary background/detail while preserving the paper's archetype.
+- **Sources:** [ASPLOS-CFP], [OSDI-CFP]. Live verification required.
 
 ## SS-02 — Concepts appear before they are required
 
@@ -58,11 +78,11 @@ Systems papers are read linearly under limited attention. Each unit should make 
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The overview enumerates components and operations but never explains the idea that makes them work,” or “the prose is called high-level only because it is vague.”
-- **Check:** Classify material as motivation evidence, model, causal principle, high-level workflow, design rationale/mechanism, implementation realization, or evaluation. A useful high-level account should let the reader recover (1) the binding constraint, (2) the observation or leverage, (3) the action or changed abstraction, and (4) the property or tradeoff that follows. Apply three tests: substitution—could unrelated system names replace the current names without changing the sentence; prediction—does the account explain why the major mechanisms or study choices are necessary; boundary—does it identify the condition and limit of the resulting property? Flag API names, module lists, step-by-step operations, and implementation choices that arrive before the reader can know their relevance; also flag labels such as `decouples`, `virtualizes`, or `optimizes` when the prose never explains what is separated/represented/changed and why that matters.
+- **Check:** Apply the canonical high-level tests in the [systems-writing core](../../systems-paper-revise/references/writing-core.md). In the review record, identify which test fails: substitution, prediction, boundary/counterexample, or evidence. Classify the text as principle, mechanism, or implementation realization and flag abstraction-level jumps or inventories that obscure their relation.
 - **Severity:** `S2`; `S1` if mechanism remains absent.
 - **Exceptions / false positives:** A low-level fact may appear early when it supplies the evidence that reveals the constraint, defines the target property, or makes a counterexample concrete. A design section must eventually supply operational detail. High-level is causal compression relative to the reader's current knowledge, not the removal of technical content.
-- **Repair direction:** Replace premature inventories or interchangeable abstractions with the shortest discriminating constraint → leverage → action → property relation. Then retain concrete detail only where it derives a design decision, establishes a boundary, or proves feasibility.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
+- **Repair direction:** Restore the shortest discriminating causal relation and its evidence pointer, then retain only detail that derives a decision, establishes a boundary, or proves feasibility.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## Paragraph and list rules
 
@@ -70,11 +90,11 @@ Systems papers are read linearly under limited attention. Each unit should make 
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph mixes background, design, results, caveats, and unrelated claims, so its point is unstable.”
-- **Check:** Write the paragraph's governing claim or question in one sentence; test whether every sentence explains, supports, qualifies, or transitions from it. Read the first and last sentences together: the first should establish the local claim/relation at the appropriate level, while the last should leave the reader with the supported implication, boundary, answer, or next question. Flag multiple independent centers and paragraphs whose details never cash out their opening.
+- **Check:** Apply the canonical paragraph contract in the [systems-writing core](../../systems-paper-revise/references/writing-core.md). Record the paragraph as `the reader should believe ___ because ___`; test whether every sentence discharges that obligation. Read the opening and ending together and flag unsupported payoff, stranded evidence, a second independent center, or a handoff that does not follow.
 - **Severity:** `S2`; `S1` if mixed logic hides a contradiction; `S3` locally.
 - **Exceptions / false positives:** A short bridge paragraph may connect two ideas; mathematical derivations, enumerations, and tightly connected continuations need not follow a rigid topic-sentence/summary-sentence form. Judge the reasoning obligation, not a template.
 - **Repair direction:** Split by obligation, reorder support, revise the opening promise, or make the closing implication/boundary explicit without appending a redundant summary.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## SS-08 — Sentence order follows information and causal dependencies
 
@@ -94,7 +114,7 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Severity:** `S2` for recurring issue; `S3` locally.
 - **Exceptions / false positives:** Not every paragraph must use a rigid topic-sentence-first form, especially mathematical derivations or tightly connected continuations.
 - **Repair direction:** Lead with the claim or relation, then supply mechanism/evidence/qualification.
-- **Sources:** [USER-NOTES], [ERNST], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## SS-09A — Paragraph endings resolve or deliberately transfer the local obligation
 
@@ -104,16 +124,16 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Severity:** `S2` when a missing close breaks an important inference; `S3` locally.
 - **Exceptions / false positives:** The last sentence need not restate the topic sentence, and the logical close may be a result, caveat, or transition rather than a summary. Short bridge paragraphs, formal derivations, and lists may close implicitly when the implication is unambiguous.
 - **Repair direction:** End on the supported takeaway, boundary, or next necessary question; move trailing secondary detail earlier or delete it. Do not add a formulaic `In summary` sentence.
-- **Sources:** [USER-NOTES], [ERNST], [OSDI-BEST-SAMPLE], [SOSP-BEST-SAMPLE]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## SS-10 — Paragraph length follows reasoning, not rendered line count
 
 - **Nature:** Diagnostic heuristic / house style.
 - **Reviewer attack:** “The paragraph is too dense to parse or so fragmented that the argument loses momentum.”
-- **Check:** Look for multiple claims, excessive sentence count, hidden transitions, one-sentence fragments, and visual density in the rendered format. Do not use ten lines as a universal threshold.
+- **Check:** Diagnose inferential density, not sentence count. Flag a paragraph that mixes independent obligations, changes abstraction level without a bridge, accumulates citations without a comparison axis, or compresses away a condition, causal link, evidence scope, or payoff. Flag fragmentation when adjacent short paragraphs cannot independently complete an inference. Rendered height and sentence count may select passages for inspection but cannot establish a defect.
 - **Severity:** `S2` when logic is obscured; `S3` or `S4` for layout only.
 - **Exceptions / false positives:** Necessary proof/algorithm exposition can be longer; short transition paragraphs can be valid.
-- **Repair direction:** Split at a logical boundary, merge fragments, or improve internal signaling.
+- **Repair direction:** Split where the reader's question or evidence role changes; merge fragments that jointly discharge one obligation; restore the missing logical bridge before shortening.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE]. Checked 2026-09-01.
 
 ## SS-11 — Lists are parallel and introduced by a governing claim
@@ -146,7 +166,7 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Severity:** `S1` for missing/misleading central case; `S2` for imbalance.
 - **Exceptions / false positives:** Do not enforce a fixed sentence count, problem-first grammar, contribution list, or `insight` wording. A system may be named first if the problem/tension becomes immediately recoverable. Adapt to contribution type and venue.
 - **Repair direction:** Replace background/detail with the missing contribution element and calibrate results.
-- **Sources:** [SYSTEMS-GUIDE], [ERNST], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
+- **Sources:** [SYSTEMS-GUIDE], [ERNST], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## SS-14 — Introduction establishes the complete decision case
 
@@ -156,7 +176,7 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Severity:** `S1`; `S2` for local flow.
 - **Exceptions / false positives:** Order and paragraph count are flexible. Contribution bullets and an explicit challenge list are optional. Some paper types need no root cause, new mechanism, or standalone evaluation preview.
 - **Repair direction:** Restore the shortest causal chain and eliminate details that interrupt it.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## SS-15 — Background teaches only prerequisites
 
@@ -216,7 +236,7 @@ Systems papers are read linearly under limited attention. Each unit should make 
 - **Severity:** `S1` when claim coverage is missing; `S2` for organization.
 - **Exceptions / false positives:** Questions need not be enumerated mechanically. Operational and measurement papers may interleave method, observation, intervention, and validation when each inference remains auditable.
 - **Repair direction:** Organize by claim/question, state answer with uncertainty, and connect cause only when supported.
-- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [SIGPLAN-EMPIRICAL], [OSDI-SOSP-CORPUS]. Checked 2026-09-03.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE], [SIGPLAN-EMPIRICAL], [FIVE-VENUE-CORPUS]. Checked 2026-09-03.
 
 ## SS-21 — Related work distinguishes rather than enumerates
 

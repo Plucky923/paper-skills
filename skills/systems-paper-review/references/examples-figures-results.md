@@ -1,6 +1,6 @@
 # Examples, Argument Figures, and Headline Results
 
-Use this reference when examples, scenarios, motivating measurements, early diagrams, or headline results carry the paper's argument. It supplements—not replaces—the correctness and rendering checks in `figures-tables-latex.md` and the validity checks in `evaluation.md`.
+Use this reference when examples, scenarios, motivating measurements, early diagrams, or headline results carry the paper's argument. It supplements—not replaces—the correctness and rendering checks in [figures-tables-latex.md](figures-tables-latex.md) and the validity checks in [evaluation.md](evaluation.md).
 
 ## ER-01 — A running example executes the paper's difficult inference
 
@@ -55,4 +55,4 @@ Apply this map to examples, Figure 1/2, contribution bullets, and headline resul
 
 ## Sources
 
-These rules combine [SYSTEMS-GUIDE], [HEISER-STYLE], [SIGPLAN-EMPIRICAL], and the frequent use of concrete scenarios, early figures, and evidence-bearing introduction endings observed in [OSDI-SOSP-CORPUS]. Frequency is calibration, not a requirement. Last reconciled 2026-09-03.
+These rules combine [SYSTEMS-GUIDE], [HEISER-STYLE], [SIGPLAN-EMPIRICAL], and observations in [FIVE-VENUE-CORPUS]. Corpus frequency is calibration, not a requirement. Last reconciled 2026-09-03.

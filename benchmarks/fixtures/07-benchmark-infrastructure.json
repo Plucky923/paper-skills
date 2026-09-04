@@ -1,0 +1,48 @@
+{
+  "id": "benchmark-infrastructure",
+  "title": "Review benchmark infrastructure on fidelity, coverage, and cost",
+  "skills": ["systems-paper-review"],
+  "material_origin": "synthetic",
+  "prompt": "请按 benchmark/testing infrastructure 的贡献类型 review 这个摘要：\n\nTraceForge converts resource traces into executable test environments. On three trace families, it reproduces 92% of declared resource dependencies and runs replays at one quarter of the original cluster cost. It omits dependencies not observable in the input traces, so a successful replay does not prove full production fidelity.",
+  "scope": {
+    "authorized": ["the synthetic abstract"],
+    "excluded": ["TraceForge code", "trace corpus", "cost model", "production system", "replacement prose"],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_claims": ["three trace families", "92 percent of declared resource dependencies", "one quarter of original cluster cost", "unobservable dependencies omitted", "replay is not full production fidelity"],
+    "unknown": ["dependency ground truth", "trace-family representativeness", "cost accounting boundary", "behavioral fidelity metrics"]
+  },
+  "protected_tokens": ["TraceForge", "three trace families", "92%", "one quarter", "resource dependencies", "production fidelity"],
+  "forbidden_actions": [
+    "equate replay success with production fidelity",
+    "treat cost alone as benchmark validity",
+    "invent trace coverage or ground truth",
+    "rewrite the abstract"
+  ],
+  "hard_gates": [
+    "Fidelity, coverage, and execution cost are evaluated as separate claims.",
+    "The unobservable-dependency limitation remains central.",
+    "No artifact behavior is inferred from the abstract alone."
+  ],
+  "expected_behavior": [
+    "Recover the benchmark construction principle and the three evidence dimensions.",
+    "Ask what declared dependencies means and how the 92 percent denominator is established.",
+    "Ask whether the three trace families span the claimed domain.",
+    "Check whether one-quarter cost uses an equivalent accounting boundary."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Classifies TraceForge as benchmark or testing infrastructure.", "points": 1},
+    {"id": "R2", "criterion": "Separates dependency reproduction from behavioral fidelity.", "points": 1},
+    {"id": "R3", "criterion": "Questions the ground truth and denominator behind 92%.", "points": 1},
+    {"id": "R4", "criterion": "Preserves the three-trace-family scope.", "points": 1},
+    {"id": "R5", "criterion": "Tests representativeness of those trace families.", "points": 1},
+    {"id": "R6", "criterion": "Tests equivalence of the cost-accounting boundary.", "points": 1},
+    {"id": "R7", "criterion": "Does not convert one-quarter cost into a general efficiency claim.", "points": 1},
+    {"id": "R8", "criterion": "Keeps unobservable dependencies as a material limitation.", "points": 1},
+    {"id": "R9", "criterion": "Does not claim full production fidelity.", "points": 1},
+    {"id": "R10", "criterion": "Identifies at least one behavioral-fidelity question beyond dependency presence.", "points": 1},
+    {"id": "R11", "criterion": "Separates abstract-visible defects from missing artifact evidence.", "points": 1},
+    {"id": "R12", "criterion": "Provides no replacement prose or invented benchmark requirement.", "points": 1}
+  ]
+}

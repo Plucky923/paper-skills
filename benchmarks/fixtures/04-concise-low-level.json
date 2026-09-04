@@ -1,0 +1,52 @@
+{
+  "id": "concise-low-level",
+  "title": "Do not mistake brevity for a high-level argument",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "这段已经很短，但仍然只是部件清单。请在现有事实允许的范围内改善它；不能声称性能收益：\n\nAtlas uses per-core queues and a 64-bit bitmap. Workers poll their queue and clear bitmap entries after draining it.",
+  "scope": {
+    "authorized": ["the two sentences", "the supplied semantics"],
+    "excluded": ["performance motivation", "evaluation", "other components", "source code"],
+    "output_language": "English"
+  },
+  "evidence": {
+    "semantics": [
+      "Each bitmap bit denotes whether the corresponding per-core queue is nonempty.",
+      "A worker polls only the queue assigned to that core.",
+      "The worker clears the bit only after draining the queue."
+    ],
+    "unsupported": ["lower contention", "faster polling", "scalability", "correctness under concurrent enqueue"]
+  },
+  "protected_tokens": ["Atlas", "per-core queues", "64-bit bitmap", "workers", "draining"],
+  "forbidden_actions": [
+    "invent a performance or correctness benefit",
+    "invent synchronization behavior",
+    "drop the bitmap-to-queue relation",
+    "expand beyond the pasted scope"
+  ],
+  "hard_gates": [
+    "No unsupported benefit or invariant is added.",
+    "The bitmap semantics and clear-after-drain ordering remain correct.",
+    "Brevity alone is not presented as sufficient high-level quality."
+  ],
+  "expected_behavior": [
+    "Organize the facts around the bitmap's representation of queue state.",
+    "Retain operational detail needed to state that relation.",
+    "Avoid generic words such as efficient or scalable.",
+    "Expose a blocker if a stronger rationale requires missing evidence."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns manuscript-ready English prose first.", "points": 1},
+    {"id": "R2", "criterion": "Explains that each bit represents one per-core queue's nonempty state.", "points": 1},
+    {"id": "R3", "criterion": "Preserves worker-to-core queue assignment.", "points": 1},
+    {"id": "R4", "criterion": "Preserves clear-after-drain ordering.", "points": 1},
+    {"id": "R5", "criterion": "Preserves 64-bit bitmap exactly.", "points": 1},
+    {"id": "R6", "criterion": "Does not claim reduced contention.", "points": 1},
+    {"id": "R7", "criterion": "Does not claim faster polling or scalability.", "points": 1},
+    {"id": "R8", "criterion": "Does not invent concurrent-enqueue semantics.", "points": 1},
+    {"id": "R9", "criterion": "Uses concrete actors and actions.", "points": 1},
+    {"id": "R10", "criterion": "Creates a governing relation rather than another component inventory.", "points": 1},
+    {"id": "R11", "criterion": "Does not overcompress away state semantics.", "points": 1},
+    {"id": "R12", "criterion": "Names missing motivation as a blocker only if needed for a stronger claim.", "points": 1}
+  ]
+}

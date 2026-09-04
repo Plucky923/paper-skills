@@ -1,6 +1,6 @@
 # Design Derivation and Mechanism Necessity
 
-Use this reference when the scope includes an overview, design, algorithm, system architecture, implementation rationale, or an introduction that derives technical challenges. It connects top-down scientific reasoning to the bottom-up soundness checks in `technical-soundness.md`.
+Use this reference when the scope includes an overview, design, algorithm, system architecture, implementation rationale, or an introduction that derives technical challenges. It connects top-down scientific reasoning to the bottom-up soundness checks in [technical-soundness.md](technical-soundness.md).
 
 ## Required derivation chain
 
@@ -66,4 +66,4 @@ For multi-mechanism systems, inspect both directions: every requirement needs a 
 
 ## Sources
 
-This derivation model operationalizes [LEVIN-REDELL], [SYSTEMS-GUIDE], the system and evidence criteria in [OSDI-CFP] and [SOSP-CFP], and recurring constraint-to-mechanism structures in [OSDI-SOSP-CORPUS]. Last reconciled 2026-09-03.
+This derivation model operationalizes [LEVIN-REDELL], [SYSTEMS-GUIDE], the system and evidence criteria in [OSDI-CFP] and [SOSP-CFP], and recurring constraint-to-mechanism structures in [FIVE-VENUE-CORPUS]. Last reconciled 2026-09-03.

@@ -1,8 +1,8 @@
 # Adversarial Review Protocol
 
-Use this protocol for every review. It defines scope control, evidence discipline, independent passes, finding calibration, completeness, and the final gate. Domain reference files define the individual `PA`, `TH`, `RC`, `DD`, `TS`, `EV`, `ER`, `AR`, `SS`, `PT`, `FL`, and `VO` rules or routing contracts.
+Use the scope, evidence, finding-calibration, and gate rules in this protocol for every review. Use its full pass record and reporting schema only for a full review, formal finding ledger, or submission gate. A local review still checks every applicable obligation internally, but reports only the compact root-cause form required by the skill entrypoint. Domain reference files define the individual `PA`, `TH`, `RC`, `DD`, `TS`, `EV`, `ER`, `AR`, `SS`, `PT`, `FL`, and `VO` rules or routing contracts.
 
-For a large scope reviewed with collaboration tools, execute the applicable passes through the role assignments in [multi-agent-orchestration.md](multi-agent-orchestration.md). The pass definitions, evidence requirements, and output schema remain unchanged; only execution is parallelized.
+For a large scope reviewed with collaboration tools, execute the applicable passes through the role assignments in [multi-agent-orchestration.md](multi-agent-orchestration.md). Parallelism does not change the evidence requirements or the reporting surface appropriate to the frozen scope.
 
 ## 1. Scope contract
 
@@ -164,11 +164,11 @@ For each rule family, record one coverage state:
 - `not assessable — missing evidence`;
 - `not applicable`.
 
-Never claim exhaustive review without disclosing not-assessable families. Exhaustiveness is relative to the frozen scope and observable evidence.
+Never claim exhaustive review without accounting for not-assessable families. Exhaustiveness is relative to the frozen scope and observable evidence. Disclose that accounting in a formal or full review; in a local review, surface it only when missing context changes a finding or the gate.
 
-## 7. Layered finding schema
+## 7. Layered finding schema for full or formal reviews
 
-Use the full structure for every `S0`/`S1` finding and for any lower-severity finding whose diagnosis, evidence, or repair is non-obvious:
+In a full or formal review, use the full structure for every `S0`/`S1` finding and for any lower-severity finding whose diagnosis, evidence, or repair is non-obvious. In a local review, compress the same reasoning into one root-cause bullet without exposing rule IDs or unused fields:
 
 ```text
 [F-###] Short diagnostic title
@@ -224,11 +224,11 @@ Add one paragraph explaining the decisive reason and confidence. Never translate
 
 ### Exhaustive findings ledger
 
-Give all materially distinct findings in severity order; within severity, follow reading order. Use the full schema for severe/non-obvious findings and compact rows for straightforward local findings. Include style preferences last and only if useful.
+For a full or formal review, give all materially distinct findings in severity order; within severity, follow reading order. Use the full schema for severe/non-obvious findings and compact rows for straightforward findings. Include style preferences last and only if useful. For a local review, preserve the same distinct root causes in compact bullets and omit this report section.
 
 ### Claim-evidence matrix
 
-For each central in-scope claim:
+For each central in-scope claim in a full or formal review:
 
 | Claim | Type | Stated evidence | Evidence class | Coverage | Open attack |
 |---|---|---|---|---|---|
@@ -237,7 +237,7 @@ Use `covered`, `partially covered`, `unsupported`, or `not assessable`.
 
 ### Coverage summary
 
-List P1–P8 status and each relevant rule family status, including archetype/thesis/design-derivation/argument-object coverage where applicable. Name rules or objects not assessable and why.
+For a full or formal review, list P1–P8 status and each relevant rule family status, including archetype/thesis/design-derivation/argument-object coverage where applicable. Name rules or objects not assessable and why. Do not emit this inventory for a local review; mention only a coverage limit that changes the verdict or blocks a finding.
 
 ### Gate result and next evidence
 
@@ -258,4 +258,4 @@ Do not:
 
 ## Sources
 
-Protocol design synthesizes [OPENAI-SKILL-CREATOR], [DEERFLOW-REVIEW], [CHAN-DUAL-LENS], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [OSDI-SOSP-CORPUS], [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES], and [SYSTEMS-GUIDE]. See [source-registry.md](source-registry.md). Last reconciled 2026-09-03.
+Protocol design synthesizes [OPENAI-SKILL-CREATOR], [DEERFLOW-REVIEW], [CHAN-DUAL-LENS], [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES], and [SYSTEMS-GUIDE]. See [source-registry.md](source-registry.md). Last reconciled 2026-09-03.

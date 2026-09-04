@@ -1,0 +1,48 @@
+{
+  "id": "paragraph-density",
+  "title": "Split and merge by reasoning obligation rather than length",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "请重组下面两个英文段落。第一个过密，第二个过碎；不要套固定句数，并保留全部有依据的信息。\n\nDense: EdgeKV serves read-heavy edge workloads, but intermittent links make global invalidation expensive. It partitions keys by region. Each partition uses a 2 s lease. In a 24-site trace replay, leases reduced invalidation messages by 31% relative to eager invalidation. Writes may remain invisible outside a partition until the lease expires, so the result does not preserve eager visibility. The implementation also uses Rust.\n\nSparse: Device failures interrupt compaction. Recovery replays a journal. The journal contains committed segment identifiers. Replay was tested after process crashes.",
+  "scope": {
+    "authorized": ["the Dense paragraph", "the Sparse paragraph"],
+    "excluded": ["other EdgeKV design text", "journal implementation", "new evaluation", "new transitions to neighboring sections"],
+    "output_language": "English"
+  },
+  "evidence": {
+    "dense_relations": ["intermittent links make global invalidation expensive", "regional partitions use 2 s leases", "31 percent fewer invalidation messages in a 24-site trace replay versus eager invalidation", "visibility can lag until lease expiry", "implementation uses Rust"],
+    "sparse_relations": ["device failures interrupt compaction", "recovery replays a journal of committed segment identifiers", "replay tested after process crashes only"]
+  },
+  "protected_tokens": ["EdgeKV", "2 s", "24-site", "31%", "eager invalidation", "Rust", "committed segment identifiers", "process crashes"],
+  "forbidden_actions": [
+    "apply a fixed paragraph or sentence count",
+    "drop the lease visibility tradeoff",
+    "claim device-failure recovery was tested",
+    "invent a role for Rust"
+  ],
+  "hard_gates": [
+    "All protected propositions and tokens survive.",
+    "The dense material is separated by reasoning role rather than arbitrary length.",
+    "The sparse material is connected without broadening process-crash evidence."
+  ],
+  "expected_behavior": [
+    "Separate motivation/design from result/boundary when that improves inferential closure.",
+    "Keep Rust as implementation status without pretending it explains the result.",
+    "Merge sparse fragments into a causal recovery account.",
+    "End each resulting paragraph on a supported implication or boundary."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns revised English prose before process commentary.", "points": 1},
+    {"id": "R2", "criterion": "Preserves the intermittent-link motivation.", "points": 1},
+    {"id": "R3", "criterion": "Preserves regional partitioning and the 2 s lease.", "points": 1},
+    {"id": "R4", "criterion": "Preserves the 24-site, 31%, eager-invalidation comparison.", "points": 1},
+    {"id": "R5", "criterion": "Keeps delayed visibility as a limitation adjacent to the result.", "points": 1},
+    {"id": "R6", "criterion": "Preserves Rust without assigning it unsupported causal importance.", "points": 1},
+    {"id": "R7", "criterion": "Connects device-failure interruption to journal replay coherently.", "points": 1},
+    {"id": "R8", "criterion": "Preserves committed segment identifiers.", "points": 1},
+    {"id": "R9", "criterion": "Bounds tested recovery to process crashes.", "points": 1},
+    {"id": "R10", "criterion": "Does not enforce or announce a fixed sentence count.", "points": 1},
+    {"id": "R11", "criterion": "Resulting paragraph boundaries coincide with distinct reasoning obligations.", "points": 1},
+    {"id": "R12", "criterion": "No new mechanism, result, or neighboring-section transition is invented.", "points": 1}
+  ]
+}

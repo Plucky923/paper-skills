@@ -1,0 +1,51 @@
+{
+  "id": "precision-verbs-logic",
+  "title": "Calibrate necessary, sufficient, causal, and elimination claims",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "请修正下面三句话的逻辑和动词强度，只能使用给出的证据：\n\nRemoving the global lock guarantees linear scalability. Sampling every request eliminates observability blind spots. The results prove that scheduler contention causes tail latency.",
+  "scope": {
+    "authorized": ["the three sentences", "the supplied evidence"],
+    "excluded": ["source code", "raw measurements", "new experiments", "proofs"],
+    "output_language": "English"
+  },
+  "evidence": {
+    "facts": [
+      "The global lock is one measured serialization point, but two shared counters remain.",
+      "The sampler recorded 99.2% of requests in the evaluated workload.",
+      "Scheduler contention and tail latency increased together; no intervention or ablation isolated causality."
+    ]
+  },
+  "protected_tokens": ["global lock", "two shared counters", "99.2%", "scheduler contention", "tail latency"],
+  "forbidden_actions": [
+    "retain guarantee without sufficient evidence",
+    "retain eliminates when 0.8 percent was unobserved",
+    "turn correlation into proven causality",
+    "invent a scalability curve or ablation"
+  ],
+  "hard_gates": [
+    "Necessary and sufficient conditions are not conflated.",
+    "The 99.2% observation boundary remains explicit.",
+    "Causal language is calibrated to correlational evidence."
+  ],
+  "expected_behavior": [
+    "Describe lock removal as addressing one known serialization point while retaining shared-counter limits.",
+    "Replace elimination with measured coverage.",
+    "Replace prove/causes with an observation or association and name the missing causal test if useful.",
+    "Use precise technical actors and verbs."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns manuscript-ready English prose first.", "points": 1},
+    {"id": "R2", "criterion": "Removes the unsupported guarantee of linear scalability.", "points": 1},
+    {"id": "R3", "criterion": "States that the global lock is one serialization point rather than the only limit.", "points": 1},
+    {"id": "R4", "criterion": "Keeps the two shared counters as remaining constraints.", "points": 1},
+    {"id": "R5", "criterion": "Replaces eliminates with 99.2% measured coverage.", "points": 1},
+    {"id": "R6", "criterion": "Does not round 99.2% to complete coverage.", "points": 1},
+    {"id": "R7", "criterion": "Removes prove as unsupported epistemic strength.", "points": 1},
+    {"id": "R8", "criterion": "Describes contention and tail latency as co-varying or associated.", "points": 1},
+    {"id": "R9", "criterion": "Does not invent an intervention, ablation, or proof.", "points": 1},
+    {"id": "R10", "criterion": "Keeps each principal assertion independently auditable.", "points": 1},
+    {"id": "R11", "criterion": "Uses conditions and quantifiers adjacent to the claims they bound.", "points": 1},
+    {"id": "R12", "criterion": "Any blocker note names the exact missing causal or scalability evidence.", "points": 1}
+  ]
+}

@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Revise"
-  short_description: "Evidence-safe revision for systems papers"
-  default_prompt: "Use $systems-paper-revise to turn the systems-paper material I specify into concise, problem-driven, principle-level prose with precise logic while preserving evidence, technical meaning, and author intent."
+  short_description: "Rigorous, concise systems-paper composition and revision"
+  default_prompt: "Use $systems-paper-revise to compose or revise the systems-paper material I specify into the shortest complete, problem-driven argument supported by the evidence, while preserving technical meaning and author intent."

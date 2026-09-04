@@ -1,6 +1,6 @@
 # Thesis, Claim Hierarchy, and Reader Memory
 
-Use this reference for abstracts, introductions, contribution framing, whole-paper structure, and editorial synthesis. Its purpose is to determine whether the paper makes one memorable decision case whose design and evidence can be predicted from its thesis. It does not require one sentence formula or erase legitimate multi-contribution papers.
+Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) and [positive contracts](../../systems-paper-revise/references/paper-archetypes.md) first. This file audits whether the scoped material delivers one memorable decision case whose design and evidence follow from its thesis; it adds review attacks and diagnostic maps rather than a second writing model.
 
 ## TH-01 — The paper has one controlling thesis
 
@@ -11,10 +11,10 @@ Use this reference for abstracts, introductions, contribution framing, whole-pap
 
 ## TH-02 — Supporting claims form a hierarchy
 
-- **Check:** Build a tree with one controlling thesis, two to five decision-relevant supporting claims, the mechanisms or analyses that discharge them, and evidence for each. Separate primary contributions from enabling engineering, implementation facts, and incidental optimizations.
+- **Check:** Build a tree with one controlling thesis, a small decision-relevant set of supporting claims, the mechanisms or analyses that discharge them, and evidence for each. Separate primary contributions from enabling engineering, implementation facts, and incidental optimizations.
 - **Reviewer attack:** “The contribution list is flat, so I cannot tell which failure would invalidate the paper.”
 - **Severity:** `S1` when the central case depends on the ambiguity; otherwise `S2`.
-- **Exception:** Do not force an arbitrary count; the range is a cognitive heuristic, not a rule.
+- **Exception:** Do not force an arbitrary claim count; require only the distinctions needed to expose which failure would invalidate the thesis.
 
 ## TH-03 — The thesis predicts the design
 
@@ -82,4 +82,4 @@ The maps are diagnostic. Do not paste them into the manuscript unless the user a
 
 ## Sources
 
-These rules synthesize [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [SYSTEMS-GUIDE], and observed thesis/evidence alignment in [OSDI-SOSP-CORPUS]. The memory test and map are author-side diagnostics, not official review forms. Last reconciled 2026-09-03.
+These rules synthesize [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [SYSTEMS-GUIDE], and observed thesis/evidence alignment in [FIVE-VENUE-CORPUS]. The memory test and map are author-side diagnostics, not official review forms. Last reconciled 2026-09-03.

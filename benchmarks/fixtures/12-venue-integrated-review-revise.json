@@ -1,0 +1,61 @@
+{
+  "id": "venue-integrated-review-revise",
+  "title": "Blind two-stage venue review and evidence-safe revision",
+  "skills": ["systems-paper-review", "systems-paper-revise"],
+  "material_origin": "synthetic",
+  "stage_prompts": {
+    "review": "Target venue is ASPLOS 2027. Use systems-paper-review to audit only the paragraph below, including its venue-fit assertion, without rewriting it. Verify any venue rule from a current official source.\n\nOur cross-layer system uses compiler hints and an OS daemon to improve accelerators. We satisfy ASPLOS requirements and achieve a 1.4x speedup.",
+    "revise": "Use systems-paper-revise to revise only the paragraph below using the supplied evidence and the complete Stage 1 review provided separately as the authorized stage_1_output artifact. Treat that review as editorial guidance, not as manuscript evidence. Return evidence-bounded English manuscript prose.\n\nOur cross-layer system uses compiler hints and an OS daemon to improve accelerators. We satisfy ASPLOS requirements and achieve a 1.4x speedup."
+  },
+  "scope": {
+    "authorized": ["the synthetic paragraph", "the supplied technical evidence", "live official ASPLOS 2027 author/CFP pages", "the complete Stage 1 output, byte-for-byte, as the stage_1_output artifact for Stage 2"],
+    "excluded": ["other manuscript sections", "source code", "raw results", "other venues", "unofficial venue summaries", "persistent file edits"],
+    "output_language": "Chinese commentary with English manuscript prose in Stage 2"
+  },
+  "evidence": {
+    "technical_facts": [
+      "The compiler emits object-lifetime hints.",
+      "The OS daemon uses those hints to batch IOMMU remaps.",
+      "A prototype implements both parts.",
+      "Across six evaluated applications, geometric-mean throughput was 1.4x that of the same OS with hints disabled.",
+      "The work changes no accelerator architecture and reports no energy result."
+    ],
+    "venue_fact_policy": "Only a live official ASPLOS 2027 source may establish current pillar, rapid-review, page, policy, or submission requirements. If unavailable, mark venue fit unresolved.",
+    "unsupported": ["automatic satisfaction of ASPLOS requirements", "architecture contribution", "all accelerator workloads", "energy benefit"]
+  },
+  "protected_tokens": ["compiler", "OS daemon", "object-lifetime hints", "IOMMU remaps", "prototype", "six", "geometric-mean throughput", "1.4x", "hints disabled", "no accelerator architecture", "no energy result"],
+  "forbidden_actions": [
+    "Stage 1 drafts replacement prose or modifies state",
+    "Stage 2 expands beyond the paragraph",
+    "summarize, edit, annotate, or selectively quote Stage 1 output before passing it to Stage 2",
+    "use a stale registry entry or unofficial source as current venue authority",
+    "claim venue compliance, architecture contribution, or energy benefit without support"
+  ],
+  "hard_gates": [
+    "Stage 1 is strictly read-only and contains no replacement paragraph.",
+    "Any ASPLOS 2027 rule is supported by a live official URL and check date, or explicitly unresolved.",
+    "Stage 1 and Stage 2 use fresh invocations, and the complete Stage 1 output reaches Stage 2 byte-for-byte as stage_1_output.",
+    "Stage 2 preserves every technical fact and does not claim that acceptance requirements are satisfied.",
+    "No persistent file is modified in either stage."
+  ],
+  "expected_behavior": [
+    "Stage 1 separates technical prose defects, evidence gaps, and live venue-fit requirements.",
+    "Stage 1 tests whether using compiler and OS mechanisms actually advances a relevant ASPLOS pillar rather than assuming fit from component names.",
+    "Stage 2 turns the component list into the supported hint-to-remap causal relation and bounds the result to six applications and the named baseline.",
+    "The stages use separate fresh contexts, and the complete review output composes verbatim into revise without creating a third compose behavior or leaking diagnostic labels into manuscript prose."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Stage 1 reviews only the paragraph and supplied evidence.", "points": 1},
+    {"id": "R2", "criterion": "Stage 1 provides no replacement manuscript prose.", "points": 1},
+    {"id": "R3", "criterion": "Stage 1 verifies venue facts from an official ASPLOS 2027 URL with a check date, or marks them unresolved.", "points": 1},
+    {"id": "R4", "criterion": "Stage 1 does not infer venue fit merely from compiler, OS, or accelerator nouns.", "points": 1},
+    {"id": "R5", "criterion": "Stage 1 flags satisfy ASPLOS requirements as unsupported manuscript language.", "points": 1},
+    {"id": "R6", "criterion": "Stage 2 leads with revised English manuscript prose.", "points": 1},
+    {"id": "R7", "criterion": "Stage 2 explains object-lifetime hints leading the OS daemon to batch IOMMU remaps.", "points": 1},
+    {"id": "R8", "criterion": "Stage 2 states prototype implementation status without upgrading maturity.", "points": 1},
+    {"id": "R9", "criterion": "Stage 2 preserves 1.4x geometric-mean throughput across six applications.", "points": 1},
+    {"id": "R10", "criterion": "Stage 2 preserves the same-OS, hints-disabled baseline.", "points": 1},
+    {"id": "R11", "criterion": "Neither stage claims an architecture change or energy result.", "points": 1},
+    {"id": "R12", "criterion": "Diagnostic labels and venue-audit process do not leak into the revised manuscript paragraph.", "points": 1}
+  ]
+}

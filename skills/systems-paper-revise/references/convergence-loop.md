@@ -1,203 +1,91 @@
 # Evidence-Safe Convergence Loop
 
-The loop is a fixed-point search over the frozen scope:
+Use this loop only when the user explicitly requests iterative revision or when several interacting edits make a single writer-first pass unsafe. An ordinary composition or bounded rewrite ends after the lightweight gate in [revision-protocol.md](revision-protocol.md).
+
+## Invariant
 
 ```text
 freeze scope and evidence
-  -> recover the scoped writing obligation
-  -> adversarial review or missing-text dependency check
-  -> actionable ledger
-  -> root-only evidence-safe writing batch
-  -> preservation checks
-  -> full in-scope re-review (same read-only roles)
-  -> repeat or stop
-  -> human examines final Git diff and comments
+  → establish a baseline diagnosis
+  → select one dependency-safe writing batch
+  → revise through the sole writer
+  → check meaning and protected content
+  → re-read the complete scope
+  → repeat only while a specific supported repair remains
+  → hand the final working tree to the human
 ```
 
-The loop contains **no Git operation by the root or any subagent**. Git is reserved for the human review that follows the completed or blocked loop. For scopes that use reviewer subagents, also follow [multi-agent-revision.md](multi-agent-revision.md).
+The root agent is the sole writer. Reviewer subagents, when used, remain read-only. From the baseline through the final gate, no agent invokes Git or a source-control API, and no agent creates a backup, branch, commit, stash, tag, patch, or diff report. Git review belongs to the human after the loop.
 
-## State model
+## Establish the baseline
 
-Track findings by stable ID across rounds.
+1. Freeze the editable objects, explicit exclusions, evidence, author intent, language, and protected content through [revision-protocol.md](revision-protocol.md) and [change-safety.md](change-safety.md).
+2. For existing prose, identify every materially distinct actionable defect in scope. For missing prose, identify every reader obligation the requested unit must discharge.
+3. Separate items that prose can repair from items requiring a new experiment, data, proof, implementation fact, source, outside context, or author choice.
+4. Order actionable items by scientific dependency: truth and claim strength; argument and evidence alignment; structure; terminology and protected content; sentence-level expression.
 
-| State | Meaning | Next action |
-|---|---|---|
-| `new` | Newly found actionable issue | Diagnose root cause and evidence |
-| `actionable` | An `E1`–`E5` repair is available | Batch and edit |
-| `resolved` | Resolution test passes under full re-review | Keep closed unless regression appears |
-| `regressed` | A prior fix or other edit recreated the issue | Reopen and identify interaction |
-| `blocked-B1` | Missing experiment/data/proof/implementation evidence | Stop claiming automatic solvability |
-| `blocked-B2` | Citation/factual source decision unresolved | Verify or ask author |
-| `blocked-B3` | Required context outside frozen scope | Ask to expand scope or stop |
-| `blocked-B4` | Author intent/tradeoff decision required | Present alternatives and stop |
-| `preference` | Correct optional alternative | Exclude from convergence unless user requested it |
+Use the sibling [systems-paper-review](../../systems-paper-review/SKILL.md) for an explicitly requested adversarial gate or a full-scope scientific/submission judgment. Otherwise perform the focused internal diagnosis needed for the requested revision.
 
-## Round 0 — Baseline
+## Run one edit round
 
-1. Freeze the scope, evidence classes, and invariants.
-2. If prose exists, run the complete applicable sibling review protocol. If prose is missing, identify the minimum reader promise, supported answer, dependencies, and handoff required by the requested scope.
-3. When multi-agent review applies, wait for every applicable read-only reviewer role and let the root consolidate one ledger.
-4. Create the applicable claim inventory, claim-evidence matrix, and working ledger.
-5. Record baseline counts by severity/status when findings exist, not a single score.
-6. Separate writable obligations or repairable findings from blockers.
+### Select a coherent batch
 
-Do not skip Round 0 even when the user supplies reviewer comments; those comments can miss regressions and may contain invalid proposed fixes.
+Choose the highest-impact repair that is not blocked and include interacting edits only when their combined meaning can be audited. A useful batch may calibrate a claim before reorganizing evidence, define a model before explaining mechanisms, or settle terminology before sentence revision.
 
-## Each edit round
+For a structural rebuild, first route the contribution with [paper-archetypes.md](paper-archetypes.md) and apply [revision-strategies.md](revision-strategies.md). For a local defect, repair directly without constructing unnecessary paper-wide maps.
 
-### A. Select the correct scale and a dependency-safe batch
+### Write once
 
-Before selecting sentences, apply the local-repair and structural-rebuild rules in `revision-protocol.md`. A requested missing passage starts from its minimal reader obligation and evidence dependencies. When a rebuild is triggered, first establish an evidence-bounded thesis/support tree and dependency outline, then repair section roles and only afterward draft paragraphs. `Smallest` means the smallest coherent scope that completes the obligation or closes the root cause, not the fewest changed words.
+The root writes one coherent version through [writing-core.md](writing-core.md). While writing:
 
-Choose the highest-impact writing obligation or root cause that does not depend on an unresolved blocker. Prefer one batch that can close multiple dependencies, for example:
+- remain inside the frozen scope;
+- add only established facts or warranted inferences;
+- preserve material premises, evidence, costs, and limitations;
+- select or demote secondary detail according to its contribution to the decision case;
+- keep every reviewer subagent idle or read-only.
 
-- calibrate a central claim before reorganizing its evidence paragraph;
-- define the system model before polishing component descriptions;
-- correct evaluation boundary before editing result interpretation;
-- settle canonical terminology before sentence-level consistency edits.
+### Check preservation and regression
 
-Avoid simultaneous changes whose semantic interactions cannot be audited.
+Run [change-safety.md](change-safety.md), then re-read the complete frozen scope. Record internally:
 
-### B. State preservation invariants
+- which obligation or root cause closed and why;
+- which actionable item remains;
+- which item is blocked and by what;
+- any newly introduced or reopened problem;
+- which preservation and tool checks actually passed.
 
-Before editing, list values/tokens/meanings that must remain unchanged. Use `change-safety.md`.
+When independent review is warranted, follow [multi-agent-revision.md](multi-agent-revision.md) and wait for all applicable reviewers before the next write.
 
-### C. Apply the correctly scoped writing repair
+## Continue only on observable progress
 
-The root is the sole writer. Reviewer subagents must be idle or read-only while this batch is applied.
+Run another round only when a named repair remains and the previous round did at least one of the following:
 
-A draft or edit is admissible only if:
+- discharged a reader obligation;
+- closed a predeclared resolution test;
+- narrowed an overbroad claim or reduced the scope of a defect;
+- exposed a premise or dependency needed for the next repair;
+- removed a regression while preserving the earlier improvement.
 
-1. it remains inside scope;
-2. every added factual proposition has evidence;
-3. it completes a declared writing obligation or addresses the diagnosed root cause;
-4. it preserves technical intent or openly calibrates it;
-5. it does not hide a limitation or unresolved finding.
+A larger draft, a lower word count, or smoother wording alone is not progress. After an unsuccessful approach, try a distinct evidence-safe repair only when its mechanism and expected resolution test are clear.
 
-After adding missing prose or rebuilding structure, verify that the outline and prose make the problem, thesis hierarchy, design derivation, and decisive evidence mutually consistent. After a local repair, verify that it did not silently change any of those structures.
+## Stop precisely
 
-### D. Run local preservation checks
+### Locally complete
 
-Compare claims, numbers, units, citations, equations, identifiers, labels, macros, and requested language before/after. If source is a file, inspect only non-Git file content and relevant tool output.
+Stop as locally complete when every requested obligation is discharged, every actionable in-scope defect is closed, the complete scope has passed its final re-read, preservation checks pass, and no required evidence/context/source/author choice remains unresolved.
 
-### E. Run the full gate
+This status describes only the frozen scope. It does not establish novelty over all literature, artifact correctness in every environment, completion of missing experiments, acceptance, or publication readiness.
 
-Reapply every relevant review pass to the entire frozen scope. Do not inspect only changed sentences. In multi-agent mode, use the same role boundaries, wait for all applicable roles, and let the root reconcile their results. Record:
+### Blocked
 
-- findings closed and resolution evidence;
-- findings still actionable;
-- blockers unchanged or newly exposed;
-- regressions/new findings;
-- coverage changes.
+Stop as blocked when no evidence-safe prose edit remains and the outstanding issue requires evidence, context, source verification, or author choice. State the affected claim, the missing item, why prose cannot supply it, and the observable condition that would unblock it.
 
-### F. Decide whether another round can make progress
+### No progress or oscillation
 
-Continue if at least one missing writing obligation or actionable finding has an admissible writing move and the previous round did at least one of the following:
+Stop when successive admissible revisions recreate the same semantic defect, improve one equal-or-higher-impact problem only by reopening another, or encode different author intent. Restore only the current unsafe edit through direct editing and report the decision needed.
 
-- discharged a declared reader obligation with evidence-bounded prose;
-- closed a finding's resolution test;
-- reduced an evidence-backed severity, affected-claim set, or unresolved condition;
-- passed a predeclared intermediate resolution test needed for the next repair;
-- unlocked a dependency that makes a specific next repair admissible.
+No round count, reviewer score, linter result, or word-count target proves convergence. Once a true fixed point is reached, optional paraphrases do not keep the loop alive.
 
-An incomplete obligation or `improved but open` finding counts as progress only when the ledger records one of these observable changes and names the next admissible move. A larger draft, smaller word count, or more fluent wording alone is not progress.
+## Handoff
 
-One unsuccessful repair does not create a dead state. Continue with a distinct, predeclared admissible alternative when it addresses the same root cause through a materially different change and the repeated-failure stop condition has not been met. Record why the alternative can satisfy the unresolved test. Stop only when the repeated-failure criterion is met or no specific admissible alternative remains.
-
-## Convergence criteria
-
-### Fixed point — locally clean
-
-Declare `fixed point — no actionable issue remains within scope` only when:
-
-- every declared writing obligation in scope has either been discharged or exposed as a blocker;
-- every applicable review pass has been rerun after the last edit;
-- no `S0`–`S3` confirmed defect remains;
-- no unresolved reviewer risk has an evidence-safe in-scope edit available;
-- no `B1`–`B4` blocker remains;
-- style preferences are either requested and resolved or explicitly excluded;
-- preservation checks pass;
-- all unassessable rule families and external dependencies are disclosed.
-
-This means the current material has no further supported automatic edit under the current scope. It does **not** mean:
-
-- the whole paper has no problem;
-- missing experiments are complete;
-- novelty is proven over all literature;
-- the artifact works in all environments;
-- reviewers will accept the paper;
-- the paper is publication-ready.
-
-### Blocked fixed point
-
-Declare `blocked — only evidence/context/source/author decisions remain` when no admissible edit remains but one or more `B1`–`B4` items persists. This outcome takes precedence over locally clean. Preserve the blocker in the final handoff; do not delete or euphemize it.
-
-### No-progress / oscillation stop
-
-Stop when either occurs:
-
-- two successive admissible attempts recreate the same semantic defect in different wording;
-- a change improves one equal-or-higher severity finding only by reopening another;
-- repeated attempts fail the same declared resolution or intermediate test, the ledger shows no observable severity/scope/condition reduction, and no specific next admissible repair remains;
-- alternative repairs encode different author intent.
-
-Revert only the current unsafe edit using direct file editing, not Git, then report the decision needed.
-
-## No arbitrary round or score threshold
-
-Never stop merely because:
-
-- three/four/six/ten rounds are complete;
-- a reviewer score reaches a numerical threshold;
-- a language linter is clean;
-- no new findings appeared in one shallow pass;
-- token/time budget is inconvenient.
-
-Conversely, do not paraphrase indefinitely after reaching a true fixed point. Optional stylistic alternatives do not keep the loop alive.
-
-## Internal progress ledger
-
-Maintain:
-
-| Finding | Rule | Severity | Round found | Repair class | State after round | Resolution evidence | Dependency/blocker |
-|---|---|---|---|---|---|---|---|
-
-At each round, summarize:
-
-```text
-Round N
-- Closed:
-- Still actionable:
-- Blocked:
-- New/regressed:
-- Preservation checks:
-- Next batch or stop reason:
-```
-
-This ledger need not be written to disk unless the user asks for a report file.
-
-## Git-free guarantee
-
-During Round 0 through the final automatic gate, every root and subagent instruction must enforce:
-
-- do not invoke `git` directly or through scripts/aliases;
-- do not use IDE/source-control APIs as a substitute;
-- do not create commits, branches, stashes, patches, tags, or backup files;
-- do not use `git diff` even read-only;
-- inspect edited file content and tool outputs directly.
-
-After the loop, tell the user it is ready for **their** Git diff review and feedback. Only a new explicit request authorizes Git use.
-
-## Human feedback starts a new loop
-
-When the user provides comments after inspecting the diff:
-
-1. Treat comments as new requirements/objections, not automatically correct facts.
-2. Re-freeze scope; retain the same scope unless the user changes it.
-3. Verify technical/factual suggestions.
-4. Add valid issues to the ledger and run another Git-free loop.
-5. Hand back for human diff review again.
-
-## Sources
-
-This loop operationalizes the user's requested human-after-loop Git workflow and the sibling review gate. It also adapts staged revision patterns from [YSLAB-REVISION] and [SIMCHOWITZ-WRITING] without fixed round counts. Source keys are in the sibling `source-registry.md`. Last reconciled 2026-09-03.
+Lead with the final manuscript text or exact edited files. Report the scope, consequential changes, actual checks, loop outcome, and blockers compactly. Confirm that the loop used no Git operation and is ready for the human's Git diff review.
