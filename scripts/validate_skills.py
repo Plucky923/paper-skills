@@ -25,8 +25,14 @@ SKILLS_ROOT = REPO_ROOT / "skills"
 BUNDLE_MANIFEST = REPO_ROOT / "benchmarks" / "bundle.json"
 FIXTURES_ROOT = REPO_ROOT / "benchmarks" / "fixtures"
 
-EXPECTED_SKILLS = ["systems-paper-review", "systems-paper-revise"]
+PAPER_SKILLS = ["systems-paper-review", "systems-paper-revise"]
+EXPECTED_SKILLS = PAPER_SKILLS + ["systems-paper-grill"]
 EXPECTED_INSTALL_MAPPINGS = [
+    {
+        "source": "skills/systems-paper-grill",
+        "install_path": "skills/systems-paper-grill",
+        "kind": "directory",
+    },
     {
         "source": "skills/systems-paper-review",
         "install_path": "skills/systems-paper-review",
@@ -53,7 +59,7 @@ EXPECTED_PROVENANCE_FILES = [
     }
 ]
 EXPECTED_ACCEPTANCE = {
-    "fixture_count": 12,
+    "fixture_count": 20,
     "minimum_score_per_fixture": 10,
     "allow_regression": False,
     "require_all_hard_gates": True,
@@ -74,6 +80,9 @@ FIXTURE_BASE_FIELDS = {
     "rubric",
 }
 INTEGRATED_FIXTURE_ID = "venue-integrated-review-revise"
+WORKFLOW_FIXTURE_ID = "paper-discussion-workflow"
+WORKFLOW_STAGES = ("review", "grill_open", "grill_confirm", "revise", "rereview")
+WORKFLOW_SKILLS = ["systems-paper-review", "systems-paper-grill", "systems-paper-revise"]
 
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 CODE_MD_POINTER_RE = re.compile(r"`([^`\n]*?\.md(?:#[^`\s]*)?)`")
@@ -363,7 +372,34 @@ def check_bundle(
                     f"provenance file {source} is not reachable from {rel(entrypoint)}"
                 )
 
+    check_grill_sources(report)
     return skill_dirs, canonical_paths, provenance_paths, manifest
+
+
+def check_grill_sources(report: Report) -> None:
+    """Verify attribution for the adapted paper-specific interview skill."""
+    source_file = REPO_ROOT / "benchmarks" / "grill-source.json"
+    try:
+        source = json.loads(source_file.read_text(encoding="utf-8"))
+        if source["repository"] != "https://github.com/mattpocock/skills":
+            raise ValueError("unexpected upstream repository")
+        if not re.fullmatch(r"[0-9a-f]{40}", source["commit"]):
+            raise ValueError("missing immutable upstream commit")
+        if source["license"] != "MIT":
+            raise ValueError("unexpected upstream license")
+        if source["adapted_skill"] != "skills/systems-paper-grill":
+            raise ValueError("unexpected adapted skill")
+        if source["upstream_path"] != "skills/productivity/grilling/SKILL.md":
+            raise ValueError("unexpected upstream interview source")
+        if not re.fullmatch(r"[0-9a-f]{64}", source["upstream_sha256"]):
+            raise ValueError("missing upstream content digest")
+        license_path = REPO_ROOT / "skills/systems-paper-grill/LICENSE"
+        if hashlib.sha256(license_path.read_bytes()).hexdigest() != source["license_sha256"]:
+            raise ValueError("upstream license was changed")
+        if not isinstance(source["adaptation"], str) or not source["adaptation"].strip():
+            raise ValueError("missing adaptation description")
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        report.error(f"{rel(source_file)}: {exc}")
 
 
 def check_skill_structure(skill_dir: Path, report: Report) -> None:
@@ -385,7 +421,7 @@ def check_skill_structure(skill_dir: Path, report: Report) -> None:
     prompt_match = re.search(r"^\s*default_prompt:\s*(.+)$", text, re.MULTILINE)
     if not prompt_match:
         report.error(f"{rel(metadata)}: missing interface.default_prompt")
-    else:
+    elif prompt_match:
         prompt = parse_scalar(prompt_match.group(1))
         if f"${skill_dir.name}" not in prompt:
             report.error(
@@ -579,10 +615,27 @@ def check_nonempty_text_tree(value: object, field: str, path: Path, report: Repo
     )
 
 
+def check_workflow_case(fixture: dict, path: Path, report: Report) -> None:
+    """Validate the explicit multi-turn fixture, without exposing later replies."""
+    stages = fixture.get("stage_prompts")
+    if not isinstance(stages, dict) or set(stages) != set(WORKFLOW_STAGES):
+        report.error(f"{rel(path)}: workflow stages must be exactly {WORKFLOW_STAGES!r}")
+    elif any(not isinstance(value, str) or not value.strip() for value in stages.values()):
+        report.error(f"{rel(path)}: every workflow stage must have a non-empty prompt")
+    files = fixture.get("initial_files")
+    if not isinstance(files, dict) or set(files) != {"manuscript.md", "paper-decisions.md"}:
+        report.error(f"{rel(path)}: workflow initial files must be manuscript.md and paper-decisions.md")
+    elif any(not isinstance(value, str) or not value.strip() for value in files.values()):
+        report.error(f"{rel(path)}: workflow initial files must contain non-empty text")
+    if fixture.get("skills") != WORKFLOW_SKILLS:
+        report.error(f"{rel(path)}: workflow must route Review, Grill, Revise in that order")
+
+
 def check_fixtures(report: Report) -> int:
     fixture_files = sorted(FIXTURES_ROOT.glob("*.json")) if FIXTURES_ROOT.is_dir() else []
-    if len(fixture_files) != 12:
-        report.error(f"expected exactly 12 benchmark fixtures, found {len(fixture_files)}")
+    expected_count = EXPECTED_ACCEPTANCE["fixture_count"]
+    if len(fixture_files) != expected_count:
+        report.error(f"expected exactly {expected_count} benchmark fixtures, found {len(fixture_files)}")
 
     seen_ids: set[str] = set()
     seen_numbers: set[int] = set()
@@ -625,9 +678,13 @@ def check_fixtures(report: Report) -> int:
                 report.error(
                     f"{rel(path)}: fixture 12 id must be {INTEGRATED_FIXTURE_ID!r}"
                 )
+            if (number == 20) != (fixture_id == WORKFLOW_FIXTURE_ID):
+                report.error(f"{rel(path)}: fixture 20 must be the paper discussion workflow")
 
         expected_fields = set(FIXTURE_BASE_FIELDS)
-        if fixture_id == INTEGRATED_FIXTURE_ID:
+        if fixture_id == WORKFLOW_FIXTURE_ID:
+            expected_fields.update({"stage_prompts", "initial_files"})
+        elif fixture_id == INTEGRATED_FIXTURE_ID:
             expected_fields.add("stage_prompts")
         else:
             expected_fields.add("prompt")
@@ -644,7 +701,9 @@ def check_fixtures(report: Report) -> int:
         if fixture.get("material_origin") != "synthetic":
             report.error(f"{rel(path)}: material_origin must be 'synthetic'")
 
-        if fixture_id == INTEGRATED_FIXTURE_ID:
+        if fixture_id == WORKFLOW_FIXTURE_ID:
+            check_workflow_case(fixture, path, report)
+        elif fixture_id == INTEGRATED_FIXTURE_ID:
             stage_prompts = fixture.get("stage_prompts")
             if not isinstance(stage_prompts, dict) or set(stage_prompts) != {"review", "revise"}:
                 report.error(
@@ -669,13 +728,15 @@ def check_fixtures(report: Report) -> int:
         for skill in valid_skills:
             if skill not in EXPECTED_SKILLS:
                 report.error(f"{rel(path)}: fixture names non-bundle skill {skill!r}")
-        if fixture_id == INTEGRATED_FIXTURE_ID:
-            if skills != EXPECTED_SKILLS:
+        if fixture_id == WORKFLOW_FIXTURE_ID:
+            pass  # Validated with its staged contract above.
+        elif fixture_id == INTEGRATED_FIXTURE_ID:
+            if skills != PAPER_SKILLS:
                 report.error(
-                    f"{rel(path)}: only fixture 12 may route both skills, in bundle order"
+                    f"{rel(path)}: fixture 12 must route Review and Revise in bundle order"
                 )
         elif isinstance(skills, list) and len(skills) != 1:
-            report.error(f"{rel(path)}: fixtures 01-11 must route exactly one skill")
+            report.error(f"{rel(path)}: single-stage fixtures must route exactly one skill")
 
         scope = fixture.get("scope")
         if not isinstance(scope, dict) or set(scope) != {"authorized", "excluded", "output_language"}:
@@ -729,9 +790,9 @@ def check_fixtures(report: Report) -> int:
                 f"{rel(path)}: rubric ids must be exactly R1 through R12 in order"
             )
 
-    if seen_numbers != set(range(1, 13)):
+    if seen_numbers != set(range(1, expected_count + 1)):
         report.error(
-            f"fixture filename prefixes must be exactly 01 through 12; got "
+            f"fixture filename prefixes must be exactly 01 through {expected_count}; got "
             f"{sorted(seen_numbers)!r}"
         )
     return len(fixture_files)

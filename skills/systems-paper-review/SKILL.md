@@ -1,6 +1,6 @@
 ---
 name: systems-paper-review
-description: "Review explicitly scoped computer-systems research for contribution, technical, evidence, presentation, and submission risks. Use for read-only review of a passage, paper, figure, artifact, or venue-ready submission; do not use it to rewrite or modify the material."
+description: "Review explicitly scoped computer-systems research for contribution, evidence, technical, and presentation risks, including paragraph roles and precisely located sentence-to-sentence and paragraph-to-paragraph logic gaps. Diagnose without rewriting or modifying the material."
 ---
 
 # Systems Paper Review
@@ -14,10 +14,13 @@ Act as an exacting systems-program-committee reviewer and author-side gate. Reco
 3. Separate manuscript evidence, artifact evidence, external verification, and inference. Never invent facts, citations, results, implementation properties, reviewer opinions, or venue rules.
 4. Classify each finding as `confirmed defect`, `unresolved reviewer risk`, or `style preference`; assign severity from decision consequence rather than annoyance.
 5. Preserve every distinct in-scope finding, but merge repeated symptoms under their root cause and keep straightforward local entries compact.
+6. For prose, identify each paragraph's actual role and inspect sentence links and in-scope paragraph handoffs. Every logic finding must identify both original endpoints, explain the failed relation, and distinguish a local wording repair from missing evidence or cross-paragraph restructuring. Repair advice does not grant revision authority.
 
 ## Route by the question
 
 Load only the branches needed for the requested scope:
+
+Always read the [shared review and revision contract](../systems-paper-revise/references/review-revise-contract.md) for consistent judgments and author clarification through Grill. For any prose review, read the [systems-writing core](../systems-paper-revise/references/writing-core.md) for the same writing standard used by Revise; add the branches below only as needed.
 
 - Full adversarial review, formal finding ledger, or submission gate: [review-protocol.md](references/review-protocol.md).
 - Contribution type or novelty: the canonical [positive contracts](../systems-paper-revise/references/paper-archetypes.md), then [archetype audit](references/paper-archetypes.md) and [research-contribution.md](references/research-contribution.md).
@@ -37,7 +40,7 @@ For a full paper, cover every applicable family in passes rather than preloading
 ## Review workflow
 
 1. **Freeze scope and evidence.** Record the exact objects, source/output language, manuscript/artifact coverage, named venue/cycle, external-verification permission, and unavailable context. Accessible neighbors remain out of scope.
-2. **Reconstruct the decision case.** Select the primary archetype and map thesis → supporting claims → requirements/findings → mechanisms/analyses → decisive evidence → boundaries. Mark each proposition established, inferential, planned, or blocked; preserve competing author choices.
+2. **Recover roles and dependencies.** Identify each supplied paragraph's role, topic, claim/question, support, and closing takeaway before judging it. Check sentence pairs and paragraph handoffs using original-text anchors. For an argument-bearing scope, select the primary archetype and map thesis → supporting claims → requirements/findings → mechanisms/analyses → decisive evidence → boundaries; a short passage does not need a paper-wide reconstruction. Preserve competing author choices and evidence status.
 3. **Run independent lenses.** Apply every lens relevant to the scope:
 
 - program-committee lens: importance, novelty, fit, and coherent contribution;
@@ -57,9 +60,9 @@ Use the detailed schema in [review-protocol.md](references/review-protocol.md) f
 
 1. Editorial decision brief: scope, paper archetype, one-sentence thesis reconstruction, verdict, strongest preserved assets, and decision-dominant threats.
 2. Thesis/design/evidence diagnosis, including evidence state, reader-memory failure, competing story choices, and a read-only reconstruction blueprint at the highest useful level.
-3. Complete in-scope findings ledger, using full detail for severe or non-obvious findings and compact entries for straightforward local defects.
+3. Complete in-scope findings ledger, using full detail for severe or non-obvious findings and compact entries for straightforward local defects. For every logic finding, cite both sentences or both paragraphs, with short original quotations and the missing or invalid relation; “the flow is weak” is not a diagnosis.
 4. Claim-evidence gaps, externally verified facts, coverage limits, and gate result.
 
-Scale the reporting surface to the frozen scope. Unless the user explicitly requests a formal report, review one sentence or paragraph in this compact form: a short scope and verdict; one bullet per distinct root cause containing status/severity, the visible defect or risk, its consequence, and the minimum repair or evidence test; then one gate line. Do not emit rule IDs, archetype sections, thesis maps, tables, pass-by-pass inventories, or repeated asset/evidence summaries for such a local review. Completeness means preserving every distinct root cause, not preserving full-review scaffolding. A larger manuscript, artifact, formal full review, or submission gate may use the complete schema.
+Scale the reporting surface to the frozen scope. Unless the user explicitly requests a formal report, review one sentence or paragraph in this compact form: a short scope, paragraph role, and verdict; one bullet per distinct root cause containing status/severity, the original location pair when relational, its consequence, and the minimum repair or evidence test; then one gate line. For a multi-paragraph logic review, add a compact role map such as `P1: problem; P2: design`, then separate sentence-link and paragraph-link findings. Original-text locators are required even in a compact review; rule IDs, paper-wide thesis maps, pass inventories, and repetitive report scaffolding are not. Mark cross-paragraph logic not assessable when neighbors are absent; never invent a missing pair. A formal full review may use the complete schema.
 
 Do not force a fixed number of strengths or weaknesses. Report a strength only when it is useful for preserving a sound part of the argument during revision. A reconstruction blueprint may state the archetype, thesis/support tree, evidence obligations, and reader-obligation outline, but it must not become replacement manuscript prose under this read-only skill.

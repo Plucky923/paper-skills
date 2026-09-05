@@ -93,7 +93,7 @@ validate a judge, and labels for fixed candidates cannot evaluate newly generate
 
 `closed-book-selected-skill-v2` supplies only candidate input plus the selected
 task's frozen Markdown instructions for the skill condition. Paragraph revision
-loads the revise skill tree (currently nine documents), not the review skill or
+loads the revise skill tree, not the review skill or
 research reports; calibration loads no writing-skill documents. No-skill omits
 the bundle. Eager content loading tests instructions, not native lazy routing.
 
@@ -135,6 +135,6 @@ training contamination is unknown. These predominantly ML/NLP paragraphs do
 not cover full systems-paper argumentation, design derivation, review accuracy,
 figures, live venue rules, LaTeX or artifact behavior. The external suite now
 has **no admitted systems-paper-review benchmark**. Keep the
-[12 synthetic systems-specific fixtures and acceptance procedure](../README.md)
+[synthetic systems-specific fixtures and acceptance procedure](../README.md)
 for those requirements; acceptance remains unestablished until that procedure
 is actually run and documented.

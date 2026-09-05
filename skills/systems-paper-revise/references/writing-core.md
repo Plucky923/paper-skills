@@ -1,6 +1,14 @@
 # Canonical Systems-Writing Core
 
-Use this reference for every composition or revision. It defines the positive writing standard; the other references route contribution types, protect fragile content, or govern exceptional workflows without redefining these principles.
+Review, Grill, and Revise use this single quality standard for the same scoped prose, including requested drafting. Other references specialize its criteria or govern actions; they do not redefine what counts as clear, precise, logically supported writing. Use the [shared contract](review-revise-contract.md) for consistent judgments and discussion of uncertain logic.
+
+## OSDI calibration and editing authority
+
+OSDI's [review criteria](https://www.usenix.org/conference/osdi27/call-for-papers) emphasize a significant problem, clear contribution, convincing solution, practical benefits, correctness, and warranted conclusions. The [systems-paper writing guide](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html) supports clear reasoning, explained choices, defined terms, and concise prose. Apply those standards through the paragraph's actual role; a background paragraph need not become a miniature introduction or evaluation.
+
+Paragraph-local revision is this project's author-specified editing boundary, not an OSDI submission rule. Writing criteria diagnose quality; they do not authorize adding research content or restructuring existing paragraphs. Apply the [revision protocol](revision-protocol.md) for editing authority and verify live venue rules only when making a submission-policy judgment.
+
+Judge quality independently of permission to edit: an unsupported inference remains a scientific gap even when its original wording must be retained, and a merely different phrasing is not a defect. The shared contract governs how Review and Revise act on that judgment.
 
 ## The decision case
 
@@ -35,7 +43,7 @@ The first two pages are a useful stress test for every venue, not a universal su
 5. **Consequence and evidence:** the property or conclusion that follows and the evidence that supports it.
 6. **Boundary:** the cost, assumption, comparison scope, or failure condition that limits the conclusion.
 
-One sentence need not carry all six. Distribute them across sentences according to the paragraph's obligation, while keeping every inferential link visible.
+A paragraph needs only the elements relevant to its existing role. A recoverable implicit link can remain implicit. Do not add sentences to expose every step or complete all six elements; an absent scientific premise needs author evidence, not editorial reconstruction.
 
 When the evidence identifies a binding constraint or failure relation, keep that relation recoverable instead of replacing it with a weaker benefit paraphrase. Preserve the affected operation, the condition or frequency, and the bottleneck or failure when those facts explain why the intellectual move is necessary.
 
@@ -52,19 +60,19 @@ Keep three levels distinct:
 - A **mechanism or method** realizes the principle through an operation, state transition, algorithm, proof rule, sampling choice, or intervention.
 - An **implementation detail** records the concrete realization: data structure, API, thread, parameter, tool, or code path.
 
-Lead with the principle once the reader has enough context to understand it; retain mechanism detail that establishes correctness, causality, feasibility, cost, or a boundary. Move reproducibility-critical but narratively secondary realization detail to the implementation or appendix when the authorized scope permits.
+When information order causes a specific comprehension problem, expose the existing governing relation at the point where the reader needs it. Preserve an already clear progression and the author's emphasis. A principle-first alternative to adequate prose is optional. Moving detail between paragraphs or sections requires explicit restructuring authority.
 
 Calibration:
 
-> **Generic:** “Nimbus provides a flexible and efficient architecture for resource management.”
+> **Original:** “Each worker keeps a quota locally. Each worker keeps that quota locally so it can make admission decisions locally.”
 >
-> **Causal:** “Because the old controller serializes every admission decision, Nimbus moves decisions to per-worker quotas and contacts the controller only for replenishment; this removes global coordination from the per-request path but can delay reactions to cross-worker load changes.”
+> **Redundancy repair:** “Each worker keeps a local quota so it can make admission decisions locally.”
 
-> **Inventory:** “The controller contains a monitor, two queues, a cache, and three handlers.”
+> **Original:** “Requests enter a local queue. A background thread submits them in batches.”
 >
-> **Principle plus realization:** “The controller separates fast-path observation from asynchronous classification: requests record queue transitions, while a background classifier distinguishes persistent overload from bursts.”
+> **Decision:** Keep this adequate description. It does not establish reduced coordination overhead, latency, or a correctness guarantee. Adding one of those claims would change the scientific content.
 
-These examples are synthetic. Their value is the relation they expose, not their wording.
+These synthetic examples illustrate editing decisions. A component inventory without a supplied causal relation cannot be turned into a supported principle merely by rephrasing it.
 
 ## Paragraphs as inference units
 
@@ -84,9 +92,21 @@ Let reasoning determine paragraph length. Diagnose structure with these signals:
 - **Citation inventory:** names and citations accumulate without a comparison axis or author inference.
 - **Overcompressed:** a shorter version has lost a condition, causal bridge, evidence scope, or boundary.
 
-When the authorized task identifies material as overfull or fragmented, treat that diagnosis as a required structural repair unless it conflicts with the evidence or requested meaning. Split at the change in reasoning role—for example, from problem and design derivation to empirical adjudication and its boundary—and merge fragments that jointly discharge one obligation. Do not preserve an old paragraph boundary merely because the prose is grammatical or the sentence count is small.
+Overfull and fragmented are diagnoses, not automatic permission to split or merge paragraphs. In paragraph-local revision, preserve the boundaries and improve internal hierarchy where possible. If that cannot resolve the problem, identify the required structural change separately. Split or merge paragraphs only when the author explicitly requests restructuring, and then let reasoning roles rather than sentence counts determine the boundary.
 
-As an internal test, complete: `This paragraph makes the reader believe ___ because ___.` Two unrelated answers indicate a split; no answer indicates that the paragraph lacks an argumentative job.
+As an internal test, complete: `This paragraph makes the reader believe ___ because ___.` Two unrelated answers indicate competing obligations; no answer indicates that its argumentative job is unclear. Neither diagnosis licenses a new purpose or invented content.
+
+## Identify roles and inspect links
+
+Anchor analysis to the original text: number prose paragraphs `P1`, `P2`, and sentences within them `P1.S1`, `P1.S2`. Use the author's labels or section/path anchors when available. Source-file wraps are not paragraph breaks; LaTeX paragraphs, lists, headings, display equations, and citation abbreviations require document-aware interpretation. If extraction makes boundaries uncertain, use short quotations instead of invented numbering.
+
+For every supplied paragraph, identify its actual topic, role, claim or question, supporting content, and closing takeaway. Roles include background, problem, gap, principle, mechanism, implementation, evidence, comparison, limitation, or transition. These are reading aids, not mandatory headings or slots to fill. Record uncertainty or mixed roles instead of silently replacing the author's intention.
+
+Inspect every adjacent sentence pair and any explicit longer dependency. What does the first establish, what does the second need, and is their actual relation explanation, evidence, consequence, contrast, condition, example, qualification, or continuation? Check referents, objects, assumptions, comparison scope, and claim strength. A connective cannot repair an unsupported inference; logical continuity does not require every pair to be causal or contain a transition word.
+
+For every adjacent pair of supplied paragraphs, compare their roles and inspect the closing claim of the first against the opening premise or question of the second. Follow additional nonadjacent dependencies when the text names them. Check missing premises, unsupported shifts of topic or abstraction, repeated reasoning, inconsistent assumptions, and conclusions that exceed the earlier evidence. A declared topic change or an already clear handoff is not a defect. If only one paragraph is in scope, cross-paragraph logic is not assessable.
+
+Describe a faulty link by both original endpoints and the missing or invalid relation. Refer to the specific supporting sentences when a paragraph-level break is not located exactly at the last/first sentence. Keep these anchors in review findings or blocker notes, not inside revised manuscript prose.
 
 ## Sentence information structure
 
@@ -130,7 +150,7 @@ Choose verbs by technical relation and evidence strength:
 | `reduces`, `improves` | Claims a measured direction; name the metric, baseline, conditions, and magnitude when material. |
 | `avoids`, `eliminates` | Claims an operation or failure no longer occurs within an explicit scope. |
 
-Words such as `novel`, `first`, `efficient`, `lightweight`, `scalable`, `practical`, `secure`, `robust`, `significant`, `optimal`, `fundamental`, `all`, and `never` are claims, not decoration. Supply the relevant delta, metric, model, population, or exhaustive boundary; otherwise state the narrower supported property directly.
+Words such as `novel`, `first`, `efficient`, `lightweight`, `scalable`, `practical`, `secure`, `robust`, `significant`, `optimal`, `fundamental`, `all`, and `never` are claims, not decoration. Check their delta, metric, model, population, or exhaustive boundary. During revision, missing support calls for a separate issue note and an author decision about the claim; do not invent support or silently substitute a weaker property. For new drafting, select only properties the supplied evidence supports.
 
 ## Section contracts and reader layers
 
@@ -162,8 +182,8 @@ Concision preserves scientific judgment while reducing reading cost. Retain, in 
 4. evidence that changes credibility;
 5. definitions required to understand those items.
 
-Delete or demote background unrelated to the thesis, implementation chronology, same-level component inventories, repeated setup or numbers, unused examples, contribution restatements, empty navigation, and metadiscourse. Add a premise, bridge, or boundary when its absence forces the reader to guess; rigor can require a slightly longer sentence or paragraph.
+Within an existing paragraph, remove verbal redundancy and empty metadiscourse while preserving its substantive information and role. Make an implicit relation explicit only when that paragraph supports it; missing scientific premises require evidence or author input. Content deletion, transfer, or expansion beyond this boundary belongs to explicitly authorized composition or restructuring, not routine concision.
 
 Remove duplicate status markers when one precise construction already carries the full meaning: for example, `we plan to evaluate` already marks an evaluation as future, so `in future work` is redundant unless its timing or placement matters. After deletion, the proposition must remain unambiguously planned, conditional, inferred, or established as before.
 
-A claim may recur at different depths only when its function changes: the abstract states it, the introduction derives it, the design realizes it, the evaluation tests it, and the conclusion transfers its lesson. Between equally exact and complete versions, choose the shorter one.
+A claim may recur at different depths when its function changes: the abstract states it, the introduction derives it, the design realizes it, the evaluation tests it, and the conclusion transfers its lesson. Prefer a shorter phrasing when repairing actual redundancy; a merely shorter alternative to adequate prose remains optional.

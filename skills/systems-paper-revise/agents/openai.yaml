@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Revise"
-  short_description: "Rigorous, concise systems-paper composition and revision"
-  default_prompt: "Use $systems-paper-revise to compose or revise the systems-paper material I specify into the shortest complete, problem-driven argument supported by the evidence, while preserving technical meaning and author intent."
+  short_description: "Precise, paragraph-local systems-paper revision"
+  default_prompt: "Use $systems-paper-revise to correct concrete problems within each original paragraph, retain adequate wording and manuscript format, and label clearly better optional phrasing separately; flag missing scientific support without adding or weakening claims."

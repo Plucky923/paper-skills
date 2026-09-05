@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systems Paper Grill"
+  short_description: "Clarify paper logic and record author decisions"
+  default_prompt: "Use $systems-paper-grill to clarify unresolved paper logic under the shared writing standard and record confirmed decisions and remaining questions for revision."

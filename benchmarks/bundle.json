@@ -3,9 +3,15 @@
   "installation_mode": "bundle",
   "required_skills": [
     "systems-paper-review",
-    "systems-paper-revise"
+    "systems-paper-revise",
+    "systems-paper-grill"
   ],
   "install_mappings": [
+    {
+      "source": "skills/systems-paper-grill",
+      "install_path": "skills/systems-paper-grill",
+      "kind": "directory"
+    },
     {
       "source": "skills/systems-paper-review",
       "install_path": "skills/systems-paper-review",
@@ -32,7 +38,7 @@
     }
   ],
   "behavioral_acceptance": {
-    "fixture_count": 12,
+    "fixture_count": 20,
     "minimum_score_per_fixture": 10,
     "allow_regression": false,
     "require_all_hard_gates": true,
@@ -41,16 +47,24 @@
   },
   "canonical_references": [
     {
+      "path": "skills/systems-paper-revise/references/review-revise-contract.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]
+    },
+    {
       "path": "skills/systems-paper-revise/references/writing-core.md",
-      "consumers": ["systems-paper-review", "systems-paper-revise"]
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]
     },
     {
       "path": "skills/systems-paper-revise/references/paper-archetypes.md",
-      "consumers": ["systems-paper-review", "systems-paper-revise"]
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]
     },
     {
       "path": "skills/systems-paper-revise/references/chinese-writing.md",
-      "consumers": ["systems-paper-review", "systems-paper-revise"]
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]
+    },
+    {
+      "path": "skills/systems-paper-grill/references/decision-record.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]
     },
     {
       "path": "skills/systems-paper-review/references/review-protocol.md",

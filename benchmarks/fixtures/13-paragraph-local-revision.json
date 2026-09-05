@@ -1,0 +1,130 @@
+{
+  "id": "paragraph-local-revision",
+  "title": "Improve local logic without moving paragraph content",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请把下面正文改得更 high-level、简洁、逻辑准确，只给修改后的英文论文正文。\n\nThe coordinator serializes every admission decision. Requests wait for the coordinator even when a worker has spare capacity.\n\nA worker can admit a request while credits remain. Each worker has a local pool of 32 admission credits. The worker requests more credits from the coordinator only after the pool is exhausted.\n\nWe replayed one trace with 16 workers. Throughput was 18% higher than with centralized admission. Both configurations used the same hardware.",
+  "scope": {
+    "authorized": [
+      "the three supplied prose paragraphs"
+    ],
+    "excluded": [
+      "other manuscript text",
+      "new evidence",
+      "external sources",
+      "persistent-state changes"
+    ],
+    "output_language": "English"
+  },
+  "evidence": {
+    "paragraph_1": [
+      "the coordinator serializes every admission decision",
+      "requests wait even when a worker has spare capacity"
+    ],
+    "paragraph_2": [
+      "each worker has a local pool of 32 admission credits",
+      "a worker can admit a request while credits remain",
+      "more credits are requested only after the pool is exhausted"
+    ],
+    "paragraph_3": [
+      "one trace replay with 16 workers",
+      "18% higher throughput than centralized admission",
+      "both configurations use the same hardware"
+    ],
+    "unavailable": [
+      "tail latency",
+      "fault tolerance",
+      "credit implementation",
+      "other workloads"
+    ]
+  },
+  "protected_tokens": [
+    "32",
+    "16 workers",
+    "18%",
+    "centralized admission"
+  ],
+  "forbidden_actions": [
+    "change paragraph count or order",
+    "move or duplicate scientific content into another paragraph",
+    "replace a paragraph's role",
+    "add unsupported mechanisms, measurements, guarantees, or conditions",
+    "add role labels, headings, bullets, tables, or commentary"
+  ],
+  "hard_gates": [
+    "The output contains exactly three manuscript prose paragraphs in their original order, without commentary or format scaffolding.",
+    "Each paragraph preserves its substantive propositions and owns only those propositions or their locally warranted relations.",
+    "No new research content, generalized result, or cross-paragraph content transfer appears."
+  ],
+  "expected_behavior": [
+    "Recognize problem, mechanism, and evaluation roles without printing labels.",
+    "Leave sound wording alone and make only needed local improvements.",
+    "Make the definition-use relation for the local credit pool recoverable within paragraph 2.",
+    "Keep the bounded throughput result in paragraph 3 rather than promoting it into a design promise.",
+    "Treat high-level and concise as writing goals, not restructuring authority."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Returns only English manuscript prose.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Preserves exactly three paragraphs in the original order.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Paragraph 1 remains a coordinator-serialization problem statement, not a solution preview.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Preserves waiting despite spare worker capacity in paragraph 1.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Paragraph 2 defines or clearly identifies the local pool before its use becomes ambiguous.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Preserves 32 admission credits and local admission while credits remain in paragraph 2.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Preserves replenishment only after pool exhaustion in paragraph 2.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Keeps one trace and 16 workers as the evaluation scope in paragraph 3.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keeps the 18% throughput comparison against centralized admission in paragraph 3.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Preserves the matched-hardware condition without inventing additional controls.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Improves local expression or definition-use order without transferring content between paragraphs.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Adds no credit implementation, latency claim, fault-tolerance guarantee, or broader workload conclusion.",
+      "points": 1
+    }
+  ]
+}

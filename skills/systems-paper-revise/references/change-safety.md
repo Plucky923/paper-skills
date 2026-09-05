@@ -1,6 +1,6 @@
 # Change Safety and Meaning Preservation
 
-Use this reference before and after editing files or fragile technical content. Revision may select, compress, and reorganize material; it must preserve the scientific meaning and document structure on which the selected argument depends.
+Use this reference before and after editing files or fragile technical content. For existing prose, apply the paragraph-local boundary in [revision-protocol.md](revision-protocol.md); compression and sentence reordering must preserve each paragraph's purpose, content, and document structure.
 
 ## Freeze the authorized object
 
@@ -8,22 +8,23 @@ Use this reference before and after editing files or fragile technical content. 
 - Read and edit only that scope. A named root file does not include its dependencies unless the user adds them.
 - Preserve unrelated user work and working state. During an automated review–revise loop, create no backup, branch, commit, stash, patch file, or generated output inside the source tree.
 
-If an edit needs unavailable context, make a safe local qualification or report the exact dependency. Never infer authorization from filesystem access.
+If an edit needs unavailable scientific context, preserve the affected passage and report the exact dependency. A changed qualification requires author authority when it changes claim strength. Never infer authorization from filesystem access.
 
-## Preserve the decision case, not every sentence
+## Preserve paragraph purpose and propositions
 
 Before revising existing prose, record:
 
 ```text
 Controlling claim or local obligation:
+Original paragraph boundaries, order, and content ownership:
 Required premises and causal links:
 Evidence and its scope:
 Assumptions, costs, limitations, and failure cases:
 Canonical terminology and deliberate voice:
-True but secondary details eligible for deletion or demotion:
+Verbal redundancy removable without dropping a proposition:
 ```
 
-After revision, compare semantic propositions rather than word overlap. Every element required for the resulting claim must remain present and correctly related. A supported but nonessential detail may be omitted when it does not change scientific interpretation; report an omission that changes emphasis, reproducibility, or the apparent contribution.
+After revision, compare each original paragraph with its corresponding output paragraph, not just the document-wide set of facts. Its substantive propositions, evidence, and limitations must remain correctly related and in that paragraph. New wording may clarify those relations; a new technical explanation, transferred fact, or changed paragraph role requires author input. Deleting repeated wording is not permission to discard a substantive detail.
 
 For composition from notes, use the same list prospectively: select only material required by the requested argument rather than treating every note as content that must appear.
 
@@ -38,7 +39,7 @@ Revision cannot increase universality, certainty, causality, novelty, performanc
 - planned experiment or mechanism versus completed work;
 - exact prior-work delta versus `first` or `only`.
 
-Choose the strongest formulation the evidence supports, not automatically the most forceful or the most hedged. A qualifier cannot substitute for evidence when the claim would become empty.
+Retain the author's supported claim strength. If support is missing or a correction would change the assertion, keep the affected passage unchanged and flag it for the author's decision. Neither strengthening nor weakening a scientific claim is a routine wording fix. An explicit author correction may resolve it.
 
 ## Protect numbers and comparisons
 
@@ -51,7 +52,7 @@ Recompute a simple transformation only when its inputs and intended interpretati
 - Keep citation keys, links, author attribution, and quoted material exact.
 - Record which proposition each citation supports before moving or merging sentences.
 - Ensure a relocated citation has not acquired a broader claim.
-- Verify externally only when permitted, using a primary source. Missing support requires qualification or a named source gap; never invent a citation or placeholder that looks real.
+- Verify externally only when permitted, using a primary source. Missing support requires a named source gap and an author decision; never invent a citation or placeholder that looks real.
 
 ## Protect equations, notation, and identifiers
 
@@ -72,17 +73,17 @@ Never change data, exclusion rules, scripts, or visual encodings to obtain a fav
 
 Retain strong examples, counterexamples, principle statements, result framings, honest boundaries, and deliberate voice when they perform a reasoning job. Remove ambiguity, hype, and synonym drift without flattening every passage into the same cadence.
 
-When several versions remain accurate but imply different contribution hierarchies, audiences, threat models, deployment settings, baselines, or trade-offs, stop at the choice and present its consequences. Resolve ordinary stylistic alternatives to one conservative version.
+When alternatives imply different contribution hierarchies, audiences, threat models, deployment settings, baselines, or trade-offs, preserve the original passage and present the choice. Clearly beneficial meaning-equivalent alternatives follow the optional-wording contract in [revision-protocol.md](revision-protocol.md); adequate original wording remains in the main text.
 
 ## Final preservation check
 
 Verify the complete scoped result against the frozen record:
 
 1. the resulting claims retain every necessary premise, causal link, condition, and limitation;
-2. omitted material is nonessential or has been reported as a consequential deletion;
-3. evidence verbs, quantifiers, comparisons, and maturity labels remain calibrated;
+2. paragraph count, order, boundaries, roles, and content ownership are preserved unless explicitly changed by the author; removed wording does not remove a substantive proposition;
+3. evidence verbs, quantifiers, comparisons, and maturity labels remain calibrated, or an unchanged original claim is separately flagged for author resolution;
 4. numbers, citations, equations, identifiers, terminology, and document syntax remain exact;
-5. no out-of-scope or persistent object changed;
+5. only explicitly authorized manuscript objects changed; decision records and other out-of-scope objects remain unchanged;
 6. every tool result is described only for what it actually tested.
 
 An unsafe edit should be corrected directly. During an automated loop, do not use Git as the recovery mechanism.

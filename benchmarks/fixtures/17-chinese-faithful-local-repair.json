@@ -1,0 +1,121 @@
+{
+  "id": "chinese-faithful-local-repair",
+  "title": "Repair Chinese redundancy without supplying absent technical explanations",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
+  "scope": {
+    "authorized": [
+      "the supplied two manuscript paragraphs"
+    ],
+    "excluded": [
+      "other manuscript text",
+      "external sources",
+      "new evidence",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "facts": [
+      "Each worker thread maintains a local queue.",
+      "Requests enter that queue; a background thread submits queued requests in batches.",
+      "The system recomputes a placement decision for each request."
+    ],
+    "unavailable": [
+      "coordination protocol",
+      "batching benefits",
+      "placement scope or algorithm",
+      "performance or scalability measurements"
+    ]
+  },
+  "protected_tokens": [
+    "本地队列",
+    "后台线程",
+    "批量提交",
+    "每个请求",
+    "重新计算",
+    "放置决策"
+  ],
+  "forbidden_actions": [
+    "replace clear prose merely to sound academic",
+    "add coordination, isolation, performance, or scaling claims",
+    "move content across paragraphs",
+    "emit diagnostic labels or optional wording"
+  ],
+  "hard_gates": [
+    "The two manuscript paragraphs remain in their original order and retain their own technical content.",
+    "The first paragraph remains unchanged; actual redundancy in the second is removed without changing its proposition.",
+    "No new technical explanation, consequence, evidence, or diagnostic scaffolding appears."
+  ],
+  "expected_behavior": [
+    "Retain the adequate queueing and batching description.",
+    "Remove the repeated per-request placement-computation statement.",
+    "Do not invent global placement, cluster-size costs, local reuse, boundary crossings, or future experiments.",
+    "Return only Chinese manuscript prose."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Returns Chinese manuscript prose.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Preserves two paragraphs in their original order.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Keeps the adequate first paragraph unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Preserves each worker thread as the owner of a local queue.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Preserves requests entering that queue.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Preserves the background thread's batching action.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Removes the repeated proposition in paragraph 2.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Preserves placement recomputation for each request.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Adds no global scope, algorithm, or cost scaling.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Adds no batching benefit or guarantee.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Transfers no technical content between paragraphs.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Adds no headings, role labels, optional alternatives, or routine commentary.",
+      "points": 1
+    }
+  ]
+}

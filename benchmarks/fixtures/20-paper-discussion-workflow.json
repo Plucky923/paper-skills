@@ -1,0 +1,136 @@
+{
+  "id": "paper-discussion-workflow",
+  "title": "Persist a multi-round paper discussion and revise from confirmed decisions",
+  "skills": [
+    "systems-paper-review",
+    "systems-paper-grill",
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "stage_prompts": {
+    "review": "使用 systems-paper-review，只读检查 {project}/manuscript.md，定位句间与段间的逻辑问题，区分缺陷和需要确认的问题。不要读其他论文文件，不要写文件。",
+    "grill_open": "使用 systems-paper-grill，读取 {project}/manuscript.md、review.md 和现有 paper-decisions.md，讨论 Review 指出的问题，把中间结果写入 paper-decisions.md。暂时没有更多技术材料，请先提问。只允许修改记录，正文和 Review 只读。",
+    "grill_confirm": "我确认原文 one replica 写错了：实际协议是所有三个副本都持久化该写入后，客户端才确认。请记录纠正第一句和修复语法的决定。我们没有足够的故障模型说明或证明，所以删除第二句的 durability 保证，不增加替代保证。第二段只是独立介绍只读性能实验，保持原样。我否决添加复制延迟、吞吐量收益和未提供的同步细节。以上是最终确认的修改范围。请更新 {project}/paper-decisions.md 并交接，不要改正文。",
+    "revise": "使用 systems-paper-revise，在论文项目 {project} 中读取该项目的讨论记录和 review.md，按已确认的决定修改 manuscript.md。只能修改正文，保留段落格式；记录和 Review 文件只读。",
+    "rereview": "使用 systems-paper-review，只读复核 {project}/manuscript.md、paper-decisions.md 和 review.md：原 Review 的哪些问题已解决，哪些仍影响当前正文，是否新增问题？不修改文件，不把已撤回的保证说成已经获得证明。"
+  },
+  "initial_files": {
+    "manuscript.md": "The client acknowledge a write after one replica responds. This guarantees durability after any two replicas fail.\n\nThe deployment uses three replicas. We measured throughput under a read-only workload.\n",
+    "paper-decisions.md": "# Paper decisions\n\nManuscript scope: manuscript.md\n\n## D0 — Deployment count\n\n- Status: confirmed\n- Location: manuscript.md, \"The deployment uses three replicas.\"\n- Decision and allowed edit: Preserve three replicas as the evaluated deployment scope.\n- Evidence: supported; author-supplied deployment fact.\n- Confirmation: Author explicitly confirmed the replica count.\n"
+  },
+  "scope": {
+    "authorized": [
+      "only paper files and the discussion record explicitly authorized by the current stage prompt within the isolated project",
+      "record writes during Grill only",
+      "manuscript writes during Revise only"
+    ],
+    "excluded": [
+      "other project files",
+      "external sources",
+      "source-code verification",
+      "persistent writes by Review"
+    ],
+    "output_language": "Chinese discussion and English manuscript"
+  },
+  "evidence": {
+    "initial_facts": [
+      "The original manuscript and D0 are the only initially supplied paper material.",
+      "Three replicas are deployed; throughput was measured under a read-only workload."
+    ],
+    "unavailable": [
+      "replica failure model",
+      "durability proof",
+      "latency or throughput benefits",
+      "unspecified synchronization mechanisms"
+    ]
+  },
+  "protected_tokens": [
+    "client",
+    "three replicas",
+    "read-only workload",
+    "D0"
+  ],
+  "forbidden_actions": [
+    "reveal grill_confirm before the opening discussion ends",
+    "edit manuscript during Review or Grill",
+    "modify the record during Revise",
+    "drop an unrelated existing decision",
+    "invent author confirmation, a proof, or rejected mechanism details",
+    "supply the Grill chat transcript to the fresh Revise invocation instead of the persisted record"
+  ],
+  "hard_gates": [
+    "Review stays read-only and identifies the original response-to-durability gap without inventing an implementation bug.",
+    "Grill persists pending decisions before the supplied author reply, then updates confirmed decisions in place while preserving D0; the manuscript remains unchanged.",
+    "A fresh Revise invocation uses only the persisted record, manuscript and Review output to apply the authorized protocol correction and guarantee deletion, preserving the second paragraph.",
+    "The final Review confirms closure without claiming missing fault evidence now exists; no out-of-scope writes occur."
+  ],
+  "expected_behavior": [
+    "Use the same writing and evidence standard at all stages.",
+    "Persist useful intermediate results, not just a final conversational summary.",
+    "Separate author-supplied protocol correction from unsupported fault guarantees.",
+    "Keep explicit rejected suggestions out of the manuscript.",
+    "Do not require confirmation again for unchanged explicitly settled decisions."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Initial Review locates the faulty original sentence pair with anchors.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Initial Review separates unsupported inference from an unverified implementation defect.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Opening Grill asks relevant questions and waits for the author reply.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Opening Grill persists pending decisions before confirmation.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Both Grill rounds preserve D0 and keep manuscript and Review unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Confirmation updates existing issues rather than duplicating them.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "The record preserves both the author's corrected protocol fact and the remaining lack of fault proof.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "The record retains the materially rejected additions.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Fresh Revise fixes grammar and states acknowledgement only after all three replicas persist the write.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Fresh Revise removes the guarantee without adding a replacement or rejected detail.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Revise preserves the second paragraph, two-paragraph layout, and read-only decision record.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Final Review identifies the actual closed issues without promoting missing evidence into a proof.",
+      "points": 1
+    }
+  ]
+}

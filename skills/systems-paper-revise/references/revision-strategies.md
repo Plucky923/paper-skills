@@ -2,6 +2,8 @@
 
 Use this reference when a defect spans several sentences, sections, claims, or evidence objects. Diagnose the root cause before selecting a repair; apply the positive prose standard in [writing-core.md](writing-core.md) after the scientific structure is sound.
 
+The paragraph-local contract in [revision-protocol.md](revision-protocol.md) controls existing prose. Use the strategies below to diagnose needed work; perform cross-paragraph movement, splitting, merging, content expansion, or reframing only under an explicit author restructuring request. A supplied whole paper or review finding is not that permission.
+
 ## Choose the repair
 
 Ask:
@@ -9,22 +11,24 @@ Ask:
 1. What claim or reader obligation fails?
 2. Is it false or unsupported, missing a premise, organized around the wrong dependency, expressed at the wrong level, or merely unclear?
 3. Which support already exists inside scope or in a permitted verified source?
-4. What is the smallest coherent region whose revision closes the root cause?
+4. Can the root cause be repaired inside the affected original paragraph without changing its purpose or adding content?
 5. Could that change create a new promise, contradiction, or author-intent choice elsewhere in scope?
 
-An admissible repair may:
+A paragraph-local repair may clarify or reorder that paragraph's supported propositions and make their existing relation explicit. If the repair needs broader authority or new evidence, identify the exact sentence or paragraph dependency and stop that repair.
+
+Authority must match the repair. Restructuring permission changes placement, not scientific claim strength. For existing prose, a missing premise or unsupported claim remains an author decision even during restructuring. Depending on the explicit request, a repair may:
 
 - correct a proposition from authoritative evidence;
 - expose an inference already warranted by established premises;
 - reorganize supported material around its dependencies;
-- narrow or delete a claim that exceeds its evidence;
+- narrow or delete a claim when the author explicitly authorizes that scientific correction;
 - add supported content required to complete the local argument.
 
 When none applies, state the evidence, source, context, or author decision required. Prose alone cannot repair that gap.
 
-## Rebuild only when the argument requires it
+## Rebuild only with explicit author authority
 
-Rebuild the authorized structure when any of these conditions holds:
+These conditions can justify proposing a rebuild, not performing one without an explicit author request:
 
 - no single controlling thesis explains the scoped material;
 - the prose follows a contribution contract different from the evidence it offers;
@@ -32,7 +36,7 @@ Rebuild the authorized structure when any of these conditions holds:
 - headline evidence does not test the main claim;
 - local repairs preserve contradictory promises across the scope.
 
-First choose the positive contract in [paper-archetypes.md](paper-archetypes.md). Then build only the necessary internal maps:
+For an authorized rebuild, first choose the positive contract in [paper-archetypes.md](paper-archetypes.md). Then build only the necessary internal maps:
 
 ```text
 controlling thesis
@@ -46,8 +50,8 @@ Use a design-derivation map or claim-evidence map only when that relation is act
 
 ## Contribution and positioning
 
-- Recover actor, setting, failure or unknown, and consequence from existing evidence. Narrow importance to the observed setting when prevalence or impact is unknown.
-- State the exact change in assumption, boundary, capability, guarantee, cost, or evidence relative to prior work. Replace open-world superlatives with a bounded delta.
+- Recover actor, setting, failure or unknown, and consequence from existing evidence. Flag unsupported prevalence or impact; changing the importance claim requires an author decision.
+- Check the exact change in assumption, boundary, capability, guarantee, cost, or evidence relative to prior work. An open-world superlative needs support or an author-authorized correction, not a silently substituted bounded claim.
 - Group related work by a decision-relevant dimension rather than publication chronology.
 - Separate prototype, simulation, deployment, and production status; state transfer conditions instead of universal generality.
 - Preserve an author decision when several contribution hierarchies are scientifically defensible.
@@ -75,13 +79,13 @@ claim or question
 - Match end-to-end results to practical claims and use microbenchmarks or ablations only for the causal attribution they can support.
 - Compare like-for-like semantics, resources, tuning opportunities, and objectives. Record a deliberately relaxed guarantee as part of the result.
 - Define timing and resource boundaries, aggregation, numerator/denominator, repetitions, and uncertainty when they affect interpretation.
-- Bound conclusions to evaluated workloads, hardware, scale, data, failure model, and implementation status.
-- Add a robustness or ablation result only when the available evidence exists and the corresponding claim requires it. Otherwise narrow the claim or expose the evidence gap.
+- Check conclusions against evaluated workloads, hardware, scale, data, failure model, and implementation status. Flag an exceeded boundary; changing an existing scientific conclusion requires author authorization.
+- Add a robustness or ablation result only when expansion is authorized, the evidence exists, and the corresponding claim requires it. Otherwise expose the evidence gap; narrow an existing claim only with explicit author authorization.
 - Treat negative results, failure regions, and plausible alternative explanations as scientific information rather than prose to hide.
 
 ## Section and attention repair
 
-Use the section contracts in [writing-core.md](writing-core.md). Reallocate attention according to novelty and uncertainty:
+When section restructuring is explicitly requested, use the section contracts in [writing-core.md](writing-core.md) and reallocate attention according to novelty and uncertainty:
 
 - expand the counterintuitive constraint, intellectual move, critical mechanism, closest-work delta, decisive evidence, and material limitation;
 - compress commodity background, implementation inventory, repeated motivation, and secondary results that do not alter the decision case;
@@ -107,6 +111,6 @@ A venue mismatch that changes the contribution, audience, evidence, or paper len
 
 ## Delete or demote safely
 
-Delete or move material down the reading path when it is true but does not change the thesis, a required premise, a decisive mechanism/finding, evidence credibility, or a material boundary. Common candidates are repeated definitions, implementation chronology, incidental optimizations, unqueried plots, duplicate results, and prose that only announces document structure.
+Under an explicit deletion or restructuring request, remove or move material only when it does not change the thesis, a required premise, a decisive mechanism/finding, evidence credibility, or a material boundary. In paragraph-local revision, remove redundant wording rather than substantive content, and report any placement issue separately.
 
 Retain negative evidence, limitations, attribution, assumptions, and reviewer-relevant costs near the claims they constrain. Report any deletion or reframing that materially changes what the author foregrounds.

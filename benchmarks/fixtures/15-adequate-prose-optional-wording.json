@@ -1,0 +1,118 @@
+{
+  "id": "adequate-prose-optional-wording",
+  "title": "Preserve adequate manuscript prose and separate optional wording",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请按 OSDI/SOSP 论文的要求润色以下 LaTeX 正文，使表达简洁且严谨。如果有明显更好的等义写法，可以单独标注。\n\n\\paragraph{Admission.} Each worker holds a local pool of admission credits~\\cite{creditpool}. The worker may admit a request only if there is at least one credit available in its local pool.\n\n\\textbf{Replenishment.} When $c=0$, the worker requests more credits from the coordinator.",
+  "scope": {
+    "authorized": [
+      "the supplied two manuscript paragraphs"
+    ],
+    "excluded": [
+      "other manuscript text",
+      "external sources",
+      "new evidence",
+      "persistent-state changes"
+    ],
+    "output_language": "English"
+  },
+  "evidence": {
+    "facts": [
+      "Workers hold local admission-credit pools.",
+      "Local admission requires at least one available local credit.",
+      "When c=0, the worker requests more credits from the coordinator."
+    ],
+    "unavailable": [
+      "the cited source text",
+      "credit allocation policy",
+      "performance measurements"
+    ]
+  },
+  "protected_tokens": [
+    "\\paragraph{Admission.}",
+    "\\cite{creditpool}",
+    "\\textbf{Replenishment.}",
+    "$c=0$"
+  ],
+  "forbidden_actions": [
+    "replace adequate manuscript wording with preferred paraphrases",
+    "change paragraph boundaries or LaTeX structure",
+    "add scientific claims or read the cited source",
+    "apply an optional alternative inside the main manuscript"
+  ],
+  "hard_gates": [
+    "The main manuscript retains both original paragraphs, their adequate wording, and all LaTeX markup unchanged.",
+    "Any optional alternative is outside the manuscript, labeled as optional, and preserves the corresponding original meaning.",
+    "No mechanism, guarantee, performance claim, or external information is added."
+  ],
+  "expected_behavior": [
+    "Recognize that the supplied prose has no concrete defect requiring direct revision.",
+    "An unchanged main manuscript is a valid successful output.",
+    "Offer an optional formulation only if it clearly improves concision or information order, not just synonyms.",
+    "Use an original anchor, one alternative, and one short reason for each offered optional formulation."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Preserves the original first paragraph in the main manuscript.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Preserves the original second paragraph in the main manuscript.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Preserves paragraph order and boundaries.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Keeps the paragraph heading command and text.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Keeps the bold lead-in and text.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Keeps the citation key and its association and placement.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Keeps the inline equation unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Preserves the necessary-condition meaning of available local credit.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Adds no scientific content.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "If optional wording is offered, it is clearly labeled and outside the main manuscript.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Each offered alternative has an original anchor, one alternative, and a short reason.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Any alternative is meaning-equivalent and clearly useful; omission is acceptable if no such gain is found.",
+      "points": 1
+    }
+  ]
+}

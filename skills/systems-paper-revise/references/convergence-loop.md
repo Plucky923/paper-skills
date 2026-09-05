@@ -30,18 +30,18 @@ Use the sibling [systems-paper-review](../../systems-paper-review/SKILL.md) for 
 
 ### Select a coherent batch
 
-Choose the highest-impact repair that is not blocked and include interacting edits only when their combined meaning can be audited. A useful batch may calibrate a claim before reorganizing evidence, define a model before explaining mechanisms, or settle terminology before sentence revision.
+Choose the highest-impact repair permitted by the paragraph-local contract and include interacting edits only when each remains inside its original paragraph. Iteration does not grant restructuring authority. A useful batch may clarify an existing condition before its consequence or settle terminology before sentence revision.
 
-For a structural rebuild, first route the contribution with [paper-archetypes.md](paper-archetypes.md) and apply [revision-strategies.md](revision-strategies.md). For a local defect, repair directly without constructing unnecessary paper-wide maps.
+For a structural rebuild explicitly requested by the author, first route the contribution with [paper-archetypes.md](paper-archetypes.md) and apply [revision-strategies.md](revision-strategies.md). Otherwise report the cross-paragraph dependency as blocked and complete only safe local repairs.
 
 ### Write once
 
 The root writes one coherent version through [writing-core.md](writing-core.md). While writing:
 
-- remain inside the frozen scope;
-- add only established facts or warranted inferences;
+- remain inside each original paragraph unless restructuring is explicitly authorized;
+- clarify only that paragraph's existing propositions and warranted relations, or an explicit author correction;
 - preserve material premises, evidence, costs, and limitations;
-- select or demote secondary detail according to its contribution to the decision case;
+- preserve paragraph count, order, roles, and content ownership; remove only verbal redundancy during ordinary revision;
 - keep every reviewer subagent idle or read-only.
 
 ### Check preservation and regression
@@ -62,7 +62,7 @@ Run another round only when a named repair remains and the previous round did at
 
 - discharged a reader obligation;
 - closed a predeclared resolution test;
-- narrowed an overbroad claim or reduced the scope of a defect;
+- applied an explicit author correction to a claim or closed a concrete wording defect;
 - exposed a premise or dependency needed for the next repair;
 - removed a regression while preserving the earlier improvement.
 
@@ -88,4 +88,4 @@ No round count, reviewer score, linter result, or word-count target proves conve
 
 ## Handoff
 
-Lead with the final manuscript text or exact edited files. Report the scope, consequential changes, actual checks, loop outcome, and blockers compactly. Confirm that the loop used no Git operation and is ready for the human's Git diff review.
+Follow the output contract in [revision-protocol.md](revision-protocol.md), including optional wording and the minimal scientific-issue exception for prose-only requests. Keep loop bookkeeping internal unless requested.

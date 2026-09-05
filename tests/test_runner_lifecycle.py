@@ -80,10 +80,34 @@ class RunnerLifecycleTests(unittest.TestCase):
                         raise KeyboardInterrupt
                     return self.process.communicate(*args, **kwargs)
 
+            class ReadyProcess:
+                """Exercise timeout cleanup after the target child is running."""
+                def __init__(self, process):
+                    self.process = process
+
+                def __getattr__(self, name):
+                    return getattr(self.process, name)
+
+                def communicate(self, *args, **kwargs):
+                    # Interpreter startup is not what this cleanup test measures.
+                    # Keep run_one's actual communicate timeout unchanged.
+                    deadline = time.monotonic() + 5
+                    while not ready.exists() and self.process.poll() is None:
+                        if time.monotonic() >= deadline:
+                            break
+                        time.sleep(0.01)
+                    if not ready.exists():
+                        raise AssertionError("Synthetic timeout child failed to start")
+                    return self.process.communicate(*args, **kwargs)
+
             def track_process(*args, **kwargs):
                 process = original_popen(*args, **kwargs)
                 owned.append(process)
-                return InterruptedProcess(process) if mode == "interrupt" else process
+                if mode == "interrupt":
+                    return InterruptedProcess(process)
+                if mode == "timeout":
+                    return ReadyProcess(process)
+                return process
 
             try:
                 with patch.object(runner, "build_command", return_value=[sys.executable, "-B", "-c", wrapper]), \

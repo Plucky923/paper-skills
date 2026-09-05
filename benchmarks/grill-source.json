@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/mattpocock/skills",
+  "commit": "3cca18b368ae95cdbdebbff572ccafa662551015",
+  "license": "MIT",
+  "adapted_skill": "skills/systems-paper-grill",
+  "upstream_path": "skills/productivity/grilling/SKILL.md",
+  "upstream_sha256": "10ff989e7498b23b5acb49d5048f11dcd906757d2f79c5cdf8a00001381296f2",
+  "license_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+  "adaptation": "Use the upstream grilling interview body as the base, retaining its decision tree, whole-frontier rounds, numbered recommendations, answer-dependent progression, fact lookup, and explicit confirmation. Also adapt terminology conflict checks, hypothetical boundary cases, immediate recording and concise notes from skills/engineering/domain-modeling at the same commit. Restrict lookups to authorized paper material; separate evidence from confirmation. Use one project decision record with a shared lookup rule for Review and Revise rather than software CONTEXT/ADR files. Keep the upstream MIT license; no runtime dependency on generic upstream skills."
+}

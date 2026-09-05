@@ -1,7 +1,7 @@
 # Systems-paper skill benchmarks
 
-This directory tests observable behavior of `systems-paper-review` and
-`systems-paper-revise`. It does not prescribe fixed manuscript wording. All
+This directory tests observable behavior of the Review, Grill, and Revise workflow.
+It does not prescribe fixed manuscript wording. All
 fixture passages are synthetic so the benchmark can be distributed without
 copying paper text.
 
@@ -18,7 +18,7 @@ Run the deterministic structural layer first:
 python3 scripts/validate_skills.py
 ```
 
-It checks the two-skill bundle, frontmatter and UI metadata, relative Markdown
+It checks the three-skill bundle, adaptation attribution, frontmatter and UI metadata, relative Markdown
 links, reachable references, cross-skill dependencies, rule/status/source-key
 definitions, and the fixture schema. A structural failure blocks behavioral
 comparison.
@@ -34,9 +34,9 @@ performing its distinct role.
    either against the working tree.
 2. Randomly label the trees `A` and `B`. Keep the mapping from both the runner
    and evaluator until scoring is complete.
-3. Start a fresh agent context for every candidate invocation. Fixtures 01--11
-   require one invocation per tree; fixture 12 requires the two fresh
-   invocations defined below. The runner projection is exactly `prompt`,
+3. Start a fresh agent context for every candidate invocation. Single-stage fixtures
+   require one invocation per tree; fixture 12 uses two fresh invocations,
+   and fixture 20 uses the five-stage procedure below. The runner projection is exactly `prompt`,
    `scope`, and `evidence`, plus the selected
    tree's named skill and artifacts explicitly authorized by `scope.authorized`.
    Never expose `id`, `title`, `material_origin`, `protected_tokens`,
@@ -78,7 +78,7 @@ read remains subject to the fixture's authority boundary.
 A run passes quality at **10/12 or higher** after passing every hard gate. A
 candidate is accepted only when:
 
-- all 12 candidate runs pass their hard gates;
+- all 20 candidate fixture runs pass their hard gates;
 - every candidate run scores at least 10/12;
 - no candidate fixture scores below its baseline counterpart; and
 - the candidate's total score exceeds the baseline, or a previously observed
@@ -98,7 +98,7 @@ reasoning obligations and preserved meaning, not stylistic similarity.
 
 ## Fixture schema
 
-Each JSON fixture is self-contained. For fixtures 01--11, `prompt` is a
+Each JSON fixture is self-contained. For single-stage fixtures, `prompt` is a
 non-empty string. The runner constructs this exact candidate-visible object:
 
 ```json
@@ -134,10 +134,43 @@ gates and twelve-point rubric. This is the supported composition path; it does
 not imply a third compose skill or let evaluator-only fields leak into either
 stage.
 
+## Full discussion workflow (fixture 20)
+
+Fixture 20 replaces `prompt` with five `stage_prompts` and adds `initial_files`
+for harness setup. It still counts as one fixture run.
+
+Run this separately for each frozen skill tree in a fresh temporary paper project.
+The harness writes the two `initial_files` verbatim before invoking any skill.
+Replace `{project}` in the current stage's prompt with that project's absolute
+path. Treat `initial_files` as harness setup, not extra candidate-visible metadata.
+Pass only the current stage prompt, `scope`, `evidence`, and the explicitly named
+files. Keep future prompts, especially the author reply, hidden until their turn.
+
+1. **review:** Fresh Review invocation, manuscript read-only. Save its complete
+   user-facing report verbatim as `review.md` through the harness, not Review.
+2. **grill_open:** Fresh Grill invocation, with only the decision record writable.
+   Capture its pending record and questions before continuing. It must not invent
+   an answer; absence of a question or premature confirmation is a failure.
+3. **grill_confirm:** Send this author reply to the same Grill conversation only
+   after step 2 finishes. Capture the confirmed record; do not manually correct it.
+4. **revise:** Fresh Revise invocation with no Grill conversation context. Supply
+   only the authorized files and current projection. The prompt identifies the
+   paper project and its discussion record without spelling out the record's
+   filename, exercising the shared default lookup. Only the manuscript is writable.
+5. **rereview:** Fresh Review invocation of the resulting files, all read-only.
+
+The harness keeps before/after file contents and action logs outside the paper
+project and model context at every stage. Check unchanged-file gates after each
+invocation, including preservation of existing D0. Evaluate the combined five-stage
+run once against fixture 20's gates and rubric. These setup and capture operations
+are harness authority, not permission for the skills to write extra files. This
+procedure defines a repeatable model test, not an automatic model runner or a claim
+that merely validating the JSON executes the workflow.
+
 ## Install closure
 
 `bundle.json` is the installation contract. Its mappings contain exactly the
-two public skill directories and the unchanged provenance report. Validate a
+three paper skill directories and the unchanged provenance report. Validate a
 staged or installed bundle with:
 
 ```bash
@@ -165,6 +198,14 @@ the provenance report remain reachable from their declared skill entrypoints.
 | `10-chinese-translation` | Explicit actor, causal chain, and evidence-safe translation |
 | `11-latex-token-safety` | Protected LaTeX, citation, math, and comment tokens |
 | `12-venue-integrated-review-revise` | Live venue rules and review-to-revise composition |
+| `13-paragraph-local-revision` | Original paragraph roles, boundaries, content ownership, and manuscript-only output |
+| `14-sentence-paragraph-logic` | Exact endpoints of faulty sentence and paragraph links, with valid transitions as controls |
+| `15-adequate-prose-optional-wording` | Adequate prose unchanged; clearly beneficial optional wording separated from preserved LaTeX |
+| `16-prose-only-scientific-gap` | Safe local correction plus the minimal scientific-gap exception, without silent claim weakening |
+| `17-chinese-faithful-local-repair` | Chinese redundancy repair without invented technical explanations or template filling |
+| `18-confirmed-grill-handoff` | Apply confirmed author decisions and exclude rejected Grill suggestions |
+| `19-grill-pending-record` | Paper-specific clarification, pending decisions, and record-location authority |
+| `20-paper-discussion-workflow` | Persist pending and confirmed decisions, apply them in a fresh Revise context, and verify closure with read-only Review |
 
 ## Maintaining the benchmark
 

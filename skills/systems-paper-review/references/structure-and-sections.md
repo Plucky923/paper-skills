@@ -90,20 +90,20 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph mixes background, design, results, caveats, and unrelated claims, so its point is unstable.”
-- **Check:** Apply the canonical paragraph contract in the [systems-writing core](../../systems-paper-revise/references/writing-core.md). Record the paragraph as `the reader should believe ___ because ___`; test whether every sentence discharges that obligation. Read the opening and ending together and flag unsupported payoff, stranded evidence, a second independent center, or a handoff that does not follow.
+- **Check:** Identify each original paragraph's topic, actual role, claim/question, support, and closing takeaway through the [systems-writing core](../../systems-paper-revise/references/writing-core.md). Record `the reader should believe ___ because ___`; test whether its sentences serve that obligation. Cite the opening and closing sentence anchors when the payoff is unsupported, evidence is stranded, or a second independent center appears. Do not assign a replacement role to make the paragraph fit a template.
 - **Severity:** `S2`; `S1` if mixed logic hides a contradiction; `S3` locally.
 - **Exceptions / false positives:** A short bridge paragraph may connect two ideas; mathematical derivations, enumerations, and tightly connected continuations need not follow a rigid topic-sentence/summary-sentence form. Judge the reasoning obligation, not a template.
-- **Repair direction:** Split by obligation, reorder support, revise the opening promise, or make the closing implication/boundary explicit without appending a redundant summary.
+- **Repair direction:** Clarify the existing obligation or reorder support inside the paragraph. If it requires splitting, moving content, or changing purpose, identify the exact units and mark explicit restructuring authority as required.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [FIVE-VENUE-CORPUS].
 
 ## SS-08 — Sentence order follows information and causal dependencies
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “I must infer why a sentence follows the previous one or reinterpret earlier sentences after learning a missing premise.”
-- **Check:** For each transition, name its relation: elaboration, evidence, cause, consequence, contrast, condition, example, limitation, or handoff. Verify old/given information anchors new information and prerequisites precede consequences.
+- **Check:** Inspect each adjacent sentence pair and explicit longer dependency. Name the relation: elaboration, evidence, cause, consequence, contrast, condition, example, limitation, or handoff. For every failure, cite both original sentence IDs and short quoted anchors; state what the first establishes, what the second needs, and the invalid inference, changed referent/scope, or missing premise. A shared keyword or added connective is not sufficient evidence of a link.
 - **Severity:** `S2`; `S3` for one rough transition.
 - **Exceptions / false positives:** Repetition of an exact word is not required; conceptual continuity is.
-- **Repair direction:** Reorder, add the missing relation, use an explicit transition only when the logic is not already obvious.
+- **Repair direction:** Clarify a relation supported inside the paragraph or reorder its sentences. A missing scientific premise requires evidence or an author decision; it cannot be supplied by a transition word or invented bridge.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
 ## SS-09 — Topic sentences are informative, not overloaded
@@ -120,10 +120,10 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph stops after an example or mechanism detail, so I do not know what was established or why the next paragraph follows.”
-- **Check:** Determine what the final sentence contributes: strongest evidence, answer, consequence, limitation, design requirement, or question that licenses the next paragraph. Verify that it follows from the paragraph's support and stays within the opening promise. Then read consecutive paragraph endings and openings to test whether each handoff advances the argument instead of restarting it.
+- **Check:** Determine what the final sentence contributes: strongest evidence, answer, consequence, limitation, design requirement, or question that licenses the next paragraph. Verify it follows from the paragraph's support and stays within the opening promise. For every adjacent pair in scope, compare both paragraph roles and inspect the first paragraph's close against the next paragraph's opening. A failure must name both paragraph IDs and relevant sentence anchors, explaining what was established, what is assumed next, and the missing or conflicting relation. Follow nonadjacent dependencies when explicitly signaled; absent neighbors are not assessable.
 - **Severity:** `S2` when a missing close breaks an important inference; `S3` locally.
 - **Exceptions / false positives:** The last sentence need not restate the topic sentence, and the logical close may be a result, caveat, or transition rather than a summary. Short bridge paragraphs, formal derivations, and lists may close implicitly when the implication is unambiguous.
-- **Repair direction:** End on the supported takeaway, boundary, or next necessary question; move trailing secondary detail earlier or delete it. Do not add a formulaic `In summary` sentence.
+- **Repair direction:** Make the existing takeaway or handoff explicit within its own paragraph where supported. If the link requires a new premise, content transfer, or structural change, report that dependency and required author authority; do not prescribe a fabricated bridge or formulaic summary.
 - **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS].
 
 ## SS-10 — Paragraph length follows reasoning, not rendered line count
@@ -133,7 +133,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Check:** Diagnose inferential density, not sentence count. Flag a paragraph that mixes independent obligations, changes abstraction level without a bridge, accumulates citations without a comparison axis, or compresses away a condition, causal link, evidence scope, or payoff. Flag fragmentation when adjacent short paragraphs cannot independently complete an inference. Rendered height and sentence count may select passages for inspection but cannot establish a defect.
 - **Severity:** `S2` when logic is obscured; `S3` or `S4` for layout only.
 - **Exceptions / false positives:** Necessary proof/algorithm exposition can be longer; short transition paragraphs can be valid.
-- **Repair direction:** Split where the reader's question or evidence role changes; merge fragments that jointly discharge one obligation; restore the missing logical bridge before shortening.
+- **Repair direction:** First identify the exact sentence or paragraph pair causing overload or fragmentation. Distinguish a paragraph-local wording repair from a split, merge, or content transfer requiring explicit author restructuring authority.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## SS-11 — Lists are parallel and introduced by a governing claim

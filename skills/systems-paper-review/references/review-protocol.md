@@ -124,6 +124,7 @@ Run all applicable passes separately. Maintain an internal coverage ledger so an
 ### Pass P5 — non-specialist systems reader
 
 - Read linearly without importing unstated domain knowledge.
+- Identify every supplied paragraph's role and assign original paragraph/sentence anchors through the shared writing core. Inspect adjacent sentence pairs, paragraph handoffs, and explicit longer dependencies; retain both endpoints of every faulty link.
 - Track first use of terms, antecedents, the problem → intellectual move → realization ladder, paragraph-opening promises, paragraph-closing implications/handoffs, section transitions, examples, figure callouts, headline-result payoff, and cognitive load.
 - For a broken or incomplete argument, build a read-only reader-obligation outline: each unit's entering question, claim/answer, required mechanism/evidence, and closing implication/handoff. Use it to locate the first broken dependency, not to write replacement prose.
 - Apply `TH`, `ER`, `SS`, `PT`, and relevant `FL` rules.
@@ -187,6 +188,16 @@ Sources: <rule source keys; add a live source URL for external facts>
 
 Use stable finding numbers within one report. Quote only the minimum text needed to anchor a location.
 
+### Sentence and paragraph logic findings
+
+For a relational finding, replace a single vague location with both original endpoints. Use `P2.S2 → P2.S3` for a sentence link and `P2 → P3` for a paragraph handoff, adding section/path anchors as needed. Quote a short identifying phrase from each side; if the relevant paragraph evidence lies away from its boundary sentences, name those sentences too. If segmentation is uncertain, use two quoted anchors rather than fabricated indices.
+
+Each finding states what the first unit establishes, what the second assumes or concludes, the claimed or expected relation, and why that relation fails. Distinguish an unsupported cause/conclusion, contradiction, scope or referent shift, missing premise, or disconnected topic from a merely optional transition. Explain the reader consequence and the minimum repair or evidence test. In compact form: `endpoint pair + anchors — status/severity; failed relation and consequence; repair boundary`.
+
+Check every adjacent pair internally, but report only actual defects or unresolved risks. Do not require a connective, invent a causal relation, or report a valid topic transition as a defect. Mark unavailable neighbors as not assessable. A one-paragraph review can identify sentence links but cannot claim to have checked paragraph-to-paragraph logic.
+
+Keep sentence-link and paragraph-link findings distinguishable; a grouped root cause still lists every affected pair. For multi-paragraph logic reviews, give a compact map of what each paragraph currently does. These diagnostics stay outside manuscript prose. If a repair would move content, split/merge paragraphs, or change a paragraph's role, label it as requiring explicit author restructuring authority rather than instructing revise to perform it automatically.
+
 For a straightforward `S2`/`S3` item, use a compact ledger row instead of repeating boilerplate:
 
 | ID | Rule | Location | Status / severity / confidence | Problem and consequence | Repair / resolution test |
@@ -220,7 +231,7 @@ Add one paragraph explaining the decisive reason and confidence. Never translate
 - Give the headline-evidence mismatch for an evaluation-bearing scope.
 - Distinguish established, inferential, planned, and blocked propositions when the material is incomplete.
 - If stories compete, show the alternatives and scientific tradeoff without choosing against author intent.
-- State the highest-level reconstruction blueprint before local findings. If the hierarchy itself is wrong, give an archetype/thesis/evidence/reader-obligation outline and say that global restructuring is required; do not supply replacement prose.
+- State the highest-level reconstruction blueprint before local findings. If the hierarchy itself is wrong, give an archetype/thesis/evidence/reader-obligation outline and identify the global restructuring that needs author authorization; do not supply replacement prose or treat that diagnosis as editing permission.
 
 ### Exhaustive findings ledger
 

@@ -1,11 +1,11 @@
 ---
 name: systems-paper-revise
-description: "Compose or revise explicitly scoped computer-systems paper prose from author-supplied text, notes, or evidence. Use for problem-driven, high-level, concise, logically precise, evidence-bounded manuscript writing while preserving supported technical meaning and author intent."
+description: "Revise computer-systems paper prose within each original paragraph, preserving its purpose, technical meaning, and manuscript format while improving precision and logical flow. Compose from author-supplied material only when drafting is requested."
 ---
 
 # Systems Paper Revise
 
-Produce the shortest complete scientific argument that the available evidence supports. The deliverable is manuscript-ready prose, not an account of the writing process.
+Correct identifiable problems in the supplied prose while preserving the author's text. A passage that already meets the request may remain unchanged. Use the OSDI-calibrated writing standard to assess the paragraph's existing role, not to complete or expand its argument automatically.
 
 ## Contract
 
@@ -13,12 +13,14 @@ Produce the shortest complete scientific argument that the available evidence su
 - Preserve factual truth, technical meaning, conditions, numbers, citations, equations, identifiers, macros, terminology, evidence status, and author intent. A polished sentence cannot turn a plan, hypothesis, or plausible mechanism into completed work.
 - Use the manuscript language unless translation is requested. Preserve deliberate voice and exact technical repetition.
 - Return prose in chat for pasted material. Edit explicitly named editable files directly. Treat a PDF as read-only unless editable source is also in scope.
-- Within the authorized scope, omit or demote true but nonessential detail when it does not change the decision case. Preserve every material premise, causal link, result, cost, and boundary; report consequential deletion or reframing.
-- Supply one conservative version by default. Present alternatives only when they encode different technical meanings, contribution priorities, assumptions, or trade-offs that require the author's choice.
+- For existing prose, preserve paragraph count, order, boundaries, and content ownership. A section or whole paper is a set of paragraph-local edits, not permission to restructure it. Follow the paragraph-local contract in [revision-protocol.md](references/revision-protocol.md); a diagnosis or review suggestion does not override it.
+- Every direct edit must address a concrete defect in grammar, reference, precision, redundancy, or supported local logic. Keep adequate sentences, emphasis, and cadence. A different academic phrasing alone is not a defect.
+- Return one conservative revision. Clearly better but optional wording belongs after the manuscript under `可选写法` (or `Optional wording`), with the original anchor, alternative, and one short reason. Follow the output rules in [revision-protocol.md](references/revision-protocol.md).
+- If a scientific claim needs missing evidence, a new premise, or a change of strength, keep that passage unchanged and flag the exact gap separately. Complete other safe edits. An unsupported claim remains flagged, not endorsed or silently weakened.
 
 ## Load the writing rules
 
-Always read [writing-core.md](references/writing-core.md) and [revision-protocol.md](references/revision-protocol.md).
+Always read [writing-core.md](references/writing-core.md), the [shared review and revision contract](references/review-revise-contract.md), and [revision-protocol.md](references/revision-protocol.md). Apply Review's same quality standard; use the shared contract to discuss uncertain logic through Grill before applying the disputed repair.
 
 Load only the branch that the request needs:
 
@@ -39,18 +41,18 @@ Choose this mode when no manuscript prose exists for the requested unit or the u
 
 ### Revise existing prose
 
-Choose this mode when manuscript prose already exists. Recover what the passage is trying to establish, find the earliest broken dependency, and make the smallest coherent repair. A coherent repair may rewrite, reorder, split, merge, delete, or add an evidence-supported bridge within scope; it is not limited to word substitution.
+Choose this mode when manuscript prose already exists. Identify each original paragraph's role, claim, support, and boundary internally, then repair only that paragraph. Sentence reordering, splitting, or merging may occur inside it. Changing paragraph boundaries, moving content between paragraphs, or replacing the paragraph's purpose requires an explicit author request.
 
 Infer the mode from the supplied material. Ask the author only when the choice would change the scientific contribution or technical meaning.
 
-## Writer-first workflow
+## Existing-prose workflow
 
-1. Freeze scope, language, author intent, evidence, and protected technical content.
-2. State internally the reader obligation and the strongest supported answer. At section or paper scale, recover the controlling thesis and its necessary support hierarchy.
-3. Draft one coherent version using [writing-core.md](references/writing-core.md). Prefer a supported inference over an inventory, and a precise relation over an academic-sounding phrase.
-4. Run a lightweight gate over the complete scoped result: verify causal and evidential logic, paragraph obligations, terminology, claim strength, and protected content. Use a full review–revise loop only through the conditional routing above.
-5. Stop when the requested obligation is discharged as precisely and economically as the evidence permits, or when the remaining gap requires evidence, context, source verification, or an author decision.
+1. Freeze scope, language, author intent, evidence, and protected technical content; read the authorized paper decision record and recover confirmed Grill decisions through the shared contract before choosing edits. A directly requested revision needs no record when no discussion has occurred.
+2. Identify each paragraph's existing reader obligation and trace its sentence links; use supplied neighboring paragraphs to understand the handoff, not as a pool of content to move.
+3. Fix only identified local defects using [writing-core.md](references/writing-core.md). An equivalent abstraction must follow directly from the paragraph and address the requested repair; otherwise keep the original or offer it as optional wording. Add no purpose, cause, benefit, mechanism, or planned experiment to make the prose sound complete.
+4. Check every edited paragraph and its in-scope neighbors: verify sentence links, paragraph handoffs, content ownership, terminology, claim strength, and protected content. A loop cannot expand the editing boundary.
+5. Stop when the requested local repairs are complete. If a sentence or paragraph link needs new evidence or cross-paragraph restructuring, identify both endpoints and the blocker outside the manuscript instead of silently completing the argument.
 
 ## Output
 
-Lead with the revised or newly composed manuscript text. For file edits, name the exact edited objects. Follow with only consequential changes, validations actually performed, and unresolved blockers. Keep internal outlines, maps, labels, reviewer roles, and loop state out of the manuscript and out of the response unless the user asks for them.
+Lead with the manuscript text in its original paragraph layout, headings, lists, emphasis, citations, and markup. For file edits, name the edited objects. Keep diagnostics and alternatives outside the manuscript and out of source files. Offer optional wording only for a clear benefit; ordinary synonym swaps need no alternative. When the user requests only prose, omit optional wording and routine commentary; the sole exception is a minimal note locating an unresolved issue that affects scientific meaning. State its missing evidence without adding a replacement argument. See [revision-protocol.md](references/revision-protocol.md) for the complete output contract.

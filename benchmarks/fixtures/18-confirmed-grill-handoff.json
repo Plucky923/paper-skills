@@ -1,0 +1,120 @@
+{
+  "id": "confirmed-grill-handoff",
+  "title": "Apply confirmed Grill decisions without rejected suggestions",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "根据以下 Review 和 grill-me 讨论的已确认结果修改两段英文正文，只给正文。\n\n原文：\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\n\nReview：P1.S1 主谓不一致；P2.S1 → P2.S2 从单一 workload 平均延迟跳到所有 workload 的 tail latency 保证。\nGrill：助手建议 Q1 删除 P2.S2 的保证。作者：接受 Q1，只测了一个 workload 的平均延迟，没有 tail latency 或其他 workload 数据，请删除这个保证。助手建议 Q2 添加队列降低协调开销的说明。作者：不接受 Q2，没有依据。助手汇总：只修 P1.S1 语法，删除 P2.S2，保留 P2.S1，不加收益，不跨段重组。作者：确认，按这个修改。",
+  "scope": {
+    "authorized": [
+      "the two original paragraphs",
+      "the supplied Review and confirmed Grill conversation"
+    ],
+    "excluded": [
+      "external sources",
+      "other manuscript text",
+      "new evidence",
+      "persistent-state changes"
+    ],
+    "output_language": "English"
+  },
+  "evidence": {
+    "facts": [
+      "A worker keeps a local queue.",
+      "A background thread submits queued requests in batches.",
+      "Mean latency was measured under one workload."
+    ],
+    "unavailable": [
+      "numeric latency results",
+      "comparators",
+      "tail measurements",
+      "other workloads",
+      "coordination-overhead benefits"
+    ]
+  },
+  "protected_tokens": [
+    "local queue",
+    "background thread",
+    "mean latency",
+    "one workload"
+  ],
+  "forbidden_actions": [
+    "apply a rejected or unconfirmed Grill suggestion",
+    "preserve the guarantee despite the explicit author correction",
+    "invent results or supporting mechanisms",
+    "change paragraph ownership or format"
+  ],
+  "hard_gates": [
+    "The revision applies the confirmed grammar fix and deletion of the unsupported guarantee.",
+    "It preserves the two paragraphs and all remaining technical propositions.",
+    "The rejected overhead suggestion and absent scientific evidence do not enter the manuscript."
+  ],
+  "expected_behavior": [
+    "Use the original prose, Review diagnosis, and confirmed Grill outcome together.",
+    "Treat explicit author confirmation as authority for the named deletion, not as proof of a new scientific claim.",
+    "Do not ask the same settled question again or append the discussion to the manuscript."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Corrects keep to keeps in paragraph 1.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Preserves the queue and background batching mechanism.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Removes only the explicitly rejected guarantee in paragraph 2.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Preserves the actual mean-latency measurement statement.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Retains two paragraphs in their original order.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Does not insert the rejected coordination-overhead suggestion.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Does not invent a numeric result or comparator.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Does not invent tail-latency or multi-workload evidence.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Applies the confirmed decision rather than preserving the superseded guarantee.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Does not reopen already settled questions.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Returns only manuscript prose without Grill labels or a decision log.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Rechecks the resulting scientific meaning without claiming that missing experiments were performed.",
+      "points": 1
+    }
+  ]
+}

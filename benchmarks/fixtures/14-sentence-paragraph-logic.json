@@ -1,0 +1,133 @@
+{
+  "id": "sentence-paragraph-logic",
+  "title": "Locate both endpoints of faulty sentence and paragraph links",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请逐段识别下面论文片段在说什么，检查句子之间和段落之间的逻辑，准确说明哪两句、哪两段之间有问题。只 review，不要改写。\n\nWe reduced checkpoint frequency from once per second to once per ten seconds. Recovery then scanned more log records. Therefore, reducing checkpoint frequency shortened recovery time.\n\nThis recovery-time improvement also guarantees availability during network partitions. The experiment injected process crashes on one machine.\n\nWe next examine memory use. Buffer capacity is fixed at 64 MiB. We report memory use separately from recovery time.",
+  "scope": {
+    "authorized": [
+      "the three supplied paragraphs"
+    ],
+    "excluded": [
+      "neighboring manuscript text",
+      "artifact files",
+      "external verification",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "paragraph_1": [
+      "checkpoint frequency changes from once per second to once per ten seconds",
+      "recovery scans more log records",
+      "the text infers shorter recovery time without a supplied measurement"
+    ],
+    "paragraph_2": [
+      "the text transfers the claimed recovery-time improvement into partition availability",
+      "the experiment injects process crashes on one machine"
+    ],
+    "paragraph_3": [
+      "the paragraph explicitly switches to memory use",
+      "buffer capacity is fixed at 64 MiB",
+      "memory use is reported separately from recovery time"
+    ],
+    "missing": [
+      "measured recovery time",
+      "a partition-availability argument",
+      "the surrounding paper"
+    ]
+  },
+  "protected_tokens": [
+    "once per second",
+    "once per ten seconds",
+    "more log records",
+    "network partitions",
+    "process crashes",
+    "64 MiB"
+  ],
+  "forbidden_actions": [
+    "rewrite the paragraphs or provide replacement sentences",
+    "inspect unseen manuscript or artifact material",
+    "assert that more log records necessarily prove slower recovery",
+    "treat an explicit, coherent topic change as a logical defect",
+    "report only vague flow problems without both endpoints"
+  ],
+  "hard_gates": [
+    "The review stays read-only and includes no replacement prose.",
+    "It identifies a faulty within-paragraph sentence pair and the P1-to-P2 inference, with both original endpoints and quoted anchors.",
+    "It explains missing support and scope mismatch without inventing measurements or guarantees."
+  ],
+  "expected_behavior": [
+    "Give a compact map of the actual role of every paragraph.",
+    "Locate the unsupported shorter-recovery inference between the log-scan observation and conclusion.",
+    "Locate the unsupported recovery-time-to-partition-availability leap across paragraphs 1 and 2.",
+    "Identify the mismatch between partition availability and a single-machine process-crash experiment.",
+    "Treat paragraph 3's explicit memory-use transition as a valid topic change.",
+    "Name needed evidence or author-authorized restructuring without granting automatic revision authority."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Reviews only the three supplied paragraphs and gives no replacement prose.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Identifies the actual role of each of P1, P2, and P3.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Names both original sentences P1.S2 and P1.S3, or equivalent unambiguous anchors.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Quotes short phrases identifying both sides of that faulty sentence link.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Explains that scanning more records alone does not establish shorter recovery time, without asserting the opposite is proved.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Identifies both P1 and P2 and anchors the recovery-time improvement to the partition-availability guarantee.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Explains why recovery time does not establish availability under a different failure model.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Locates the P2.S1/P2.S2 mismatch between network partitions and process crashes on one machine.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Names missing timing or availability evidence without fabricating it.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Does not flag the explicit memory-use transition as an unsupported causal claim or force a bridge.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Keeps sentence-link and paragraph-link findings distinguishable and retains all affected endpoints when grouping root causes.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Separates a local wording repair from evidence or structural work requiring author authority.",
+      "points": 1
+    }
+  ]
+}
