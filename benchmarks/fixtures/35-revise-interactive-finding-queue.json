@@ -1,0 +1,92 @@
+{
+  "id": "revise-interactive-finding-queue",
+  "title": "Apply direct Review repairs and continue through author clarification instead of stopping",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "使用 systems-paper-revise，根据下面完整的 Review finding queue revise P1 和 P2。能安全直接修改的逐项先改；需要我的决定或实验数据的现在就问，不要让我另开 Grill，收到回答后继续同一次 revision。\n\nP1: The Host validates each requests before dispatch and charges it to the owning tenant.\n\nP2: Evaluation compares Harbor with KVM, but whether Harbor reduces end-to-end latency must be determined experimentally. Independent checkpoint and restore also requires preserving tenant state without rolling back peer tenants.\n\nReview findings:\n- F-01, P1.S1, confirmed defect: each requests 主谓/单复数不一致。Resolution test: 语法正确且 Host、dispatch、owning tenant 含义不变。\n- F-02, P2.S1→P2.S2, confirmed defect; author decision required: evaluation payoff 与 checkpoint/restore challenge 是两个 reader obligations。Resolution test: 作者确认精确的 split/move、目标位置和两部分职责后，结构只按该决定调整。\n- F-03, P2.S1, unresolved reviewer risk: completed-paper 不能以 must be determined experimentally 代替结果。Resolution test: 写出 metric、KVM baseline、workload/conditions、observed result 和 material uncertainty，或作者明确撤回该比较。\n- F-04, P1.S1, style preference: reviewer prefers uses rather than charges, but both are technically acceptable and no meaning gain is established。Resolution test: 不把偏好冒充必改问题。",
+  "scope": {
+    "authorized": [
+      "P1 and P2 plus the complete supplied Review finding queue",
+      "paragraph-local direct repairs supported by the supplied text",
+      "interactive clarification of author intent, structural authority, and author-held evidence",
+      "a later structural edit within the supplied passage only after the author explicitly confirms its exact operation and target"
+    ],
+    "excluded": [
+      "neighboring manuscript sections or files",
+      "inventing experiment results, uncertainty, mechanisms, or destinations",
+      "performing an unconfirmed split, move, merge, or claim withdrawal",
+      "external source inspection or persistent-state changes"
+    ],
+    "output_language": "English manuscript edits with concise Chinese queue and questions"
+  },
+  "evidence": {
+    "available": [
+      "The Host validates each request before dispatch and charges it to the owning tenant.",
+      "Harbor is intended to be compared with KVM for end-to-end latency.",
+      "Checkpoint and restore must not roll back peer tenants."
+    ],
+    "author_answerable_but_not_yet_supplied": [
+      "the intended structural operation, target, and role of the checkpoint sentence",
+      "the measured metric and aggregation, KVM baseline, workloads and conditions, observed result, and material uncertainty",
+      "whether to withdraw the KVM comparison if the result tuple cannot be supplied"
+    ],
+    "independence": [
+      "F-01 can be repaired without settling F-02 or F-03.",
+      "F-02 and F-03 have no prerequisite relation and belong to the same opening clarification frontier.",
+      "F-04 is optional and does not justify a direct edit."
+    ]
+  },
+  "protected_tokens": [
+    "Host",
+    "dispatch",
+    "owning tenant",
+    "Harbor",
+    "KVM",
+    "end-to-end latency",
+    "checkpoint and restore",
+    "peer tenants",
+    "F-01",
+    "F-02",
+    "F-03",
+    "F-04"
+  ],
+  "forbidden_actions": [
+    "return both paragraphs unchanged or skip F-01 because other findings are uncertain",
+    "invent or infer the missing result tuple",
+    "split or move P2 before the author confirms the exact operation and target",
+    "replace charges merely to satisfy F-04",
+    "mark F-02 or F-03 terminally blocked before asking the author",
+    "issue a final finding-closure map or completed coverage receipt while answers are pending",
+    "tell the author to start a separate Grill or Revise task"
+  ],
+  "hard_gates": [
+    "The response repairs F-01 immediately while preserving its technical meaning and does not apply optional F-04.",
+    "It classifies and preserves all four Review findings, with F-02 as author clarification and F-03 as author evidence rather than terminal blockers.",
+    "It asks both prerequisite-ready F-02 and F-03 questions in one Grill-style round with recommendations and exact required inputs, then waits without a terminal closure map or coverage receipt."
+  ],
+  "expected_behavior": [
+    "Treat the supplied Review findings as the primary work queue and reclassify the older author-decision wording into the canonical action classes.",
+    "Return or identify the safe P1 repair before the clarification round.",
+    "Keep P2 unchanged until its structural authority and result evidence are supplied.",
+    "Ask the complete opening frontier rather than stopping after the first uncertainty.",
+    "Recommend a bounded structural choice while making clear that the author's explicit operation and target control.",
+    "Request metric and aggregation, KVM configuration, workload and conditions, observed result, and material uncertainty; allow explicit comparison withdrawal as the evidence-safe alternative.",
+    "State that the same revision will resume after the answers."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Accounts for F-01 through F-04 without dropping or merging distinct actions.", "points": 1},
+    {"id": "R2", "criterion": "Repairs each requests to each request or an exactly equivalent grammatical form.", "points": 1},
+    {"id": "R3", "criterion": "Preserves Host, dispatch, charging, and owning-tenant meaning in P1.", "points": 1},
+    {"id": "R4", "criterion": "Leaves the optional charges wording preference unapplied and labels why.", "points": 1},
+    {"id": "R5", "criterion": "Does not perform the unconfirmed P2 structural change.", "points": 1},
+    {"id": "R6", "criterion": "Does not invent, infer, or imply any KVM comparison result.", "points": 1},
+    {"id": "R7", "criterion": "Classifies F-02 as author clarification and F-03 as author evidence.", "points": 1},
+    {"id": "R8", "criterion": "Asks F-02 and F-03 together as the complete ready frontier.", "points": 1},
+    {"id": "R9", "criterion": "The F-02 question requests the exact structural operation, target, and resulting roles and includes a recommendation.", "points": 1},
+    {"id": "R10", "criterion": "The F-03 question requests metric, baseline, conditions, result, and material uncertainty and includes an evidence-safe recommendation.", "points": 1},
+    {"id": "R11", "criterion": "Uses pending clarification rather than terminal blocked for F-02 and F-03 and promises to resume the same revision.", "points": 1},
+    {"id": "R12", "criterion": "While waiting, emits no terminal closure map, completed coverage receipt, separate-task handoff, or unsupported prose.", "points": 1}
+  ]
+}

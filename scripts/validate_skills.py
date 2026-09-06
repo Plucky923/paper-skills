@@ -59,7 +59,7 @@ EXPECTED_PROVENANCE_FILES = [
     }
 ]
 EXPECTED_ACCEPTANCE = {
-    "fixture_count": 34,
+    "fixture_count": 35,
     "minimum_score_per_fixture": 10,
     "allow_regression": False,
     "require_all_hard_gates": True,
@@ -98,6 +98,7 @@ OBSERVED_FAILURE_FIXTURE_NUMBERS = {
     "cold-review-trigger-checkpoint": 32,
     "missing-result-placeholder-block": 33,
     "intellectual-move-fanout-grounding": 34,
+    "revise-interactive-finding-queue": 35,
 }
 WORKFLOW_STAGES = ("review", "grill_open", "grill_confirm", "revise", "rereview")
 WORKFLOW_SKILLS = ["systems-paper-review", "systems-paper-grill", "systems-paper-revise"]
@@ -649,6 +650,45 @@ def check_coverage_contract(report: Report) -> None:
             )
 
 
+def check_interactive_clarification_contract(report: Report) -> None:
+    """Verify Review-to-Revise action routing and its non-terminal question gate."""
+    required_by_path = {
+        "skills/systems-paper-revise/references/review-revise-contract.md": (
+            "`direct repair`",
+            "`author clarification`",
+            "`author evidence`",
+            "`external blocker`",
+            "`optional/not applied`",
+            "`pending clarification`",
+            "resumes the same revision automatically",
+        ),
+        "skills/systems-paper-review/SKILL.md": (
+            "next-action class",
+            "`author evidence`",
+        ),
+        "skills/systems-paper-revise/SKILL.md": (
+            "primary repair queue",
+            "automatically enter a Grill-style clarification round",
+            "Do not issue a terminal closure map",
+        ),
+        "skills/systems-paper-grill/SKILL.md": (
+            "embedded clarification loop",
+            "resume the same revision automatically",
+        ),
+    }
+    for relative, literals in required_by_path.items():
+        path = REPO_ROOT / relative
+        if not path.is_file():
+            report.error(f"missing interactive clarification contract file: {relative}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for literal in literals:
+            if literal not in text:
+                report.error(
+                    f"{relative}: missing interactive clarification marker {literal!r}"
+                )
+
+
 def check_nonempty_string_list(
     value: object, field: str, path: Path, report: Report, *, unique: bool = True
 ) -> list[str]:
@@ -1198,6 +1238,7 @@ def main() -> int:
         check_identifier_definitions(skill_dirs, report)
         check_cross_skill_links(skill_dirs, report)
         check_coverage_contract(report)
+        check_interactive_clarification_contract(report)
     fixture_count = check_fixtures(report)
     installed_mapping_count = 0
     if args.install_root is not None:

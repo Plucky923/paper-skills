@@ -223,6 +223,7 @@ In a full or formal review, use the full structure for every `S0`/`S1` finding a
 Rule: <stable rule ID and name>
 Location: <page/section/paragraph/line/figure/table/path or quoted anchor>
 Status: <confirmed defect | unresolved reviewer risk | style preference>
+Next action: <direct repair | author clarification | author evidence | external blocker | optional/not applied>
 Dimension: <argument role/organization | scientific/technical support | language/presentation | scope/authority; one or more>
 Severity: <S0 | S1 | S2 | S3 | S4>
 Confidence: <high | medium | low>
@@ -248,8 +249,8 @@ Keep sentence-link and paragraph-link findings distinguishable; a grouped root c
 
 For a straightforward `S2`/`S3` item, use a compact ledger row instead of repeating boilerplate:
 
-| ID | Rule | Location | Dimension | Status / severity / confidence | Problem and consequence | Repair / resolution test |
-|---|---|---|---|---|---|---|
+| ID | Rule | Location | Dimension | Status / severity / confidence | Next action | Problem and consequence | Repair / resolution test |
+|---|---|---|---|---|---|---|---|
 
 Compact form does not authorize omission. Expand an item whenever the evidence class, reviewer attack, or scientific consequence would otherwise be ambiguous. Group repeated symptoms under one root cause and list every affected location.
 

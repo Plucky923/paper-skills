@@ -53,7 +53,7 @@ Run [change-safety.md](change-safety.md), then re-audit the complete frozen scop
 - which item is blocked and by what;
 - any newly introduced or reopened problem;
 - which preservation and tool checks actually passed.
-- every received finding's current closure state and the coverage receipt totals,
+- every received finding's current closure or `pending clarification` state and the coverage receipt totals when the run is terminal,
   last-unit states, and unreviewed count.
 
 When independent review is warranted, follow [multi-agent-revision.md](multi-agent-revision.md) and wait for all applicable reviewers before the next write.
@@ -74,7 +74,7 @@ A larger draft, a lower word count, or smoother wording alone is not progress. A
 
 ### Locally complete
 
-Stop as locally complete when every requested obligation is discharged, every received finding has an explicit closure state, every actionable in-scope defect is closed, the complete scope has passed its final top-down and bottom-up audit with `Unreviewed: 0`, preservation checks pass, and no required evidence/context/source/author choice remains unresolved.
+Stop as locally complete when every requested obligation is discharged, every received finding has an explicit terminal closure state, no item remains `pending clarification`, every actionable in-scope defect is closed, the complete scope has passed its final top-down and bottom-up audit with `Unreviewed: 0`, preservation checks pass, and no required evidence/context/source/author choice remains unresolved.
 
 This status describes only the frozen scope. It does not establish novelty over all literature, artifact correctness in every environment, completion of missing experiments, acceptance, or publication readiness.
 

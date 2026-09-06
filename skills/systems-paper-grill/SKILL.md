@@ -25,7 +25,18 @@ Each round the author answers reshapes the tree: settled decisions push the fron
 
 Finding _facts_ in authorized material is your job. Read the supplied material yourself; delegate independent lookups when useful and available. A running lookup is an unsettled prerequisite: only its downstream questions wait, while the rest of the frontier can proceed. Ask for missing author knowledge or permission to inspect additional material. The _decisions_ are the author's: put each to them and wait. Recommendations and hypothetical examples are not established system facts.
 
-The discussion is done when every branch within the agreed scope is settled or explicitly blocked on missing evidence, and the author confirms the shared understanding. Do not silently assume an answer or repeatedly reconfirm an unchanged explicit decision. A blocked scientific claim remains unresolved; it is not a reason to keep asking equivalent questions.
+The discussion is done when every branch within the agreed scope is settled, requires an external unavailable prerequisite, or the author explicitly declines, cannot supply, or confirms unavailable the needed input, and the author confirms the shared understanding. Do not silently assume an answer or repeatedly reconfirm an unchanged explicit decision. A scientific claim that remains unsupported after this gate stays unresolved; it is not a reason to keep asking equivalent questions.
+
+When Revise invokes this questioning behavior for an active repair queue, treat
+it as an **embedded clarification loop**. The original revision request remains
+authority only for that frozen edit scope. Ask the whole ready frontier, wait,
+and return the settled answers to Revise so it can resume the same revision
+automatically; do not require the author to issue a second revise command. Do not
+call an unanswered item blocked or emit Revise's terminal closure receipt. A
+question becomes terminal only if it needs an external unavailable prerequisite,
+or the author declines, cannot supply, or confirms unavailable the requested
+input. Standalone Grill remains manuscript-read-only and does not itself resume
+an edit that was never requested.
 
 ## Separate feedback from authority
 
@@ -67,7 +78,7 @@ be routed through Grill.
 
 Before discussing the text, read the [coverage contract](../systems-paper-revise/references/coverage-contract.md), [writing core](../systems-paper-revise/references/writing-core.md), and [shared workflow contract](../systems-paper-revise/references/review-revise-contract.md). Read the [Chinese calibration](../systems-paper-revise/references/chinese-writing.md) for Chinese prose or translation, and [paper archetypes](../systems-paper-revise/references/paper-archetypes.md) when contribution framing matters.
 
-When Review findings are supplied, accept only the precise items marked `author decision required` or otherwise genuinely dependent on author intent. Preserve their finding and section/paragraph/sentence/lexical unit IDs, original anchors, evidence state, repair boundary, and resolution test. Do not rerun the full paper audit or ask the author to reconfirm passed units. When discussion starts without Review, assign stable local issue and unit anchors for the supplied scope.
+When Review findings are supplied, accept the precise items classified `author clarification` or `author evidence`, plus older findings genuinely dependent on author intent or author-supplied evidence. Preserve their finding and section/paragraph/sentence/lexical unit IDs, original anchors, evidence state, repair boundary, and resolution test. Do not rerun the full paper audit or ask the author to reconfirm passed units. When discussion starts without Review, assign stable local issue and unit anchors for the supplied scope.
 
 Ground questions in the relevant quotations and sentence or paragraph pair. Resolve what the author means, how the inference follows, what evidence supports it, and—when structure is at issue—which exact operation and destination are authorized. Distinguish a defect from an uncertain intention or optional wording. Ordinary grammar corrections do not require an interview. Author confirmation settles only the named intended meaning and allowed edits, not the truth of an unsupported experiment or guarantee. A pending issue never becomes revision authority.
 
@@ -83,4 +94,4 @@ Challenge a term that conflicts with an already agreed definition; ask whether t
 
 Read and follow the [decision-record rules](references/decision-record.md). Save intermediate answers and open questions as pending; update them in place when confirmed or rejected. Preserve existing unrelated decisions. Manage the record yourself rather than asking the author to fill in a form.
 
-Write only the authorized paper decision record; keep the manuscript and other files unchanged. If no record location is authorized, continue in chat and ask where to save it. Briefly finish with what was agreed, what remains open, the source finding/unit IDs, and the saved record location. Revise can then use the original manuscript and confirmed record when the author requests revision; Grill itself does not rewrite the paper or claim a finding closed.
+Write only the authorized paper decision record; keep the manuscript and other files unchanged. If no record location is authorized, keep the embedded clarification state in the active chat; standalone discussion may ask where to save durable decisions. Briefly finish standalone Grill with what was agreed, what remains open, the source finding/unit IDs, and the saved record location. In an embedded loop, return control to the already-active Revise flow so it can resume the same revision automatically: Revise applies the evidence-compatible authorized edits and owns closure. Grill itself does not rewrite the paper or claim a finding closed.

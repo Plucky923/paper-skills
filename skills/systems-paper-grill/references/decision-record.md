@@ -35,7 +35,11 @@ The author-authorized record is editorial input, never manuscript text or a high
 Match locations using both anchors and meaning; paragraph numbers can change. If the current text already satisfies the decision, leave it intact. If an anchor no longer matches, decisions conflict, or the permission or evidence is unclear, ask only about that issue and leave the affected text unchanged. Never broaden a confirmed local edit into a paper-wide rewrite.
 
 Revise, not Grill, assigns `closed`, `blocked`, `not applied`, or `reopened` after
-running the post-edit full-scope audit. A confirmed record entry is an author
+running the post-edit full-scope audit. `pending clarification` is a non-terminal
+interaction state and does not belong in a final closure map. In an embedded
+clarification loop, confirmed answers return to the already-active Revise request,
+which resumes automatically within its frozen scope; a separate Revise request is
+needed only after standalone Grill. A confirmed record entry is an author
 decision, not proof that the manuscript now passes its resolution test.
 
 Revise does not silently rewrite the decision record to agree with its output. Report a newly discovered conflict back to Grill. Review remains read-only even when the record is supplied. Neither skill reads a record outside its authorized scope; when continuing in a new task, request the original manuscript and record if they are unavailable.

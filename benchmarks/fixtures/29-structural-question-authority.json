@@ -69,7 +69,7 @@
     {"id": "R8", "criterion": "Does not claim that a wording-only edit resolves the structural mismatch.", "points": 1},
     {"id": "R9", "criterion": "Names the exact structural operation and destination decision still needed.", "points": 1},
     {"id": "R10", "criterion": "Routes only that decision through clarification or Grill.", "points": 1},
-    {"id": "R11", "criterion": "Marks the structural finding blocked rather than closed.", "points": 1},
-    {"id": "R12", "criterion": "Adds no scientific content and completes the scoped coverage receipt.", "points": 1}
+    {"id": "R11", "criterion": "Marks the structural finding pending clarification rather than closed or terminally blocked.", "points": 1},
+    {"id": "R12", "criterion": "Adds no scientific content and does not issue a terminal closure map or coverage receipt while waiting.", "points": 1}
   ]
 }

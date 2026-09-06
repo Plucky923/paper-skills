@@ -25,6 +25,7 @@ Explicit permission for restructuring, if any:
 Authoritative evidence:
 Protected technical content:
 Missing evidence, context, source, or author choice:
+Incoming finding action classes and prerequisite graph:
 ```
 
 Interpret scope narrowly:
@@ -77,9 +78,9 @@ Composition is complete when the requested unit performs its section role, each 
 
 Use this branch when prose already exists.
 
-1. Audit the complete frozen scope in the shared top-down order. Start with the highest assessable paper/archetype and section obligations, then record every observable promised role and independently identify what each paragraph actually delivers: its conventional role, topic, claim or question, one-obligation result, expected and actual opening/development/payoff, ending information gain, support, boundary, and deliberate voice. When one move is meant to yield several outcomes, preserve the source status of every fan-out edge and mark reviewer-hypothesized bridges as blocked. Mark a mixed, unclear, or promise-versus-delivery mismatch without choosing a new one for the author.
+1. Audit the complete frozen scope in the shared top-down order. Start with the highest assessable paper/archetype and section obligations, then record every observable promised role and independently identify what each paragraph actually delivers: its conventional role, topic, claim or question, one-obligation result, expected and actual opening/development/payoff, ending information gain, support, boundary, and deliberate voice. When one move is meant to yield several outcomes, preserve the source status of every fan-out edge and route reviewer-hypothesized bridges to author clarification or author evidence. Mark a mixed, unclear, or promise-versus-delivery mismatch without choosing a new one for the author.
 2. Inspect every sentence and lexical occurrence, all adjacent sentence/paragraph/section links, and explicit longer dependencies. Distinguish concrete wording defects, optional improvements, scientific gaps, and higher-level structural failures. A coherent topic change is not a defect.
-3. Decompose compound findings into a safe repair frontier: locally repairable wording, category alignment, reference, redundancy, or information order versus evidence-, intent-, or structure-blocked propositions. Apply every safe subrepair inside that paragraph even when the parent finding remains `blocked`; record what changed and what still fails the original resolution test. Keep adequate sentences and paragraph-level content ownership. An unchanged result is valid only when no identified defect has a meaning-preserving local repair. If only an optional improvement is available, leave it out of the main revision.
+3. Decompose compound findings into the shared action classes and build the safe repair frontier: locally repairable wording, category alignment, reference, redundancy, or information order versus author clarification, author evidence, external prerequisites, and optional/not-applied items. Apply every safe subrepair inside that paragraph before pausing for the author-answerable frontier; record what changed and what still fails the original resolution test. Keep adequate sentences and paragraph-level content ownership. An unchanged result is valid only when no identified defect has a meaning-preserving local repair. If only an optional improvement is available, leave it out of the main revision.
 4. Re-run the full hierarchy over changed and unchanged units. Reconcile lexical choices upward through the paper-level argument, test every incoming finding at its original endpoints, and report any dependency that the paragraph-local contract prevents repairing.
 
 A common non-atomic case is `property P is necessary, but it cannot replace an
@@ -96,17 +97,34 @@ boundary, or claim that the absent experiment must answer. Without an authorized
 result, deleting that sentence or those propositions does not close the finding;
 it erases the scientific obligation. An instruction to assume experiments exist
 or derive the answer supplies neither a result nor withdrawal authority. Preserve
-the affected passage and keep the finding blocked, naming metric, baseline,
-conditions, result, and uncertainty as required input. Only a semantically empty
-TODO can be removed independently, and only when its removal is authorized.
+the affected passage, classify the finding as `author evidence`, and request its
+metric, baseline, conditions, result, and uncertainty. It becomes terminally
+blocked only under the rule below. Only a semantically empty TODO can be removed
+independently, and only when its removal is authorized.
 
-Revision is locally complete when the requested paragraph-local repairs are closed, every incoming finding has a closure state, the complete frozen scope has `Unreviewed: 0`, and no semantic, structural, or rhetorical regression is introduced. A separately reported cross-paragraph or evidence gap remains a blocker, not a successfully repaired argument.
+5. If any requested finding is `author clarification` or `author evidence`, build
+its dependency tree and automatically ask every prerequisite-ready question in
+one Grill-style round after applying the direct repairs. Each question includes
+the original finding/unit anchor, a recommended answer or course and its basis,
+and the exact decision or evidence tuple needed. Mark these items `pending
+clarification`, wait, and resume this same revision automatically after the
+answer. Recompute the frontier after each round; do not ask a downstream question
+whose prerequisite remains open. Do not make the disputed edit or publish a
+terminal closure table while waiting.
+
+An explicit one-shot, no-discussion, or prose-only instruction opts out of this
+loop. Preserve affected propositions and use that output contract without
+pretending the finding was resolved. An item becomes terminally `blocked` only
+when it needs an external unavailable prerequisite, or after the author declines,
+cannot provide, or confirms unavailable the requested clarification/evidence.
+
+Revision is locally complete when the requested paragraph-local repairs are closed, every incoming finding has a terminal closure state, no item remains `pending clarification`, the complete frozen scope has `Unreviewed: 0`, and no semantic, structural, or rhetorical regression is introduced. A separately reported cross-paragraph or evidence gap remains a blocker only under the terminal-blocker rule, not a successfully repaired argument.
 
 ## 3. Resolve structural uncertainty before prose
 
 Use [revision-strategies.md](revision-strategies.md) to diagnose competing theses, mismatched contribution contracts, missing design/evidence dependencies, or interacting findings. Its structural operations are available only when the author explicitly requests restructuring; otherwise report the required choice and stay paragraph-local.
 
-When alternatives imply different technical meanings, contribution hierarchies, assumptions, audiences, or trade-offs, preserve the original passage and resolve the author decision through the [shared clarification contract](review-revise-contract.md). Treat a question or placement suggestion as pending until the author explicitly authorizes the exact structural operation and destination. Distinguish these scientific choices from meaning-equivalent optional wording; neither is silently applied.
+When alternatives imply different technical meanings, contribution hierarchies, assumptions, audiences, or trade-offs, preserve the original passage and resolve the author decision through the [shared clarification contract](review-revise-contract.md). Treat a question or placement suggestion as `pending clarification` until the author explicitly authorizes the exact structural operation and destination. When this is part of the requested revision, ask that question now and resume the same revision after the answer; do not merely list it as terminally blocked. Distinguish these scientific choices from meaning-equivalent optional wording; neither is silently applied.
 
 ## 4. Write at the right level
 
@@ -127,9 +145,11 @@ Re-read the complete frozen scope against the same standard used by Review and c
 7. facts, numbers, units, citations, equations, identifiers, macros, and evidence status remain correct.
 8. review labels, venue-audit language, and new unresolved propositions have not entered the manuscript; an original unsupported claim is left unchanged and flagged unless the author explicitly authorized its correction or withdrawal, in which case verify that exact authorized change;
 9. each changed sentence addresses the requested repair, and no paragraph adds an unsupported proposition or becomes a different kind of text.
-10. every in-scope section, paragraph, sentence, relation, and lexical occurrence—including unchanged passed units and the last unit at each level—has a coverage state; every received finding has a closure state and `unreviewed = 0`.
+10. every in-scope section, paragraph, sentence, relation, and lexical occurrence—including unchanged passed units and the last unit at each level—has a coverage state; when completing rather than pausing, every received finding has a terminal closure state and `unreviewed = 0`.
 11. every identified local repair on the safe frontier was either applied or explicitly classified as optional/not applied; an evidence or structure blocker did not become a reason to skip an independent meaning-preserving correction.
 12. every intellectual-move dependency added or strengthened by the revision is source-grounded or explicitly author-supplied and evidence-compatible; no reviewer-hypothesized bridge was promoted into manuscript prose, and independent outcomes were not falsely unified.
+13. no requested `author clarification` or `author evidence` item remains pending;
+    if one does, this is an interactive pause and the completion gate has not run.
 
 Compile, render, lint, or test only when the relevant dependencies are explicitly in scope and the action is authorized. State what a tool actually checked; a clean tool result does not establish publication readiness.
 
@@ -140,6 +160,12 @@ Use [convergence-loop.md](convergence-loop.md) instead of repeating ad hoc parap
 For pasted material, lead with the conservatively revised prose in its original layout and markup; an unchanged passage is a valid result. For file edits, apply only the authorized corrections and name those objects. Keep role labels, diagnostics, and optional alternatives outside the manuscript and source files.
 
 After the manuscript, include only applicable items:
+
+- **Pending clarification:** after any safe edits, show the complete requested
+  finding queue with action classes, then ask the whole prerequisite-ready
+  frontier in the Grill format and wait. This replaces—not supplements—the
+  terminal finding-closure map and coverage receipt for that turn. Preserve the
+  scope and IDs so the next author answer resumes the same revision.
 
 - **Finding closure:** map every received Review/Grill finding ID to `closed`, `blocked`, `not applied`, or `reopened`, with the original unit IDs and one-line resolution-test result. Omit this item only when there were no incoming findings or the user explicitly requested prose only.
 - **Coverage receipt:** give the shared full-scope totals, last-unit states, not-assessable reasons, closure counts, and `Unreviewed` value. Omit it only under an explicit prose-only request; the internal gate still applies.

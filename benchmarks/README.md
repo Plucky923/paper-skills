@@ -78,7 +78,7 @@ read remains subject to the fixture's authority boundary.
 A run passes quality at **10/12 or higher** after passing every hard gate. A
 candidate is accepted only when:
 
-- all 34 candidate fixture runs pass their hard gates;
+- all 35 candidate fixture runs pass their hard gates;
 - every candidate run scores at least 10/12;
 - no candidate fixture scores below its baseline counterpart; and
 - the candidate's total score exceeds the baseline, or a previously observed
@@ -223,6 +223,7 @@ the provenance report remain reachable from their declared skill entrypoints.
 | `32-cold-review-trigger-checkpoint` | Ordinary blind Review proactively checks mechanical payoff inversion, research-paper result placeholders, and material-limit disclosure |
 | `33-missing-result-placeholder-block` | Missing completed-paper results block revision without permitting deletion of the comparison or its scientific boundaries |
 | `34-intellectual-move-fanout-grounding` | One claimed insight must expose source-grounded causal edges to every headline outcome rather than rely on reviewer reconstruction |
+| `35-revise-interactive-finding-queue` | Revise applies direct repairs, asks the complete author-answerable frontier, and resumes instead of terminally blocking the queue |
 
 ## Maintaining the benchmark
 

@@ -158,20 +158,28 @@ the source units and findings being decided; it does not rerun the full audit.
 ## Preserve IDs and close the loop
 
 Review assigns stable finding IDs and includes the affected unit/link IDs, status,
-repair boundary, and observable resolution test. A finding that needs author intent
-is marked `author decision required`; one that needs scientific support remains
-evidence-blocked even if the author confirms intended wording.
+repair boundary, observable resolution test, and one next-action class from the
+shared workflow contract: `direct repair`, `author clarification`, `author
+evidence`, `external blocker`, or `optional/not applied`. A finding that needs
+author intent is routed to clarification; one that needs scientific support is
+routed to author evidence or an external blocker without treating confirmation
+of intended wording as proof.
 
 Grill carries the Review finding and unit IDs into the decision record when they
 exist. It records the author's meaning, evidence state, permitted edit, and
 materially rejected alternatives. `pending` is not revision authority.
 
-Revise maps every received finding to one closure state:
+During an interactive revision, `pending clarification` is a non-terminal
+workflow state for an author-answerable item. It is neither `blocked` nor a
+closure state. Revise asks the complete ready frontier and resumes the same
+revision after the author answers. It maps every received finding to one closure
+state only after no requested item remains pending:
 
 - `closed`: the authorized edit or already-satisfied text passes the original
   resolution test and the post-edit full-scope audit;
-- `blocked`: evidence, context, source verification, or an author decision is
-  still missing;
+- `blocked`: an external prerequisite remains unavailable, or the author has
+  explicitly declined, cannot provide, or confirms unavailable the exact
+  clarification or evidence requested;
 - `not applied`: the item is rejected, optional, outside the current edit scope,
   stale, or conflicts with a newer decision; state which condition applies;
 - `reopened`: the original problem persists or the edit creates an equal-or-higher
@@ -189,7 +197,8 @@ Before saying an audit or revision is complete, verify all of the following:
 2. the recorded last unit at each level has a nonblank state;
 3. passed as well as problematic units are represented;
 4. every finding maps to all affected units and every received finding has a
-   closure state after Revise;
+   closure state after Revise; an interactive pause instead exposes the pending
+   queue and does not claim completion;
 5. no unresolved or not-assessable item is described as passed or closed;
 6. the bottom-up reconciliation found no new contradiction, scope drift,
    terminology drift, claim-strength change, or evidence promotion;
@@ -202,7 +211,9 @@ Before saying an audit or revision is complete, verify all of the following:
    unresolved risk;
 9. `unreviewed = 0`. If this is false, the result is explicitly `incomplete`.
 
-End Review and non-prose-only Revise reports with a coverage receipt:
+End Review and completed non-prose-only Revise reports with a coverage receipt.
+Do not emit a terminal receipt while any requested finding is `pending
+clarification`:
 
 ```text
 Scope fingerprint: <objects and stable boundaries>

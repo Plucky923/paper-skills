@@ -160,6 +160,58 @@ class CoverageContractTests(unittest.TestCase):
         self.assertTrue(self.check())
 
 
+class InteractiveClarificationContractTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.paths = [
+            "skills/systems-paper-revise/references/review-revise-contract.md",
+            "skills/systems-paper-review/SKILL.md",
+            "skills/systems-paper-revise/SKILL.md",
+            "skills/systems-paper-grill/SKILL.md",
+        ]
+        for relative in self.paths:
+            source = validator.REPO_ROOT / relative
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(source.read_bytes())
+
+    def check(self):
+        with patch.object(validator, "REPO_ROOT", self.root):
+            report = validator.Report()
+            validator.check_interactive_clarification_contract(report)
+        return report.errors
+
+    def test_valid_interactive_contract(self):
+        self.assertEqual(self.check(), [])
+
+    def test_missing_author_evidence_class_is_rejected(self):
+        path = self.root / "skills/systems-paper-revise/references/review-revise-contract.md"
+        path.write_text(path.read_text().replace("`author evidence`", "`missing input`"))
+        self.assertTrue(self.check())
+
+    def test_missing_nonterminal_gate_is_rejected(self):
+        path = self.root / "skills/systems-paper-revise/SKILL.md"
+        path.write_text(
+            path.read_text().replace(
+                "Do not issue a terminal closure map",
+                "Issue a closure map",
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_same_revision_resume_is_rejected(self):
+        path = self.root / "skills/systems-paper-grill/SKILL.md"
+        path.write_text(
+            path.read_text().replace(
+                "resume the same revision automatically",
+                "start another revision",
+            )
+        )
+        self.assertTrue(self.check())
+
+
 class CoverageWorkflowFixtureTests(unittest.TestCase):
     def setUp(self):
         self.path = (

@@ -38,7 +38,7 @@
     }
   ],
   "behavioral_acceptance": {
-    "fixture_count": 34,
+    "fixture_count": 35,
     "minimum_score_per_fixture": 10,
     "allow_regression": false,
     "require_all_hard_gates": true,
