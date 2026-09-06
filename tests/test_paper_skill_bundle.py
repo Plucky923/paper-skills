@@ -94,5 +94,92 @@ class WorkflowFixtureTests(unittest.TestCase):
         self.assertTrue(self.check())
 
 
+class CoverageContractTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        paths = [
+            validator.COVERAGE_CONTRACT_PATH,
+            *[f"skills/{skill}/SKILL.md" for skill in validator.EXPECTED_SKILLS],
+        ]
+        for relative in paths:
+            source = validator.REPO_ROOT / relative
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(source.read_bytes())
+
+    def check(self):
+        with patch.object(validator, "REPO_ROOT", self.root):
+            report = validator.Report()
+            validator.check_coverage_contract(report)
+        return report.errors
+
+    def test_valid_contract_and_direct_routes(self):
+        self.assertEqual(self.check(), [])
+
+    def test_missing_completion_marker_is_rejected(self):
+        path = self.root / validator.COVERAGE_CONTRACT_PATH
+        path.write_text(path.read_text().replace("Unreviewed: 0", "Unreviewed: zero"))
+        self.assertTrue(self.check())
+
+    def test_missing_promised_role_marker_is_rejected(self):
+        path = self.root / validator.COVERAGE_CONTRACT_PATH
+        path.write_text(path.read_text().replace("signaled/intended role", "role"))
+        self.assertTrue(self.check())
+
+    def test_missing_independent_dimension_marker_is_rejected(self):
+        path = self.root / validator.COVERAGE_CONTRACT_PATH
+        path.write_text(path.read_text().replace("argument role/organization", "argument"))
+        self.assertTrue(self.check())
+
+    def test_missing_reviewer_hypothesis_marker_is_rejected(self):
+        path = self.root / validator.COVERAGE_CONTRACT_PATH
+        path.write_text(
+            path.read_text().replace("reviewer-hypothesized", "reviewer-supplied")
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_intellectual_move_ledger_is_rejected(self):
+        path = self.root / validator.COVERAGE_CONTRACT_PATH
+        path.write_text(
+            path.read_text().replace(
+                "Intellectual-move dependencies", "Central dependencies"
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_indirect_or_missing_skill_route_is_rejected(self):
+        path = self.root / "skills/systems-paper-grill/SKILL.md"
+        path.write_text(
+            path.read_text().replace(
+                "../systems-paper-revise/references/coverage-contract.md",
+                "../systems-paper-revise/references/writing-core.md",
+            )
+        )
+        self.assertTrue(self.check())
+
+
+class CoverageWorkflowFixtureTests(unittest.TestCase):
+    def setUp(self):
+        self.path = (
+            validator.REPO_ROOT
+            / "benchmarks/fixtures/23-coverage-closure-workflow.json"
+        )
+        self.fixture = json.loads(self.path.read_text())
+
+    def check(self):
+        report = validator.Report()
+        validator.check_workflow_case(self.fixture, self.path, report)
+        return report.errors
+
+    def test_valid_coverage_workflow(self):
+        self.assertEqual(self.check(), [])
+
+    def test_coverage_workflow_keeps_all_five_stages(self):
+        del self.fixture["stage_prompts"]["rereview"]
+        self.assertTrue(self.check())
+
+
 if __name__ == "__main__":
     unittest.main()

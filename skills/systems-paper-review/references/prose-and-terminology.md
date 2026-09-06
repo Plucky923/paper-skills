@@ -2,6 +2,16 @@
 
 Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) before auditing high-level, paragraph, sentence, logic, or concision quality. For Chinese or Chinese-to-English text, also read the canonical [Chinese calibration](../../systems-paper-revise/references/chinese-writing.md). This file adds review-specific checks and severity; surface polish cannot repair an unsupported claim, and review never supplies replacement prose.
 
+Under the shared [coverage contract](../../systems-paper-revise/references/coverage-contract.md),
+sentence and lexical review is exhaustive within the frozen scope, not a search
+for suspicious examples. Inventory every sentence, every adjacent sentence pair,
+and every reader-visible lexical occurrence before judging. For Chinese and mixed
+technical prose, use the smallest semantically stable word, term, punctuation, or
+code/math span and disclose ambiguous segmentation rather than fabricating a
+token count. Every occurrence is checked in its proposition; a repeated term can
+pass in one location and fail in another because its referent, scope, or evidence
+commitment differs.
+
 ## Terminology and claim language
 
 ## PT-01 — Nonstandard terms are defined for the intended reader
@@ -170,7 +180,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** Hard semantic/grammar condition.
 - **Reviewer attack:** “A list combines unlike grammatical or conceptual units, so operators and comparisons have uncertain scope.”
-- **Check:** Examine `and/or`, series punctuation, paired constructions, comparison targets, bullet syntax, and whether shared modifiers apply to all items. Oxford comma is a clarity device, not universally mandatory.
+- **Check:** Examine `and/or`, series punctuation, paired constructions, comparison targets, bullet syntax, and whether shared modifiers apply to all items. Require a common conceptual dimension as well as grammatical symmetry: a list that mixes interface level, hosted object, and implementation organization is not parallel merely because every item is a verb phrase. Oxford comma is a clarity device, not universally mandatory.
 - **Severity:** `S1` for altered technical logic; `S2`/`S3` otherwise.
 - **Exceptions / false positives:** Venue style may choose punctuation; meaning governs.
 - **Repair direction:** Make elements grammatically/conceptually parallel and repeat ambiguous operators.
@@ -194,6 +204,15 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 - **Severity:** `S0`/`S1` when the error supports a central design or correctness claim; `S2` locally.
 - **Repair direction:** Use the weakest accurate relation, add the missing premise/evidence, or narrow the conclusion.
 - **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
+
+## PT-16B — System properties and proof obligations stay at the same explanatory level
+
+- **Nature:** Hard logical/semantic condition when the mismatch changes the claim; otherwise clarity.
+- **Reviewer attack:** “The sentence says a runtime property cannot replace a proof, so I cannot tell whether the remaining obligation is another system property, an enforcement mechanism, or merely an author task.”
+- **Check:** Distinguish object-level claims about execution, interfaces, authorization, equivalence, or isolation from epistemic claims about evidence, proof, and argument. When the point is necessary-but-insufficient, identify both properties and audit the necessity claim separately. When the text is explicitly enumerating proof obligations, epistemic wording may be correct.
+- **Severity:** `S1` when the category shift obscures a central correctness claim; `S2` locally.
+- **Repair direction:** Express the remaining object-level property or explicitly frame both items as proof obligations. A wording repair must not silently weaken an unsupported necessity claim.
+- **Sources:** [USER-NOTES], [SYSTEMS-GUIDE].
 
 ## PT-17 — Tense follows knowledge status, not a rigid section rule
 
@@ -229,7 +248,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “Padded noun phrases, weak verb phrases, metadiscourse, and repeated qualifiers obscure the technical point,” or “overcompression removes conditions.”
-- **Check:** Apply the canonical concision priority: preserve claim and boundary, necessary premise, decisive causal link, credibility-changing evidence, then required definition. Inspect nominalizations, weak verb phrases, redundant framing, metadiscourse, and avoidable jargon. Apply the deletion test only after accounting for meaning. Repetition is justified when each layer adds a distinct function—for example conclusion in the abstract, derivation in the introduction, realization in design, and support in evaluation; flag only repetition that adds no role.
+- **Check:** Apply the canonical concision priority: preserve claim and boundary, necessary premise, decisive causal link, credibility-changing evidence, then required definition. Inspect nominalizations, weak verb phrases, redundant framing, metadiscourse, and avoidable jargon. For a paragraph ending, name the exact conclusion, boundary, obligation, or handoff lost under deletion; if none is lost, flag the redundant payoff even when its transition words are logically valid. Repetition is justified when each layer adds a distinct function—for example conclusion in the abstract, derivation in the introduction, realization in design, and support in evaluation; flag only repetition that adds no role.
 - **Severity:** `S2` recurring; `S3` local.
 - **Exceptions / false positives:** Terminological repetition often improves precision; not every phrasal verb has an exact simple replacement.
 - **Repair direction:** Put the main actor/action relation early, use the exact technical verb, and remove text that performs no reasoning role while preserving all semantic constraints.
@@ -239,7 +258,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “`however`, `therefore`, or a synonym signals a relation the neighboring claims do not support.”
-- **Check:** Validate contrast, cause, consequence, concession, example, and sequence. Do not replace repeated `however` with `nevertheless` merely for lexical variety if the structure itself repeats.
+- **Check:** Validate contrast, cause, consequence, concession, example, and sequence. Do not replace repeated `however` with `nevertheless` merely for lexical variety if the structure itself repeats. Treat `however X does not Y; therefore Z is still required` as a relation to test, not a preferred systems-paper ending: the requirement must add a design-specific consequence beyond restating `not Y`.
 - **Severity:** `S2` for false logic; `S3` for repetition.
 - **Exceptions / false positives:** Repetition of a precise transition is preferable to an inaccurate synonym.
 - **Repair direction:** Repair underlying organization or choose the exact relation; omit transition if adjacency is sufficient.
@@ -321,6 +340,10 @@ Use the canonical [Chinese systems-writing calibration](../../systems-paper-revi
 
 ## Local prose audit sequence
 
+Complete this sequence only after the higher assessable paper, section, and
+paragraph levels have been checked. Lower-level fluency cannot clear an upper-level
+role or evidence failure.
+
 For every sentence in scope:
 
 1. State its proposition and evidence status.
@@ -330,10 +353,29 @@ For every sentence in scope:
 5. Check grammar/punctuation in the source language.
 6. Apply the deletion test only after all meaning is accounted for.
 
+For every lexical occurrence in scope:
+
+1. identify its sentence-local function and technical identity;
+2. check definition/first use, referent, quantifier, modifier and negation scope,
+   comparison target, technical verb commitment, and epistemic strength when
+   applicable;
+3. check collocation, tense, article/count/agreement, punctuation, unit, notation,
+   and source-language form when applicable;
+4. assign the shared coverage state and link any finding ID. Give every
+   risk-bearing occurrence its own row; exact contiguous passed ranges may be
+   compressed only as allowed by the shared coverage contract.
+
 For every paragraph in scope:
 
-1. State the local claim.
-2. Label each sentence as claim, reason, mechanism, evidence, qualification, example, or transition.
-3. Read the first and last sentences together: record the opening promise and the closing answer, implication, boundary, or handoff.
-4. Flag missing roles, unrelated roles, circular explanation, unsupported inference, premature mechanism detail, and a closing sentence that strands the local claim.
-5. Treat rendered line count and one-word final lines as layout diagnostics, not universal writing defects.
+1. Record any signaled or author-supplied role, then independently state the delivered role and local claim.
+2. Complete `the reader should believe ___ because ___`; record a second independent answer as a competing obligation rather than hiding it with a connective.
+3. Label each sentence as claim, reason, mechanism, evidence, qualification, example, or transition.
+4. Read the first and last sentences together: record the opening promise, the closing answer, implication, boundary, or handoff, and the exact information lost if the ending is deleted.
+5. Flag promise-versus-delivery mismatch, missing or unrelated roles, circular explanation, unsupported inference, premature mechanism detail, and a closing sentence that strands or merely repeats the local claim.
+6. Audit argument role/organization and scientific evidence independently; record both when both fail.
+7. Treat rendered line count and one-word final lines as layout diagnostics, not universal writing defects.
+
+After the last sentence and lexical occurrence, reconcile terminology, referents,
+numbers, conditions, claim strength, and evidence status across the complete
+frozen scope. Record the last inspected units and totals in the shared coverage
+receipt; do not infer completion from the absence of another finding.

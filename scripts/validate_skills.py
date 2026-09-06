@@ -53,13 +53,13 @@ EXPECTED_PROVENANCE_FILES = [
     {
         "source": "research/systems-paper-writing-requirements.md",
         "install_path": "research/systems-paper-writing-requirements.md",
-        "consumers": ["systems-paper-review"],
+        "consumers": EXPECTED_SKILLS,
         "preservation": "byte_exact",
         "sha256": "ef89a56dfb648657dbb89545c008f41d35dd6c38c9768684bb719fd319945263",
     }
 ]
 EXPECTED_ACCEPTANCE = {
-    "fixture_count": 20,
+    "fixture_count": 34,
     "minimum_score_per_fixture": 10,
     "allow_regression": False,
     "require_all_hard_gates": True,
@@ -81,8 +81,31 @@ FIXTURE_BASE_FIELDS = {
 }
 INTEGRATED_FIXTURE_ID = "venue-integrated-review-revise"
 WORKFLOW_FIXTURE_ID = "paper-discussion-workflow"
+COVERAGE_WORKFLOW_FIXTURE_ID = "coverage-closure-workflow"
+WORKFLOW_FIXTURE_NUMBERS = {
+    WORKFLOW_FIXTURE_ID: 20,
+    COVERAGE_WORKFLOW_FIXTURE_ID: 23,
+}
+OBSERVED_FAILURE_FIXTURE_NUMBERS = {
+    "property-proof-category": 24,
+    "related-work-root-cause": 25,
+    "payoff-and-role-review": 26,
+    "evidence-derived-conclusion": 27,
+    "mixed-evaluation-challenge": 28,
+    "structural-question-authority": 29,
+    "limitation-introduction-placement": 30,
+    "safe-local-repair-frontier": 31,
+    "cold-review-trigger-checkpoint": 32,
+    "missing-result-placeholder-block": 33,
+    "intellectual-move-fanout-grounding": 34,
+}
 WORKFLOW_STAGES = ("review", "grill_open", "grill_confirm", "revise", "rereview")
 WORKFLOW_SKILLS = ["systems-paper-review", "systems-paper-grill", "systems-paper-revise"]
+COVERAGE_CONTRACT_PATH = "skills/systems-paper-revise/references/coverage-contract.md"
+COVERAGE_CONTRACT_ENTRY = {
+    "path": COVERAGE_CONTRACT_PATH,
+    "consumers": EXPECTED_SKILLS,
+}
 
 MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 CODE_MD_POINTER_RE = re.compile(r"`([^`\n]*?\.md(?:#[^`\s]*)?)`")
@@ -251,6 +274,11 @@ def check_bundle(
     if not isinstance(canonical_references, list) or not canonical_references:
         report.error(f"{rel(BUNDLE_MANIFEST)}: canonical_references must be a non-empty list")
         canonical_references = []
+    elif COVERAGE_CONTRACT_ENTRY not in canonical_references:
+        report.error(
+            f"{rel(BUNDLE_MANIFEST)}: canonical_references must include the shared "
+            "coverage contract for all three skills"
+        )
 
     public_skill_dirs = sorted(
         path.name
@@ -573,6 +601,54 @@ def check_cross_skill_links(skill_dirs: list[Path], report: Report) -> None:
                     )
 
 
+def check_coverage_contract(report: Report) -> None:
+    """Verify the mandatory coverage protocol and direct entrypoint routing."""
+    contract = (REPO_ROOT / COVERAGE_CONTRACT_PATH).resolve()
+    if not contract.is_file():
+        report.error(f"missing shared coverage contract: {COVERAGE_CONTRACT_PATH}")
+        return
+    text = contract.read_text(encoding="utf-8")
+    required_literals = (
+        "`pass`",
+        "`finding`",
+        "`unresolved`",
+        "`not assessable`",
+        "paper-level thesis",
+        "every section",
+        "every paragraph",
+        "every sentence",
+        "every lexical occurrence",
+        "bottom-up consistency",
+        "signaled/intended role",
+        "payoff/handoff and its information gain",
+        "argument role/organization",
+        "reviewer-hypothesized",
+        "Intellectual-move dependencies",
+        "causal layer",
+        "Unreviewed: 0",
+    )
+    for literal in required_literals:
+        if literal not in text:
+            report.error(
+                f"{COVERAGE_CONTRACT_PATH}: missing required coverage marker {literal!r}"
+            )
+
+    for skill_name in EXPECTED_SKILLS:
+        entrypoint = REPO_ROOT / "skills" / skill_name / "SKILL.md"
+        if not entrypoint.is_file():
+            continue
+        direct_targets = {
+            markdown_target(entrypoint, raw_target)
+            for raw_target in MARKDOWN_LINK_RE.findall(
+                entrypoint.read_text(encoding="utf-8")
+            )
+        }
+        if contract not in direct_targets:
+            report.error(
+                f"{rel(entrypoint)}: must link directly to the shared coverage contract"
+            )
+
+
 def check_nonempty_string_list(
     value: object, field: str, path: Path, report: Report, *, unique: bool = True
 ) -> list[str]:
@@ -678,11 +754,45 @@ def check_fixtures(report: Report) -> int:
                 report.error(
                     f"{rel(path)}: fixture 12 id must be {INTEGRATED_FIXTURE_ID!r}"
                 )
-            if (number == 20) != (fixture_id == WORKFLOW_FIXTURE_ID):
-                report.error(f"{rel(path)}: fixture 20 must be the paper discussion workflow")
+            expected_workflow_number = WORKFLOW_FIXTURE_NUMBERS.get(fixture_id)
+            if expected_workflow_number is not None and number != expected_workflow_number:
+                report.error(
+                    f"{rel(path)}: workflow fixture {fixture_id!r} must be fixture "
+                    f"{expected_workflow_number}"
+                )
+            expected_workflow_id = next(
+                (
+                    workflow_id
+                    for workflow_id, workflow_number in WORKFLOW_FIXTURE_NUMBERS.items()
+                    if workflow_number == number
+                ),
+                None,
+            )
+            if expected_workflow_id is not None and fixture_id != expected_workflow_id:
+                report.error(
+                    f"{rel(path)}: fixture {number} id must be {expected_workflow_id!r}"
+                )
+            expected_observed_number = OBSERVED_FAILURE_FIXTURE_NUMBERS.get(fixture_id)
+            if expected_observed_number is not None and number != expected_observed_number:
+                report.error(
+                    f"{rel(path)}: observed-failure fixture {fixture_id!r} must be fixture "
+                    f"{expected_observed_number}"
+                )
+            expected_observed_id = next(
+                (
+                    observed_id
+                    for observed_id, observed_number in OBSERVED_FAILURE_FIXTURE_NUMBERS.items()
+                    if observed_number == number
+                ),
+                None,
+            )
+            if expected_observed_id is not None and fixture_id != expected_observed_id:
+                report.error(
+                    f"{rel(path)}: fixture {number} id must be {expected_observed_id!r}"
+                )
 
         expected_fields = set(FIXTURE_BASE_FIELDS)
-        if fixture_id == WORKFLOW_FIXTURE_ID:
+        if fixture_id in WORKFLOW_FIXTURE_NUMBERS:
             expected_fields.update({"stage_prompts", "initial_files"})
         elif fixture_id == INTEGRATED_FIXTURE_ID:
             expected_fields.add("stage_prompts")
@@ -701,7 +811,7 @@ def check_fixtures(report: Report) -> int:
         if fixture.get("material_origin") != "synthetic":
             report.error(f"{rel(path)}: material_origin must be 'synthetic'")
 
-        if fixture_id == WORKFLOW_FIXTURE_ID:
+        if fixture_id in WORKFLOW_FIXTURE_NUMBERS:
             check_workflow_case(fixture, path, report)
         elif fixture_id == INTEGRATED_FIXTURE_ID:
             stage_prompts = fixture.get("stage_prompts")
@@ -728,7 +838,7 @@ def check_fixtures(report: Report) -> int:
         for skill in valid_skills:
             if skill not in EXPECTED_SKILLS:
                 report.error(f"{rel(path)}: fixture names non-bundle skill {skill!r}")
-        if fixture_id == WORKFLOW_FIXTURE_ID:
+        if fixture_id in WORKFLOW_FIXTURE_NUMBERS:
             pass  # Validated with its staged contract above.
         elif fixture_id == INTEGRATED_FIXTURE_ID:
             if skills != PAPER_SKILLS:
@@ -1087,6 +1197,7 @@ def main() -> int:
     if skill_dirs:
         check_identifier_definitions(skill_dirs, report)
         check_cross_skill_links(skill_dirs, report)
+        check_coverage_contract(report)
     fixture_count = check_fixtures(report)
     installed_mapping_count = 0
     if args.install_root is not None:

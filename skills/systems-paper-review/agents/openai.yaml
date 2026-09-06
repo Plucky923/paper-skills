@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Review"
-  short_description: "Systems-paper review with precise logic-gap locations"
-  default_prompt: "Use $systems-paper-review to audit only the material I specify, identify each paragraph's role, locate both endpoints of faulty sentence and paragraph links, and explain evidence-backed risks without rewriting."
+  short_description: "Top-down systems-paper audit with coverage proof"
+  default_prompt: "Use $systems-paper-review to audit only the material I specify from paper/section through paragraph, sentence, and lexical levels; distinguish stated or text-licensed intellectual-move dependencies from reviewer-hypothesized bridges, test every claimed move-to-outcome edge, compare promised and delivered roles, audit related-work causality and evidence state, and diagnose without rewriting."

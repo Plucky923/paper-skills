@@ -1,0 +1,80 @@
+{
+  "id": "payoff-and-role-review",
+  "title": "Detect formulaic payoff repetition and a promised insight buried by mechanisms",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请分别只读审查下面两个段落。P1 要检查段尾到底增加了什么，而不是只判断 however/therefore 的逻辑连接；P2 要比较它明确承诺的段落职责与实际交付。不要改写。\n\nP1: SafeGate is a candidate tenant boundary. Its library confines unsafe operations, and soundness means that legal client call sequences do not trigger undefined behavior. The API nevertheless exposes one global resource namespace rather than tenant-scoped authority. However, soundness does not separate tenant permissions. To use SafeGate as a virtualization boundary, the system must still separate tenant authority.\n\nP2: The key insight of RiverGuard is to replace global resource capabilities with tenant-scoped capabilities while the host retains root authority. The host maps each virtual operation to an internal object. Static types prevent capability fabrication. A runtime checks identity, ownership, allocation, quotas, and accounting. A lifecycle manager reclaims objects after tenant failure. Equivalence is defined over return values, state transitions, events, and object lifetimes, while isolation is defined by capability and runtime checks.",
+  "scope": {
+    "authorized": [
+      "P1 and P2 as two independent review paragraphs"
+    ],
+    "excluded": [
+      "neighboring manuscript text",
+      "implementation artifacts or proofs",
+      "external venue-frequency research",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "p1_structure": [
+      "P1.S3 already states that the API exposes a global rather than tenant-scoped authority model.",
+      "P1.S4 and P1.S5 repeat the missing tenant separation as limitation and requirement."
+    ],
+    "p2_structure": [
+      "P2 explicitly promises a key insight.",
+      "After the opening, P2 enumerates mapping, types, runtime checks, lifecycle management, and property definitions."
+    ],
+    "unavailable": [
+      "proof of SafeGate soundness",
+      "RiverGuard implementation evidence",
+      "permission to move substantive mechanism detail to another paragraph"
+    ]
+  },
+  "protected_tokens": [
+    "SafeGate",
+    "undefined behavior",
+    "global resource namespace",
+    "RiverGuard",
+    "tenant-scoped capabilities",
+    "root authority",
+    "Equivalence",
+    "isolation"
+  ],
+  "forbidden_actions": [
+    "rewrite either paragraph",
+    "ban limitation-to-requirement endings as a universal template rule",
+    "approve P1's ending solely because its connectives are logically valid",
+    "reclassify P2 as an overview or mechanism paragraph and thereby clear its promised insight role",
+    "treat missing proof as the only finding"
+  ],
+  "hard_gates": [
+    "The review runs the ending deletion and information-gain test on P1.",
+    "It records P2's promised insight role separately from its mechanism-heavy delivered role.",
+    "It keeps the visible rhetorical findings independent from scientific-support risks."
+  ],
+  "expected_behavior": [
+    "Explain that a limitation-to-requirement progression can be valid but P1 repeats tenant separation three times without a sharper design consequence.",
+    "Identify the exact P1 sentence anchors whose information overlaps.",
+    "Recognize P2's opening principle while diagnosing that the paragraph's attention and payoff are dominated by mechanism inventory.",
+    "Apply the one-obligation and abstraction-level tests to P2.",
+    "Mark moving details as requiring explicit restructuring authority."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews only P1 and P2 and supplies no replacement prose.", "points": 1},
+    {"id": "R2", "criterion": "States the exact information added by each of P1's final three sentences.", "points": 1},
+    {"id": "R3", "criterion": "Uses deletion or equivalent information-gain reasoning to identify redundant payoff content.", "points": 1},
+    {"id": "R4", "criterion": "Does not condemn the however-therefore form independently of content.", "points": 1},
+    {"id": "R5", "criterion": "Distinguishes P1's visible repetition from unavailable soundness evidence.", "points": 1},
+    {"id": "R6", "criterion": "Records P2's explicit key-insight promise.", "points": 1},
+    {"id": "R7", "criterion": "Independently identifies P2's mechanism-heavy delivered role and abstraction imbalance.", "points": 1},
+    {"id": "R8", "criterion": "Does not reclassify P2 in order to pass it.", "points": 1},
+    {"id": "R9", "criterion": "Identifies the opening principle that should remain controlling.", "points": 1},
+    {"id": "R10", "criterion": "Explains why the mechanism inventory weakens the promised high-level payoff.", "points": 1},
+    {"id": "R11", "criterion": "Separates paragraph-local hierarchy repair from content movement requiring authority.", "points": 1},
+    {"id": "R12", "criterion": "Completes both paragraphs' coverage across independent diagnostic dimensions.", "points": 1}
+  ]
+}

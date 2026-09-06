@@ -18,9 +18,22 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 ## TH-03 — The thesis predicts the design
 
-- **Check:** Hide component names and ask what requirements follow from the paper's stated problem and intellectual move. Then verify the actual major mechanisms discharge those requirements. A central idea that cannot explain the design is usually a slogan or retrospective summary.
+- **Check:** Hide component names and ask what requirements follow from the paper's stated problem and intellectual move. Then verify the actual major mechanisms discharge those requirements. Give each recovered central node and dependency the source status defined by the writing core; a requirement supplied by the reviewer rather than the prose remains a missing edge. A central idea that cannot explain the design is usually a slogan or retrospective summary.
 - **Reviewer attack:** “The claimed insight could introduce many unrelated systems and does not explain this design.”
 - **Severity:** `S1`.
+
+## TH-03A — A memorable reconstruction is not mistaken for authored clarity
+
+- **Check:** After writing the shortest coherent thesis in reviewer language,
+  compare every node and edge with the original anchors. Apply the
+  [source-grounded fan-out test](../../systems-paper-revise/references/writing-core.md#source-grounded-intellectual-move-fan-out)
+  whenever one move is meant to explain several primary outcomes. Report each
+  reviewer-hypothesized bridge; do not use the completed reconstruction itself as
+  evidence that the reader could recover it from the manuscript.
+- **Reviewer attack:** “The reviewer can invent a strong story for this system,
+  but the paper does not actually make that story available to the reader.”
+- **Severity:** `S1` when the missing edge controls the contribution; otherwise
+  `S2`.
 
 ## TH-04 — The thesis predicts the decisive evidence
 

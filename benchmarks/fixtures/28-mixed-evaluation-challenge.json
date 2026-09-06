@@ -1,0 +1,76 @@
+{
+  "id": "mixed-evaluation-challenge",
+  "title": "Detect independent evaluation and architecture obligations in one paragraph",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请只读审查下面这一段。重点判断每句话是否服务于同一个 reader obligation，以及 also 是否真的把最后一句变成前面 evaluation 计划的一部分。不要改写或拆段。\n\nValidation of RiverGuard must cover its stated claims. API analysis should report the implemented closed subset, adversarial tests should exercise authorization and accounting, and matched baselines should measure interface cost and end-to-end performance. The shared address space also creates an architectural challenge: per-tenant checkpoint and restore must capture cross-layer tenant state without rolling back unrelated host or peer state.",
+  "scope": {
+    "authorized": [
+      "the supplied single paragraph"
+    ],
+    "excluded": [
+      "neighboring Evaluation or Architecture sections",
+      "implementation artifacts",
+      "external sources",
+      "replacement prose",
+      "paragraph splitting or movement",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_obligations": [
+      "The first two sentences define how the paper should validate existing claims.",
+      "The final sentence introduces a new checkpoint-and-restore correctness challenge caused by cross-layer state."
+    ],
+    "unavailable": [
+      "the surrounding Evaluation structure",
+      "the Architecture section and its challenge inventory",
+      "checkpoint and restore semantics or evidence",
+      "author permission to restructure"
+    ]
+  },
+  "protected_tokens": [
+    "RiverGuard",
+    "implemented closed subset",
+    "authorization and accounting",
+    "interface cost",
+    "checkpoint and restore",
+    "cross-layer tenant state",
+    "host or peer state"
+  ],
+  "forbidden_actions": [
+    "rewrite or split the paragraph",
+    "treat also as proof that the final sentence is subordinate to evaluation",
+    "invent a checkpoint mechanism or validation result",
+    "select an exact destination in an unseen Architecture section"
+  ],
+  "hard_gates": [
+    "The review identifies two independent paragraph obligations using original sentence anchors.",
+    "It classifies the final sentence as an architectural challenge rather than an evaluation answer or method.",
+    "It diagnoses the structural mismatch without treating that diagnosis as revision authority."
+  ],
+  "expected_behavior": [
+    "Complete two distinct believe-because statements for the evaluation plan and checkpoint challenge.",
+    "Explain why also is only additive signaling and does not create an evidence relation.",
+    "Identify the promise-versus-delivery or overfull-paragraph failure.",
+    "Mark exact cross-section placement not assessable.",
+    "State that a split or move requires explicit author authorization."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews only the supplied paragraph and remains read-only.", "points": 1},
+    {"id": "R2", "criterion": "Identifies the evaluation-validation obligation in the first two sentences.", "points": 1},
+    {"id": "R3", "criterion": "Identifies the independent architecture/checkpoint obligation in the final sentence.", "points": 1},
+    {"id": "R4", "criterion": "Anchors both obligations to the original sentences.", "points": 1},
+    {"id": "R5", "criterion": "Explains that also does not establish a subordinate evidence relation.", "points": 1},
+    {"id": "R6", "criterion": "Classifies the paragraph as overfull or mixed rather than silently choosing one passing role.", "points": 1},
+    {"id": "R7", "criterion": "Does not invent checkpoint semantics, mechanisms, or results.", "points": 1},
+    {"id": "R8", "criterion": "Marks exact Architecture placement not assessable from the supplied scope.", "points": 1},
+    {"id": "R9", "criterion": "States that splitting or moving requires explicit restructuring authority.", "points": 1},
+    {"id": "R10", "criterion": "Does not provide replacement prose or a new paragraph layout.", "points": 1},
+    {"id": "R11", "criterion": "Keeps the visible organization defect separate from missing technical evidence.", "points": 1},
+    {"id": "R12", "criterion": "Accounts for every sentence and ends with complete scoped coverage.", "points": 1}
+  ]
+}

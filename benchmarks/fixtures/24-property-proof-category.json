@@ -1,0 +1,74 @@
+{
+  "id": "property-proof-category",
+  "title": "Separate a system property from proof obligations and necessity evidence",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请只读审查下面两个段落，重点解释最后一句为什么读起来奇怪。请把论文自身可见的写作或论证缺陷与需要额外证据才能判断的风险分开，不要改写。\n\nVirtualization maps each tenant's virtual operations onto shared physical resources. The boundary must preserve interface equivalence and tenant isolation, and its implementation is part of the trusted computing base.\n\nThe boundary must process every valid tenant call without corrupting monitor state. Therefore, memory safety is a necessary precondition for virtualization, but it cannot replace an argument for interface semantics or resource authorization.",
+  "scope": {
+    "authorized": [
+      "the supplied two paragraphs"
+    ],
+    "excluded": [
+      "neighboring manuscript text",
+      "formal model or implementation artifacts",
+      "external sources",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_relations": [
+      "The first paragraph names interface equivalence and tenant isolation as two boundary properties.",
+      "The second paragraph names memory safety as a property of boundary execution.",
+      "The final clause switches from a runtime property to the author activity of making an argument."
+    ],
+    "unavailable": [
+      "a model establishing that memory safety is necessary for every virtualization boundary",
+      "the exact valid-call domain",
+      "a proof of equivalence or authorization"
+    ]
+  },
+  "protected_tokens": [
+    "interface equivalence",
+    "tenant isolation",
+    "trusted computing base",
+    "memory safety",
+    "necessary precondition",
+    "resource authorization"
+  ],
+  "forbidden_actions": [
+    "rewrite either paragraph",
+    "declare the necessity claim false or established without a model",
+    "treat the category mismatch as only a missing-evidence risk",
+    "treat or as proving that only one of semantics and authorization matters"
+  ],
+  "hard_gates": [
+    "The review remains read-only and stays inside the supplied passage.",
+    "It separately identifies the visible property-versus-proof category mismatch and the unresolved necessity claim.",
+    "It does not let the evidence blocker suppress the confirmed local reasoning defect."
+  ],
+  "expected_behavior": [
+    "Identify the paragraph roles and the P2.S1-to-P2.S2 inference.",
+    "Explain that memory safety, interface equivalence, and resource authorization are object-level properties while an argument is epistemic work.",
+    "Check whether both equivalence and authorization remain obligations rather than accepting an ambiguous or.",
+    "Mark the universal necessity claim unresolved because the required model is unavailable.",
+    "Give distinct diagnostic dimensions and resolution tests for the visible defect and evidence risk."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews only the supplied passage and provides no replacement prose.", "points": 1},
+    {"id": "R2", "criterion": "Accounts for both paragraph roles and their handoff.", "points": 1},
+    {"id": "R3", "criterion": "Anchors the final inference to both original P2 sentences.", "points": 1},
+    {"id": "R4", "criterion": "Identifies the object-level property versus epistemic argument category mismatch as a visible defect.", "points": 1},
+    {"id": "R5", "criterion": "Explains that equivalence and authorization remain distinct obligations.", "points": 1},
+    {"id": "R6", "criterion": "Flags the or coordination if it suggests only one remaining obligation.", "points": 1},
+    {"id": "R7", "criterion": "Separately identifies the unsupported universal necessity claim.", "points": 1},
+    {"id": "R8", "criterion": "Names the missing model, call domain, or equivalent evidence needed to assess necessity.", "points": 1},
+    {"id": "R9", "criterion": "Does not declare memory safety sufficient for equivalence or isolation.", "points": 1},
+    {"id": "R10", "criterion": "Uses independent argument-organization and scientific-support dimensions.", "points": 1},
+    {"id": "R11", "criterion": "Gives an observable resolution test for each issue rather than one generic blocker.", "points": 1},
+    {"id": "R12", "criterion": "Ends with complete scoped coverage and no invented evidence.", "points": 1}
+  ]
+}

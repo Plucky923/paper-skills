@@ -36,7 +36,7 @@ performing its distinct role.
    and evaluator until scoring is complete.
 3. Start a fresh agent context for every candidate invocation. Single-stage fixtures
    require one invocation per tree; fixture 12 uses two fresh invocations,
-   and fixture 20 uses the five-stage procedure below. The runner projection is exactly `prompt`,
+   and fixtures 20 and 23 use the five-stage procedure below. The runner projection is exactly `prompt`,
    `scope`, and `evidence`, plus the selected
    tree's named skill and artifacts explicitly authorized by `scope.authorized`.
    Never expose `id`, `title`, `material_origin`, `protected_tokens`,
@@ -78,7 +78,7 @@ read remains subject to the fixture's authority boundary.
 A run passes quality at **10/12 or higher** after passing every hard gate. A
 candidate is accepted only when:
 
-- all 20 candidate fixture runs pass their hard gates;
+- all 34 candidate fixture runs pass their hard gates;
 - every candidate run scores at least 10/12;
 - no candidate fixture scores below its baseline counterpart; and
 - the candidate's total score exceeds the baseline, or a previously observed
@@ -134,10 +134,13 @@ gates and twelve-point rubric. This is the supported composition path; it does
 not imply a third compose skill or let evaluator-only fields leak into either
 stage.
 
-## Full discussion workflow (fixture 20)
+## Full discussion workflows (fixtures 20 and 23)
 
-Fixture 20 replaces `prompt` with five `stage_prompts` and adds `initial_files`
-for harness setup. It still counts as one fixture run.
+Fixtures 20 and 23 replace `prompt` with five `stage_prompts` and add
+`initial_files` for harness setup. Each still counts as one fixture run. Fixture
+20 tests decision persistence and evidence-safe revision; fixture 23 additionally
+tests stable coverage/finding IDs, pending authority, full-scope post-edit audit,
+and explicit closure states.
 
 Run this separately for each frozen skill tree in a fresh temporary paper project.
 The harness writes the two `initial_files` verbatim before invoking any skill.
@@ -161,8 +164,8 @@ files. Keep future prompts, especially the author reply, hidden until their turn
 
 The harness keeps before/after file contents and action logs outside the paper
 project and model context at every stage. Check unchanged-file gates after each
-invocation, including preservation of existing D0. Evaluate the combined five-stage
-run once against fixture 20's gates and rubric. These setup and capture operations
+invocation, including preservation of existing D0. Evaluate each combined five-stage
+run once against that fixture's gates and rubric. These setup and capture operations
 are harness authority, not permission for the skills to write extra files. This
 procedure defines a repeatable model test, not an automatic model runner or a claim
 that merely validating the JSON executes the workflow.
@@ -206,6 +209,20 @@ the provenance report remain reachable from their declared skill entrypoints.
 | `18-confirmed-grill-handoff` | Apply confirmed author decisions and exclude rejected Grill suggestions |
 | `19-grill-pending-record` | Paper-specific clarification, pending decisions, and record-location authority |
 | `20-paper-discussion-workflow` | Persist pending and confirmed decisions, apply them in a fresh Revise context, and verify closure with read-only Review |
+| `21-top-down-paragraph-roles` | Top-down paper/section audit plus explicit checks for all eight researched paragraph roles |
+| `22-coverage-last-clean-units` | Passed-unit visibility and last-section/paragraph/sentence/lexical-occurrence completion |
+| `23-coverage-closure-workflow` | Stable unit/finding IDs and complete Review–Grill–Revise closure accounting |
+| `24-property-proof-category` | Object-level properties versus proof obligations, with necessity evidence kept separate |
+| `25-related-work-root-cause` | Standalone antecedents, parallel comparison axes, and causal Root Cause before a research gap |
+| `26-payoff-and-role-review` | Ending information gain and promised insight role versus mechanism-heavy delivery |
+| `27-evidence-derived-conclusion` | Completed-paper result payoff from supplied bounded evidence rather than an evaluation placeholder |
+| `28-mixed-evaluation-challenge` | Independent evaluation and architectural-Challenge obligations in one paragraph |
+| `29-structural-question-authority` | Placement questions remain pending until an exact split/move and destination are authorized |
+| `30-limitation-introduction-placement` | Conditional early disclosure for a material applicability boundary without unseen-context movement |
+| `31-safe-local-repair-frontier` | Safe local category, payoff, and hierarchy repairs continue while evidence or structure remains blocked |
+| `32-cold-review-trigger-checkpoint` | Ordinary blind Review proactively checks mechanical payoff inversion, research-paper result placeholders, and material-limit disclosure |
+| `33-missing-result-placeholder-block` | Missing completed-paper results block revision without permitting deletion of the comparison or its scientific boundaries |
+| `34-intellectual-move-fanout-grounding` | One claimed insight must expose source-grounded causal edges to every headline outcome rather than rely on reviewer reconstruction |
 
 ## Maintaining the benchmark
 

@@ -1,0 +1,86 @@
+{
+  "id": "intellectual-move-fanout-grounding",
+  "title": "Distinguish an authored unifying insight from a reviewer-completed story",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请只读审查下面三个连续的 Introduction/overview 段落。评估其问题驱动的核心 insight、三个主要目标之间的关系、语言安全的作用以及设计推导；不要搜索外部资料，不要改写。\n\nP1: AlloyNest 的核心思想是把共享运行时暴露的全局资源句柄替换为 tenant-scoped virtual handles，同时由 Host 保留底层对象的根所有权。Safe Lumen 的类型和封装使 Tenant 不能直接构造这些 handles；Host 将每个虚拟操作映射到内部对象，并检查身份、所有权和配额，在 Tenant 终止后回收对象。该设计因此提供 Tenant isolation。\n\nP2: 共享运行时的 API 位于 scheduling、memory 和 I/O policy 之下，因此 Tenant 可以独立实现这些机制并定义 application-specific objects。Tenant 与 Host 处于同一地址空间，还可通过 checked function calls 交互，从而避免 VM exits、地址空间切换和跨地址空间复制。\n\nP3: 因此，同一个 virtualization boundary 同时提供 customizability、isolation 和 low overhead，这构成 AlloyNest 的统一贡献。验证将分别测试异构 Tenant、跨 Tenant 攻击和相对于 KVM 的端到端性能。",
+  "scope": {
+    "authorized": [
+      "P1 through P3 as one contiguous Introduction/overview excerpt"
+    ],
+    "excluded": [
+      "neighboring motivation or related-work prose",
+      "implementation artifacts, proofs, or experimental results",
+      "external literature search",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_structure": [
+      "P3 explicitly claims that one virtualization boundary unifies customizability, isolation, and low overhead.",
+      "P1 ties non-forgeability to Safe Lumen and authorization or lifecycle work to Host mechanisms.",
+      "P2 attributes customizability to API placement and low crossing cost to same-address-space execution.",
+      "The excerpt does not explain the common changed constraint that makes these distinct causal layers one intellectual move rather than three colocated mechanisms."
+    ],
+    "unavailable": [
+      "the motivating problem and closest-alternative failure",
+      "the author's intended common causal relation",
+      "API sufficiency for arbitrary application-specific objects",
+      "complete-mediation and isolation evidence",
+      "performance results"
+    ]
+  },
+  "protected_tokens": [
+    "AlloyNest",
+    "tenant-scoped virtual handles",
+    "Safe Lumen",
+    "Host",
+    "application-specific objects",
+    "checked function calls",
+    "customizability",
+    "isolation",
+    "low overhead",
+    "KVM"
+  ],
+  "forbidden_actions": [
+    "rewrite the excerpt",
+    "invent a common root constraint or missing move-to-outcome edge",
+    "declare the unified insight clear merely because a reviewer can reconstruct a plausible boundary story",
+    "attribute the complete isolation property to Safe Lumen alone",
+    "assume that API placement proves support for application-specific objects",
+    "require every multi-contribution paper to have one shared insight when the manuscript makes no such claim"
+  ],
+  "hard_gates": [
+    "The review builds a source-grounded fan-out ledger for customizability, isolation, and low overhead rather than treating the reviewer-written thesis as proof of clarity.",
+    "It reports the missing common causal edge or binding constraint as a finding or unresolved risk even if it offers a plausible reconstruction.",
+    "It separates Safe Lumen's non-forgeability role from Host authorization, complete mediation, lifecycle, and the compound isolation claim."
+  ],
+  "expected_behavior": [
+    "Mark the shared boundary and each move-to-outcome relation as stated, text-licensed, or reviewer-hypothesized with original anchors.",
+    "Identify that P3 states unity but does not itself supply the common causal explanation.",
+    "Distinguish coexistence under one system label from one intellectual move causing all three outcomes.",
+    "Apply a counterfactual to show that customizability, isolation, and crossing cost depend on different visible layers.",
+    "Flag that API-below-policy does not establish interface sufficiency for application-specific objects.",
+    "Treat Safe Lumen as an enabling non-bypass substrate rather than the whole isolation argument.",
+    "Request the author-supplied common constraint and per-outcome causal edges instead of inventing them.",
+    "Keep the absent motivation, implementation evidence, and results as separate scope or evidence risks."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews exactly the three-paragraph excerpt and remains read-only.", "points": 1},
+    {"id": "R2", "criterion": "Records P3's explicit promise that one boundary unifies three outcomes.", "points": 1},
+    {"id": "R3", "criterion": "Builds one fan-out row for each of customizability, isolation, and low overhead.", "points": 1},
+    {"id": "R4", "criterion": "Uses original anchors and source-status labels for the shared move and every edge.", "points": 1},
+    {"id": "R5", "criterion": "Does not count its own coherent reconstruction as evidence that the manuscript supplied the common edge.", "points": 1},
+    {"id": "R6", "criterion": "Finds or leaves unresolved the missing common causal explanation behind P3's unity claim.", "points": 1},
+    {"id": "R7", "criterion": "Separates language non-forgeability, boundary or authority design, runtime checks and lifecycle, and path organization.", "points": 1},
+    {"id": "R8", "criterion": "Does not attribute complete isolation to Safe Lumen alone.", "points": 1},
+    {"id": "R9", "criterion": "Flags API sufficiency for application-specific objects rather than treating policy placement as proof.", "points": 1},
+    {"id": "R10", "criterion": "Runs a counterfactual or equivalent causal-layer test for the three outcomes.", "points": 1},
+    {"id": "R11", "criterion": "Separates the high-level argument defect from missing threat-model, implementation, and result evidence.", "points": 1},
+    {"id": "R12", "criterion": "Requests the minimal author decisions or evidence and ends with complete coverage accounting.", "points": 1}
+  ]
+}

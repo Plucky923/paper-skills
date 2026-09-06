@@ -1,0 +1,76 @@
+{
+  "id": "related-work-root-cause",
+  "title": "Distinguish descriptive related-work categories from a causal research gap",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请分别只读审查 A 和 B；B 的上下文不能倒过来补给 A。除了证据风险，还要检查比较维度、Root Cause 以及 gap 如何推出研究问题。不要改写。\n\nA:\nThus, these systems virtualize machines, host services, or instantiate one kernel; they do not virtualize a low-level safe construction API for each tenant. The question is whether such an API can define tenant-scoped resource semantics and authority.\n\nB:\nExisting memory-safe systems mediate untrusted code, but their boundaries are determined by what they host. SparkBox implements a Rust VMM and hosts independent kernels at a machine interface. Gatehouse implements a Go monitor and hosts services at an RPC boundary. Kernellets isolates multiple extensions by instantiating one kernel's state. Thus, these systems virtualize machines, host services, or instantiate one kernel; they do not virtualize a low-level safe construction API for each tenant. The question is whether such an API can define tenant-scoped resource semantics and authority.",
+  "scope": {
+    "authorized": [
+      "excerpt A as a standalone two-sentence unit",
+      "excerpt B as an independent full related-work paragraph"
+    ],
+    "excluded": [
+      "using B to resolve A's standalone antecedents",
+      "cited papers or external literature search",
+      "neighboring motivation or design text",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_structure": [
+      "Excerpt A begins with the demonstrative these systems but supplies no systems in its own scope.",
+      "Excerpt B describes three different hosted objects and boundary organizations.",
+      "Neither excerpt states one shared mechanism, assumption, or constraint that prevents the target API virtualization."
+    ],
+    "unavailable": [
+      "evidence supporting the negative claim about all three prior systems",
+      "the author's intended shared root cause",
+      "the exact novelty boundary of the proposed work"
+    ]
+  },
+  "protected_tokens": [
+    "SparkBox",
+    "Gatehouse",
+    "Kernellets",
+    "Rust VMM",
+    "Go monitor",
+    "tenant-scoped resource semantics and authority"
+  ],
+  "forbidden_actions": [
+    "rewrite either excerpt",
+    "invent a shared root cause",
+    "treat machines, host services, and instantiate one kernel as automatically parallel dimensions",
+    "use the missing literature evidence as a substitute for the visible organizational diagnosis"
+  ],
+  "hard_gates": [
+    "The review preserves A and B as independent scopes and remains read-only.",
+    "It identifies the missing standalone antecedent, the nonparallel comparison, and the absent shared root cause.",
+    "It keeps the visible argument defects separate from the unresolved negative prior-work evidence."
+  ],
+  "expected_behavior": [
+    "Flag A's unresolved these systems antecedent without borrowing B.",
+    "Test whether the three summary predicates share one comparison dimension.",
+    "Explain that descriptive boundary differences do not establish a common cause for missing the target API.",
+    "Locate the unsupported handoff from classification to the research question.",
+    "Question the causal strength of boundaries are determined by what they host.",
+    "Request the author's root constraint rather than supplying one."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Keeps both excerpts read-only and independently scoped.", "points": 1},
+    {"id": "R2", "criterion": "Flags A's unresolved these systems antecedent.", "points": 1},
+    {"id": "R3", "criterion": "Identifies the mixed comparison dimensions in the three summary predicates.", "points": 1},
+    {"id": "R4", "criterion": "Explains why grammatical similarity does not make the categories conceptually parallel.", "points": 1},
+    {"id": "R5", "criterion": "Identifies that B supplies descriptive contrasts but no shared root cause.", "points": 1},
+    {"id": "R6", "criterion": "Anchors the classification-to-gap or gap-to-question handoff precisely.", "points": 1},
+    {"id": "R7", "criterion": "Does not invent whether interface granularity, trust placement, ownership, or another factor is causal.", "points": 1},
+    {"id": "R8", "criterion": "Separately flags the negative prior-work claim as evidence-blocked.", "points": 1},
+    {"id": "R9", "criterion": "Separately assesses the opening causal claim about hosted objects determining boundaries.", "points": 1},
+    {"id": "R10", "criterion": "Uses argument-organization and scientific-support dimensions without one crowding out the other.", "points": 1},
+    {"id": "R11", "criterion": "Names the author input and literature evidence required to resolve the distinct issues.", "points": 1},
+    {"id": "R12", "criterion": "Provides complete coverage without replacement prose or external inspection.", "points": 1}
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "coverage-last-clean-units",
+  "title": "Prove clean-unit coverage and catch a defect in the final lexical occurrence",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "使用 systems-paper-review 对下面全部材料做只读覆盖审查。不要只列问题：正常章节、段落、句子和词汇也必须有 pass 状态。必须检查到最后一个章节、最后一个段落、最后一句和最后一个词，给出 totals、last unit 和 Unreviewed。不要改写。\n\n## Overview\n\nNova sends each admitted request to three replicas. The leader replies after all three replicas persist the request.\n\nReaders use the latest committed version. A version number uniquely identifies the committed request order.\n\n## Evaluation\n\nWe ran a 30-minute workload and paused one follower for 10 seconds. The service continued to answer requests during that run.\n\nThe run observed one follower pause and no network partition. Because service continued in this run, Nova guarantees availability under every failure unconditionally.",
+  "scope": {
+    "authorized": [
+      "both supplied sections, all four paragraphs, all eight sentences, their in-scope relations, and every reader-visible lexical occurrence through the final word"
+    ],
+    "excluded": [
+      "surrounding manuscript",
+      "source code or logs",
+      "external verification",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "established": [
+      "Nova uses three replicas.",
+      "The leader replies after all three replicas persist an admitted request.",
+      "A 30-minute workload paused one follower for 10 seconds and the service continued to answer during that run.",
+      "The supplied run included no network partition."
+    ],
+    "not_established": [
+      "availability under every failure",
+      "an unconditional guarantee",
+      "behavior under network partitions"
+    ],
+    "last_units": [
+      "the Evaluation section",
+      "its second paragraph",
+      "the sentence beginning Because service continued",
+      "the final lexical occurrence unconditionally"
+    ]
+  },
+  "protected_tokens": [
+    "three replicas",
+    "all three replicas",
+    "30-minute",
+    "10 seconds",
+    "no network partition",
+    "unconditionally"
+  ],
+  "forbidden_actions": [
+    "omit clean units from the visible ledgers",
+    "stop after reviewing the first Evaluation paragraph",
+    "miss or range-compress the risk-bearing final word unconditionally",
+    "generalize a single run to every failure",
+    "provide replacement prose",
+    "inspect unavailable implementation evidence"
+  ],
+  "hard_gates": [
+    "Every inventoried section, paragraph, sentence, adjacency relation, and lexical occurrence or exact passed range has a visible coverage state, including clean pass controls.",
+    "The review reaches the final sentence and gives unconditionally its own lexical row linked to the overclaim finding.",
+    "The overclaim is anchored to the single-run premise and every-failure conclusion without inventing opposite evidence.",
+    "The receipt gives matching totals, final-unit states, Unreviewed: 0, and an actionable rather than clear result."
+  ],
+  "expected_behavior": [
+    "Mark the locally supported Overview statements and first Evaluation paragraph as passed where appropriate.",
+    "Treat the final paragraph as an evidence-role paragraph whose payoff exceeds its development.",
+    "Identify the single-run to every-failure inference and the technical commitments in guarantees, every, and unconditionally.",
+    "Give guarantees, every, and the final occurrence unconditionally separate risk-bearing lexical rows.",
+    "Preserve exact first and last IDs and use no sampling language.",
+    "State that unavailable fault evidence is not assessable rather than silently checking neighboring artifacts."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Freezes exactly the supplied material and remains read-only.", "points": 1},
+    {"id": "R2", "criterion": "Inventories both sections, four paragraphs, eight sentences, all in-scope adjacency relations, and lexical coverage before findings.", "points": 1},
+    {"id": "R3", "criterion": "Shows pass states for clean Overview and Evaluation units instead of a findings-only report.", "points": 1},
+    {"id": "R4", "criterion": "Checks and identifies the final section and final paragraph by stable IDs.", "points": 1},
+    {"id": "R5", "criterion": "Checks and identifies the final sentence by a stable ID and original anchor.", "points": 1},
+    {"id": "R6", "criterion": "Gives the final lexical occurrence unconditionally a separate row rather than hiding it in a passed range.", "points": 1},
+    {"id": "R7", "criterion": "Also identifies the commitments in guarantees and every within the final proposition.", "points": 1},
+    {"id": "R8", "criterion": "Locates the unsupported inference from one observed run to availability under every failure.", "points": 1},
+    {"id": "R9", "criterion": "Does not claim the service failed or invent network-partition evidence.", "points": 1},
+    {"id": "R10", "criterion": "Classifies unavailable broader fault behavior as unresolved or not assessable, with the missing evidence named.", "points": 1},
+    {"id": "R11", "criterion": "Performs bottom-up reconciliation and preserves all established replication and run facts.", "points": 1},
+    {"id": "R12", "criterion": "Ends with matching ledger and inventory totals, last-unit states, Unreviewed: 0, and actionable issues remain.", "points": 1}
+  ]
+}

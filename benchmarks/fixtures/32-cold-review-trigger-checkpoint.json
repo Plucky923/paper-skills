@@ -1,0 +1,81 @@
+{
+  "id": "cold-review-trigger-checkpoint",
+  "title": "Run latent prose triggers during an ordinary blind review",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请把 P1、P2、P3 当作三个彼此独立的论文段落进行完整只读审查。不要假设存在相邻上下文，不要搜索外部资料，也不要改写。\n\nP1: SafeGate confines unsafe operations, and its soundness contract excludes undefined behavior for legal client calls. The API nevertheless exposes one global resource namespace rather than tenant-scoped authority. However, soundness does not separate tenant permissions. To use SafeGate as a tenant boundary, the system must still separate tenant permissions.\n\nP2: Arcadia's shared runtime lets clients use checked function calls on the virtual-interface path, avoiding VM exits and address-space switches on that path. Authorization, scheduling, and application work remain, so whether Arcadia reduces end-to-end latency relative to KVM depends on the workload and must be determined experimentally.\n\nP3: Orion requires tenant kernels and their dependencies to use the safe subset of Lumen and enter through a platform-controlled build and load path; it is not a drop-in environment for legacy kernel binaries. We consider one host granting resources to peer tenants and do not support recursive nesting. We do not claim that every workload improves or that cluster utilization increases.",
+  "scope": {
+    "authorized": [
+      "P1, P2, and P3 as three independent paper-prose paragraphs"
+    ],
+    "excluded": [
+      "neighboring manuscript text or the Introduction",
+      "external sources or implementation artifacts",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_structure": [
+      "P1 states missing tenant separation three times as namespace state, limitation, and mechanically inverted requirement.",
+      "P2 predicts a local path difference but ends with a future evaluation instruction rather than a measured paper answer.",
+      "P3's safe-language and controlled-admission requirement excludes legacy kernel binaries."
+    ],
+    "unavailable": [
+      "P1 soundness and authorization evidence",
+      "P2 experimental outcomes and explicit proposal-versus-paper metadata",
+      "P3 Introduction claim hierarchy, current disclosure, and exact placement"
+    ]
+  },
+  "protected_tokens": [
+    "SafeGate",
+    "undefined behavior",
+    "tenant-scoped authority",
+    "Arcadia",
+    "checked function calls",
+    "VM exits",
+    "KVM",
+    "Orion",
+    "safe subset of Lumen",
+    "legacy kernel binaries",
+    "recursive nesting"
+  ],
+  "forbidden_actions": [
+    "rewrite any paragraph",
+    "inspect the unseen Introduction or invent experimental results",
+    "approve P1 solely because the last sentence is an explicit requirement",
+    "approve P2 solely because withholding a performance conclusion is cautious",
+    "omit P3's conditional early-disclosure judgment solely because placement was not requested",
+    "move, split, or delete manuscript content"
+  ],
+  "hard_gates": [
+    "The ordinary review proactively runs the ending mechanical-inversion test on P1.",
+    "It reports P2 as a completed-paper placeholder risk unless proposal or roadmap status is established.",
+    "It gives the conditional early-disclosure judgment for P3 while marking exact Introduction placement not assessable."
+  ],
+  "expected_behavior": [
+    "Identify that P1's final requirement is mechanically recoverable from the immediately preceding absence and adds no sharper consequence.",
+    "Keep P1's rhetorical finding independent from unavailable soundness or authorization evidence.",
+    "Treat ordinary paper-manuscript context as requiring an evidence-derived answer, or state the completed-paper risk conditionally if lifecycle remains uncertain.",
+    "Request P2's actual metric, baseline, workload conditions, result, and uncertainty without fabricating them.",
+    "Classify P3's first sentence as a material applicability and compatibility boundary.",
+    "State that a concise version belongs near a headline claim if that claim otherwise implies legacy-kernel support, while detailed treatment may remain later and exact placement needs the Introduction."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews exactly P1, P2, and P3 as independent scopes and supplies no replacement prose.", "points": 1},
+    {"id": "R2", "criterion": "Runs P1's mechanical-inversion test at the exact final-sentence relation.", "points": 1},
+    {"id": "R3", "criterion": "Finds that P1's final requirement adds no reader update beyond tenant separation already missing.", "points": 1},
+    {"id": "R4", "criterion": "Keeps P1's payoff defect independent from soundness and authorization evidence risks.", "points": 1},
+    {"id": "R5", "criterion": "Does not mark P2's future experiment sentence clean merely because manuscript lifecycle is unstated.", "points": 1},
+    {"id": "R6", "criterion": "Reports P2's completed-paper placeholder interpretation as a finding or conditional risk.", "points": 1},
+    {"id": "R7", "criterion": "Names the actual result tuple needed for P2 without inventing any value.", "points": 1},
+    {"id": "R8", "criterion": "Identifies P3's safe-language admission rule as a material applicability boundary.", "points": 1},
+    {"id": "R9", "criterion": "Proactively gives P3's conditional early-disclosure rule despite no placement question.", "points": 1},
+    {"id": "R10", "criterion": "Allows detailed limitation treatment later while marking exact wording and placement not assessable.", "points": 1},
+    {"id": "R11", "criterion": "Keeps argument, evidence, and scope or authority dimensions separately visible.", "points": 1},
+    {"id": "R12", "criterion": "Ends with complete unit coverage and Unreviewed zero.", "points": 1}
+  ]
+}

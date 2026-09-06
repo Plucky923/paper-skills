@@ -29,6 +29,34 @@ The chain is not required as a prose template. It is an audit of whether the mec
 - **Reviewer attack:** “This is a component inventory, not a design argument.”
 - **Severity:** `S1` for a missing central link; otherwise `S2`.
 
+## DD-03A — A claimed shared insight has source-grounded causal fan-out
+
+- **Check:** When one intellectual move is claimed or implied to produce several
+  primary properties, apply the canonical fan-out test in the
+  [systems-writing core](../../systems-paper-revise/references/writing-core.md#source-grounded-intellectual-move-fan-out).
+  Anchor the shared move and every move-to-property edge, and label each one
+  `stated`, `text-licensed`, or `reviewer-hypothesized`. A reviewer-supplied
+  bridge is a missing dependency even when it yields an elegant reconstruction.
+- **Reviewer attack:** “These benefits share a system name, but the paper never
+  shows that one conceptual change causes all of them.”
+- **Severity:** `S1` when the unified claim carries the contribution; `S2` when
+  the paper could accurately present the items as separate supporting claims.
+- **Exception:** Independent contributions need no artificial common cause when
+  the manuscript presents and evaluates them independently.
+
+## DD-03B — Each property is attributed to its narrowest sufficient layer
+
+- **Check:** Separate enabling substrate, changed abstraction or authority
+  boundary, runtime enforcement and lifecycle, execution path, and empirical
+  condition. For every claimed property, state what each layer establishes and
+  what still depends on another layer. Use the counterfactual in the canonical
+  fan-out test to expose attribution that is merely adjacent in the prose.
+- **Reviewer attack:** “The paper credits the language, interface, or shared
+  runtime with a compound guarantee that actually depends on unmentioned checks,
+  completeness, lifecycle behavior, or workload conditions.”
+- **Severity:** `S0` for a false central guarantee; `S1` for a central missing
+  attribution path; otherwise `S2`.
+
 ## DD-04 — The mechanism explains the resulting property
 
 - **Check:** State the relevant input/state, action or changed abstraction, enforcement point, and property that follows. Identify assumptions and whether the result is guaranteed, detected, enabled, or only observed.
@@ -62,7 +90,7 @@ Do not force every principle to precede every technical detail. An early low-lev
 | Failure/property | Supporting evidence | Constraint | Requirement | Mechanism | Property/invariant | Tradeoff | Decisive test | Gap |
 |---|---|---|---|---|---|---|---|---|
 
-For multi-mechanism systems, inspect both directions: every requirement needs a discharge, and every major mechanism needs a requirement. Do not treat implementation effort as evidence of conceptual necessity.
+For multi-mechanism systems, inspect both directions: every requirement needs a discharge, every major mechanism needs a requirement, and every claimed shared move needs an anchored edge to each advertised outcome. Do not treat implementation effort, co-location, or reviewer reconstruction as evidence of conceptual necessity.
 
 ## Sources
 

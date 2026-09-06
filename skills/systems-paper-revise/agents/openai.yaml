@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Revise"
-  short_description: "Precise, paragraph-local systems-paper revision"
-  default_prompt: "Use $systems-paper-revise to correct concrete problems within each original paragraph, retain adequate wording and manuscript format, and label clearly better optional phrasing separately; flag missing scientific support without adding or weakening claims."
+  short_description: "Coverage-checked paragraph-local paper revision"
+  default_prompt: "Use $systems-paper-revise to audit the complete authorized scope top down, apply every safe local repair within each original paragraph, preserve claim strength and manuscript format, keep reviewer-hypothesized intellectual-move edges out of the prose, require explicit authority for structural changes, then re-audit every unit and close or block every incoming finding without inventing support."

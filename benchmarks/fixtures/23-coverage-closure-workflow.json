@@ -1,0 +1,98 @@
+{
+  "id": "coverage-closure-workflow",
+  "title": "Preserve coverage IDs and close every finding across Review, Grill, Revise, and rereview",
+  "skills": [
+    "systems-paper-review",
+    "systems-paper-grill",
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "stage_prompts": {
+    "review": "使用 systems-paper-review，只读审查 {project}/manuscript.md。按共享 coverage contract 从章节到段落、句子和词汇逐层检查，给每个单位稳定 ID、每个 finding 稳定 ID、resolution test 和 receipt。需要作者决定的项要明确标记；不要修改文件。",
+    "grill_open": "使用 systems-paper-grill，读取 {project}/manuscript.md、review.md 和 paper-decisions.md。只讨论 Review 中标为 author decision required 的 finding，保留其 finding/unit IDs、证据状态和 resolution test，把 pending 结果更新到 paper-decisions.md。不要重新审查全文，不要改正文或 review.md；先提问并等待。",
+    "grill_confirm": "我确认第二段只应陈述一次 30-minute run 的观察：我们暂停了 one follower for 10 seconds，期间服务继续响应；这不支持 every network failure 或 unconditional availability。允许把第二段改成这一有边界的观察。保留 Quorum、30-minute、one follower 和 10 seconds；不添加 partition、durability 或 latency 结论。第一段的主谓一致错误可直接修，three replicas 事实保持不变。这是最终决定。请更新 paper-decisions.md，保留 D0 和 Review 的 finding/unit IDs，不改正文。",
+    "revise": "使用 systems-paper-revise，在 {project} 中读取 manuscript.md、review.md 和 paper-decisions.md。按已确认决定修改 manuscript.md，保持两个章节、两个段落和内容归属。修改前后都审查完整 scope，不只看改句；给 Review 的每个 finding closed、blocked、not applied 或 reopened 状态，并给 coverage receipt。review.md 和记录只读。",
+    "rereview": "使用 systems-paper-review，只读复核 {project}/manuscript.md、review.md 和 paper-decisions.md。沿用原 unit/finding IDs，逐项检查原 resolution test，并重新对全部章节、段落、句子和词汇做 coverage audit。明确每个 finding 是否关闭、是否新增问题，给 Unreviewed: 0 的 receipt；不要修改文件。"
+  },
+  "initial_files": {
+    "manuscript.md": "## Overview\n\nThe clients sends each admitted request to three replicas before the leader replies.\n\n## Evaluation\n\nA single 30-minute run that paused one follower for 10 seconds proves that Quorum is always available under every network failure unconditionally.\n",
+    "paper-decisions.md": "# Paper decisions\n\nManuscript scope: manuscript.md\n\n## D0 — Replica count [confirmed]\n\nLocation: manuscript.md, Overview, \"three replicas\"\n\nPreserve three replicas as the described deployment fact.\n\nEvidence: supported; author-supplied manuscript fact.\n\nResolution test: the revised Overview still states three replicas.\n"
+  },
+  "scope": {
+    "authorized": [
+      "only manuscript.md, review.md, and paper-decisions.md in the isolated project",
+      "Review and rereview are read-only",
+      "Grill may write only paper-decisions.md",
+      "Revise may write only manuscript.md"
+    ],
+    "excluded": [
+      "other project files",
+      "external sources or artifacts",
+      "future stage prompts before their turn",
+      "unrecorded technical mechanisms or results"
+    ],
+    "output_language": "Chinese workflow reports and English manuscript"
+  },
+  "evidence": {
+    "confirmed_after_grill": [
+      "The deployment uses three replicas.",
+      "The evaluation is one 30-minute run that paused one follower for 10 seconds.",
+      "The service continued to respond during that run.",
+      "The author permits a bounded observational statement and the direct subject-verb agreement repair."
+    ],
+    "not_supported": [
+      "availability under every network failure",
+      "unconditional availability",
+      "partition, durability, or latency conclusions"
+    ],
+    "required_findings": [
+      "the Overview subject-verb agreement defect is directly repairable",
+      "the Evaluation evidence-strength defect requires an author decision before claim narrowing"
+    ]
+  },
+  "protected_tokens": [
+    "Quorum",
+    "three replicas",
+    "30-minute",
+    "one follower",
+    "10 seconds",
+    "D0"
+  ],
+  "forbidden_actions": [
+    "edit manuscript.md during either Review or Grill",
+    "edit review.md or paper-decisions.md during Revise",
+    "ask Grill to revisit the direct grammar finding or passed units",
+    "lose or renumber source finding and coverage-unit IDs between stages",
+    "apply a pending or rejected decision",
+    "claim that the bounded observation proves a broader guarantee",
+    "drop D0 or any original finding from the closure map"
+  ],
+  "hard_gates": [
+    "Initial Review gives stable unit/finding IDs, marks only the claim-strength item author decision required, and ends with a complete receipt.",
+    "Grill preserves the source IDs and resolution test, writes pending before confirmation, then records the bounded confirmed decision while preserving D0; no other file changes.",
+    "Revise fixes subject-verb agreement, replaces the unsupported guarantee only with the confirmed bounded observation, preserves layout and tokens, and maps every original finding to a closure state after a full-scope post-audit.",
+    "Final Review reuses the original IDs, verifies both resolution tests, finds no promoted evidence or new defect, and reports matching totals with Unreviewed: 0."
+  ],
+  "expected_behavior": [
+    "Keep the initial grammar defect separate from the scientific claim-strength decision.",
+    "Carry the exact Review finding and unit IDs through the decision record and closure map.",
+    "Treat pending as blocked until the author confirmation arrives.",
+    "Preserve D0 and materially rejected partition, durability, and latency additions.",
+    "Re-audit both changed and unchanged units after revision.",
+    "Close findings only after their original resolution tests pass."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Initial Review inventories and ledgers both sections, both paragraphs, both sentences, and lexical occurrences with stable IDs and a complete receipt.", "points": 1},
+    {"id": "R2", "criterion": "Initial Review separates the direct agreement defect from the evidence-strength finding that needs an author decision.", "points": 1},
+    {"id": "R3", "criterion": "Initial Review gives both findings observable resolution tests and retains risk-bearing lexical anchors.", "points": 1},
+    {"id": "R4", "criterion": "Opening Grill discusses only the author-decision finding and persists it as pending with source IDs before confirmation.", "points": 1},
+    {"id": "R5", "criterion": "Confirmed Grill record preserves D0, source IDs, the original resolution test, evidence limits, allowed edit, and rejected additions.", "points": 1},
+    {"id": "R6", "criterion": "Grill never edits the manuscript or claims a finding closed.", "points": 1},
+    {"id": "R7", "criterion": "Revise repairs clients sends without routing that ordinary grammar issue back through Grill.", "points": 1},
+    {"id": "R8", "criterion": "Revise states only the confirmed bounded 30-minute one-follower observation and adds no broader property.", "points": 1},
+    {"id": "R9", "criterion": "Revise preserves Quorum, three replicas, two sections, two paragraphs, D0, and read-only handoff files.", "points": 1},
+    {"id": "R10", "criterion": "Revise maps every original finding to a closure state and re-audits changed and unchanged units with Unreviewed: 0.", "points": 1},
+    {"id": "R11", "criterion": "Final Review reuses original IDs and verifies both original resolution tests without claiming new evidence.", "points": 1},
+    {"id": "R12", "criterion": "Final Review reports no dropped finding or new defect and ends with matching totals, last-unit states, and Unreviewed: 0.", "points": 1}
+  ]
+}

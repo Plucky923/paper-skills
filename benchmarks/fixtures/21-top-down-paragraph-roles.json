@@ -1,0 +1,90 @@
+{
+  "id": "top-down-paragraph-roles",
+  "title": "Audit every conventional paragraph role beneath the paper and section argument",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "使用 systems-paper-review，只读审查下面这篇完整的短论文。必须先检查论文贡献类型、整体 claim-evidence 链和每个章节，再逐段、逐句、逐词检查；显式列出每个正常与异常单位的 coverage 状态，并给 coverage receipt。每一段都要识别实际角色，并用已有的段落角色惯例检查 opening、development 和 payoff/handoff。不要改写。\n\n# Atlas: Predictable Recovery for Interactive Storage\n\n## Introduction\n\nInteractive storage must recover quickly enough to preserve request latency after a crash. In our target service, replaying a long log delays admission of new requests. This delay makes bounded recovery a design requirement.\n\nExisting systems periodically checkpoint the full index. Because checkpoint cost grows with index size, operators lengthen the checkpoint interval. The longer interval leaves the recovery-time requirement unmet.\n\nOur key observation is that only entries newer than the last validated frontier require replay. Tracking that frontier changes recovery from a full-index operation into a suffix operation. The design must therefore preserve and validate the frontier before acknowledging an update.\n\nThis principle leaves one operational question: how does Atlas update the frontier without serializing foreground requests? The next section must identify the relevant state and ordering rule. That rule is the bridge from the insight to a concrete mechanism.\n\n## Overview\n\nAtlas separates foreground logging from frontier validation. A background validator advances a durable frontier only after checking the corresponding suffix, while readers continue to use the previous frontier. Recovery begins at the latest durable frontier and replays the remaining suffix.\n\n## Design\n\nThe validator reads the next suffix, checks each record checksum, and atomically stores the new frontier. If validation fails, it retains the previous frontier and reports the corrupt suffix. Thus, every published frontier identifies a checked replay prefix.\n\n## Evaluation\n\nWe compare Atlas with full-index checkpointing on a 64 GiB index. Atlas sustains 1.2 million operations per second, while the baseline sustains 1.0 million. This experiment establishes the throughput effect under the tested steady-state workload.\n\n## Limitations\n\nOur prototype evaluates only steady-state throughput on one server. It does not measure crash-recovery time, tail latency during validation, or multi-server failure behavior. The evidence therefore does not yet establish the bounded-recovery claim stated in the introduction.",
+  "scope": {
+    "authorized": [
+      "the complete supplied synthetic short paper, including title, five sections, eight paragraphs, every sentence, and every reader-visible lexical occurrence"
+    ],
+    "excluded": [
+      "external sources",
+      "artifact or implementation files",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "paper_contract": [
+      "The paper presents Atlas as a system-design contribution for bounded crash recovery.",
+      "The introduction's central claim requires recovery-time evidence, while the supplied evaluation measures only steady-state throughput."
+    ],
+    "paragraph_roles_in_reading_order": [
+      "problem",
+      "prior limitation",
+      "insight",
+      "transition",
+      "overview",
+      "mechanism",
+      "evidence",
+      "limitation"
+    ],
+    "measured_facts": [
+      "The evaluated index is 64 GiB.",
+      "Atlas sustains 1.2 million operations per second and the baseline sustains 1.0 million under the tested steady-state workload."
+    ],
+    "missing": [
+      "crash-recovery time",
+      "tail latency during validation",
+      "multi-server failure behavior"
+    ]
+  },
+  "protected_tokens": [
+    "Atlas",
+    "64 GiB",
+    "1.2 million operations per second",
+    "1.0 million",
+    "durable frontier",
+    "checked replay prefix"
+  ],
+  "forbidden_actions": [
+    "rewrite any manuscript sentence",
+    "start with lexical defects before assessing the paper and section claim-evidence chain",
+    "force every paragraph into one generic topic-sentence template",
+    "omit a paragraph because it has no finding",
+    "treat the limitation paragraph as evidence that the missing recovery experiment exists",
+    "claim publication readiness"
+  ],
+  "hard_gates": [
+    "The review is read-only and executes paper/archetype, section, paragraph, sentence, and lexical coverage in that order before bottom-up reconciliation.",
+    "All eight paragraphs are individually ledgered with the intended actual role, role-specific opening/development/payoff comparison, state, and finding IDs including pass rows.",
+    "The review identifies the paper/Introduction-to-Evaluation recovery-evidence gap and does not let locally clean prose or the throughput result clear it.",
+    "The final receipt accounts for every inventoried unit, records the last unit at each level, and reports Unreviewed: 0."
+  ],
+  "expected_behavior": [
+    "Classify the contribution as a system-design paper before applying section contracts.",
+    "Give every section and paragraph a visible coverage state rather than reporting only the central gap.",
+    "Use the existing role conventions for problem, prior limitation, insight, transition, overview, mechanism, evidence, and limitation paragraphs.",
+    "Distinguish the measured throughput result from the unmeasured bounded-recovery claim.",
+    "Inspect every sentence and lexical occurrence in context, with exact compression only for contiguous passed occurrences.",
+    "Reconcile the lower-level prose upward to the paper claim-evidence spine."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Freezes exactly the supplied paper and keeps all reviewed objects read-only.", "points": 1},
+    {"id": "R2", "criterion": "Classifies the system-design archetype and reconstructs the bounded-recovery thesis before local review.", "points": 1},
+    {"id": "R3", "criterion": "Ledgers the title and all five sections with expected and actual obligations, handoffs, and states.", "points": 1},
+    {"id": "R4", "criterion": "Ledgers all eight paragraphs in reading order, including paragraphs with pass states.", "points": 1},
+    {"id": "R5", "criterion": "Identifies the eight paragraph roles in the expected order without forcing a replacement role.", "points": 1},
+    {"id": "R6", "criterion": "For every paragraph, compares role-specific opening, development, and payoff or handoff expectations with the actual text.", "points": 1},
+    {"id": "R7", "criterion": "Accounts for every sentence and adjacent sentence relation with stable original-text anchors.", "points": 1},
+    {"id": "R8", "criterion": "Accounts for all lexical occurrences or exact disclosed passed ranges and gives risk-bearing occurrences separate rows.", "points": 1},
+    {"id": "R9", "criterion": "Identifies that throughput evidence does not establish bounded crash-recovery time.", "points": 1},
+    {"id": "R10", "criterion": "Keeps the measured values and the explicit limitation accurate without inventing recovery evidence.", "points": 1},
+    {"id": "R11", "criterion": "Performs bottom-up reconciliation and keeps the upper-level evidence gap actionable despite locally sound prose.", "points": 1},
+    {"id": "R12", "criterion": "Ends with matching totals, last-unit states, not-assessable reasons if any, Unreviewed: 0, and a bounded gate result.", "points": 1}
+  ]
+}

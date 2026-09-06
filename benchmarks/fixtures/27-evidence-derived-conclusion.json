@@ -1,0 +1,79 @@
+{
+  "id": "evidence-derived-conclusion",
+  "title": "Replace a completed-paper evaluation placeholder with the supplied bounded result",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "这是已完成论文中的一个段落，实验结果已经在 evidence 中给出。请在当前段落内修订，结尾要由结果回答性能问题，不要再写成以后必须做实验；不要把结果推广到未测工作负载，也不要声称调用路径变化单独导致了全部差异。\n\nArcadia's shared-process boundary changes the client-host call path. Checked function calls avoid VM exits and address-space switches on that path. Authorization, scheduling, and application work remain, so whether Arcadia outperforms VM isolation depends on the workload and must be determined experimentally.",
+  "scope": {
+    "authorized": [
+      "the supplied completed-paper paragraph",
+      "the experiment facts in evidence"
+    ],
+    "excluded": [
+      "other workloads or metrics",
+      "artifact inspection",
+      "external sources",
+      "new causal attribution",
+      "paragraph restructuring",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript followed by the normal compact closure report"
+  },
+  "evidence": {
+    "experiment": [
+      "Under the matched WebMix workload, Arcadia's median request latency is 14% lower than the KVM baseline.",
+      "Under the same workload, the p99 difference is inconclusive because the reported 95% confidence interval crosses zero."
+    ],
+    "not_established": [
+      "performance under any workload other than WebMix",
+      "an overall throughput advantage",
+      "that avoiding VM exits and address-space switches explains the full measured difference"
+    ]
+  },
+  "protected_tokens": [
+    "Arcadia",
+    "checked function calls",
+    "VM exits",
+    "address-space switches",
+    "WebMix",
+    "14%",
+    "KVM",
+    "p99",
+    "95% confidence interval"
+  ],
+  "forbidden_actions": [
+    "retain must be determined experimentally as the paragraph payoff",
+    "invent another result, workload, metric, or confidence claim",
+    "claim Arcadia is faster for all workloads",
+    "attribute the entire observed difference to the call path",
+    "split the paragraph"
+  ],
+  "hard_gates": [
+    "The revised paragraph ends with the supplied bounded WebMix result rather than a future evaluation placeholder.",
+    "Every measured value and uncertainty boundary remains accurate.",
+    "The revision preserves one paragraph and makes no unsupported generalization or causal claim."
+  ],
+  "expected_behavior": [
+    "Preserve the established call-path facts and remaining work.",
+    "State the 14% median-latency comparison against KVM under WebMix.",
+    "State that the p99 result is inconclusive because the confidence interval crosses zero.",
+    "Use the experiment as a bounded answer rather than announcing that experiments are necessary.",
+    "Keep mechanism prediction and measured conclusion distinct."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns one revised English manuscript paragraph before diagnostics.", "points": 1},
+    {"id": "R2", "criterion": "Preserves Arcadia's shared-process call-path claim.", "points": 1},
+    {"id": "R3", "criterion": "Preserves checked function calls, VM exits, and address-space switches without strengthening avoidance scope.", "points": 1},
+    {"id": "R4", "criterion": "Preserves that authorization, scheduling, and application work remain.", "points": 1},
+    {"id": "R5", "criterion": "Removes the completed-paper evaluation placeholder from the payoff.", "points": 1},
+    {"id": "R6", "criterion": "Reports 14% lower median request latency under WebMix versus KVM.", "points": 1},
+    {"id": "R7", "criterion": "Reports the p99 comparison as inconclusive with the confidence interval boundary.", "points": 1},
+    {"id": "R8", "criterion": "Does not generalize to untested workloads or overall throughput.", "points": 1},
+    {"id": "R9", "criterion": "Does not claim the call-path change caused the entire result.", "points": 1},
+    {"id": "R10", "criterion": "Adds no experiment or metric beyond authorized evidence.", "points": 1},
+    {"id": "R11", "criterion": "Keeps evidence state and paragraph boundary intact.", "points": 1},
+    {"id": "R12", "criterion": "The closure report distinguishes repaired payoff from any remaining scientific limits.", "points": 1}
+  ]
+}

@@ -1,6 +1,6 @@
 # Adversarial Review Protocol
 
-Use the scope, evidence, finding-calibration, and gate rules in this protocol for every review. Use its full pass record and reporting schema only for a full review, formal finding ledger, or submission gate. A local review still checks every applicable obligation internally, but reports only the compact root-cause form required by the skill entrypoint. Domain reference files define the individual `PA`, `TH`, `RC`, `DD`, `TS`, `EV`, `ER`, `AR`, `SS`, `PT`, `FL`, and `VO` rules or routing contracts.
+Use the scope, evidence, finding-calibration, and gate rules in this protocol for every review. The [shared coverage contract](../../systems-paper-revise/references/coverage-contract.md) controls inventory, top-down order, per-unit states, visible ledgers, and the completion receipt. Use this protocol's full pass record and expanded finding schema only for a full review, formal finding ledger, or submission gate. A local review keeps finding explanations compact but does not hide passed units or omit the coverage receipt. Domain reference files define the individual `PA`, `TH`, `RC`, `DD`, `TS`, `EV`, `ER`, `AR`, `SS`, `PT`, `FL`, and `VO` rules or routing contracts.
 
 For a large scope reviewed with collaboration tools, execute the applicable passes through the role assignments in [multi-agent-orchestration.md](multi-agent-orchestration.md). Parallelism does not change the evidence requirements or the reporting surface appropriate to the frozen scope.
 
@@ -71,6 +71,15 @@ More than one formulation is correct and the choice primarily concerns readabili
 
 Do not label absent out-of-scope content a confirmed defect. Do not downgrade an unsupported scientific conclusion to style.
 
+### Diagnostic dimension
+
+Assign every finding one or more dimensions: `argument role/organization`,
+`scientific/technical support`, `language/presentation`, or `scope/authority`.
+Run the dimensions independently. A missing-evidence risk cannot replace a visible
+role mismatch, nonparallel comparison, redundant payoff, or mixed paragraph
+obligation; conversely, a rhetorical defect does not prove the scientific claim
+false. Preserve both findings at the same anchor when both apply.
+
 ## 4. Severity and confidence
 
 Severity measures likely decision impact, not repair effort.
@@ -91,9 +100,22 @@ Confidence is `high`, `medium`, or `low`:
 
 Never use high confidence to compensate for missing evidence. A high-severity, low-confidence risk is valid when the potential consequence is large and the missing test is explicit.
 
-## 5. Independent passes
+## 5. Top-down unit audit
 
-Run all applicable passes separately. Maintain an internal coverage ledger so an early severe finding does not terminate review.
+After freezing scope, build the complete unit and adjacency inventory from the
+shared coverage contract. Audit paper/archetype and evidence spine first when
+assessable, then every section, paragraph, sentence, and lexical occurrence in
+reading order. Give each unit and link one coverage state before moving to the
+bottom-up reconciliation. A severe early finding does not terminate the audit,
+and a findings-only list is not a coverage record.
+
+The hierarchy and independent passes answer different questions. The hierarchy
+proves that every textual unit was visited in context; the passes test each unit
+through independent scientific and reader lenses. Complete both.
+
+## 6. Independent passes
+
+Run all applicable passes separately. Update the shared per-unit ledgers so an early severe finding does not terminate review.
 
 ### Pass P1 — scope, parsing, and surface integrity
 
@@ -104,6 +126,7 @@ Run all applicable passes separately. Maintain an internal coverage ledger so an
 ### Pass P2 — PC/chair contribution case
 
 - Select the primary paper archetype and reconstruct one controlling thesis plus its supporting-claim hierarchy. Do not force a design-paper template onto empirical or operational work.
+- Mark every central reconstructed node and dependency `stated`, `text-licensed`, or `reviewer-hypothesized` with original-text anchors. A coherent reviewer-written thesis is the object being audited, not proof that the prose supplied its links.
 - When several stories remain plausible, compare their primary claim, decisive evidence, missing support, and scientific tradeoff. Treat a choice that changes author intent as unresolved.
 - Ask what problem/question matters, what failed assumption or binding constraint makes it unresolved, what intellectual move changes understanding or capability, what was built or established, what decisive evidence supports it, and why a systems audience should care.
 - Stress novelty against the closest alternatives, not a generic field summary.
@@ -112,6 +135,7 @@ Run all applicable passes separately. Maintain an internal coverage ledger so an
 ### Pass P3 — domain-expert technical attack
 
 - Reconstruct the design derivation from observed failure/property through constraint, requirement, mechanism, invariant/effect, tradeoff, and decisive test. Then reconstruct system model, lifecycle, failure behavior, and assumptions.
+- When one move is meant to yield several properties, build the source-grounded fan-out map, attribute each edge to its narrowest causal layer, and run the counterfactual. Keep an enabling substrate, authority boundary, runtime enforcement/lifecycle, execution path, and empirical condition distinct when the property depends on more than one.
 - Search for counterexamples, hidden state, concurrency/failure gaps, unsafe generalization, and mechanism/claim mismatch.
 - Apply `DD` and `TS` rules.
 
@@ -124,10 +148,31 @@ Run all applicable passes separately. Maintain an internal coverage ledger so an
 ### Pass P5 — non-specialist systems reader
 
 - Read linearly without importing unstated domain knowledge.
-- Identify every supplied paragraph's role and assign original paragraph/sentence anchors through the shared writing core. Inspect adjacent sentence pairs, paragraph handoffs, and explicit longer dependencies; retain both endpoints of every faulty link.
-- Track first use of terms, antecedents, the problem → intellectual move → realization ladder, paragraph-opening promises, paragraph-closing implications/handoffs, section transitions, examples, figure callouts, headline-result payoff, and cognitive load.
+- For every supplied paragraph, record the signaled or author-supplied role and independently classify the delivered role through the shared writing core. A mismatch is a finding; reclassifying an alleged insight as overview or mechanism does not make it pass.
+- Complete the one-obligation sentence, test every sentence against it, and run the ending deletion/information-gain test. Inspect adjacent sentence pairs, paragraph handoffs, and explicit longer dependencies; retain both endpoints of every faulty link.
+- Track first use of terms, antecedents, the problem → intellectual move → realization ladder, paragraph-opening promises, paragraph-closing implications/handoffs, section transitions, examples, figure callouts, headline-result payoff, and cognitive load. For gap-producing related work, recover the fair comparison axis and shared root constraint rather than accepting descriptive categories as a cause. For completed-paper prose, distinguish an evidence-derived answer from an evaluation placeholder.
+- If the text advertises one key insight, boundary, or design choice beside multiple primary outcomes, test every move-to-outcome edge using only reader-visible premises. Report the first reviewer-hypothesized edge instead of completing the story silently; a common label or paragraph is not causal fan-out.
 - For a broken or incomplete argument, build a read-only reader-obligation outline: each unit's entering question, claim/answer, required mechanism/evidence, and closing implication/handoff. Use it to locate the first broken dependency, not to write replacement prose.
 - Apply `TH`, `ER`, `SS`, `PT`, and relevant `FL` rules.
+
+#### Mandatory prose-trigger checkpoint
+
+For every matching paragraph, record an explicit `pass`, `finding`, or
+`unresolved` result for each trigger below. Run these checks during an ordinary
+paper-prose review; do not wait for the user to ask the diagnostic question.
+
+| Trigger | Required independent test | A missing context does not permit |
+|---|---|---|
+| A limitation is followed by `however/but` and then `therefore/to use X the system must ...` | Compare the propositions, not the connectives. Ask whether the ending supplies a new constraint, consequence, selection criterion, or handoff, or merely turns the immediately preceding absence into its positive or required form. | Calling the payoff nonredundant only because deleting its sentence removes the explicit wording. |
+| A related-work taxonomy or boundary list leads to a negative gap or research question | Audit comparison parallelism and the visible `classification -> gap -> question` dependency separately from antecedent and source verification. Require a shared assumption, mechanism, or constraint when the prose claims the listed approaches causally leave the target unmet. | Treating the visible causal bridge as passed or uninspectable merely because the named systems, citations, or incoming paragraph are unavailable. |
+| Research-paper prose predicts a performance or correctness benefit and ends with `must be evaluated`, `remains to be tested`, or an equivalent future test | Determine manuscript state. A request to review manuscript/paper prose defaults to a research-paper claim context unless the user or text identifies a proposal, plan, or future-work document. If state truly remains ambiguous, report the completed-paper-placeholder risk conditionally; do not mark it clean. | Treating an evaluation placeholder as a sound payoff solely because it is epistemically cautious. |
+| A visible limitation materially excludes a user class, workload, deployment model, semantics, or compatibility target | State the conditional early-disclosure judgment: if it qualifies the headline contribution, a concise version belongs where broad readers first encounter that claim; detailed treatment may remain later. Mark exact wording, duplication, and placement not assessable without that context. | Omitting the conditional judgment because the Introduction is out of scope or the user did not ask about placement. |
+| A `key/core insight`, changed boundary, or single design choice is presented with two or more primary outcomes, or the thesis relies on such unity | Build the source-grounded fan-out ledger. Anchor the shared move and each advertised outcome; label every edge `stated`, `text-licensed`, or `reviewer-hypothesized`; identify its narrowest causal layer and run the counterfactual. | Passing the unification because the reviewer can invent a coherent bridge, because all outcomes occur in one paragraph, or because one system label names all mechanisms. |
+
+These are diagnostic triggers, not fixed sentence templates. A paragraph may
+pass any row when the required relation is genuinely present. Keep each trigger's
+argument/organization result separate from evidence, external truth, and
+scope/authority results.
 
 ### Pass P6 — internal and artifact consistency
 
@@ -152,10 +197,12 @@ Keep an attack only if grounded in evidence or recorded as an unresolved risk wi
 
 - Merge identical root causes; retain every affected location.
 - Split findings that need different fixes or have different decision impacts.
+- Cross-tabulate findings by diagnostic dimension. Revisit every paragraph that has only an unresolved evidence finding and verify that argument role, one-obligation structure, comparison parallelism, and payoff information gain were independently checked rather than silently treated as passed.
+- Reconcile the mandatory prose-trigger checkpoint: every matching paragraph has a visible state for every matching trigger. Re-open a paragraph whose only defense is `the sentence adds explicit words`, `the paper state is unknown`, `the Introduction is missing`, `the prior-work context is unavailable`, or `the reviewer can reconstruct a unified story`; each defense leaves the corresponding content test or conditional judgment undone.
 - Revisit the controlling thesis, each supporting claim, every major mechanism/finding, each decisive result, and every applicable rule family.
 - Verify that “no finding” means inspected and passed, not forgotten.
 
-## 6. Rule application record
+## 7. Rule application record
 
 For each rule family, record one coverage state:
 
@@ -165,17 +212,18 @@ For each rule family, record one coverage state:
 - `not assessable — missing evidence`;
 - `not applicable`.
 
-Never claim exhaustive review without accounting for not-assessable families. Exhaustiveness is relative to the frozen scope and observable evidence. Disclose that accounting in a formal or full review; in a local review, surface it only when missing context changes a finding or the gate.
+Never claim exhaustive review without accounting for not-assessable families. Exhaustiveness is relative to the frozen scope and observable evidence. Disclose full rule-family accounting in a formal or full review. In a local review, the shared unit ledger and receipt remain visible; rule-family rows may stay internal unless missing context changes a finding or the gate.
 
-## 7. Layered finding schema for full or formal reviews
+## 8. Layered finding schema for full or formal reviews
 
-In a full or formal review, use the full structure for every `S0`/`S1` finding and for any lower-severity finding whose diagnosis, evidence, or repair is non-obvious. In a local review, compress the same reasoning into one root-cause bullet without exposing rule IDs or unused fields:
+In a full or formal review, use the full structure for every `S0`/`S1` finding and for any lower-severity finding whose diagnosis, evidence, or repair is non-obvious. In a local review, compress the same reasoning into one root-cause bullet without exposing rule IDs or unused fields. This compression applies only to finding explanations, never to the shared per-unit coverage ledgers:
 
 ```text
 [F-###] Short diagnostic title
 Rule: <stable rule ID and name>
 Location: <page/section/paragraph/line/figure/table/path or quoted anchor>
 Status: <confirmed defect | unresolved reviewer risk | style preference>
+Dimension: <argument role/organization | scientific/technical support | language/presentation | scope/authority; one or more>
 Severity: <S0 | S1 | S2 | S3 | S4>
 Confidence: <high | medium | low>
 Evidence: <M/A/X/I/U labels followed by the observable basis>
@@ -200,12 +248,12 @@ Keep sentence-link and paragraph-link findings distinguishable; a grouped root c
 
 For a straightforward `S2`/`S3` item, use a compact ledger row instead of repeating boilerplate:
 
-| ID | Rule | Location | Status / severity / confidence | Problem and consequence | Repair / resolution test |
-|---|---|---|---|---|---|
+| ID | Rule | Location | Dimension | Status / severity / confidence | Problem and consequence | Repair / resolution test |
+|---|---|---|---|---|---|---|
 
 Compact form does not authorize omission. Expand an item whenever the evidence class, reviewer attack, or scientific consequence would otherwise be ambiguous. Group repeated symptoms under one root cause and list every affected location.
 
-## 8. Report schema
+## 9. Report schema
 
 ### Editorial decision brief
 
@@ -227,6 +275,7 @@ Add one paragraph explaining the decisive reason and confidence. Never translate
 ### Thesis, design, and evidence diagnosis
 
 - Give the thesis-support hierarchy and reader-memory result for an argument-bearing scope.
+- When one move is claimed to yield several primary outcomes, give an intellectual-move dependency ledger with the shared move, each outcome, original anchors, causal layer, source status, counterfactual, and gap. Any reviewer-hypothesized central edge remains a visible finding or unresolved risk.
 - Give the design-derivation break for a design-bearing scope.
 - Give the headline-evidence mismatch for an evaluation-bearing scope.
 - Distinguish established, inferential, planned, and blocked propositions when the material is incomplete.
@@ -235,7 +284,19 @@ Add one paragraph explaining the decisive reason and confidence. Never translate
 
 ### Exhaustive findings ledger
 
-For a full or formal review, give all materially distinct findings in severity order; within severity, follow reading order. Use the full schema for severe/non-obvious findings and compact rows for straightforward findings. Include style preferences last and only if useful. For a local review, preserve the same distinct root causes in compact bullets and omit this report section.
+For a full or formal review, give all materially distinct findings in severity order; within severity, follow reading order. Show the diagnostic dimension on each item and ensure argument/organization and evidence/technical lanes remain separately visible when both apply. Use the full schema for severe/non-obvious findings and compact rows for straightforward findings. Include style preferences last and only if useful. For a local review, preserve the same distinct root causes and dimensions in compact bullets and omit this report section.
+
+### Per-unit coverage ledgers
+
+Before the findings ledger, show the paper, section, paragraph, sentence, relation,
+and lexical rows required by the shared coverage contract. Preserve reading order
+and show passed units. Every paragraph receives its signaled/intended role when
+observable, delivered role, one-obligation result, and comparison against the
+applicable opening, development, and payoff convention, including ending
+information gain. A mixed, unclear, or promise-versus-delivery mismatch stays
+visible; do not repair the author's argument by classification. For large scopes,
+numbered batches are permitted, but the result
+remains `incomplete` until the final ledger rows and receipt are delivered.
 
 ### Claim-evidence matrix
 
@@ -248,13 +309,13 @@ Use `covered`, `partially covered`, `unsupported`, or `not assessable`.
 
 ### Coverage summary
 
-For a full or formal review, list P1–P8 status and each relevant rule family status, including archetype/thesis/design-derivation/argument-object coverage where applicable. Name rules or objects not assessable and why. Do not emit this inventory for a local review; mention only a coverage limit that changes the verdict or blocks a finding.
+For a full or formal review, list P1–P8 status and each relevant rule family status, including archetype/thesis/design-derivation/argument-object coverage where applicable. Name rules or objects not assessable and why. For every review, end with the shared coverage receipt; a local review may omit the separate pass/rule-family inventory but not its unit totals, last-unit states, not-assessable reasons, or `Unreviewed` count.
 
 ### Gate result and next evidence
 
 State the gate result. For every blocker, name the smallest experiment, source, context, artifact, or author decision required. Do not prescribe invented results.
 
-## 9. Anti-patterns
+## 10. Anti-patterns
 
 Do not:
 
@@ -265,6 +326,7 @@ Do not:
 - conflate absence from a scoped paragraph with absence from the full paper;
 - search for extra problems in unrequested files;
 - silently repair prose while reviewing;
+- stop after the first severe defect, report only problematic units, or infer full coverage from a spot check;
 - call a paper ready because a linter, compiler, or automated review loop passes.
 
 ## Sources

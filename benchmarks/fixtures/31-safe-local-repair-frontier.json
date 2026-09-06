@@ -1,0 +1,86 @@
+{
+  "id": "safe-local-repair-frontier",
+  "title": "Apply safe local repairs while preserving evidence and restructuring blockers",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请分别 revise P1、P2、P3，保持三个原始段落及其内容归属。不要因为一个科学问题仍 blocked 就放弃同一句或同段中可安全完成的修复，也不要为了 high-level 擅自把机制移到别段。\n\nP1: Memory safety is a necessary condition for this boundary, but it cannot replace an argument for equivalence or authorization.\n\nP2: SafeGate exposes one global authority rather than tenant-scoped resources. However, soundness does not partition tenants. To use SafeGate as the boundary, the design must still create tenant-scoped authority.\n\nP3: The key insight of RiverGuard is to replace global resource capabilities with tenant-scoped capabilities while the host retains root authority. The host maps operations to internal objects. Static types reject forged capabilities. Runtime code checks identity, ownership, allocation, quotas, and accounting. A lifecycle manager reclaims objects after tenant failure. Equivalence covers return values, state transitions, events, and object lifetimes; isolation follows from capability and runtime checks.",
+  "scope": {
+    "authorized": [
+      "paragraph-local revision of P1, P2, and P3",
+      "meaning-preserving sentence reordering, merging, and compression within each paragraph"
+    ],
+    "excluded": [
+      "moving content between paragraphs or creating new paragraphs",
+      "deleting scientific propositions",
+      "external evidence or source inspection",
+      "inventing mechanisms, proofs, or results",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript followed by a compact Chinese closure report"
+  },
+  "evidence": {
+    "author_intent": [
+      "P1 intends a necessary-but-insufficient claim: memory safety is necessary, while equivalence and authorization remain independent properties; the necessity evidence is not supplied in this fixture.",
+      "P2 intends one design consequence: transform global authority into tenant-scoped authority.",
+      "P3 is explicitly an insight paragraph whose governing principle is the change from global to tenant-scoped authority while the host retains root authority."
+    ],
+    "preservation": [
+      "All mechanisms and property-definition details in P3 are substantive and must remain in P3 unless later restructuring is explicitly authorized.",
+      "No proof, implementation artifact, or evaluation result is supplied."
+    ]
+  },
+  "protected_tokens": [
+    "Memory safety",
+    "necessary",
+    "equivalence",
+    "authorization",
+    "SafeGate",
+    "global authority",
+    "tenant-scoped authority",
+    "RiverGuard",
+    "root authority",
+    "identity",
+    "ownership",
+    "allocation",
+    "quotas",
+    "accounting",
+    "object lifetimes",
+    "isolation"
+  ],
+  "forbidden_actions": [
+    "return P1 unchanged solely because necessity evidence is missing",
+    "weaken or delete P1's necessary claim",
+    "preserve P2's threefold repetition merely by changing however to another connective",
+    "reclassify P3 as an overview and ignore its promised insight role",
+    "drop or move P3 mechanisms to make it shorter",
+    "claim any blocked scientific proposition is proved"
+  ],
+  "hard_gates": [
+    "P1 repairs the property-versus-proof category mismatch while preserving necessity and the two remaining properties.",
+    "P2 compresses the repeated limitation and requirement into one design-specific progression.",
+    "P3 becomes principle-first with subordinate mechanism realization while preserving all substantive details inside the same paragraph; any remaining need to relocate detail is reported as blocked rather than silently performed."
+  ],
+  "expected_behavior": [
+    "Build a safe repair frontier for each paragraph instead of treating the whole paragraph as atomic.",
+    "Keep P1's necessity evidence unresolved after making the independent category repair.",
+    "Use information gain rather than connective substitution to revise P2.",
+    "Keep RiverGuard's authority-boundary principle controlling P3 and group implementation checks as realization support.",
+    "Preserve exactly three paragraphs, every technical proposition, and evidence status."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns exactly three revised paragraphs in the original order.", "points": 1},
+    {"id": "R2", "criterion": "P1 keeps memory safety as necessary without claiming the missing evidence exists.", "points": 1},
+    {"id": "R3", "criterion": "P1 aligns the comparison to equivalence and authorization as remaining object-level properties.", "points": 1},
+    {"id": "R4", "criterion": "P1's necessity support remains explicitly blocked rather than silently weakened or closed.", "points": 1},
+    {"id": "R5", "criterion": "P2 removes substantive repetition rather than only swapping transition words.", "points": 1},
+    {"id": "R6", "criterion": "P2 preserves the global-to-tenant authority design consequence.", "points": 1},
+    {"id": "R7", "criterion": "P3 preserves the explicit insight role and foregrounds the authority-boundary principle.", "points": 1},
+    {"id": "R8", "criterion": "P3 subordinates mapping, type, runtime, lifecycle, equivalence, and isolation details to that principle.", "points": 1},
+    {"id": "R9", "criterion": "All protected mechanisms and property definitions remain in P3.", "points": 1},
+    {"id": "R10", "criterion": "No content is moved, deleted, invented, or promoted in evidence state.", "points": 1},
+    {"id": "R11", "criterion": "Any still-desirable cross-paragraph relocation is marked as requiring explicit authority.", "points": 1},
+    {"id": "R12", "criterion": "The closure map records safe subrepairs separately from remaining blockers.", "points": 1}
+  ]
+}

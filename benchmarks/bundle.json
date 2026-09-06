@@ -32,13 +32,13 @@
     {
       "source": "research/systems-paper-writing-requirements.md",
       "install_path": "research/systems-paper-writing-requirements.md",
-      "consumers": ["systems-paper-review"],
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"],
       "preservation": "byte_exact",
       "sha256": "ef89a56dfb648657dbb89545c008f41d35dd6c38c9768684bb719fd319945263"
     }
   ],
   "behavioral_acceptance": {
-    "fixture_count": 20,
+    "fixture_count": 34,
     "minimum_score_per_fixture": 10,
     "allow_regression": false,
     "require_all_hard_gates": true,
@@ -46,6 +46,10 @@
     "require_closure_record": true
   },
   "canonical_references": [
+    {
+      "path": "skills/systems-paper-revise/references/coverage-contract.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]
+    },
     {
       "path": "skills/systems-paper-revise/references/review-revise-contract.md",
       "consumers": ["systems-paper-review", "systems-paper-revise", "systems-paper-grill"]

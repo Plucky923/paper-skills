@@ -20,7 +20,7 @@ The root agent is the sole writer. Reviewer subagents, when used, remain read-on
 ## Establish the baseline
 
 1. Freeze the editable objects, explicit exclusions, evidence, author intent, language, and protected content through [revision-protocol.md](revision-protocol.md) and [change-safety.md](change-safety.md).
-2. For existing prose, identify every materially distinct actionable defect in scope. For missing prose, identify every reader obligation the requested unit must discharge.
+2. For existing prose, inventory and audit the complete frozen scope through the [coverage contract](coverage-contract.md), then identify every materially distinct actionable defect. For missing prose, identify every reader obligation the requested unit must discharge.
 3. Separate items that prose can repair from items requiring a new experiment, data, proof, implementation fact, source, outside context, or author choice.
 4. Order actionable items by scientific dependency: truth and claim strength; argument and evidence alignment; structure; terminology and protected content; sentence-level expression.
 
@@ -46,13 +46,15 @@ The root writes one coherent version through [writing-core.md](writing-core.md).
 
 ### Check preservation and regression
 
-Run [change-safety.md](change-safety.md), then re-read the complete frozen scope. Record internally:
+Run [change-safety.md](change-safety.md), then re-audit the complete frozen scope from the highest assessable level through lexical occurrences and reconcile bottom up. Do not narrow a later round to changed paragraphs. Record internally:
 
 - which obligation or root cause closed and why;
 - which actionable item remains;
 - which item is blocked and by what;
 - any newly introduced or reopened problem;
 - which preservation and tool checks actually passed.
+- every received finding's current closure state and the coverage receipt totals,
+  last-unit states, and unreviewed count.
 
 When independent review is warranted, follow [multi-agent-revision.md](multi-agent-revision.md) and wait for all applicable reviewers before the next write.
 
@@ -72,7 +74,7 @@ A larger draft, a lower word count, or smoother wording alone is not progress. A
 
 ### Locally complete
 
-Stop as locally complete when every requested obligation is discharged, every actionable in-scope defect is closed, the complete scope has passed its final re-read, preservation checks pass, and no required evidence/context/source/author choice remains unresolved.
+Stop as locally complete when every requested obligation is discharged, every received finding has an explicit closure state, every actionable in-scope defect is closed, the complete scope has passed its final top-down and bottom-up audit with `Unreviewed: 0`, preservation checks pass, and no required evidence/context/source/author choice remains unresolved.
 
 This status describes only the frozen scope. It does not establish novelty over all literature, artifact correctness in every environment, completion of missing experiments, acceptance, or publication readiness.
 

@@ -86,11 +86,24 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 ## Paragraph and list rules
 
+For every paragraph, first record any signaled or author-supplied role, then
+independently choose its delivered conventional role from the existing
+[paragraph-role research](../../../research/systems-paper-writing-requirements.md#每一种段落应怎样写):
+problem, prior limitation, insight, overview, mechanism, evidence, limitation,
+transition, or a clearly named mixed/specialized role. Use that source's
+role-specific opening, development, and payoff expectations. Do not replace them
+with one generic topic-sentence template, and do not force the author's paragraph
+into the role the surrounding section ought to have contained. When the signaled
+and delivered roles differ, report that mismatch rather than reclassifying it
+away. Record the
+expected-versus-actual comparison in the shared
+[coverage ledger](../../systems-paper-revise/references/coverage-contract.md#keep-visible-per-unit-ledgers).
+
 ## SS-07 — Each paragraph discharges one local reasoning obligation
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph mixes background, design, results, caveats, and unrelated claims, so its point is unstable.”
-- **Check:** Identify each original paragraph's topic, actual role, claim/question, support, and closing takeaway through the [systems-writing core](../../systems-paper-revise/references/writing-core.md). Record `the reader should believe ___ because ___`; test whether its sentences serve that obligation. Cite the opening and closing sentence anchors when the payoff is unsupported, evidence is stranded, or a second independent center appears. Do not assign a replacement role to make the paragraph fit a template.
+- **Check:** Identify each original paragraph's signaled role when observable, delivered role, topic, claim/question, support, and closing takeaway through the [systems-writing core](../../systems-paper-revise/references/writing-core.md). Record `the reader should believe ___ because ___`; test whether its sentences serve that obligation. A connective does not make a second independent conclusion subordinate. Cite the opening and closing sentence anchors when the payoff is unsupported, evidence is stranded, a second independent center appears, or the delivered role contradicts the paragraph's promise. Do not assign a replacement role to make the paragraph pass.
 - **Severity:** `S2`; `S1` if mixed logic hides a contradiction; `S3` locally.
 - **Exceptions / false positives:** A short bridge paragraph may connect two ideas; mathematical derivations, enumerations, and tightly connected continuations need not follow a rigid topic-sentence/summary-sentence form. Judge the reasoning obligation, not a template.
 - **Repair direction:** Clarify the existing obligation or reorder support inside the paragraph. If it requires splitting, moving content, or changing purpose, identify the exact units and mark explicit restructuring authority as required.
@@ -120,7 +133,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The paragraph stops after an example or mechanism detail, so I do not know what was established or why the next paragraph follows.”
-- **Check:** Determine what the final sentence contributes: strongest evidence, answer, consequence, limitation, design requirement, or question that licenses the next paragraph. Verify it follows from the paragraph's support and stays within the opening promise. For every adjacent pair in scope, compare both paragraph roles and inspect the first paragraph's close against the next paragraph's opening. A failure must name both paragraph IDs and relevant sentence anchors, explaining what was established, what is assumed next, and the missing or conflicting relation. Follow nonadjacent dependencies when explicitly signaled; absent neighbors are not assessable.
+- **Check:** Determine what the final sentence contributes: strongest evidence, answer, consequence, limitation, design requirement, or question that licenses the next paragraph. State what supported information would be lost if it were deleted. Then run the mechanical-inversion test: a sentence can disappear while its wording is lost yet its entire update remains mechanically recoverable from `does not provide X` as `must provide X`. Flag an ending whose only function is that inversion or repeats the opening/preceding limitation in a stock `however/therefore/still requires` rhythm. Verify any limitation-to-requirement transition is established, design-specific, and adds a consequence, constraint, choice, or handoff beyond the missing property itself. For every adjacent pair in scope, compare both paragraph roles and inspect the first paragraph's close against the next paragraph's opening. A failure must name both paragraph IDs and relevant sentence anchors, explaining what was established, what is assumed next, and the missing or conflicting relation. Follow nonadjacent dependencies when explicitly signaled; absent neighbors are not assessable.
 - **Severity:** `S2` when a missing close breaks an important inference; `S3` locally.
 - **Exceptions / false positives:** The last sentence need not restate the topic sentence, and the logical close may be a result, caveat, or transition rather than a summary. Short bridge paragraphs, formal derivations, and lists may close implicitly when the implication is unambiguous.
 - **Repair direction:** Make the existing takeaway or handoff explicit within its own paragraph where supported. If the link requires a new premise, content transfer, or structural change, report that dependency and required author authority; do not prescribe a fabricated bridge or formulaic summary.
@@ -192,7 +205,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** Hard accuracy condition plus general best practice.
 - **Reviewer attack:** “The motivation attacks weak caricatures or lists symptoms without showing why existing designs fundamentally miss the new requirement.”
-- **Check:** Group prior approaches by relevant mechanism/assumption, cite representative/closest works, connect limitation → root cause/constraint → new insight. Verify externally when permitted.
+- **Check:** Group prior approaches along one relevant dimension, cite representative/closest works, and connect fair difference → shared root cause/constraint → why the target property remains unmet → new insight. A list of different supported objects or interface levels is descriptive contrast, not a root cause. Check comparison parallelism, the visible classification→gap→question dependency, and negative prior-work evidence separately so one risk does not hide the other. Missing incoming antecedents or source access changes the latter findings' status but does not waive the visible causal-bridge check. Verify externally when permitted.
 - **Severity:** `S1`; `S0` for materially false positioning.
 - **Exceptions / false positives:** Empirical motivation can be a measurement study; causal language still needs evidence.
 - **Repair direction:** Use accurate categories, precise limitations, and bounded claims; remove strawmen.
@@ -232,7 +245,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** Hard evidence-organization condition.
 - **Reviewer attack:** “The paper lists setup and plots but never says which contribution each experiment validates or what answer follows.”
-- **Check:** Recover the question answered by each experiment, proof, case study, or production observation; it may be stated in a heading, prose, or an interleaved finding/intervention sequence. Look for reproducible setup, baseline/workload rationale, evidence-to-claim mapping, result plus interpretation, design reference for mechanism explanations, and limitations. Apply the selected archetype rather than requiring one monolithic evaluation section.
+- **Check:** Recover the question answered by each experiment, proof, case study, or production observation; it may be stated in a heading, prose, or an interleaved finding/intervention sequence. Look for reproducible setup, baseline/workload rationale, evidence-to-claim mapping, result plus interpretation, design reference for mechanism explanations, and limitations. In a completed-paper context, flag `must be evaluated`, `remains to be tested`, and equivalent prose when it replaces an available answer or exposes a result placeholder; in a proposal or roadmap, keep the planned status. Treat an ordinary request to review paper/manuscript prose as research-paper context unless proposal/plan status is explicit. If lifecycle is genuinely ambiguous, report the completed-paper placeholder risk conditionally and request that state; do not pass the sentence solely because it is cautious. Apply the selected archetype rather than requiring one monolithic evaluation section.
 - **Severity:** `S1` when claim coverage is missing; `S2` for organization.
 - **Exceptions / false positives:** Questions need not be enumerated mechanically. Operational and measurement papers may interleave method, observation, intervention, and validation when each inference remains auditable.
 - **Repair direction:** Organize by claim/question, state answer with uncertainty, and connect cause only when supported.
@@ -242,7 +255,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** General best practice; citation completeness is factual.
 - **Reviewer attack:** “The section is a bibliography dump or hides the closest comparison among broad categories.”
-- **Check:** Group by decision-relevant dimensions, cite accurate representative and closest work, state fair similarities/differences, and connect to contribution without repeating motivation.
+- **Check:** Group by decision-relevant dimensions, cite accurate representative and closest work, state fair similarities/differences, and connect to contribution without repeating motivation. When the paragraph uses those works to derive a research gap, require the shared assumption, mechanism, or constraint that causally explains the gap; different boundaries alone do not supply it. Keep that organizational defect independent from the evidentiary question of whether the literature search supports a negative claim.
 - **Severity:** `S1` for missing/false closest-work positioning; `S2` for organization.
 - **Exceptions / false positives:** Studies of system evolution and surveys may need chronology; use it only when chronology advances the argument.
 - **Repair direction:** Reorganize by mechanism/assumption/capability and add precise comparison.
@@ -252,7 +265,7 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 - **Nature:** Hard accuracy condition for conclusions; section itself optional.
 - **Reviewer attack:** “The paper buries adoption costs, unsupported environments, ethical/security risks, or threats to validity.”
-- **Check:** Compare unresolved tradeoffs, failure modes, generality, deployment constraints, and evaluation validity with headline claims. Check future work is not described as current support.
+- **Check:** Compare unresolved tradeoffs, failure modes, generality, deployment constraints, and evaluation validity with headline claims. Check future work is not described as current support. If a boundary materially narrows a central broad-reader claim, require a concise early disclosure while allowing detailed treatment later. With only an isolated limitation paragraph, proactively give that conditional judgment even when placement was not asked about, and mark exact Introduction placement not assessable rather than declaring the paragraph misplaced or moving it.
 - **Severity:** `S1`; `S0` if hidden limitation negates central claim.
 - **Exceptions / false positives:** Limitations may appear throughout rather than in a dedicated section.
 - **Repair direction:** State material boundaries and consequences; separate mitigation already implemented from future work.
@@ -280,14 +293,14 @@ Read the canonical [systems-writing core](../../systems-paper-revise/references/
 
 ## Structure audit outputs
 
-For a full paper, introduction, abstract, or other argument-bearing scope, produce an internal argument-spine map:
+For a full paper, introduction, abstract, or other argument-bearing scope, produce an argument-spine map and feed its state into the visible coverage ledger:
 
 ### Argument-spine map
 
 | Unit | Problem/consequence | Root constraint | Insight/principle | Realization | Evidence/implication | Break |
 |---|---|---|---|---|---|---|
 
-For every multi-paragraph prose or structure scope, produce an internal paragraph-envelope map. `Status` records whether the middle discharges the opening and the ending pays off or deliberately transfers that obligation.
+For every multi-paragraph prose or structure scope, produce a paragraph-envelope map. `Status` records whether the middle discharges the opening and the ending pays off or deliberately transfers that obligation. The shared paragraph ledger additionally records actual role, role convention, sentence roles, neighbor relation, and finding IDs; this smaller map does not replace it.
 
 ### Paragraph-envelope map
 

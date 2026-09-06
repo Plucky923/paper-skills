@@ -1,0 +1,77 @@
+{
+  "id": "limitation-introduction-placement",
+  "title": "Give a conditional Introduction-placement judgment for a material applicability limit",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请只读判断下面这段主要是什么性质的内容，以及是否应该在 Introduction 里提。现在只提供这一段；请给条件性判断，缺少 Introduction 上下文时不要假装能决定精确位置，也不要改写。\n\nOrion's shared runtime requires tenant kernels and their dependencies to use the safe subset of Lumen and enter through a platform-controlled build and load path; it is not a drop-in environment for legacy kernel binaries. We consider one host granting resources to peer tenants and do not support recursive nesting. We do not claim that every workload improves or that cluster utilization increases. Complete implementation coverage and experimental results remain future work, so the system value is not yet established.",
+  "scope": {
+    "authorized": [
+      "the supplied limitation paragraph",
+      "a conditional placement judgment"
+    ],
+    "excluded": [
+      "the unseen Introduction or other manuscript sections",
+      "external sources or artifact inspection",
+      "replacement manuscript prose",
+      "moving or deleting content",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_boundaries": [
+      "Orion excludes legacy kernel binaries through a safe-language and controlled-admission requirement.",
+      "The design excludes recursive nesting and makes no universal performance or utilization claim.",
+      "Implementation coverage and experimental results are explicitly future work."
+    ],
+    "unavailable": [
+      "the Introduction's central claim and current boundary disclosures",
+      "the paragraph's current section and neighboring text",
+      "completed implementation or experiment evidence"
+    ]
+  },
+  "protected_tokens": [
+    "Orion",
+    "safe subset of Lumen",
+    "platform-controlled build and load path",
+    "legacy kernel binaries",
+    "recursive nesting",
+    "cluster utilization",
+    "future work"
+  ],
+  "forbidden_actions": [
+    "rewrite the paragraph",
+    "declare an exact Introduction location without seeing it",
+    "treat future implementation and experiment work as established evidence",
+    "call every sentence the same kind of tradeoff",
+    "move or delete manuscript content"
+  ],
+  "hard_gates": [
+    "The review identifies the safe-language admission requirement as a material applicability or adoption boundary.",
+    "It gives a conditional early-disclosure rule tied to the breadth of the central claim while marking exact placement not assessable.",
+    "It separates present design boundaries from future evidence status and remains read-only."
+  ],
+  "expected_behavior": [
+    "Classify the first sentence as a material applicability and compatibility tradeoff.",
+    "Classify non-nesting and bounded performance claims separately rather than flattening all content.",
+    "Recommend concise Introduction disclosure if the headline claim could otherwise imply support for arbitrary or legacy kernels.",
+    "Leave detailed limitation treatment for its current or later section.",
+    "Name the Introduction claim hierarchy and current placement as required context."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews only the supplied paragraph and provides no replacement prose.", "points": 1},
+    {"id": "R2", "criterion": "Identifies the safe-language and controlled-admission requirement as a material applicability boundary.", "points": 1},
+    {"id": "R3", "criterion": "Explains the legacy-binary adoption consequence.", "points": 1},
+    {"id": "R4", "criterion": "Keeps recursive nesting as a separate scope choice.", "points": 1},
+    {"id": "R5", "criterion": "Keeps bounded performance and utilization claims distinct from the compatibility tradeoff.", "points": 1},
+    {"id": "R6", "criterion": "Identifies future implementation and experiment statements as planned rather than evidence.", "points": 1},
+    {"id": "R7", "criterion": "Gives a conditional Introduction-disclosure recommendation tied to the central claim's breadth.", "points": 1},
+    {"id": "R8", "criterion": "Explains that early disclosure may be concise while detailed treatment remains later.", "points": 1},
+    {"id": "R9", "criterion": "Marks exact placement and wording not assessable without the Introduction.", "points": 1},
+    {"id": "R10", "criterion": "Names the specific missing claim hierarchy, surrounding text, or duplication context.", "points": 1},
+    {"id": "R11", "criterion": "Does not move, delete, or rewrite manuscript content.", "points": 1},
+    {"id": "R12", "criterion": "Keeps argument placement and scientific evidence states separately visible.", "points": 1}
+  ]
+}

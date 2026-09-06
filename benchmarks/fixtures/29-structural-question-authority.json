@@ -1,0 +1,75 @@
+{
+  "id": "structural-question-authority",
+  "title": "Treat a placement question as pending rather than permission to split",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "请 revise 下面这一段。我觉得最后一句是不是应该单独成为 Architecture 里的 Challenge 段？\n\nValidation of Harbor should classify the complete API and disclose its implemented subset; adversarial tests should cover authorization and accounting; matched baselines should measure interface cost and end-to-end performance. The shared address space also creates a separate problem: per-tenant checkpoint and restore must preserve cross-layer tenant state without rolling back unrelated host or peer state.",
+  "scope": {
+    "authorized": [
+      "paragraph-local revision of the supplied paragraph",
+      "discussion of the placement question in chat"
+    ],
+    "excluded": [
+      "creating a second paragraph without explicit confirmation",
+      "moving text into an unseen Architecture section",
+      "neighboring manuscript text",
+      "new checkpoint semantics, mechanisms, or evidence",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript with a concise Chinese blocker or clarification"
+  },
+  "evidence": {
+    "author_input_state": [
+      "The author asks whether the final sentence should become an Architecture Challenge paragraph.",
+      "The author has not explicitly authorized a split or move and has not named a destination paragraph."
+    ],
+    "visible_structure": [
+      "The evaluation plan and checkpoint challenge are independent obligations.",
+      "No meaning-preserving local wording change can make the checkpoint challenge part of the evaluation plan."
+    ]
+  },
+  "protected_tokens": [
+    "Harbor",
+    "complete API",
+    "implemented subset",
+    "authorization and accounting",
+    "interface cost",
+    "checkpoint and restore",
+    "host or peer state"
+  ],
+  "forbidden_actions": [
+    "split the supplied paragraph",
+    "move or claim to move the final sentence into Architecture",
+    "treat the user's question as confirmed edit authority",
+    "delete the checkpoint challenge",
+    "invent a destination or transition"
+  ],
+  "hard_gates": [
+    "The manuscript remains one paragraph with all original scientific propositions and protected tokens.",
+    "The placement hypothesis is classified as pending, not as restructuring authority.",
+    "The response asks for or identifies the exact split/move and destination authorization needed before structural revision."
+  ],
+  "expected_behavior": [
+    "Recognize the two-obligation defect during the pre-edit audit.",
+    "Leave the structural repair unapplied because the user asked a question rather than authorizing an operation.",
+    "Do not pretend a connective or local paraphrase resolves the mixed obligations.",
+    "Return the unchanged paragraph if no independent local defect can be safely repaired.",
+    "Route the exact structural decision through Grill or a concise author clarification."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Preserves exactly one manuscript paragraph.", "points": 1},
+    {"id": "R2", "criterion": "Preserves every evaluation proposition and protected token.", "points": 1},
+    {"id": "R3", "criterion": "Preserves the checkpoint-and-restore proposition and boundary.", "points": 1},
+    {"id": "R4", "criterion": "Identifies the two independent obligations.", "points": 1},
+    {"id": "R5", "criterion": "Treats the should-this-be question as pending rather than explicit authority.", "points": 1},
+    {"id": "R6", "criterion": "Does not split, move, delete, or repurpose content.", "points": 1},
+    {"id": "R7", "criterion": "Does not invent an Architecture destination or handoff.", "points": 1},
+    {"id": "R8", "criterion": "Does not claim that a wording-only edit resolves the structural mismatch.", "points": 1},
+    {"id": "R9", "criterion": "Names the exact structural operation and destination decision still needed.", "points": 1},
+    {"id": "R10", "criterion": "Routes only that decision through clarification or Grill.", "points": 1},
+    {"id": "R11", "criterion": "Marks the structural finding blocked rather than closed.", "points": 1},
+    {"id": "R12", "criterion": "Adds no scientific content and completes the scoped coverage receipt.", "points": 1}
+  ]
+}
