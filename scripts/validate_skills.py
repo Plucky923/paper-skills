@@ -59,7 +59,7 @@ EXPECTED_PROVENANCE_FILES = [
     }
 ]
 EXPECTED_ACCEPTANCE = {
-    "fixture_count": 35,
+    "fixture_count": 40,
     "minimum_score_per_fixture": 10,
     "allow_regression": False,
     "require_all_hard_gates": True,
@@ -85,6 +85,7 @@ COVERAGE_WORKFLOW_FIXTURE_ID = "coverage-closure-workflow"
 WORKFLOW_FIXTURE_NUMBERS = {
     WORKFLOW_FIXTURE_ID: 20,
     COVERAGE_WORKFLOW_FIXTURE_ID: 23,
+    "decision-lineage-promotion-workflow": 39,
 }
 OBSERVED_FAILURE_FIXTURE_NUMBERS = {
     "property-proof-category": 24,
@@ -99,12 +100,29 @@ OBSERVED_FAILURE_FIXTURE_NUMBERS = {
     "missing-result-placeholder-block": 33,
     "intellectual-move-fanout-grounding": 34,
     "revise-interactive-finding-queue": 35,
+    "boundary-distinct-question": 36,
+    "interface-axis-revision": 37,
+    "decision-history-pending-head": 38,
+    "decision-lineage-promotion-workflow": 39,
+    "decision-conflict-prose-receipt": 40,
 }
 WORKFLOW_STAGES = ("review", "grill_open", "grill_confirm", "revise", "rereview")
 WORKFLOW_SKILLS = ["systems-paper-review", "systems-paper-grill", "systems-paper-revise"]
 COVERAGE_CONTRACT_PATH = "skills/systems-paper-revise/references/coverage-contract.md"
 COVERAGE_CONTRACT_ENTRY = {
     "path": COVERAGE_CONTRACT_PATH,
+    "consumers": EXPECTED_SKILLS,
+}
+INTERFACE_BOUNDARY_CONTRACT_PATH = (
+    "skills/systems-paper-revise/references/interface-boundaries.md"
+)
+INTERFACE_BOUNDARY_CONTRACT_ENTRY = {
+    "path": INTERFACE_BOUNDARY_CONTRACT_PATH,
+    "consumers": PAPER_SKILLS,
+}
+DECISION_RECORD_PATH = "skills/systems-paper-grill/references/decision-record.md"
+DECISION_RECORD_ENTRY = {
+    "path": DECISION_RECORD_PATH,
     "consumers": EXPECTED_SKILLS,
 }
 
@@ -279,6 +297,22 @@ def check_bundle(
         report.error(
             f"{rel(BUNDLE_MANIFEST)}: canonical_references must include the shared "
             "coverage contract for all three skills"
+        )
+    if (
+        isinstance(canonical_references, list)
+        and INTERFACE_BOUNDARY_CONTRACT_ENTRY not in canonical_references
+    ):
+        report.error(
+            f"{rel(BUNDLE_MANIFEST)}: canonical_references must include the shared "
+            "interface-boundary contract for Review and Revise"
+        )
+    if (
+        isinstance(canonical_references, list)
+        and DECISION_RECORD_ENTRY not in canonical_references
+    ):
+        report.error(
+            f"{rel(BUNDLE_MANIFEST)}: canonical_references must include the "
+            "decision-record contract for all three skills"
         )
 
     public_skill_dirs = sorted(
@@ -687,6 +721,131 @@ def check_interactive_clarification_contract(report: Report) -> None:
                 report.error(
                     f"{relative}: missing interactive clarification marker {literal!r}"
                 )
+
+
+def check_interface_boundary_contract(report: Report) -> None:
+    """Verify the shared interface, authority, and execution-path reasoning branch."""
+    required_by_path = {
+        INTERFACE_BOUNDARY_CONTRACT_PATH: (
+            "Semantic commitments",
+            "Protection and authority",
+            "Execution path",
+            "actor, artifact, stage, and control",
+            "`negative gap`",
+            "`distinct question`",
+            "path-level cost model or prediction",
+            "claim strength",
+        ),
+        "skills/systems-paper-review/SKILL.md": (
+            "interface-boundary contract",
+            "direct/delegated execution paths",
+        ),
+        "skills/systems-paper-revise/SKILL.md": (
+            "interface-boundary contract",
+            "direct/delegated execution-path claims",
+        ),
+        "skills/systems-paper-review/references/review-protocol.md": (
+            "distinct-question bridge",
+            "boundary-axis ledger",
+        ),
+        "skills/systems-paper-revise/references/revision-strategies.md": (
+            "three-axis ledger",
+            "claim-strength change",
+        ),
+    }
+    for relative, literals in required_by_path.items():
+        path = REPO_ROOT / relative
+        if not path.is_file():
+            report.error(f"missing interface-boundary contract file: {relative}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for literal in literals:
+            if literal not in text:
+                report.error(
+                    f"{relative}: missing interface-boundary marker {literal!r}"
+                )
+
+
+def check_decision_history_contract(report: Report) -> None:
+    """Verify versioned decision authority, persistence, and accounting routes."""
+    required_by_path = {
+        DECISION_RECORD_PATH: (
+            "versioned full snapshot",
+            "`pending`",
+            "`confirmed`",
+            "`rejected`",
+            "`superseded`",
+            "`Proposes replacement for`",
+            "A new pending candidate never displaces a confirmed head",
+            "one atomic record update",
+            "**All versions:**",
+            "**Effective heads:**",
+            "**Applicable heads:**",
+            "**Executable heads:**",
+            "duplicate IDs",
+            "nonreciprocal confirmed supersession",
+            "Unaccounted decisions: 0",
+            "no prior decision history",
+        ),
+        "skills/systems-paper-grill/assets/paper-decisions-template.md": (
+            "## D1.v1",
+            "Lineage: D1",
+            "Proposes replacement for:",
+            "Supersedes:",
+            "Superseded by:",
+            "Decision and allowed edit:",
+            "Confirmation basis:",
+        ),
+        "skills/systems-paper-grill/SKILL.md": (
+            "complete authorized history",
+            "pending candidate never",
+            "both sides of its supersession link in one write",
+            "persistence gate",
+        ),
+        "skills/systems-paper-revise/references/review-revise-contract.md": (
+            "Read every decision version",
+            "all, effective, applicable, and executable",
+            "Unaccounted decisions: 0",
+            "prose-only Revise",
+        ),
+        "skills/systems-paper-review/SKILL.md": (
+            "derive its effective, applicable, and executable sets",
+            "Unaccounted decisions: 0",
+        ),
+        "skills/systems-paper-revise/SKILL.md": (
+            "read every version",
+            "explicit no-history confirmation",
+            "one-line decision coverage",
+        ),
+    }
+    for relative, literals in required_by_path.items():
+        path = REPO_ROOT / relative
+        if not path.is_file():
+            report.error(f"missing decision-history contract file: {relative}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for literal in literals:
+            if literal not in text:
+                report.error(
+                    f"{relative}: missing decision-history marker {literal!r}"
+                )
+
+    shared_contract = (
+        REPO_ROOT
+        / "skills/systems-paper-revise/references/review-revise-contract.md"
+    ).resolve()
+    decision_record = (REPO_ROOT / DECISION_RECORD_PATH).resolve()
+    if shared_contract.is_file() and decision_record.is_file():
+        direct_targets = {
+            markdown_target(shared_contract, raw_target)
+            for raw_target in MARKDOWN_LINK_RE.findall(
+                shared_contract.read_text(encoding="utf-8")
+            )
+        }
+        if decision_record not in direct_targets:
+            report.error(
+                "shared workflow contract must link directly to decision-record rules"
+            )
 
 
 def check_nonempty_string_list(
@@ -1239,6 +1398,8 @@ def main() -> int:
         check_cross_skill_links(skill_dirs, report)
         check_coverage_contract(report)
         check_interactive_clarification_contract(report)
+        check_interface_boundary_contract(report)
+        check_decision_history_contract(report)
     fixture_count = check_fixtures(report)
     installed_mapping_count = 0
     if args.install_root is not None:

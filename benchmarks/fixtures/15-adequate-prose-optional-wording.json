@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "请按 OSDI/SOSP 论文的要求润色以下 LaTeX 正文，使表达简洁且严谨。如果有明显更好的等义写法，可以单独标注。\n\n\\paragraph{Admission.} Each worker holds a local pool of admission credits~\\cite{creditpool}. The worker may admit a request only if there is at least one credit available in its local pool.\n\n\\textbf{Replenishment.} When $c=0$, the worker requests more credits from the coordinator.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 OSDI/SOSP 论文的要求润色以下 LaTeX 正文，使表达简洁且严谨。如果有明显更好的等义写法，可以单独标注。\n\n\\paragraph{Admission.} Each worker holds a local pool of admission credits~\\cite{creditpool}. The worker may admit a request only if there is at least one credit available in its local pool.\n\n\\textbf{Replenishment.} When $c=0$, the worker requests more credits from the coordinator.",
   "scope": {
     "authorized": [
       "the supplied two manuscript paragraphs"

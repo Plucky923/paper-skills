@@ -3,7 +3,7 @@
   "title": "Calibrate necessary, sufficient, causal, and elimination claims",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "请修正下面三句话的逻辑和动词强度，只能使用给出的证据：\n\nRemoving the global lock guarantees linear scalability. Sampling every request eliminates observability blind spots. The results prove that scheduler contention causes tail latency.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请修正下面三句话的逻辑和动词强度，只能使用给出的证据：\n\nRemoving the global lock guarantees linear scalability. Sampling every request eliminates observability blind spots. The results prove that scheduler contention causes tail latency.",
   "scope": {
     "authorized": ["the three sentences", "the supplied evidence"],
     "excluded": ["source code", "raw measurements", "new experiments", "proofs"],

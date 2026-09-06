@@ -3,7 +3,7 @@
   "title": "Review production experience as reusable systems knowledge",
   "skills": ["systems-paper-review"],
   "material_origin": "synthetic",
-  "prompt": "请 review 这段 operational-system contribution framing，判断它是否提炼出了可迁移知识，而不是只看有没有新算法：\n\nWe operated Harbor across 4,200 hosts for 14 months. Harbor schedules maintenance in capacity-aware waves and reduced emergency capacity reservations by 8% while meeting the stated latency SLO. Three incidents show that stale dependency graphs, rather than host count, determined unsafe wave size. Our evidence covers one fleet and excludes correlated regional failures.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请 review 这段 operational-system contribution framing，判断它是否提炼出了可迁移知识，而不是只看有没有新算法：\n\nWe operated Harbor across 4,200 hosts for 14 months. Harbor schedules maintenance in capacity-aware waves and reduced emergency capacity reservations by 8% while meeting the stated latency SLO. Three incidents show that stale dependency graphs, rather than host count, determined unsafe wave size. Our evidence covers one fleet and excludes correlated regional failures.",
   "scope": {
     "authorized": ["the synthetic contribution paragraph"],
     "excluded": ["incident reports", "implementation", "evaluation appendix", "other fleets", "replacement prose"],

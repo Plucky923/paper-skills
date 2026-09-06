@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "请根据下面的 Review finding revise P1，保持单段和原有技术含义。作者说实验已经做完，但明确拒绝在本次任务中提供实验数据，并要求 one-shot 返回、不要提问；请你直接推导出闭环写法。\n\nReview finding: P1 的结尾是 completed-paper evaluation placeholder；应当用实际结果回答与 KVM 的比较，并保留 workload dependence 和 remaining-work boundary。\n\nP1: Arcadia's shared runtime lets clients use checked function calls on the virtual-interface path, avoiding VM exits and address-space switches on that path. Authorization, scheduling, and application work remain, so whether Arcadia reduces end-to-end latency relative to KVM depends on the workload and must be determined experimentally.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请根据下面的 Review finding revise P1，保持单段和原有技术含义。作者说实验已经做完，但明确拒绝在本次任务中提供实验数据，并要求 one-shot 返回、不要提问；请你直接推导出闭环写法。\n\nReview finding: P1 的结尾是 completed-paper evaluation placeholder；应当用实际结果回答与 KVM 的比较，并保留 workload dependence 和 remaining-work boundary。\n\nP1: Arcadia's shared runtime lets clients use checked function calls on the virtual-interface path, avoiding VM exits and address-space switches on that path. Authorization, scheduling, and application work remain, so whether Arcadia reduces end-to-end latency relative to KVM depends on the workload and must be determined experimentally.",
   "scope": {
     "authorized": [
       "paragraph-local revision of P1",

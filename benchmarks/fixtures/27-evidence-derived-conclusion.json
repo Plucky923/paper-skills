@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "这是已完成论文中的一个段落，实验结果已经在 evidence 中给出。请在当前段落内修订，结尾要由结果回答性能问题，不要再写成以后必须做实验；不要把结果推广到未测工作负载，也不要声称调用路径变化单独导致了全部差异。\n\nArcadia's shared-process boundary changes the client-host call path. Checked function calls avoid VM exits and address-space switches on that path. Authorization, scheduling, and application work remain, so whether Arcadia outperforms VM isolation depends on the workload and must be determined experimentally.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n这是已完成论文中的一个段落，实验结果已经在 evidence 中给出。请在当前段落内修订，结尾要由结果回答性能问题，不要再写成以后必须做实验；不要把结果推广到未测工作负载，也不要声称调用路径变化单独导致了全部差异。\n\nArcadia's shared-process boundary changes the client-host call path. Checked function calls avoid VM exits and address-space switches on that path. Authorization, scheduling, and application work remain, so whether Arcadia outperforms VM isolation depends on the workload and must be determined experimentally.",
   "scope": {
     "authorized": [
       "the supplied completed-paper paragraph",

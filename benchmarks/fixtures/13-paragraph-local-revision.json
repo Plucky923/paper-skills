@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "请把下面正文改得更 high-level、简洁、逻辑准确，只给修改后的英文论文正文。\n\nThe coordinator serializes every admission decision. Requests wait for the coordinator even when a worker has spare capacity.\n\nA worker can admit a request while credits remain. Each worker has a local pool of 32 admission credits. The worker requests more credits from the coordinator only after the pool is exhausted.\n\nWe replayed one trace with 16 workers. Throughput was 18% higher than with centralized admission. Both configurations used the same hardware.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面正文改得更 high-level、简洁、逻辑准确，只给修改后的英文论文正文。\n\nThe coordinator serializes every admission decision. Requests wait for the coordinator even when a worker has spare capacity.\n\nA worker can admit a request while credits remain. Each worker has a local pool of 32 admission credits. The worker requests more credits from the coordinator only after the pool is exhausted.\n\nWe replayed one trace with 16 workers. Throughput was 18% higher than with centralized admission. Both configurations used the same hardware.",
   "scope": {
     "authorized": [
       "the three supplied prose paragraphs"
@@ -51,10 +51,10 @@
     "move or duplicate scientific content into another paragraph",
     "replace a paragraph's role",
     "add unsupported mechanisms, measurements, guarantees, or conditions",
-    "add role labels, headings, bullets, tables, or commentary"
+    "add role labels, headings, bullets, tables, or commentary beyond the mandatory compact decision receipt"
   ],
   "hard_gates": [
-    "The output contains exactly three manuscript prose paragraphs in their original order, without commentary or format scaffolding.",
+    "The output contains exactly three manuscript prose paragraphs in their original order, followed only by the mandatory compact decision receipt.",
     "Each paragraph preserves its substantive propositions and owns only those propositions or their locally warranted relations.",
     "No new research content, generalized result, or cross-paragraph content transfer appears."
   ],
@@ -68,7 +68,7 @@
   "rubric": [
     {
       "id": "R1",
-      "criterion": "Returns only English manuscript prose.",
+      "criterion": "Returns English manuscript prose first, followed only by a compact zero-history decision receipt.",
       "points": 1
     },
     {

@@ -5,7 +5,7 @@
     "systems-paper-review"
   ],
   "material_origin": "synthetic",
-  "prompt": "请只读审查下面两个段落，重点解释最后一句为什么读起来奇怪。请把论文自身可见的写作或论证缺陷与需要额外证据才能判断的风险分开，不要改写。\n\nVirtualization maps each tenant's virtual operations onto shared physical resources. The boundary must preserve interface equivalence and tenant isolation, and its implementation is part of the trusted computing base.\n\nThe boundary must process every valid tenant call without corrupting monitor state. Therefore, memory safety is a necessary precondition for virtualization, but it cannot replace an argument for interface semantics or resource authorization.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请只读审查下面两个段落，重点解释最后一句为什么读起来奇怪。请把论文自身可见的写作或论证缺陷与需要额外证据才能判断的风险分开，不要改写。\n\nVirtualization maps each tenant's virtual operations onto shared physical resources. The boundary must preserve interface equivalence and tenant isolation, and its implementation is part of the trusted computing base.\n\nThe boundary must process every valid tenant call without corrupting monitor state. Therefore, memory safety is a necessary precondition for virtualization, but it cannot replace an argument for interface semantics or resource authorization.",
   "scope": {
     "authorized": [
       "the supplied two paragraphs"

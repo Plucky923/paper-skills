@@ -3,7 +3,7 @@
   "title": "Review benchmark infrastructure on fidelity, coverage, and cost",
   "skills": ["systems-paper-review"],
   "material_origin": "synthetic",
-  "prompt": "请按 benchmark/testing infrastructure 的贡献类型 review 这个摘要：\n\nTraceForge converts resource traces into executable test environments. On three trace families, it reproduces 92% of declared resource dependencies and runs replays at one quarter of the original cluster cost. It omits dependencies not observable in the input traces, so a successful replay does not prove full production fidelity.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 benchmark/testing infrastructure 的贡献类型 review 这个摘要：\n\nTraceForge converts resource traces into executable test environments. On three trace families, it reproduces 92% of declared resource dependencies and runs replays at one quarter of the original cluster cost. It omits dependencies not observable in the input traces, so a successful replay does not prove full production fidelity.",
   "scope": {
     "authorized": ["the synthetic abstract"],
     "excluded": ["TraceForge code", "trace corpus", "cost model", "production system", "replacement prose"],

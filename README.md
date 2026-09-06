@@ -2,7 +2,7 @@
 
 面向系统研究论文的审查与改写 skills。按论文/venue/贡献类型 → 章节 → 段落 → 句子 → 词汇自上而下审查，并自下而上复核；每个单位都有可见 coverage 状态。自动识别段落作用，检查句间和段间逻辑；改写默认限于各原始段落内部，保留内容归属与论文格式，追求问题驱动、简洁、精确和技术含义保真。
 
-Revise 默认只修具体问题，保留已经合格的原句；明显更优但非必要的表达单列为“可选写法”。缺少科学前提或证据时不补写、不擅自削弱结论，而是保留受影响的原文并指出缺口。要求只给正文时，仅保留影响科学含义的最简问题提示。
+Revise 默认只修具体问题，保留已经合格的原句；明显更优但非必要的表达单列为“可选写法”。缺少科学前提或证据时不补写、不擅自削弱结论，而是保留受影响的原文并指出缺口。要求只给正文时，正文之后仍保留一行 decision coverage 回执，并仅在必要时增加影响科学含义的最简问题提示。
 
 ## 从哪里开始
 
@@ -62,11 +62,11 @@ Grill 就是“把这段话想表达的意思问清楚，并替你记下来”�
 
 它会围绕具体疑点提问，将未解决的问题和确认的决定保存在 `paper-decisions.md`，但不改正文。讨论完后，你再要求 Revise 按记录修改。也可以不经过 Review，直接讨论某段原文。
 
-在新任务中，可以说“在论文项目 `/你的论文路径` 中，按项目讨论记录 revise `manuscript.tex`”。三个 skills 使用同一查找约定：优先使用你指定的记录路径，否则读取已授权论文项目根目录的 `paper-decisions.md`。仅要求检查一段原文时不会额外搜索记录，也不会为此创建项目配置。记录采用简短条目，Grill 更新后会回读核对；你无需管理模板或状态。
+在新任务中，可以说“在论文项目 `/你的论文路径` 中，按项目讨论记录 revise `manuscript.tex`”。三个 skills 使用同一查找约定：优先使用你指定的记录路径，否则读取已授权论文项目根目录的 `paper-decisions.md`；明确的论文项目中没有该文件就按零条历史继续。仅粘贴原文或项目归属不明时，skills 会询问记录路径，或者请你明确确认本次没有既有 decision history，不会擅自搜索其他项目或创建项目配置。记录按稳定 lineage 保存不可丢的完整版本；Grill 更新后会回读核对，你无需管理模板或状态。
 
 1. Review 先清点全部授权单位，再按论文/贡献类型、章节、段落承诺职责与实际职责、单一义务与段尾信息增量、句子/句间关系、词汇位置逐层只读检查；对“一个 move 同时解决多个目标”的主张建立 source-grounded fan-out map，不能用 reviewer 自己补全的故事代替原文。组织、证据、语言和授权四个维度独立判断，正常单位也显示 `pass`，最后用 coverage receipt 对账。
-2. 独立讨论时调用 systems-paper-grill，按问题依赖分轮澄清。它接收需作者澄清或作者证据的精确 finding，先确认共同改变的约束或边界，再确认每个目标的因果边和相应层次；获准记录时边讨论边更新论文项目的 `paper-decisions.md`，保留 finding/unit ID、原文锚点、resolution test、意图、证据、允许的修改，以及已确认、待确认、已否决的状态。诸如“是不是应该放到 Challenge”属于待确认的放置假设，不自动授权拆段或移动；记录位置不明确时不随意写入当前目录。
+2. 独立讨论时调用 systems-paper-grill，按问题依赖分轮澄清。它接收需作者澄清或作者证据的精确 finding，先确认共同改变的约束或边界，再确认每个目标的因果边和相应层次；获准记录时把每次实质变化保存为同一 lineage 下的完整版本，保留 finding/unit ID、原文锚点、resolution test、意图、证据、允许的修改，以及 `pending`、`confirmed`、`rejected`、`superseded` 状态。新的 pending 候选不会取代旧 confirmed head；只有确认 successor 时才在一次写入里建立双向接替链接。诸如“是不是应该放到 Challenge”属于待确认的放置假设，不自动授权拆段或移动；任何实质决定在写入并回读前都不能宣告完成或交还 Revise。
 3. Revise 把 Review findings 当作主工作队列：先逐项落实直接可修且证据相容的修改，再对所有前置条件已满足的作者澄清/作者证据项自动发起一轮带建议的问题。此时 `pending clarification` 是等待回答的中间状态，不能输出最终 closure receipt；作者回答后自动恢复同一次修改。只有外部前提确实不可用，或作者明确拒绝、无法提供或确认不存在所需输入时，才能最终标为 `blocked`。未确认或被否决的建议不写入正文，证据缺口不靠措辞填补。
-4. Revise 完成修改后对完整授权范围重新运行同一层级检查，而不是只看改过的句子或相邻段落；每个原 finding 才最终标为 `closed`、`blocked`、`not applied` 或 `reopened`。明确的语言问题可以跳过 Grill；单独请求 Review 不会自动改稿。
+4. Review 和 Revise 每次都核算记录里的全部版本，派生 effective、applicable 和 executable 集合；只有 evidence-compatible、无冲突且对当前操作有权限的 confirmed head 能约束修改。Revise 完成修改后对完整授权范围重新运行同一层级检查，而不是只看改过的句子或相邻段落；每个原 finding 才最终标为 `closed`、`blocked`、`not applied` 或 `reopened`。输出同时以 `Unreviewed: 0` 和 `Unaccounted decisions: 0` 分别证明正文单位与决策历史均已核算。明确的语言问题可以跳过 Grill；单独请求 Review 不会自动改稿。
 
 Systems Paper Grill 以 [mattpocock/skills 的 grilling 原文](https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/productivity/grilling/SKILL.md) 为基础适配，保留问题依赖树、整轮提问、逐题建议、等待回答及最终确认。`grill-me` 本身只是调用 grilling 的入口。论文适配限定材料与证据范围、接入共享标准，并保存供 Revise 使用的讨论记录；不创建软件架构 ADR 或历史日志。来源与适配说明见 [grill-source.json](benchmarks/grill-source.json)，保留 MIT 许可证，运行时无需另装通用 grilling。

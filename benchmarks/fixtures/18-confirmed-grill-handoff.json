@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "根据以下 Review 和 grill-me 讨论的已确认结果修改两段英文正文，只给正文。\n\n原文：\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\n\nReview：P1.S1 主谓不一致；P2.S1 → P2.S2 从单一 workload 平均延迟跳到所有 workload 的 tail latency 保证。\nGrill：助手建议 Q1 删除 P2.S2 的保证。作者：接受 Q1，只测了一个 workload 的平均延迟，没有 tail latency 或其他 workload 数据，请删除这个保证。助手建议 Q2 添加队列降低协调开销的说明。作者：不接受 Q2，没有依据。助手汇总：只修 P1.S1 语法，删除 P2.S2，保留 P2.S1，不加收益，不跨段重组。作者：确认，按这个修改。",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n根据以下 Review 和 grill-me 讨论的已确认结果修改两段英文正文，只给正文。\n\n原文：\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\n\nReview：P1.S1 主谓不一致；P2.S1 → P2.S2 从单一 workload 平均延迟跳到所有 workload 的 tail latency 保证。\nGrill：助手建议 Q1 删除 P2.S2 的保证。作者：接受 Q1，只测了一个 workload 的平均延迟，没有 tail latency 或其他 workload 数据，请删除这个保证。助手建议 Q2 添加队列降低协调开销的说明。作者：不接受 Q2，没有依据。助手汇总：只修 P1.S1 语法，删除 P2.S2，保留 P2.S1，不加收益，不跨段重组。作者：确认，按这个修改。",
   "scope": {
     "authorized": [
       "the two original paragraphs",
@@ -108,7 +108,7 @@
     },
     {
       "id": "R11",
-      "criterion": "Returns only manuscript prose without Grill labels or a decision log.",
+      "criterion": "Returns manuscript prose first without Grill labels or a decision log, then only the compact zero-history decision receipt.",
       "points": 1
     },
     {

@@ -3,7 +3,7 @@
   "title": "Preserve quantitative and epistemic boundaries",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "请把下面一段改得更简洁、更准确，保持英文，不要增加事实：\n\nUnder crash-stop failures, \\sys{} recovered 97.3\\% of interrupted requests in our 128-node experiment (Fig.~\\ref{fig:recovery}) \\cite{lee2026}. We plan to evaluate Byzantine faults in future work.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面一段改得更简洁、更准确，保持英文，不要增加事实：\n\nUnder crash-stop failures, \\sys{} recovered 97.3\\% of interrupted requests in our 128-node experiment (Fig.~\\ref{fig:recovery}) \\cite{lee2026}. We plan to evaluate Byzantine faults in future work.",
   "scope": {
     "authorized": ["the pasted paragraph"],
     "excluded": ["the cited paper", "the figure", "LaTeX preamble", "neighboring manuscript text", "new experiments"],

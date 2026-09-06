@@ -26,6 +26,9 @@ Authoritative evidence:
 Protected technical content:
 Missing evidence, context, source, or author choice:
 Incoming finding action classes and prerequisite graph:
+Decision record identity and all literal version IDs:
+Effective, applicable, and executable decision heads:
+Decision exclusions, broken links, or conflicts:
 ```
 
 Interpret scope narrowly:
@@ -39,7 +42,14 @@ Interpret scope narrowly:
 | Explicit whole LaTeX project | Freeze the manuscript dependency set needed for that paper; unrelated repository files remain outside scope. |
 | PDF without editable source | Return proposed prose or blockers; the PDF itself remains unchanged. |
 
-When an antecedent, definition, citation, figure, experiment, or fact lies outside scope, name the exact missing context. Resolve wording only when the supplied text makes the intended meaning unambiguous; a qualification that changes the claim needs an author decision. Accessibility is not authorization.
+When an antecedent, definition, citation, figure, experiment, or fact lies outside
+scope, name the exact missing context. Resolve the paper decision record before
+judging prose: a named paper project with no record has zero versions; pasted or
+ambiguously owned text requires an established record path or explicit
+no-history confirmation. Read and classify the entire ledger rather than only
+the newest-looking entry. Resolve wording only when the supplied text makes the
+intended meaning unambiguous; a qualification that changes the claim needs an
+author decision. Accessibility is not authorization.
 
 Rank evidence as follows: an explicit author correction or decision; in-scope manuscript or artifact evidence; a permitted and verified primary source; a clearly marked inference from established premises. Reviewer feedback establishes that an objection exists, not that its factual suggestion is correct.
 
@@ -107,10 +117,11 @@ its dependency tree and automatically ask every prerequisite-ready question in
 one Grill-style round after applying the direct repairs. Each question includes
 the original finding/unit anchor, a recommended answer or course and its basis,
 and the exact decision or evidence tuple needed. Mark these items `pending
-clarification`, wait, and resume this same revision automatically after the
-answer. Recompute the frontier after each round; do not ask a downstream question
-whose prerequisite remains open. Do not make the disputed edit or publish a
-terminal closure table while waiting.
+clarification`, wait, persist and read back each substantive answer under the
+decision-record rules, and resume this same revision automatically only after
+that gate. Recompute the frontier after each round; do not ask a downstream
+question whose prerequisite remains open. Do not make the disputed edit or
+publish a terminal closure table while waiting.
 
 An explicit one-shot, no-discussion, or prose-only instruction opts out of this
 loop. Preserve affected propositions and use that output contract without
@@ -150,6 +161,10 @@ Re-read the complete frozen scope against the same standard used by Review and c
 12. every intellectual-move dependency added or strengthened by the revision is source-grounded or explicitly author-supplied and evidence-compatible; no reviewer-hypothesized bridge was promoted into manuscript prose, and independent outcomes were not falsely unified.
 13. no requested `author clarification` or `author evidence` item remains pending;
     if one does, this is an interactive pause and the completion gate has not run.
+14. every literal decision version has been classified; only executable heads
+    constrained edits, and every stale, rejected, superseded, out-of-scope,
+    evidence-conflicting, or structurally conflicting version is named in the
+    decision receipt.
 
 Compile, render, lint, or test only when the relevant dependencies are explicitly in scope and the action is authorized. State what a tool actually checked; a clean tool result does not establish publication readiness.
 
@@ -164,14 +179,28 @@ After the manuscript, include only applicable items:
 - **Pending clarification:** after any safe edits, show the complete requested
   finding queue with action classes, then ask the whole prerequisite-ready
   frontier in the Grill format and wait. This replaces—not supplements—the
-  terminal finding-closure map and coverage receipt for that turn. Preserve the
-  scope and IDs so the next author answer resumes the same revision.
+  terminal finding-closure map and manuscript coverage receipt for that turn.
+  Show current decision accounting without claiming terminal completion. Preserve
+  the scope and IDs so the next author answer resumes the same revision.
 
 - **Finding closure:** map every received Review/Grill finding ID to `closed`, `blocked`, `not applied`, or `reopened`, with the original unit IDs and one-line resolution-test result. Omit this item only when there were no incoming findings or the user explicitly requested prose only.
-- **Coverage receipt:** give the shared full-scope totals, last-unit states, not-assessable reasons, closure counts, and `Unreviewed` value. Omit it only under an explicit prose-only request; the internal gate still applies.
+- **Manuscript coverage receipt:** give the shared full-scope totals, last-unit
+  states, not-assessable reasons, closure counts, and `Unreviewed` value. Omit it
+  only under an explicit prose-only request; the internal gate still applies.
+- **Decision coverage receipt:** give the authorized record identity, all literal
+  IDs and status counts, effective/applicable/executable IDs, excluded versions
+  with reasons, conflicts, and `Unaccounted decisions`. This receipt is mandatory,
+  including during an interactive pause and after prose-only output.
 
 - **Unresolved scientific issue:** name the original sentence pair or paragraph pair, quote the minimum identifying text, and state the missing premise or evidence. For an isolated claim, use its own anchor rather than inventing a pair. Keep the original claim unchanged pending the author's decision; do not imply that returning it verifies it.
 - **可选写法 / Optional wording:** only when an alternative offers a clear gain in concision, precision, or information order beyond a necessary correction. Give its original anchor, one meaning-equivalent alternative, and one short reason. No routine synonym alternatives or duplicate full draft. A proposed split, heading, or list conversion is an optional format suggestion and needs explicit authorization before application.
 - A consequential authorized change or relevant validation result when it helps the author assess the edit.
 
-For a prose-only request, omit closure/coverage records, alternatives, general advice, and process commentary. The sole exception is a minimal post-prose note for an unresolved issue affecting scientific meaning; give its exact location and missing basis, without a replacement argument or a separate report. Otherwise return only the prose, even when unchanged. This output exception does not waive the internal full-scope audit or permit an unsupported completion claim.
+For a prose-only request, omit closure and manuscript-coverage records,
+alternatives, general advice, and process commentary. Append exactly the compact
+decision coverage receipt required by the decision-record rules. A minimal
+post-prose note for an unresolved issue affecting scientific meaning may appear
+before it; give the exact location and missing basis without a replacement
+argument or separate report. Otherwise return the prose and that one receipt,
+even when unchanged. This output exception does not waive either internal audit
+or permit an unsupported completion claim.

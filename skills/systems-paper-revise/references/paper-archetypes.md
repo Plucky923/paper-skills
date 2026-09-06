@@ -32,6 +32,11 @@ newly important setting or requirement
 
 The contribution is the changed relationship and what follows from it, not the API name or number of components. Explain enough mechanism to show that the abstraction is realizable and that its property is not merely definitional.
 
+For an interface or boundary contribution, apply the [interface-boundary
+contract](interface-boundaries.md). Identify the interface's semantic commitments,
+what a client may vary above them, the protection/authority division, and any
+separate execution-path claim; none of those axes substitutes for another.
+
 ## Performance system or co-design
 
 ```text

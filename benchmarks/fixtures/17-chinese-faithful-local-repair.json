@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
   "scope": {
     "authorized": [
       "the supplied two manuscript paragraphs"
@@ -43,18 +43,18 @@
     "replace clear prose merely to sound academic",
     "add coordination, isolation, performance, or scaling claims",
     "move content across paragraphs",
-    "emit diagnostic labels or optional wording"
+    "emit diagnostic labels, optional wording, or commentary beyond the mandatory compact decision receipt"
   ],
   "hard_gates": [
     "The two manuscript paragraphs remain in their original order and retain their own technical content.",
     "The first paragraph remains unchanged; actual redundancy in the second is removed without changing its proposition.",
-    "No new technical explanation, consequence, evidence, or diagnostic scaffolding appears."
+    "No new technical explanation, consequence, evidence, or diagnostic scaffolding appears; only the mandatory compact decision receipt may follow the manuscript."
   ],
   "expected_behavior": [
     "Retain the adequate queueing and batching description.",
     "Remove the repeated per-request placement-computation statement.",
     "Do not invent global placement, cluster-size costs, local reuse, boundary crossings, or future experiments.",
-    "Return only Chinese manuscript prose."
+    "Return Chinese manuscript prose followed only by the compact zero-history decision receipt."
   ],
   "rubric": [
     {
@@ -114,7 +114,7 @@
     },
     {
       "id": "R12",
-      "criterion": "Adds no headings, role labels, optional alternatives, or routine commentary.",
+      "criterion": "Adds no headings, role labels, optional alternatives, or routine commentary beyond the mandatory compact decision receipt.",
       "points": 1
     }
   ]

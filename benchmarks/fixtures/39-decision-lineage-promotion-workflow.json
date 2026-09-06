@@ -1,0 +1,93 @@
+{
+  "id": "decision-lineage-promotion-workflow",
+  "title": "Persist, promote, and consume a confirmed successor without losing decision history",
+  "skills": [
+    "systems-paper-review",
+    "systems-paper-grill",
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "stage_prompts": {
+    "review": "使用 systems-paper-review，只读检查 {project}/manuscript.md 和完整 paper-decisions.md。核算全部决策版本；当前不要把 pending 候选当成权限。指出 completed-paper placeholder 需要的证据，给 manuscript coverage 和 decision coverage receipts。不要写文件。",
+    "grill_open": "使用 systems-paper-grill，读取 {project}/manuscript.md、review.md 和完整 paper-decisions.md。围绕 D7.v2 的候选结论询问最小结果元组；D7.v1 在候选确认前仍是有效 head。只允许写 paper-decisions.md；不要猜结果，不要改正文。先提问并等待。",
+    "grill_confirm": "实验结果如下：workload A 上做了 5 次独立运行；Nimbus 的 p99 latency 为 4.2 ms，KVM 为 5.0 ms；Nimbus-KVM 差值的 95% CI 是 [-0.9, -0.7] ms。我拒绝 D7.v2 那个没有数值和条件的宽泛候选。请创建完整 D7.v3，确认只允许把 Evaluation 的 placeholder 换成上述有边界的结果；在同一次写入中把 D7.v1 标为 superseded by D7.v3、D7.v3 标为 supersedes D7.v1，并保留 D7.v1 的核心正文和 legacy D0。写完回读 D0、D7.v1、D7.v2、D7.v3 后再交接；不要改 manuscript.md 或 review.md。",
+    "revise": "使用 systems-paper-revise，在论文项目 {project} 中读取 manuscript.md、review.md 和完整 paper-decisions.md。只用有效、适用、证据兼容且无冲突的 confirmed head 修改 manuscript.md；记录和 Review 只读。保持一个章节一个段落，并给 manuscript coverage、finding closure 和 decision coverage receipts。",
+    "rereview": "使用 systems-paper-review，只读复核 {project}/manuscript.md、review.md 和完整 paper-decisions.md。验证最终结果的范围和数字，核算 D0、D7.v1、D7.v2、D7.v3 的状态与接替链，给两个 coverage receipts。不要写文件。"
+  },
+  "initial_files": {
+    "manuscript.md": "## Evaluation\n\nNimbus reports that p99 latency must be evaluated against KVM under workload A.\n",
+    "paper-decisions.md": "# Paper decisions\n\nManuscript scope: manuscript.md\n\n## D0 — Baseline name [confirmed]\n\nLocation: manuscript.md, \"KVM\"\n\nDecision and allowed edit: Preserve KVM as the baseline name.\n\nEvidence: supported; author-supplied baseline identity.\n\nConfirmation basis: author confirmed.\n\nResolution test: the baseline remains KVM.\n\n## D7.v1 — Evaluation evidence boundary [confirmed]\n\nLineage: D7\n\nProposes replacement for: none\n\nSupersedes: none\n\nSuperseded by: none\n\nSource finding and unit IDs: F-01, Evaluation.P01.S01\n\nLocation: manuscript.md, Evaluation, \"must be evaluated against KVM under workload A\"\n\nDecision and allowed edit: Do not invent or insert a p99 result while metric values, run count, and uncertainty are missing; preserve the placeholder until evidence is supplied.\n\nReason: intended comparison alone is not a completed result.\n\nEvidence: missing; no observed values or uncertainty supplied.\n\nConfirmation basis: author confirmed this evidence boundary.\n\nResolution test: no result is added without metric, baseline, conditions, observed values, and uncertainty.\n\n## D7.v2 — Broad p99 improvement candidate [pending]\n\nLineage: D7\n\nProposes replacement for: D7.v1\n\nSupersedes: none\n\nSuperseded by: none\n\nSource finding and unit IDs: F-01, Evaluation.P01.S01\n\nLocation: manuscript.md, Evaluation, \"p99 latency\"\n\nDecision and allowed edit: State that Nimbus improves p99 latency over KVM.\n\nReason: proposed evaluation payoff.\n\nEvidence: missing; values, repetitions, and uncertainty are unanswered.\n\nConfirmation basis: pending author evidence.\n\nResolution test: a bounded result has metric, baseline, workload, repetitions, values, and uncertainty.\n"
+  },
+  "scope": {
+    "authorized": [
+      "only manuscript.md, review.md, and paper-decisions.md in the isolated project",
+      "Review and rereview are read-only",
+      "Grill may write only paper-decisions.md and must read back its update",
+      "Revise may write only manuscript.md"
+    ],
+    "excluded": [
+      "other project files or external sources",
+      "future stage prompts before their turn",
+      "invented latency results, workloads, repetitions, or uncertainty",
+      "rewriting legacy D0 or the core payload of D7.v1"
+    ],
+    "output_language": "Chinese workflow reports and English manuscript"
+  },
+  "evidence": {
+    "initial": [
+      "KVM is the baseline name.",
+      "Before the author reply, no observed p99 values, run count, or uncertainty are available."
+    ],
+    "confirmed_after_grill": [
+      "Under workload A across five independent runs, Nimbus p99 latency is 4.2 ms and KVM p99 latency is 5.0 ms.",
+      "The 95% confidence interval for Nimbus minus KVM is [-0.9, -0.7] ms.",
+      "The author rejects D7.v2 and authorizes only the bounded D7.v3 replacement."
+    ]
+  },
+  "protected_tokens": [
+    "D0",
+    "D7.v1",
+    "D7.v2",
+    "D7.v3",
+    "KVM",
+    "workload A",
+    "5",
+    "4.2 ms",
+    "5.0 ms",
+    "[-0.9, -0.7] ms"
+  ],
+  "forbidden_actions": [
+    "let D7.v2 displace D7.v1 before confirmation",
+    "reveal the confirmation evidence before grill_open completes",
+    "edit manuscript during Review or Grill or edit the record during Revise",
+    "overwrite D7.v1 payload, rename D0, or drop D7.v2",
+    "perform a one-sided supersession update or skip read-back verification",
+    "invent a broader workload, universal improvement, or different statistic"
+  ],
+  "hard_gates": [
+    "Initial Review treats D7.v1 as effective and D7.v2 as non-authoritative pending history, asks for the missing result tuple, and accounts for every version.",
+    "Grill waits for evidence, then atomically records D7.v1 superseded by D7.v3, D7.v2 rejected, and complete D7.v3 confirmed superseding D7.v1 while preserving D0 and old payloads; it reads all affected entries back before handoff.",
+    "Fresh Revise uses only D7.v3 to replace the placeholder with the exact bounded result, preserves KVM and layout, and leaves the record unchanged.",
+    "Final Review verifies the result and reciprocal chain, accounts for all four literal IDs with Unaccounted decisions: 0, and performs no writes."
+  ],
+  "expected_behavior": [
+    "Separate the current confirmed authority chain from an unconfirmed candidate.",
+    "Create a new full snapshot because the supplied evidence materially changes D7.v2 rather than rewriting that candidate's core payload.",
+    "Promote the successor with reciprocal links in one record update and verify the saved state.",
+    "Use the effective evidence-compatible head in a fresh revision context and retain all historical states in receipts."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Initial Review lists D0, D7.v1, and D7.v2 and reports D7.v1 as the effective D7 head.", "points": 1},
+    {"id": "R2", "criterion": "Initial Review does not use D7.v2 as authority and requests the missing metric values, run count, conditions, and uncertainty.", "points": 1},
+    {"id": "R3", "criterion": "Opening Grill asks a grounded evidence question and waits without editing the manuscript or inventing a result.", "points": 1},
+    {"id": "R4", "criterion": "Confirmed Grill appends a complete D7.v3 rather than overwriting D7.v2's substantive payload.", "points": 1},
+    {"id": "R5", "criterion": "The saved record marks D7.v1 superseded by D7.v3 and D7.v3 confirmed superseding D7.v1 in the same update.", "points": 1},
+    {"id": "R6", "criterion": "The saved record marks D7.v2 rejected only because the author explicitly rejected it.", "points": 1},
+    {"id": "R7", "criterion": "Grill preserves legacy D0 and D7.v1's core payload and reads D0 plus all three D7 versions back before handoff.", "points": 1},
+    {"id": "R8", "criterion": "Revise replaces the placeholder with workload A, five runs, 4.2 ms, 5.0 ms, and the exact 95% interval.", "points": 1},
+    {"id": "R9", "criterion": "Revise keeps KVM, one section, one paragraph, and adds no broader latency claim.", "points": 1},
+    {"id": "R10", "criterion": "Revise leaves review.md and paper-decisions.md byte-unchanged and closes F-01 only after its test passes.", "points": 1},
+    {"id": "R11", "criterion": "Revise and final Review report D0 and D7.v3 effective while D7.v1 is superseded and D7.v2 rejected.", "points": 1},
+    {"id": "R12", "criterion": "Every completed Review and Revise stage emits manuscript and decision receipts with zero unreviewed and unaccounted items.", "points": 1}
+  ]
+}

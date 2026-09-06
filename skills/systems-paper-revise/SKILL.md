@@ -30,6 +30,7 @@ Load only the branch that the request needs:
 - Read [paper-archetypes.md](references/paper-archetypes.md) when contribution type affects the argument: titles, abstracts, introductions, contribution framing, section or whole-paper structure, measurement/experience/formal work, or hybrid papers.
 - Read [chinese-writing.md](references/chinese-writing.md) for Chinese prose or Chinese-to-English translation.
 - Read [revision-strategies.md](references/revision-strategies.md) for structural, evaluation, figure/table, venue, or multi-finding repairs.
+- Read the shared [interface-boundary contract](references/interface-boundaries.md) for interface or virtualization boundaries, semantic freedom, customization, protection/authority, compound isolation, or direct/delegated execution-path claims.
 - Read [change-safety.md](references/change-safety.md) before editing files or prose with technical values, citations, equations, notation, identifiers, macros, figures, tables, or other fragile content.
 - Read [convergence-loop.md](references/convergence-loop.md) only when the user explicitly requests iteration/fixed-point revision or when several interacting edits make a single pass unsafe.
 - Read [multi-agent-revision.md](references/multi-agent-revision.md) only when a sufficiently large authorized scope benefits from independent read-only checks during such a loop.
@@ -50,13 +51,47 @@ Infer the mode from the supplied material. Ask the author only when the choice w
 
 ## Existing-prose workflow
 
-1. Freeze scope, language, author intent, evidence, and protected technical content; read the authorized paper decision record and recover confirmed Grill decisions through the shared contract before choosing edits. A directly requested revision needs no record when no discussion has occurred. Preserve supplied Review section/paragraph/sentence/lexical IDs and finding IDs.
+1. Freeze scope, language, author intent, evidence, and protected technical
+   content; resolve the authorized paper decision record through the shared
+   contract, read every version, and derive all, effective, applicable, and
+   executable sets before choosing edits. A named paper project with no record
+   has zero history; pasted or ambiguously owned prose requires a record path or
+   explicit no-history confirmation. Preserve supplied Review
+   section/paragraph/sentence/lexical IDs and finding IDs.
 2. Inventory the complete frozen scope, then run the shared top-down pre-edit audit: paper/archetype when assessable → every section → every paragraph's promised and delivered roles, one obligation, and payoff information → every sentence and link → every lexical occurrence. Mark higher context unavailable without expanding scope. Build the baseline finding-to-unit map before changing prose.
 3. Treat received Review findings as the primary repair queue and classify every item as `direct repair`, `author clarification`, `author evidence`, `external blocker`, or `optional/not applied`. Reclassify older Review output that lacks this field. A pending clarification is not permission to infer a repair and is not a terminal blocker.
 4. Fix only identified local defects using [writing-core.md](references/writing-core.md). Build the safe repair frontier and apply all meaning-preserving local repairs even if another part of the sentence or paragraph awaits clarification, evidence, or an external prerequisite. For a high-level role mismatch, preserve the source-grounded intellectual-move map: expose an existing principle and subordinate mechanism detail inside the paragraph, but do not convert a reviewer-hypothesized move-to-outcome edge into manuscript prose. If genuine high-level repair requires author confirmation or moving substantive detail, keep that dependency unapplied and route it through step 6 instead of either inventing the relation, deleting the detail, or leaving every local improvement undone. An equivalent abstraction must follow directly from the paragraph and address the requested repair; otherwise keep the original or offer it as optional wording. Add no purpose, cause, benefit, mechanism, experiment, or result to make the prose sound complete.
 5. Re-run the same full-scope hierarchy after editing, including all unchanged and passed units, not only changed sentences, edited paragraphs, or neighbors. Reconcile bottom up, verify content ownership and protected content, and test each original finding at its original endpoints. A loop cannot expand the editing boundary.
-6. After applying the safe frontier, automatically enter a Grill-style clarification round for the complete prerequisite-ready frontier of `author clarification` and `author evidence` items. Ask numbered questions with recommendations and exact required inputs, label them `pending clarification`, wait, then resume the same revision after the answers. Do not issue a terminal closure map or completion receipt while any requested item is pending. Once the queue has no pending item, assign every received finding `closed`, `blocked`, `not applied`, or `reopened` through the coverage contract. Use terminal `blocked` only for an external prerequisite or after the author explicitly declines, cannot provide, or confirms the requested input is unavailable. If a sentence or paragraph link needs new evidence or cross-paragraph restructuring, identify both endpoints and route it by action class instead of silently completing the argument.
+6. After applying the safe frontier, automatically enter a Grill-style clarification round
+   for the complete prerequisite-ready frontier of `author
+   clarification` and `author evidence` items. Ask numbered questions with
+   recommendations and exact required inputs, label them `pending clarification`,
+   wait, persist each substantive answer as a versioned full snapshot, read it
+   back, then resume the same revision. Do not issue a terminal closure map or
+   manuscript coverage receipt while any requested item is pending; current
+   decision accounting may still be shown. Once the queue has no pending item,
+   assign every received finding `closed`, `blocked`, `not applied`, or `reopened`
+   through the coverage contract. Use terminal `blocked` only for an external
+   prerequisite or after the author explicitly declines, cannot provide, or
+   confirms the requested input is unavailable. If a sentence or paragraph link
+   needs new evidence or cross-paragraph restructuring, identify both endpoints
+   and route it by action class instead of silently completing the argument.
 
 ## Output
 
-Lead with the manuscript text in its original paragraph layout, headings, lists, emphasis, citations, and markup. For file edits, name the edited objects. Keep diagnostics and alternatives outside the manuscript and out of source files. If clarification is pending, show the safe edits already made, the per-finding action queue, and the Grill-style question round, then wait without a terminal closure map or coverage receipt. After the queue resolves, give the compact finding-closure map and shared full-scope coverage receipt so unchanged passed units remain accounted. Offer optional wording only for a clear benefit; ordinary synonym swaps need no alternative. When the user explicitly requests only prose, omit the closure map, receipt, optional wording, and routine commentary; the sole exception is a minimal note locating an unresolved issue that affects scientific meaning. State its missing evidence without adding a replacement argument. See [revision-protocol.md](references/revision-protocol.md) for the complete output contract.
+Lead with the manuscript text in its original paragraph layout, headings, lists,
+emphasis, citations, and markup. For file edits, name the edited objects. Keep
+diagnostics and alternatives outside the manuscript and out of source files. If
+clarification is pending, show the safe edits already made, the per-finding action
+queue, decision accounting, and the Grill-style question round, then wait without
+a terminal closure map or manuscript coverage receipt. After the queue resolves,
+give the compact finding-closure map, shared full-scope manuscript coverage
+receipt, and decision coverage receipt so unchanged units and every decision
+version remain accounted. Offer optional wording only for a clear benefit;
+ordinary synonym swaps need no alternative. When the user explicitly requests
+only prose, omit the closure map, manuscript coverage receipt, optional wording,
+and routine commentary, but append the mandatory one-line decision coverage
+receipt. A minimal note locating an unresolved scientific issue may precede that
+line. State its missing evidence without adding a replacement argument. See
+[revision-protocol.md](references/revision-protocol.md) for the complete output
+contract.

@@ -36,7 +36,7 @@ performing its distinct role.
    and evaluator until scoring is complete.
 3. Start a fresh agent context for every candidate invocation. Single-stage fixtures
    require one invocation per tree; fixture 12 uses two fresh invocations,
-   and fixtures 20 and 23 use the five-stage procedure below. The runner projection is exactly `prompt`,
+   and fixtures 20, 23, and 39 use the five-stage procedure below. The runner projection is exactly `prompt`,
    `scope`, and `evidence`, plus the selected
    tree's named skill and artifacts explicitly authorized by `scope.authorized`.
    Never expose `id`, `title`, `material_origin`, `protected_tokens`,
@@ -78,7 +78,7 @@ read remains subject to the fixture's authority boundary.
 A run passes quality at **10/12 or higher** after passing every hard gate. A
 candidate is accepted only when:
 
-- all 35 candidate fixture runs pass their hard gates;
+- all 40 candidate fixture runs pass their hard gates;
 - every candidate run scores at least 10/12;
 - no candidate fixture scores below its baseline counterpart; and
 - the candidate's total score exceeds the baseline, or a previously observed
@@ -134,13 +134,14 @@ gates and twelve-point rubric. This is the supported composition path; it does
 not imply a third compose skill or let evaluator-only fields leak into either
 stage.
 
-## Full discussion workflows (fixtures 20 and 23)
+## Full discussion workflows (fixtures 20, 23, and 39)
 
-Fixtures 20 and 23 replace `prompt` with five `stage_prompts` and add
+Fixtures 20, 23, and 39 replace `prompt` with five `stage_prompts` and add
 `initial_files` for harness setup. Each still counts as one fixture run. Fixture
 20 tests decision persistence and evidence-safe revision; fixture 23 additionally
 tests stable coverage/finding IDs, pending authority, full-scope post-edit audit,
-and explicit closure states.
+and explicit closure states; fixture 39 tests versioned decision promotion,
+reciprocal supersession links, read-back, and fresh-context consumption.
 
 Run this separately for each frozen skill tree in a fresh temporary paper project.
 The harness writes the two `initial_files` verbatim before invoking any skill.
@@ -224,6 +225,11 @@ the provenance report remain reachable from their declared skill entrypoints.
 | `33-missing-result-placeholder-block` | Missing completed-paper results block revision without permitting deletion of the comparison or its scientific boundaries |
 | `34-intellectual-move-fanout-grounding` | One claimed insight must expose source-grounded causal edges to every headline outcome rather than rely on reviewer reconstruction |
 | `35-revise-interactive-finding-queue` | Revise applies direct repairs, asks the complete author-answerable frontier, and resumes instead of terminally blocking the queue |
+| `36-boundary-distinct-question` | A parallel boundary map may pose a distinct question without inventing a negative prior-work gap or treating the question as novelty evidence |
+| `37-interface-axis-revision` | Revise keeps interface semantics, protection/authority, customization control, and execution-path cost on their supported axes |
+| `38-decision-history-pending-head` | Review accounts for every status while a pending successor leaves the prior confirmed head effective |
+| `39-decision-lineage-promotion-workflow` | Grill promotes a complete successor with reciprocal links and fresh Revise consumes only the effective head |
+| `40-decision-conflict-prose-receipt` | Revise preserves conflicted prose, applies independent repairs, and emits decision accounting even for prose-only output |
 
 ## Maintaining the benchmark
 

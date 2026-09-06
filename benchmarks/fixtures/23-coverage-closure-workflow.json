@@ -69,7 +69,7 @@
   ],
   "hard_gates": [
     "Initial Review gives stable unit/finding IDs, classifies only the claim-strength item as author clarification, and ends with a complete receipt.",
-    "Grill preserves the source IDs and resolution test, writes pending before confirmation, then records the bounded confirmed decision while preserving D0; no other file changes.",
+    "Grill preserves the source IDs and resolution test, writes a pending version before confirmation, then appends a complete bounded confirmed successor while preserving the pending history and D0; no other file changes.",
     "Revise fixes subject-verb agreement, replaces the unsupported guarantee only with the confirmed bounded observation, preserves layout and tokens, and maps every original finding to a closure state after a full-scope post-audit.",
     "Final Review reuses the original IDs, verifies both resolution tests, finds no promoted evidence or new defect, and reports matching totals with Unreviewed: 0."
   ],

@@ -5,7 +5,7 @@
     "systems-paper-review"
   ],
   "material_origin": "synthetic",
-  "prompt": "请只读审查下面这一段。重点判断每句话是否服务于同一个 reader obligation，以及 also 是否真的把最后一句变成前面 evaluation 计划的一部分。不要改写或拆段。\n\nValidation of RiverGuard must cover its stated claims. API analysis should report the implemented closed subset, adversarial tests should exercise authorization and accounting, and matched baselines should measure interface cost and end-to-end performance. The shared address space also creates an architectural challenge: per-tenant checkpoint and restore must capture cross-layer tenant state without rolling back unrelated host or peer state.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请只读审查下面这一段。重点判断每句话是否服务于同一个 reader obligation，以及 also 是否真的把最后一句变成前面 evaluation 计划的一部分。不要改写或拆段。\n\nValidation of RiverGuard must cover its stated claims. API analysis should report the implemented closed subset, adversarial tests should exercise authorization and accounting, and matched baselines should measure interface cost and end-to-end performance. The shared address space also creates an architectural challenge: per-tenant checkpoint and restore must capture cross-layer tenant state without rolling back unrelated host or peer state.",
   "scope": {
     "authorized": [
       "the supplied single paragraph"

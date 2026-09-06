@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Revise"
   short_description: "Coverage-checked paragraph-local paper revision"
-  default_prompt: "Use $systems-paper-revise to audit the complete authorized scope top down, apply every safe local repair within each original paragraph, preserve claim strength and manuscript format, keep reviewer-hypothesized intellectual-move edges out of the prose, require explicit authority for structural changes, then re-audit every unit and close or block every incoming finding without inventing support."
+  default_prompt: "Use $systems-paper-revise to account for every authorized decision version, apply only effective and evidence-compatible confirmed heads plus safe local repairs within each original paragraph, preserve claim strength and format, then re-audit every unit and report manuscript, finding, and decision coverage without inventing support."

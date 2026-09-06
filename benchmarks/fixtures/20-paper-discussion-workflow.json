@@ -60,7 +60,7 @@
   ],
   "hard_gates": [
     "Review stays read-only and identifies the original response-to-durability gap without inventing an implementation bug.",
-    "Grill persists pending decisions before the supplied author reply, then updates confirmed decisions in place while preserving D0; the manuscript remains unchanged.",
+    "Grill persists pending versions before the supplied author reply, then appends complete confirmed successor snapshots while preserving the earlier versions and D0; the manuscript remains unchanged.",
     "A fresh Revise invocation uses only the persisted record, manuscript and Review output to apply the authorized protocol correction and guarantee deletion, preserving the second paragraph.",
     "The final Review confirms closure without claiming missing fault evidence now exists; no out-of-scope writes occur."
   ],
@@ -99,7 +99,7 @@
     },
     {
       "id": "R6",
-      "criterion": "Confirmation updates existing issues rather than duplicating them.",
+      "criterion": "Confirmation keeps the same issue lineages, appends complete successor snapshots, and preserves the earlier pending versions rather than duplicating issues or rewriting history.",
       "points": 1
     },
     {

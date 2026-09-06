@@ -4,7 +4,23 @@ Review checks; Grill discusses and records; Revise edits. All three use [writing
 
 ## Same judgment, different action
 
-When the author requests use of a paper project's discussion records, use an explicitly selected record path; otherwise check paper-decisions.md at that authorized project's root. Read it before discussing or applying its decisions, and use its confirmed terminology within the supplied scope. A path already explicitly established for that paper need not be requested again. A pasted passage or a manuscript-only request does not authorize searching neighboring files. If the project or record is unavailable, ask for it instead of searching other projects. This shared lookup rule does not authorize creating project configuration or expanding manuscript scope.
+Before Review or Revise judges prose, resolve and account for its decision history
+under the [decision-record rules](../../systems-paper-grill/references/decision-record.md).
+Use an explicitly established record path, or *paper-decisions.md* at the root of
+an explicitly named paper project. An absent record in that project means zero
+history and is not created by Review or Revise. For pasted text, ambiguous project
+ownership, or a manuscript-only path, ask for the record or the author's explicit
+confirmation that this scope has no prior history. Do not search neighboring
+projects. This lookup rule does not create project configuration or expand
+manuscript scope.
+
+Read every decision version and derive all, effective, applicable, and executable
+sets before using any entry. Only an effective, applicable, evidence-compatible,
+conflict-free confirmed version with authority for the current operation may
+constrain a manuscript change. Pending, rejected, superseded, stale, conflicting,
+and out-of-scope versions remain visible history. Every Review and Revise reports
+the separate decision coverage receipt, including `Unaccounted decisions: 0`;
+even a prose-only Revise returns its compact receipt after the manuscript.
 
 For the same passage and available evidence, all three skills distinguish:
 
@@ -85,7 +101,18 @@ location is authorized. A read-only Review request does not authorize record
 writes or start revision. Keep the discussion within the supplied manuscript
 scope and shared standard.
 
-Wait for the author's answer before applying the disputed repair. A recommendation is not confirmation; agreement with a writing goal supplies neither experimental evidence nor an unstated mechanism. Grill persists intermediate and settled outcomes in the authorized paper decision record, distinguishing confirmed, pending, and rejected decisions and their evidence. When Review IDs exist, each record entry carries the source finding and unit IDs, original resolution test, intended meaning, evidence state, and allowed edit. Confirmation applies only to the named meaning and allowed edit, not every suggestion in the conversation.
+Wait for the author's answer before applying the disputed repair. A recommendation
+is not confirmation; agreement with a writing goal supplies neither experimental
+evidence nor an unstated mechanism. Grill persists each substantive intermediate
+or settled outcome as a versioned full snapshot in the authorized paper decision
+record. A pending successor does not displace the confirmed head; confirming a
+successor atomically records both sides of the supersession relation. Rejected
+and superseded snapshots remain in the ledger. When Review IDs exist, each
+version carries the source finding and unit IDs, original resolution test,
+intended meaning, evidence state, and allowed edit. Confirmation applies only to
+the named meaning and allowed edit, not every suggestion in the conversation.
+Grill reads back each material update before it claims completion or returns an
+embedded clarification to Revise.
 
 Terminal `blocked` is reserved for an `external blocker`, or for an
 author-answerable item after the author explicitly declines, cannot provide the
@@ -109,6 +136,13 @@ reconfirming.
 
 Review findings and Grill discussion are editorial input, not manuscript prose. Revise uses the original anchors, diagnosis, supplied evidence, and explicitly confirmed decision to make only the requested change. A completed review or discussion does not itself authorize editing files or moving content across paragraphs.
 
-Before editing, read the authorized decision record and any newer explicit author corrections alongside the original manuscript and supplied Review findings. Follow the decision-record rules to match anchors, separate confirmation from evidence, and handle stale or conflicting decisions. If the discussion was chat-only, use its explicit confirmations without claiming a record exists. Apply each confirmed decision to its named location; do not treat the whole discussion as a list of edits. In a new task, request unavailable source text and decisions rather than guessing them.
+Before editing, read the authorized decision record and any newer explicit author
+corrections alongside the original manuscript and supplied Review findings.
+Follow the decision-record rules to match anchors, separate confirmation from
+evidence, validate lifecycle links, and handle stale or conflicting lineages. Use
+only executable heads at their named locations; do not treat the whole history as
+a list of edits. A material embedded clarification must be persisted before
+revision resumes. In a new task, request unavailable source text or decisions
+rather than guessing them.
 
 After revision, re-audit the complete frozen scope under the coverage contract, including unchanged passed units. Only when no requested item remains `pending clarification`, map every received finding to terminal `closed`, `blocked`, `not applied`, or `reopened`. Close a finding only when its original resolution test passes without changing another supported proposition or introducing a new defect. A rejected item is not applied; missing scientific support is blocked only under the terminal-blocker rule above, even when intended wording is confirmed. Deleting the question, condition, boundary, or claim that missing evidence was supposed to answer does not close an evidence-derived-payoff finding unless the author explicitly withdraws that scientific proposition. Review stays read-only throughout; a review request does not automatically start revision.

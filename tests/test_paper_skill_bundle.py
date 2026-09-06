@@ -212,6 +212,132 @@ class InteractiveClarificationContractTests(unittest.TestCase):
         self.assertTrue(self.check())
 
 
+class InterfaceBoundaryContractTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.paths = [
+            validator.INTERFACE_BOUNDARY_CONTRACT_PATH,
+            "skills/systems-paper-review/SKILL.md",
+            "skills/systems-paper-revise/SKILL.md",
+            "skills/systems-paper-review/references/review-protocol.md",
+            "skills/systems-paper-revise/references/revision-strategies.md",
+        ]
+        for relative in self.paths:
+            source = validator.REPO_ROOT / relative
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(source.read_bytes())
+
+    def check(self):
+        with patch.object(validator, "REPO_ROOT", self.root):
+            report = validator.Report()
+            validator.check_interface_boundary_contract(report)
+        return report.errors
+
+    def test_valid_interface_boundary_contract(self):
+        self.assertEqual(self.check(), [])
+
+    def test_missing_semantic_axis_is_rejected(self):
+        path = self.root / validator.INTERFACE_BOUNDARY_CONTRACT_PATH
+        path.write_text(
+            path.read_text().replace("Semantic commitments", "Interface objects")
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_distinct_question_mode_is_rejected(self):
+        path = self.root / validator.INTERFACE_BOUNDARY_CONTRACT_PATH
+        path.write_text(
+            path.read_text().replace("`distinct question`", "`open issue`")
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_review_route_is_rejected(self):
+        path = self.root / "skills/systems-paper-review/SKILL.md"
+        path.write_text(
+            path.read_text().replace(
+                "interface-boundary contract", "boundary guidance"
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_revise_route_is_rejected(self):
+        path = self.root / "skills/systems-paper-revise/SKILL.md"
+        path.write_text(
+            path.read_text().replace(
+                "direct/delegated execution-path claims", "execution claims"
+            )
+        )
+        self.assertTrue(self.check())
+
+
+class DecisionHistoryContractTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.paths = [
+            validator.DECISION_RECORD_PATH,
+            "skills/systems-paper-grill/assets/paper-decisions-template.md",
+            "skills/systems-paper-grill/SKILL.md",
+            "skills/systems-paper-revise/references/review-revise-contract.md",
+            "skills/systems-paper-review/SKILL.md",
+            "skills/systems-paper-revise/SKILL.md",
+        ]
+        for relative in self.paths:
+            source = validator.REPO_ROOT / relative
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(source.read_bytes())
+
+    def check(self):
+        with patch.object(validator, "REPO_ROOT", self.root):
+            report = validator.Report()
+            validator.check_decision_history_contract(report)
+        return report.errors
+
+    def test_valid_decision_history_contract(self):
+        self.assertEqual(self.check(), [])
+
+    def test_missing_pending_head_invariant_is_rejected(self):
+        path = self.root / validator.DECISION_RECORD_PATH
+        path.write_text(
+            path.read_text().replace(
+                "A new pending candidate never displaces a confirmed head",
+                "A new candidate replaces the current head",
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_all_history_receipt_is_rejected(self):
+        path = self.root / validator.DECISION_RECORD_PATH
+        path.write_text(
+            path.read_text().replace(
+                "Unaccounted decisions: 0", "Unaccounted decisions: none"
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_grill_persistence_gate_is_rejected(self):
+        path = self.root / "skills/systems-paper-grill/SKILL.md"
+        path.write_text(path.read_text().replace("persistence gate", "handoff gate"))
+        self.assertTrue(self.check())
+
+    def test_missing_shared_record_route_is_rejected(self):
+        path = (
+            self.root
+            / "skills/systems-paper-revise/references/review-revise-contract.md"
+        )
+        path.write_text(
+            path.read_text().replace(
+                "../../systems-paper-grill/references/decision-record.md",
+                "coverage-contract.md",
+            )
+        )
+        self.assertTrue(self.check())
+
+
 class CoverageWorkflowFixtureTests(unittest.TestCase):
     def setUp(self):
         self.path = (

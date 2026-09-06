@@ -223,16 +223,23 @@ fair comparison axis -> shared assumption/mechanism/constraint
   -> why it prevents the target property -> bounded unmet requirement
 ```
 
+A boundary comparison may instead make a weaker **distinct-question bridge**:
+parallel placements can motivate asking whether another contract or division of
+responsibility is possible without claiming that the named alternatives fail.
+Apply the [interface-boundary contract](interface-boundaries.md). This bridge
+needs a coherent comparison axis and a bounded question that follows from it, but
+it establishes neither prior-work absence nor novelty.
+
 A list of different boundaries or supported objects establishes descriptive
-contrast, not a shared root cause. If the authorized material supplies no common
-cause, Review reports the missing causal bridge and Revise requests author input;
-neither invents it. A pure survey paragraph need not manufacture a root cause, but
-it still needs a coherent comparison axis. Verify negative prior-work claims
-separately; missing literature evidence must not hide the visible organizational
-defect. Apply the visible `classification -> gap -> question` test even when the
-excerpt's incoming antecedent or cited sources are unavailable: record those
-scope/evidence blockers separately, then state whether the visible classification
-contains the causal premise needed to earn the gap and research question.
+contrast, not a shared root cause. If the prose uses that list to assert a
+negative gap and the authorized material supplies no common cause, Review reports
+the missing causal bridge and Revise requests author input; neither invents it.
+If it poses only a distinct question, do not demand a cause for a failure it does
+not claim. A pure survey paragraph may stop at a coherent comparison axis. Verify
+negative prior-work claims separately; missing literature evidence must not hide
+the visible organizational defect. Apply the visible `classification -> claimed
+gap or distinct question` test even when the excerpt's incoming antecedent or
+cited sources are unavailable, and keep scope/evidence blockers separate.
 
 ### Completed-paper prose answers with evidence
 

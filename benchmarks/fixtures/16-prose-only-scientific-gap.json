@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "请把下面内容改得简洁、严谨，只给英文论文正文。\n\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面内容改得简洁、严谨，只给英文论文正文。\n\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.",
   "scope": {
     "authorized": [
       "the supplied two manuscript paragraphs"
@@ -42,19 +42,19 @@
     "invent evidence or mechanism benefits",
     "silently weaken or delete the unsupported conclusion",
     "leave the independent subject-verb agreement error unfixed",
-    "emit optional rewrites, process notes, or a full review"
+    "emit optional rewrites, process notes beyond the mandatory compact decision receipt, or a full review"
   ],
   "hard_gates": [
     "The manuscript keeps its two original paragraphs and scientific propositions, including the unchanged unsupported conclusion.",
     "The independent subject-verb agreement error is corrected without expanding the mechanism description.",
-    "A minimal separate note locates the unsupported inference and its missing scientific basis despite the prose-only request; no replacement argument is supplied."
+    "A minimal separate note locates the unsupported inference and its missing scientific basis despite the prose-only request; no replacement argument is supplied, and the compact zero-history decision receipt follows."
   ],
   "expected_behavior": [
     "Correct keep to keeps in paragraph 1.",
     "Do not infer reduced coordination overhead from queueing and batching.",
     "Keep the unsupported tail-latency guarantee unchanged pending author decision.",
     "Locate P2.S1 to P2.S2 using exact identifying anchors and distinguish mean, tail, population, and causal support.",
-    "Suppress optional wording and routine commentary."
+    "Suppress optional wording and routine commentary; append only the mandatory compact decision receipt after the scientific note."
   ],
   "rubric": [
     {
@@ -114,7 +114,7 @@
     },
     {
       "id": "R12",
-      "criterion": "Keeps the scientific note brief and omits optional wording, process commentary, and replacement prose.",
+      "criterion": "Keeps the scientific note brief, appends the compact zero-history decision receipt, and omits optional wording, other process commentary, and replacement prose.",
       "points": 1
     }
   ]

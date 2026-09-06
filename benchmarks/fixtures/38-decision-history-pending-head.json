@@ -1,0 +1,78 @@
+{
+  "id": "decision-history-pending-head",
+  "title": "Account for all decision versions without letting a pending candidate displace the confirmed head",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "使用 systems-paper-review，只读检查下面一段正文。随文给出的记录身份是 paper-decisions.md；它就是本次授权的完整 decision history，不要访问文件系统或外部材料。先核算所有版本，再判断正文。必须给 decision coverage receipt。\n\n正文：\nNimbus acknowledges each write after a quorum persists it. Under the tested configuration, the worker group recovered after one follower restart.\n\npaper-decisions.md：\n## D7.v1 — Acknowledgement boundary [confirmed]\nLineage: D7\nSuperseded by: none\nDecision and allowed edit: Preserve the bounded quorum-persistence acknowledgement statement.\nEvidence: supported; supplied protocol fact.\nConfirmation basis: author confirmed.\nResolution test: no all-replica or failure-survival guarantee is added.\n\n## D7.v2 — Stronger acknowledgement proposal [pending]\nLineage: D7\nProposes replacement for: D7.v1\nDecision and allowed edit: Replace quorum with all replicas and claim survival of any two failures.\nEvidence: missing; no protocol or failure proof supplied.\nConfirmation basis: unanswered proposal.\nResolution test: requires author confirmation and supporting evidence.\n\n## D8.v1 — Latency benefit [rejected]\nLineage: D8\nDecision and allowed edit: Add a lower-tail-latency claim.\nEvidence: missing.\nConfirmation basis: author rejected the addition.\nResolution test: rejected claim remains absent.\n\n## D9.v1 — Worker-set terminology [superseded]\nLineage: D9\nSuperseded by: D9.v2\nDecision and allowed edit: Use worker set.\nEvidence: supported.\nConfirmation basis: superseded by the author's newer term.\nResolution test: use the effective confirmed term.\n\n## D9.v2 — Worker-group terminology [confirmed]\nLineage: D9\nSupersedes: D9.v1\nDecision and allowed edit: Use worker group for the tested deployment.\nEvidence: supported; author-supplied terminology.\nConfirmation basis: author confirmed.\nResolution test: worker group is used consistently in scope.",
+  "scope": {
+    "authorized": [
+      "the supplied two-sentence manuscript passage",
+      "the complete inline paper-decisions.md history",
+      "read-only review and decision accounting"
+    ],
+    "excluded": [
+      "filesystem or neighboring manuscript reads",
+      "external sources or protocol inference",
+      "record or manuscript writes"
+    ],
+    "output_language": "Chinese review"
+  },
+  "evidence": {
+    "supported": [
+      "A quorum-persistence acknowledgement boundary is confirmed.",
+      "Worker group is the current confirmed term for the tested deployment.",
+      "One follower restart was observed under the tested configuration."
+    ],
+    "unsupported_or_non_authoritative": [
+      "all-replica acknowledgement",
+      "survival of any two failures",
+      "lower tail latency",
+      "pending, rejected, and superseded versions as current authority"
+    ]
+  },
+  "protected_tokens": [
+    "D7.v1",
+    "D7.v2",
+    "D8.v1",
+    "D9.v1",
+    "D9.v2",
+    "quorum",
+    "worker group",
+    "one follower restart"
+  ],
+  "forbidden_actions": [
+    "treat D7.v2 as effective because it has the highest version number",
+    "apply the rejected latency proposal or superseded terminology",
+    "invent a failure guarantee or missing evidence",
+    "drop any version from decision accounting",
+    "edit the supplied material"
+  ],
+  "hard_gates": [
+    "Review remains read-only, accounts for all five literal version IDs, and reports the exact four status counts.",
+    "D7.v1 and D9.v2 remain the effective applicable heads; pending D7.v2 does not displace D7.v1.",
+    "Rejected D8.v1 and superseded D9.v1 remain history rather than current authority, and no unsupported claim enters the review conclusion.",
+    "The decision receipt names the record, sets, exclusions, conflicts or none, and ends with Unaccounted decisions: 0."
+  ],
+  "expected_behavior": [
+    "Derive authority from lifecycle state and valid links rather than file order.",
+    "Use current confirmed terminology and acknowledgement scope when interpreting the manuscript.",
+    "Keep every non-effective version visible with its exclusion reason.",
+    "Separate decision accounting from manuscript-unit coverage."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews only the supplied passage and inline record and performs no mutation.", "points": 1},
+    {"id": "R2", "criterion": "Lists D7.v1, D7.v2, D8.v1, D9.v1, and D9.v2 in all versions.", "points": 1},
+    {"id": "R3", "criterion": "Reports pending:1, confirmed:2, rejected:1, and superseded:1.", "points": 1},
+    {"id": "R4", "criterion": "Derives D7.v1 and D9.v2 as the effective confirmed heads.", "points": 1},
+    {"id": "R5", "criterion": "Keeps D7.v1 effective despite the newer pending D7.v2 candidate.", "points": 1},
+    {"id": "R6", "criterion": "Classifies D8.v1 as rejected history and does not revive its latency claim.", "points": 1},
+    {"id": "R7", "criterion": "Classifies D9.v1 as superseded by D9.v2 and uses worker group as current terminology.", "points": 1},
+    {"id": "R8", "criterion": "Marks the two effective heads applicable to the supplied passage.", "points": 1},
+    {"id": "R9", "criterion": "Identifies only evidence-compatible conflict-free heads as executable for the current operation.", "points": 1},
+    {"id": "R10", "criterion": "Adds no all-replica, two-failure, or latency conclusion.", "points": 1},
+    {"id": "R11", "criterion": "Reports no lifecycle conflict while still naming every non-applicable version and reason.", "points": 1},
+    {"id": "R12", "criterion": "Emits a separate decision coverage receipt ending in Unaccounted decisions: 0.", "points": 1}
+  ]
+}

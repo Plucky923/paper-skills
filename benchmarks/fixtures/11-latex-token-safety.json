@@ -3,7 +3,7 @@
   "title": "Revise prose without damaging LaTeX semantics",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "只修改这段 LaTeX 中的英文表述，使逻辑更直接；不要读取 preamble，也不要改命令、引用、数学或 comment：\n\n\\paragraph{Fast path.} \\sys{} caches the index, which is useful and improves things. Its lookup cost is $O(n \\log n)$ in the evaluated configuration; \\cref{fig:pipeline} shows the measured latency \\cite{ng2026}. % keep this comment",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n只修改这段 LaTeX 中的英文表述，使逻辑更直接；不要读取 preamble，也不要改命令、引用、数学或 comment：\n\n\\paragraph{Fast path.} \\sys{} caches the index, which is useful and improves things. Its lookup cost is $O(n \\log n)$ in the evaluated configuration; \\cref{fig:pipeline} shows the measured latency \\cite{ng2026}. % keep this comment",
   "scope": {
     "authorized": ["prose inside the pasted LaTeX paragraph"],
     "excluded": ["LaTeX preamble", "macro definitions", "figure", "bibliography", "neighboring source", "compilation"],

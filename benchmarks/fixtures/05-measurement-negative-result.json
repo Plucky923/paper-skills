@@ -3,7 +3,7 @@
   "title": "Review a measurement paper without forcing a system artifact",
   "skills": ["systems-paper-review"],
   "material_origin": "synthetic",
-  "prompt": "请按系统顶会标准只读 review 这个摘要。它是一篇测量与负结果论文，不要因为没有新系统就自动判定贡献不足：\n\nOperators increasingly shift batch jobs toward regions with low instantaneous carbon intensity. Using scheduler logs from 18 regions over six months, we find that this policy increased total emissions for 37% of eligible jobs because delayed completion extended idle-capacity use. The result applies to the sampled batch workloads and does not evaluate interactive services.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按系统顶会标准只读 review 这个摘要。它是一篇测量与负结果论文，不要因为没有新系统就自动判定贡献不足：\n\nOperators increasingly shift batch jobs toward regions with low instantaneous carbon intensity. Using scheduler logs from 18 regions over six months, we find that this policy increased total emissions for 37% of eligible jobs because delayed completion extended idle-capacity use. The result applies to the sampled batch workloads and does not evaluate interactive services.",
   "scope": {
     "authorized": ["the synthetic abstract"],
     "excluded": ["raw logs", "methods section", "related work", "interactive-service data", "replacement prose"],

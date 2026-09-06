@@ -3,7 +3,7 @@
   "title": "Review only the pasted paragraph",
   "skills": ["systems-paper-review"],
   "material_origin": "synthetic",
-  "prompt": "只检查下面这一段，不要查看仓库、附件或相邻段落，也不要替我重写：\n\nOrion moves recovery metadata into a side log. This design eliminates recovery overhead and works for every storage workload.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n只检查下面这一段，不要查看仓库、附件或相邻段落，也不要替我重写：\n\nOrion moves recovery metadata into a side log. This design eliminates recovery overhead and works for every storage workload.",
   "scope": {
     "authorized": ["the two pasted sentences"],
     "excluded": ["all manuscript, research, and artifact repository files beyond the harness-provided candidate skill instructions and fixture projection", "attachments", "neighboring manuscript text", "artifact code", "external papers except a factual claim inside the passage"],

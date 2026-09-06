@@ -3,7 +3,7 @@
   "title": "Do not mistake brevity for a high-level argument",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "这段已经很短，但仍然只是部件清单。请在现有事实允许的范围内改善它；不能声称性能收益：\n\nAtlas uses per-core queues and a 64-bit bitmap. Workers poll their queue and clear bitmap entries after draining it.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n这段已经很短，但仍然只是部件清单。请在现有事实允许的范围内改善它；不能声称性能收益：\n\nAtlas uses per-core queues and a 64-bit bitmap. Workers poll their queue and clear bitmap entries after draining it.",
   "scope": {
     "authorized": ["the two sentences", "the supplied semantics"],
     "excluded": ["performance motivation", "evaluation", "other components", "source code"],

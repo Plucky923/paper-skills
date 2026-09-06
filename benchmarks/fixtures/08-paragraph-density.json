@@ -3,7 +3,7 @@
   "title": "Split and merge by reasoning obligation rather than length",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "请重组下面两个英文段落。第一个过密，第二个过碎；不要套固定句数，并保留全部有依据的信息。\n\nDense: EdgeKV serves read-heavy edge workloads, but intermittent links make global invalidation expensive. It partitions keys by region. Each partition uses a 2 s lease. In a 24-site trace replay, leases reduced invalidation messages by 31% relative to eager invalidation. Writes may remain invisible outside a partition until the lease expires, so the result does not preserve eager visibility. The implementation also uses Rust.\n\nSparse: Device failures interrupt compaction. Recovery replays a journal. The journal contains committed segment identifiers. Replay was tested after process crashes.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请重组下面两个英文段落。第一个过密，第二个过碎；不要套固定句数，并保留全部有依据的信息。\n\nDense: EdgeKV serves read-heavy edge workloads, but intermittent links make global invalidation expensive. It partitions keys by region. Each partition uses a 2 s lease. In a 24-site trace replay, leases reduced invalidation messages by 31% relative to eager invalidation. Writes may remain invisible outside a partition until the lease expires, so the result does not preserve eager visibility. The implementation also uses Rust.\n\nSparse: Device failures interrupt compaction. Recovery replays a journal. The journal contains committed segment identifiers. Replay was tested after process crashes.",
   "scope": {
     "authorized": ["the Dense paragraph", "the Sparse paragraph"],
     "excluded": ["other EdgeKV design text", "journal implementation", "new evaluation", "new transitions to neighboring sections"],

@@ -57,6 +57,21 @@ The chain is not required as a prose template. It is an audit of whether the mec
 - **Severity:** `S0` for a false central guarantee; `S1` for a central missing
   attribution path; otherwise `S2`.
 
+## DD-03C — Interface, authority, and path axes do not substitute
+
+- **Check:** For an interface or boundary contribution, apply the shared
+  [interface-boundary contract](../../systems-paper-revise/references/interface-boundaries.md).
+  Build the three-axis ledger for semantic commitments, protection/authority,
+  and execution path; add the actor/artifact/stage/control tuple when
+  customization or independent implementation is claimed. Require an anchored
+  causal edge for every property that crosses axes, while marking an unclaimed
+  axis `not claimed` rather than manufacturing an omission.
+- **Reviewer attack:** “The paper treats a low-level API, protection boundary, or
+  shorter path as if it automatically proved customization, isolation, or
+  end-to-end performance.”
+- **Severity:** `S0` for a false central guarantee; `S1` for a central unsupported
+  edge; otherwise `S2`.
+
 ## DD-04 — The mechanism explains the resulting property
 
 - **Check:** State the relevant input/state, action or changed abstraction, enforcement point, and property that follows. Identify assumptions and whether the result is guaranteed, detected, enabled, or only observed.

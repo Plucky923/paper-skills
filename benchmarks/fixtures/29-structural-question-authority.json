@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "请 revise 下面这一段。我觉得最后一句是不是应该单独成为 Architecture 里的 Challenge 段？\n\nValidation of Harbor should classify the complete API and disclose its implemented subset; adversarial tests should cover authorization and accounting; matched baselines should measure interface cost and end-to-end performance. The shared address space also creates a separate problem: per-tenant checkpoint and restore must preserve cross-layer tenant state without rolling back unrelated host or peer state.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请 revise 下面这一段。我觉得最后一句是不是应该单独成为 Architecture 里的 Challenge 段？\n\nValidation of Harbor should classify the complete API and disclose its implemented subset; adversarial tests should cover authorization and accounting; matched baselines should measure interface cost and end-to-end performance. The shared address space also creates a separate problem: per-tenant checkpoint and restore must preserve cross-layer tenant state without rolling back unrelated host or peer state.",
   "scope": {
     "authorized": [
       "paragraph-local revision of the supplied paragraph",

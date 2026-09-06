@@ -3,7 +3,7 @@
   "title": "Translate Chinese technical logic rather than surface order",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "把下面中文改写成准确、简洁的英文系统论文表述。先修复中文里省略的主语和过强因果，不要逐词翻译：\n\n通过将验证移到加载阶段，从而消除了运行时开销，并保证代码安全。实验在三个应用上观察到调用延迟降低 12–18%。",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n把下面中文改写成准确、简洁的英文系统论文表述。先修复中文里省略的主语和过强因果，不要逐词翻译：\n\n通过将验证移到加载阶段，从而消除了运行时开销，并保证代码安全。实验在三个应用上观察到调用延迟降低 12–18%。",
   "scope": {
     "authorized": ["the Chinese passage", "the supplied design and evaluation facts"],
     "excluded": ["other security properties", "other applications", "formal proof", "implementation source"],

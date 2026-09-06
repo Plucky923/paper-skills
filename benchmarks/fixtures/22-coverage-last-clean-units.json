@@ -5,7 +5,7 @@
     "systems-paper-review"
   ],
   "material_origin": "synthetic",
-  "prompt": "使用 systems-paper-review 对下面全部材料做只读覆盖审查。不要只列问题：正常章节、段落、句子和词汇也必须有 pass 状态。必须检查到最后一个章节、最后一个段落、最后一句和最后一个词，给出 totals、last unit 和 Unreviewed。不要改写。\n\n## Overview\n\nNova sends each admitted request to three replicas. The leader replies after all three replicas persist the request.\n\nReaders use the latest committed version. A version number uniquely identifies the committed request order.\n\n## Evaluation\n\nWe ran a 30-minute workload and paused one follower for 10 seconds. The service continued to answer requests during that run.\n\nThe run observed one follower pause and no network partition. Because service continued in this run, Nova guarantees availability under every failure unconditionally.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n使用 systems-paper-review 对下面全部材料做只读覆盖审查。不要只列问题：正常章节、段落、句子和词汇也必须有 pass 状态。必须检查到最后一个章节、最后一个段落、最后一句和最后一个词，给出 totals、last unit 和 Unreviewed。不要改写。\n\n## Overview\n\nNova sends each admitted request to three replicas. The leader replies after all three replicas persist the request.\n\nReaders use the latest committed version. A version number uniquely identifies the committed request order.\n\n## Evaluation\n\nWe ran a 30-minute workload and paused one follower for 10 seconds. The service continued to answer requests during that run.\n\nThe run observed one follower pause and no network partition. Because service continued in this run, Nova guarantees availability under every failure unconditionally.",
   "scope": {
     "authorized": [
       "both supplied sections, all four paragraphs, all eight sentences, their in-scope relations, and every reader-visible lexical occurrence through the final word"

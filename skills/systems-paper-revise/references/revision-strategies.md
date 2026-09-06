@@ -56,6 +56,29 @@ Use a design-derivation map or claim-evidence map only when that relation is act
 - Separate prototype, simulation, deployment, and production status; state transfer conditions instead of universal generality.
 - Preserve an author decision when several contribution hierarchies are scientifically defensible.
 
+## Interface and boundary repair
+
+Apply the shared [interface-boundary contract](interface-boundaries.md) when an
+interface, protection boundary, customization model, isolation claim, or
+direct/delegated path controls the argument.
+
+- Preserve the three-axis ledger: semantic commitments determine what can vary
+  above the interface; protection/authority mechanisms establish bounded system
+  properties; execution paths support path-local cost claims. Do not use one axis
+  as prose evidence for another.
+- Replace vague customization only with the supplied actor, artifact, stage, and
+  control facts. Source-level modifiability is not tenant-controlled runtime
+  replacement, and an interface is not abstraction-free.
+- Keep a delegated path connected to its setup, persistent enforcement,
+  revocation, and cleanup; describe the actual control events rather than saying
+  either that the path has no mediation or that a Host checks every operation.
+- A universal gap, impossibility, or tradeoff can become a bounded tension only
+  when authoritative evidence or an explicit author decision permits that
+  claim-strength change. Otherwise preserve the assertion and route the exact
+  choice through clarification.
+- Keep removal of a transition, copy, or emulation step as a path fact or
+  prediction until matched end-to-end evidence supplies a measured outcome.
+
 ## Technical explanation
 
 - Introduce actors, resources, trust, fault, and workload boundaries before a mechanism depends on them.

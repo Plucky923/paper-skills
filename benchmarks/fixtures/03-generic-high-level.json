@@ -3,7 +3,7 @@
   "title": "Turn generic abstraction into supported causal compression",
   "skills": ["systems-paper-revise"],
   "material_origin": "synthetic",
-  "prompt": "请把这句写得 high-level，但不要空泛，也不要增加实验结果：\n\nNimbus provides a flexible and efficient architecture for request admission.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把这句写得 high-level，但不要空泛，也不要增加实验结果：\n\nNimbus provides a flexible and efficient architecture for request admission.",
   "scope": {
     "authorized": ["the sentence", "the supplied design facts"],
     "excluded": ["performance results", "implementation details not listed below", "neighboring manuscript text"],

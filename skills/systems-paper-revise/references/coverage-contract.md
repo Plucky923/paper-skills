@@ -2,8 +2,10 @@
 
 Review, Grill, and Revise use this contract to keep one auditable view of the
 authorized material. It governs inventory, execution order, coverage state, and
-handoff. It does not grant access to neighboring material, authorize a manuscript
-edit, or replace the quality rules in the linked references.
+handoff. The separate [decision-record rules](../../systems-paper-grill/references/decision-record.md)
+govern complete decision-history accounting and its receipt. Neither contract
+grants access to neighboring material, authorizes a manuscript edit, or replaces
+the quality rules in the linked references.
 
 ## Load the existing standard
 
@@ -150,10 +152,26 @@ ledgers in numbered batches or an explicitly authorized report artifact. Mark th
 review `incomplete` until the final batch and reconciliation are delivered.
 
 Revise maintains the same full-scope ledgers before and after editing. It normally
-returns the manuscript first, followed by a compact closure map and coverage
-receipt; if the author explicitly asks for prose only, keep the ledgers internal
-and follow the prose-only exception in the revision protocol. Grill displays only
-the source units and findings being decided; it does not rerun the full audit.
+returns the manuscript first, followed by a compact closure map and manuscript
+coverage receipt; if the author explicitly asks for prose only, keep these
+ledgers internal and follow the prose-only exception in the revision protocol.
+The compact decision coverage receipt remains mandatory after prose-only output.
+Grill displays only the source units and findings being decided; it does not rerun
+the full audit.
+
+## Account for decision history independently
+
+Before Review or Revise reports a manuscript judgment, follow the decision-record
+rules to resolve the authorized record, classify every literal version ID, and
+derive the effective, applicable, and executable sets. Decision accounting is
+orthogonal to unit coverage: `Unreviewed: 0` cannot hide an unaccounted decision,
+and `Unaccounted decisions: 0` cannot hide an unreviewed manuscript unit.
+
+Broken lifecycle links, conflicting heads, unavailable history, and decisions
+excluded from execution remain visible in the decision receipt. They do not
+authorize guessing or suppress inspection of unaffected manuscript units. During
+an interactive Revise pause, report current decision accounting without calling
+the manuscript coverage or finding closure terminal.
 
 ## Preserve IDs and close the loop
 
@@ -209,7 +227,10 @@ Before saying an audit or revision is complete, verify all of the following:
    claims one move yields several outcomes, every advertised outcome appears in
    the fan-out ledger and every reviewer-hypothesized edge remains a finding or
    unresolved risk;
-9. `unreviewed = 0`. If this is false, the result is explicitly `incomplete`.
+9. every decision version read has a status and set classification, with conflicts
+   and exclusions named rather than silently resolved;
+10. `unreviewed = 0` and `Unaccounted decisions: 0`. If either is false or
+    unknown, the result is explicitly `incomplete`.
 
 End Review and completed non-prose-only Revise reports with a coverage receipt.
 Do not emit a terminal receipt while any requested finding is `pending
@@ -232,6 +253,7 @@ Result: <clear within scope | actionable issues remain | blocked | incomplete>
 ```
 
 Omit levels and the intellectual-move dependency line when they do not exist, but
-retain higher levels that are unavailable as `not assessable`. A receipt proves bounded execution only; it does not establish
-paper acceptance, novelty over uninspected literature, or correctness outside the
-authorized evidence.
+retain higher levels that are unavailable as `not assessable`. Then emit the
+decision coverage receipt defined by the decision-record rules. A receipt proves
+bounded execution only; it does not establish paper acceptance, novelty over
+uninspected literature, or correctness outside the authorized evidence.

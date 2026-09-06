@@ -1,0 +1,85 @@
+{
+  "id": "interface-axis-revision",
+  "title": "Revise semantic freedom, authority, customization, and path claims without cross-axis substitution",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请使用下面作者已确认的事实 revise 这一段。你被明确授权在原段内纠正和收窄不符合这些事实的技术主张，并可重组或拆分句子；保持一个段落，不要搜索外部资料，也不要添加未提供的结果。\n\nFluxOS exposes a low-level resource API, so every tenant can replace the entire OS, the shared address space isolates tenants, and direct I/O guarantees lower end-to-end latency. Tenants customize FluxOS by rebuilding the operator's runtime. The Host mediates every I/O operation through delegated queues.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "meaning corrections and claim narrowing required by the author-confirmed evidence",
+      "sentence-level reorganization inside the one original paragraph"
+    ],
+    "excluded": [
+      "splitting or moving the paragraph",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented API coverage, security guarantees, or performance results",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "The resource API exposes CPU-token, memory-region, and I/O-queue handles and leaves scheduling and buffer policy to code above it.",
+      "The API still fixes allocation, revocation, error, and object-lifetime semantics; no complete-OS replaceability claim has been established.",
+      "In the managed deployment, only the runtime deployer can fork and rebuild FluxOS; tenants cannot submit or select a replacement runtime artifact.",
+      "Admitted tenant code uses a safe subset and opaque handles that prevent handle fabrication. The Host grants, binds, and revokes handles, while an IOMMU constrains delegated I/O queues and termination drains and revokes them.",
+      "The shared address space is not itself the tenant-isolation mechanism.",
+      "A design trace establishes that delegated queue submission avoids an address-space switch on that path. No matched end-to-end latency result is available.",
+      "The Host controls queue grant, binding, and revocation but does not inspect every delegated queue operation."
+    ]
+  },
+  "protected_tokens": [
+    "FluxOS",
+    "resource API",
+    "CPU-token",
+    "memory-region",
+    "I/O-queue",
+    "scheduling",
+    "buffer policy",
+    "runtime deployer",
+    "Host",
+    "IOMMU",
+    "delegated",
+    "address-space switch"
+  ],
+  "forbidden_actions": [
+    "retain or restate complete-OS replaceability",
+    "credit the shared address space alone with tenant isolation",
+    "claim a lower end-to-end latency result",
+    "describe runtime-deployer source customization as tenant replacement",
+    "claim that the Host inspects every delegated I/O operation",
+    "invent resource types, experiments, mechanisms, or guarantees",
+    "split the paragraph or inspect external material"
+  ],
+  "hard_gates": [
+    "The revision bounds semantic freedom to scheduling and buffer policy above the named interface commitments and attributes source rebuilding to the runtime deployer rather than tenants.",
+    "It attributes the protection argument across safe admission and opaque handles, Host grant/bind/revoke decisions, and IOMMU plus termination handling instead of crediting the shared address space.",
+    "It states only the supported path-level avoided address-space switch, preserves delegated operation, and makes no end-to-end latency claim or every-operation Host-mediation claim."
+  ],
+  "expected_behavior": [
+    "Return one conservative revised paragraph before the receipt.",
+    "Name the interface's fixed allocation, revocation, error, and lifetime semantics and the scheduling and buffer-policy scope left above it.",
+    "State that the runtime deployer, not a managed tenant, can customize FluxOS through a source fork and rebuild.",
+    "Explain the narrow responsibility chain without converting it into an unsupported universal isolation guarantee.",
+    "Describe Host control at grant, binding, revocation, and termination while preserving direct delegated queue operations under IOMMU enforcement.",
+    "Limit the performance statement to the traced queue-submission path and disclose that end-to-end latency is not established."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns exactly one revised manuscript paragraph and keeps diagnostics outside it.", "points": 1},
+    {"id": "R2", "criterion": "Preserves FluxOS and the supplied CPU-token, memory-region, and I/O-queue handle facts.", "points": 1},
+    {"id": "R3", "criterion": "Bounds replaceability to scheduling and buffer policy above the declared interface.", "points": 1},
+    {"id": "R4", "criterion": "Keeps allocation, revocation, error, and object-lifetime semantics as interface commitments.", "points": 1},
+    {"id": "R5", "criterion": "Attributes source-fork and rebuild customization to the runtime deployer rather than tenants.", "points": 1},
+    {"id": "R6", "criterion": "Does not claim that the shared address space itself isolates tenants.", "points": 1},
+    {"id": "R7", "criterion": "Assigns non-forgeability to safe admission and opaque handles without making them the whole protection argument.", "points": 1},
+    {"id": "R8", "criterion": "Assigns grant, binding, and revocation decisions to the Host.", "points": 1},
+    {"id": "R9", "criterion": "Connects delegated queues to IOMMU enforcement and termination drain or revocation.", "points": 1},
+    {"id": "R10", "criterion": "Does not say the Host mediates or checks every delegated queue operation.", "points": 1},
+    {"id": "R11", "criterion": "Limits the cost claim to avoiding an address-space switch on the queue-submission path and makes no end-to-end result claim.", "points": 1},
+    {"id": "R12", "criterion": "Uses only author-confirmed evidence, preserves one paragraph, and reports the completed repairs without an unsupported blocker.", "points": 1}
+  ]
+}

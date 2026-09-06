@@ -92,6 +92,22 @@ Challenge a term that conflicts with an already agreed definition; ask whether t
 
 ## Record as you go
 
-Read and follow the [decision-record rules](references/decision-record.md). Save intermediate answers and open questions as pending; update them in place when confirmed or rejected. Preserve existing unrelated decisions. Manage the record yourself rather than asking the author to fill in a form.
+Read and follow the [decision-record rules](references/decision-record.md). Read
+the complete authorized history before classification. Save each substantive
+intermediate state as a versioned full snapshot; a pending candidate never
+displaces the effective confirmed head. When a successor is confirmed, update
+both sides of its supersession link in one write. Preserve existing unrelated and
+legacy decisions. Manage the record yourself rather than asking the author to
+fill in a form.
 
-Write only the authorized paper decision record; keep the manuscript and other files unchanged. If no record location is authorized, keep the embedded clarification state in the active chat; standalone discussion may ask where to save durable decisions. Briefly finish standalone Grill with what was agreed, what remains open, the source finding/unit IDs, and the saved record location. In an embedded loop, return control to the already-active Revise flow so it can resume the same revision automatically: Revise applies the evidence-compatible authorized edits and owns closure. Grill itself does not rewrite the paper or claim a finding closed.
+Write only the authorized paper decision record; keep the manuscript and other
+files unchanged. A named paper project with no record starts with zero history.
+For pasted or ambiguously owned text, ask for the path; chat can hold interim
+state, but no substantive decision is complete until it is persisted and the
+changed entries, reciprocal links, and unrelated records are read back. Briefly
+finish standalone Grill with what was agreed, what remains open, the source
+finding/unit IDs, and the saved record location. In an embedded loop, return
+control to the already-active Revise flow only after this persistence gate, so it
+can resume the same revision automatically. Revise applies the executable,
+evidence-compatible decisions and owns closure. Grill itself does not rewrite the
+paper or claim a finding closed.

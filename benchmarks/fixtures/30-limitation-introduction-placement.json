@@ -5,7 +5,7 @@
     "systems-paper-review"
   ],
   "material_origin": "synthetic",
-  "prompt": "请只读判断下面这段主要是什么性质的内容，以及是否应该在 Introduction 里提。现在只提供这一段；请给条件性判断，缺少 Introduction 上下文时不要假装能决定精确位置，也不要改写。\n\nOrion's shared runtime requires tenant kernels and their dependencies to use the safe subset of Lumen and enter through a platform-controlled build and load path; it is not a drop-in environment for legacy kernel binaries. We consider one host granting resources to peer tenants and do not support recursive nesting. We do not claim that every workload improves or that cluster utilization increases. Complete implementation coverage and experimental results remain future work, so the system value is not yet established.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请只读判断下面这段主要是什么性质的内容，以及是否应该在 Introduction 里提。现在只提供这一段；请给条件性判断，缺少 Introduction 上下文时不要假装能决定精确位置，也不要改写。\n\nOrion's shared runtime requires tenant kernels and their dependencies to use the safe subset of Lumen and enter through a platform-controlled build and load path; it is not a drop-in environment for legacy kernel binaries. We consider one host granting resources to peer tenants and do not support recursive nesting. We do not claim that every workload improves or that cluster utilization increases. Complete implementation coverage and experimental results remain future work, so the system value is not yet established.",
   "scope": {
     "authorized": [
       "the supplied limitation paragraph",

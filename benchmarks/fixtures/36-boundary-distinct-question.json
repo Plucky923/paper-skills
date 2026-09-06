@@ -1,0 +1,77 @@
+{
+  "id": "boundary-distinct-question",
+  "title": "Accept a bounded boundary comparison that poses a distinct question without inventing a negative gap",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请只读审查下面三个连续的 Introduction 段落，重点判断边界比较如何推出最后的研究问题。不要搜索外部资料，不要改写，也不要把没有写出的 novelty 或 prior-work failure 补进来。\n\nP1: StoneVM presents a machine interface to each tenant, which supplies its own kernel while the monitor retains allocation and revocation of physical resources.\n\nP2: Cloudlet presents service-level filesystem and network objects implemented by a shared mediator. A tenant selects policies allowed by those objects, while the mediator retains physical-resource allocation and revocation.\n\nP3: These placements commit to different client-visible objects and leave different implementation responsibilities above the boundary. They raise a separate question: can a resource-construction interface make object and lifecycle semantics tenant-relative while the monitor retains physical authority?",
+  "scope": {
+    "authorized": [
+      "P1 through P3 as one contiguous Introduction boundary-comparison excerpt"
+    ],
+    "excluded": [
+      "external literature or artifact verification",
+      "neighboring novelty, motivation, design, or evaluation text",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "author_supplied_facts": [
+      "StoneVM exposes a machine interface, permits a tenant-supplied kernel, and retains physical allocation and revocation in its monitor.",
+      "Cloudlet exposes shared-mediator filesystem and network objects, permits policies only above those objects, and retains physical allocation and revocation in its mediator.",
+      "P3 intentionally poses a distinct research question rather than claiming that StoneVM or Cloudlet cannot provide the target contract."
+    ],
+    "unavailable": [
+      "external evidence for StoneVM or Cloudlet",
+      "the paper's novelty claim and closest-work coverage",
+      "execution-path or performance claims, which this excerpt does not make"
+    ]
+  },
+  "protected_tokens": [
+    "StoneVM",
+    "machine interface",
+    "Cloudlet",
+    "service-level filesystem and network objects",
+    "allocation and revocation",
+    "resource-construction interface",
+    "tenant-relative",
+    "physical authority"
+  ],
+  "forbidden_actions": [
+    "rewrite the excerpt",
+    "invent a shared root cause or prior-work failure",
+    "treat the distinct question as evidence of novelty or absence",
+    "require an execution-path or performance account that the excerpt does not claim",
+    "inspect external sources or neighboring text"
+  ],
+  "hard_gates": [
+    "The review classifies P3 as a distinct-question bridge rather than a negative gap and does not demand an invented common failure.",
+    "It audits the parallel semantic-commitment and authority axes while marking execution path not claimed instead of treating it as an omission.",
+    "It keeps the locally coherent bridge separate from unavailable external truth and novelty evidence and remains read-only."
+  ],
+  "expected_behavior": [
+    "Use the same comparison tuple for P1 and P2: exposed interface, responsibility retained on each side, and the consequence relevant to P3.",
+    "Identify that machine-level and service-level objects commit to different semantics and leave different implementation scope above the boundary.",
+    "Identify that both alternatives separately retain physical allocation and revocation in a mediator.",
+    "Treat P3's question as licensed by the parallel map without rewriting it into a claim that prior systems fail.",
+    "State that this local bridge does not establish novelty and that external facts remain unverified within scope.",
+    "Do not require cost, shared-address-space, or isolation claims that the excerpt does not make."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews exactly P1 through P3, remains read-only, and performs no external inspection.", "points": 1},
+    {"id": "R2", "criterion": "Classifies the bridge as a distinct question rather than a negative gap.", "points": 1},
+    {"id": "R3", "criterion": "Uses a parallel interface, responsibility, and relevant-consequence tuple for P1 and P2.", "points": 1},
+    {"id": "R4", "criterion": "Recovers the different client-visible semantic commitments of the two interfaces.", "points": 1},
+    {"id": "R5", "criterion": "Recovers the tenant or mediator implementation responsibilities left on each side.", "points": 1},
+    {"id": "R6", "criterion": "Keeps physical allocation and revocation as an authority-axis fact independent from interface level.", "points": 1},
+    {"id": "R7", "criterion": "Marks execution path or performance not claimed rather than reporting a missing required axis.", "points": 1},
+    {"id": "R8", "criterion": "Does not invent or require a shared mechanism that makes StoneVM and Cloudlet fail.", "points": 1},
+    {"id": "R9", "criterion": "Explains why the parallel map locally licenses P3's bounded research question.", "points": 1},
+    {"id": "R10", "criterion": "Does not treat the research question as proof of prior-work absence or novelty.", "points": 1},
+    {"id": "R11", "criterion": "Separates local argument organization from unavailable external fact and closest-work verification.", "points": 1},
+    {"id": "R12", "criterion": "Accounts for every paragraph and relevant axis and ends with complete coverage accounting.", "points": 1}
+  ]
+}

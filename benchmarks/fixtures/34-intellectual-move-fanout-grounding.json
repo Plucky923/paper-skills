@@ -5,7 +5,7 @@
     "systems-paper-review"
   ],
   "material_origin": "synthetic",
-  "prompt": "请只读审查下面三个连续的 Introduction/overview 段落。评估其问题驱动的核心 insight、三个主要目标之间的关系、语言安全的作用以及设计推导；不要搜索外部资料，不要改写。\n\nP1: AlloyNest 的核心思想是把共享运行时暴露的全局资源句柄替换为 tenant-scoped virtual handles，同时由 Host 保留底层对象的根所有权。Safe Lumen 的类型和封装使 Tenant 不能直接构造这些 handles；Host 将每个虚拟操作映射到内部对象，并检查身份、所有权和配额，在 Tenant 终止后回收对象。该设计因此提供 Tenant isolation。\n\nP2: 共享运行时的 API 位于 scheduling、memory 和 I/O policy 之下，因此 Tenant 可以独立实现这些机制并定义 application-specific objects。Tenant 与 Host 处于同一地址空间，还可通过 checked function calls 交互，从而避免 VM exits、地址空间切换和跨地址空间复制。\n\nP3: 因此，同一个 virtualization boundary 同时提供 customizability、isolation 和 low overhead，这构成 AlloyNest 的统一贡献。验证将分别测试异构 Tenant、跨 Tenant 攻击和相对于 KVM 的端到端性能。",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请只读审查下面三个连续的 Introduction/overview 段落。评估其问题驱动的核心 insight、三个主要目标之间的关系、语言安全的作用以及设计推导；不要搜索外部资料，不要改写。\n\nP1: AlloyNest 的核心思想是把共享运行时暴露的全局资源句柄替换为 tenant-scoped virtual handles，同时由 Host 保留底层对象的根所有权。Safe Lumen 的类型和封装使 Tenant 不能直接构造这些 handles；Host 将每个虚拟操作映射到内部对象，并检查身份、所有权和配额，在 Tenant 终止后回收对象。该设计因此提供 Tenant isolation。\n\nP2: 共享运行时的 API 位于 scheduling、memory 和 I/O policy 之下，因此 Tenant 可以独立实现这些机制并定义 application-specific objects。Tenant 与 Host 处于同一地址空间，还可通过 checked function calls 交互，从而避免 VM exits、地址空间切换和跨地址空间复制。\n\nP3: 因此，同一个 virtualization boundary 同时提供 customizability、isolation 和 low overhead，这构成 AlloyNest 的统一贡献。验证将分别测试异构 Tenant、跨 Tenant 攻击和相对于 KVM 的端到端性能。",
   "scope": {
     "authorized": [
       "P1 through P3 as one contiguous Introduction/overview excerpt"
