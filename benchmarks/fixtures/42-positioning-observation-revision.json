@@ -1,0 +1,81 @@
+{
+  "id": "positioning-observation-revision",
+  "title": "Revise artifact-backed positioning and an Observation around the supported intellectual move",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请依据作者确认的事实 revise 下面两个连续段落。你被明确授权在各自原段内重组句子、把 artifact 事实提升为能力级比较、将三项同时缺失的结论改成作者指定的 distinct question，并修正 Observation 的标题和论证；保留两个段落及其顺序，不要搜索外部资料。\n\nP1: 已有工作用内存安全语言实现虚拟化组件，但接口、部署与保护边界各不相同。AegisVM 向租户提供机器接口并允许其携带内核。ServiceBox 由 Host 选择共享 mediator，租户只能部署其上的应用。PersonaKit 支持 personality 定制，但其公开 artifact 将新的 personality 代码静态编译并链接进 Host。因此，在上述系统中，租户独立部署 OS 实现、消除 per-tenant 地址空间边界和保留 Host 资源权威尚未同时出现。\n\nP2: Observation：独立 OS 定制要求分离实现所有权与资源权威。上述差异表明，接口语义决定租户能够实现哪些 OS 抽象，而代码接纳方式决定租户能否部署这些实现。要支持租户独立定制，接口必须暴露机制且 Host 必须保留资源控制。因此，需要解耦的是租户对 OS 实现的所有权与 Host 对资源的最终权威。",
+  "scope": {
+    "authorized": [
+      "the supplied two paragraphs only",
+      "meaning corrections and claim narrowing established by the author-confirmed evidence",
+      "sentence reorganization and role-label correction inside each paragraph"
+    ],
+    "excluded": [
+      "changing the two-paragraph count, order, or content ownership",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented prior-work absence, novelty, mechanisms, or results",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese manuscript prose with a concise Chinese change receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "AegisVM exposes a machine interface, accepts a tenant-supplied kernel, retains physical-resource grant and revocation in the Host, and uses a per-tenant address-space boundary.",
+      "ServiceBox exposes service-level objects implemented by a Host-selected shared mediator; tenants deploy applications above that interface, while the Host retains physical-resource grant and revocation.",
+      "PersonaKit permits personality implementations to vary, but in the deployment being compared an operator must rebuild the Host to introduce one; a tenant cannot independently submit the personality artifact.",
+      "The public artifact build observation is evidence for PersonaKit's operator-controlled deployment in the compared configuration, not a sentence the author requires the manuscript to narrate.",
+      "The author does not claim these systems exhaust prior work and withdraws the three-property absence claim. P1 should instead use a parallel interface, deployment-control, protection or authority map to pose the distinct question of whether tenant-controlled OS implementation can be separated from Host physical-resource authority without making a prior-work failure or novelty claim.",
+      "The source-grounded observation for P2 is that interface placement, code-admission control, and physical-resource authority are independent decisions: AegisVM shows that tenant-supplied code need not transfer physical authority, while PersonaKit shows that implementation variability need not give the tenant deployment control.",
+      "This observation predicts two separate design obligations: expose semantics at a level that leaves the intended OS choices above the interface, and admit tenant-supplied code without a Host source rebuild, while Host grant and revocation remain separate authority mechanisms.",
+      "The author wants P2 to remain an Observation paragraph and authorizes changing its inline title to name this supported relation."
+    ]
+  },
+  "protected_tokens": [
+    "AegisVM",
+    "ServiceBox",
+    "PersonaKit",
+    "personality",
+    "per-tenant",
+    "Host",
+    "资源权威"
+  ],
+  "forbidden_actions": [
+    "retain a three-property prior-work absence or novelty claim",
+    "foreground the public artifact as the manuscript's argumentative subject",
+    "turn static linking itself into a general impossibility result",
+    "begin P2 with an unsupported vague reference to above differences",
+    "present definitions or a desired-property list as the Observation",
+    "claim that interface placement, safe code, or a shared address space alone establishes resource authority",
+    "change paragraph count or inspect external material"
+  ],
+  "hard_gates": [
+    "P1 expresses PersonaKit's operator-controlled deployment capability at the same comparison level as the other systems and ends with the authorized distinct question rather than tuple absence.",
+    "P2 makes the author-confirmed independence of interface placement, admission control, and physical authority its controlling Observation and derives the supplied design obligations from it.",
+    "The output preserves exactly two paragraphs, adds no prior-work absence or novelty claim, and uses only author-confirmed facts."
+  ],
+  "expected_behavior": [
+    "Return two revised paragraphs before the receipt and preserve their content ownership.",
+    "Give each prior system a parallel account of interface, deployment control, and relevant protection or authority placement.",
+    "State PersonaKit's operator rebuild and lack of tenant artifact submission as a deployment-control capability without narrating artifact forensics.",
+    "Use the comparison only to motivate the bounded distinct question authorized by the author.",
+    "Give P2 an informative Observation title and lead with the independent-control-point relation.",
+    "Use AegisVM and PersonaKit as the contrast that supports the relation, then end with the mechanism directions the relation predicts."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns exactly two revised manuscript paragraphs before the receipt and preserves their order.", "points": 1},
+    {"id": "R2", "criterion": "Preserves the named systems, Host, personality, per-tenant boundary, and resource-authority content.", "points": 1},
+    {"id": "R3", "criterion": "Compares the systems through parallel interface, deployment-control, and relevant protection or authority facts.", "points": 1},
+    {"id": "R4", "criterion": "Distills PersonaKit's artifact evidence into operator-controlled deployment without making public artifact the sentence's narrative center.", "points": 1},
+    {"id": "R5", "criterion": "Removes the three-property conjunction and makes no negative prior-work or novelty claim.", "points": 1},
+    {"id": "R6", "criterion": "Ends P1 with the authorized bounded distinct question and does not present it as proof of absence.", "points": 1},
+    {"id": "R7", "criterion": "Retains P2's Observation role while changing its title to the supported independent-control-point relation.", "points": 1},
+    {"id": "R8", "criterion": "Uses the AegisVM and PersonaKit contrast as the source anchor for the Observation.", "points": 1},
+    {"id": "R9", "criterion": "States that interface placement, code admission, and physical-resource authority are independent decisions.", "points": 1},
+    {"id": "R10", "criterion": "Derives the supplied interface and admission obligations while keeping Host grant and revocation as a separate authority mechanism.", "points": 1},
+    {"id": "R11", "criterion": "Avoids vague metadiscourse, definitional restatement, and a heading-repetition payoff.", "points": 1},
+    {"id": "R12", "criterion": "Uses only author-confirmed evidence, adds no external facts or results, and provides complete revision accounting.", "points": 1}
+  ]
+}

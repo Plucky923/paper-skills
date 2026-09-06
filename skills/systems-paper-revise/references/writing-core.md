@@ -213,6 +213,15 @@ unchanged merely because the independent necessity claim is blocked.
 
 ### Related work must earn the research gap
 
+When a comparison comes from repository, build, or artifact inspection, apply the
+[positioning and intellectual-move contract](positioning-and-insight.md). Distill
+the evidence into the exact actor, deployment-control, interface, or capability
+fact that matters to the comparison; an audit trail is not automatically the
+right manuscript abstraction. Treat `A, B, and C have not appeared together` as
+a conjunctive gap that still needs population coverage, parallel cells, and a
+causal bridge. Hedging or narrowing the named examples does not supply that
+bridge.
+
 Use one decision-relevant comparison dimension at a time. Grammatical parallelism
 is insufficient when the compared predicates describe different dimensions or
 levels. When the paragraph claims that prior designs fail to meet a new
@@ -240,6 +249,18 @@ negative prior-work claims separately; missing literature evidence must not hide
 the visible organizational defect. Apply the visible `classification -> claimed
 gap or distinct question` test even when the excerpt's incoming antecedent or
 cited sources are unavailable, and keep scope/evidence blockers separate.
+
+### Observations are intellectual updates, not requirement labels
+
+Apply the [positioning and intellectual-move contract](positioning-and-insight.md)
+when a paragraph promises an Observation, Insight, Requirement, or Design
+objective. An observation or insight needs a source-grounded, non-definitional
+relation that changes the reasoning space and predicts a design or evidence
+consequence. A generic statement of what an interface or deployment step
+`determines`, a list of desired properties, or a requirement restated from the
+heading does not discharge that role. Keep evidence observation, interpretation,
+insight, requirement, objective, and mechanism distinct; report or clarify a role
+mismatch rather than filling it with a reviewer-invented principle.
 
 ### Completed-paper prose answers with evidence
 

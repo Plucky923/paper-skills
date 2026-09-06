@@ -38,7 +38,7 @@
     }
   ],
   "behavioral_acceptance": {
-    "fixture_count": 40,
+    "fixture_count": 42,
     "minimum_score_per_fixture": 10,
     "allow_regression": false,
     "require_all_hard_gates": true,
@@ -60,6 +60,10 @@
     },
     {
       "path": "skills/systems-paper-revise/references/interface-boundaries.md",
+      "consumers": ["systems-paper-review", "systems-paper-revise"]
+    },
+    {
+      "path": "skills/systems-paper-revise/references/positioning-and-insight.md",
       "consumers": ["systems-paper-review", "systems-paper-revise"]
     },
     {

@@ -139,6 +139,16 @@ expected-versus-actual comparison in the shared
 - **Repair direction:** Make the existing takeaway or handoff explicit within its own paragraph where supported. If the link requires a new premise, content transfer, or structural change, report that dependency and required author authority; do not prescribe a fabricated bridge or formulaic summary.
 - **Sources:** [USER-NOTES], [ERNST], [FIVE-VENUE-CORPUS].
 
+## SS-09B — Promised observations and insights deliver an intellectual update
+
+- **Nature:** General best practice with hard argument consequences when the role carries the contribution.
+- **Reviewer attack:** “The paragraph is labeled as the paper's observation or insight, but it only restates definitions, requirements, or mechanisms.”
+- **Check:** Apply the shared [positioning and intellectual-move contract](../../systems-paper-revise/references/positioning-and-insight.md). Identify the evidence anchor, the non-definitional relation inferred from it, the information lost if that relation is deleted, the design or evidence choice it predicts, and its boundary. Independently record the promised role and the delivered evidence-observation, interpretation, insight, requirement, objective, mechanism, or mixed role. Test vague `these differences show` openings and heading-restatement endings at their exact endpoints.
+- **Severity:** `S1` when a central intellectual move is absent; `S2` for a local role mismatch.
+- **Exceptions / false positives:** The relation may be established by a model fact, counterexample, or prior-work contrast rather than a new experiment, and it need not occupy a fixed sentence slot. A standard requirement needs no artificial surprise when the paragraph is honestly labeled as a requirement.
+- **Repair direction:** Supply the exact source-grounded relation or classify the paragraph under its actual role. Renaming, repurposing, or moving it requires author clarification and structural authority; review does not invent the missing observation.
+- **Sources:** [SYSTEMS-GUIDE], [FIVE-VENUE-CORPUS], [USER-NOTES].
+
 ## SS-10 — Paragraph length follows reasoning, not rendered line count
 
 - **Nature:** Diagnostic heuristic / house style.

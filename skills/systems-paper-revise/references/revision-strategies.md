@@ -56,6 +56,18 @@ Use a design-derivation map or claim-evidence map only when that relation is act
 - Separate prototype, simulation, deployment, and production status; state transfer conditions instead of universal generality.
 - Preserve an author decision when several contribution hierarchies are scientifically defensible.
 
+For artifact-backed comparisons, conjunctive gaps, and promised Observation or
+Insight paragraphs, apply the shared
+[positioning and intellectual-move contract](positioning-and-insight.md). Use its
+artifact-to-capability distillation rather than turning repository inspection
+into the paragraph's narrative center. A negative tuple such as `A, B, and C do
+not occur together` remains blocked until its population, parallel cells,
+negative evidence, and shared causal constraint are established. If the next
+paragraph delivers a definition, requirement, objective, or mechanism instead of
+its promised observation, preserve that mismatch and ask for the missing anchor,
+relation, prediction, and role choice; fluent requirement prose is not an
+intellectual move.
+
 ## Interface and boundary repair
 
 Apply the shared [interface-boundary contract](interface-boundaries.md) when an

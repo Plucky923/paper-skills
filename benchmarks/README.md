@@ -78,7 +78,7 @@ read remains subject to the fixture's authority boundary.
 A run passes quality at **10/12 or higher** after passing every hard gate. A
 candidate is accepted only when:
 
-- all 40 candidate fixture runs pass their hard gates;
+- all 42 candidate fixture runs pass their hard gates;
 - every candidate run scores at least 10/12;
 - no candidate fixture scores below its baseline counterpart; and
 - the candidate's total score exceeds the baseline, or a previously observed
@@ -230,6 +230,8 @@ the provenance report remain reachable from their declared skill entrypoints.
 | `38-decision-history-pending-head` | Review accounts for every status while a pending successor leaves the prior confirmed head effective |
 | `39-decision-lineage-promotion-workflow` | Grill promotes a complete successor with reciprocal links and fresh Revise consumes only the effective head |
 | `40-decision-conflict-prose-receipt` | Revise preserves conflicted prose, applies independent repairs, and emits decision accounting even for prose-only output |
+| `41-positioning-observation-review` | Review separates artifact evidence from manuscript abstraction, rejects conjunctive tuple gaps, and audits an Observation as an intellectual move |
+| `42-positioning-observation-revision` | Revise distills artifact evidence, replaces an authorized tuple gap with a distinct question, and rebuilds an Observation around supplied causal content |
 
 ## Maintaining the benchmark
 

@@ -1,0 +1,77 @@
+{
+  "id": "positioning-observation-review",
+  "title": "Diagnose forensic artifact prose, conjunctive positioning, and an empty Observation role",
+  "skills": [
+    "systems-paper-review"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把 P1 和 P2 作为连续的 Introduction 段落做只读审查。除了事实证据，还要判断 artifact 信息是否处在论文需要的抽象层、P1 的结论究竟建立了什么 gap，以及 P2 是否真的交付了它承诺的 Observation。不要搜索外部资料，不要改写。\n\nP1: 已有工作用内存安全语言实现虚拟化组件，但接口、部署与保护边界各不相同。AegisVM 向租户提供机器接口并允许其携带内核。ServiceBox 由 Host 选择共享 mediator，租户只能部署其上的应用。PersonaKit 支持 personality 定制，但其公开 artifact 将新的 personality 代码静态编译并链接进 Host。因此，在上述系统中，租户独立部署 OS 实现、消除 per-tenant 地址空间边界和保留 Host 资源权威尚未同时出现。\n\nP2: Observation：独立 OS 定制要求分离实现所有权与资源权威。上述差异表明，接口语义决定租户能够实现哪些 OS 抽象，而代码接纳方式决定租户能否部署这些实现。要支持租户独立定制，接口必须暴露机制且 Host 必须保留资源控制。因此，需要解耦的是租户对 OS 实现的所有权与 Host 对资源的最终权威。",
+  "scope": {
+    "authorized": [
+      "P1 and P2 as one contiguous Introduction excerpt"
+    ],
+    "excluded": [
+      "external verification of AegisVM, ServiceBox, or PersonaKit",
+      "neighboring manuscript text or implementation artifacts",
+      "replacement prose",
+      "persistent-state changes"
+    ],
+    "output_language": "Chinese"
+  },
+  "evidence": {
+    "visible_structure": [
+      "P1 foregrounds a public-artifact build observation for PersonaKit rather than first stating the deployment-control capability it is meant to establish.",
+      "P1 ends with the absence of a three-property conjunction but gives no searched population, parallel three-property matrix, or shared constraint that makes the conjunction difficult.",
+      "P2 is explicitly labeled Observation, opens with a vague reference to differences, unpacks what interface semantics and admission mean, then states requirements and repeats the label's ownership-authority conclusion."
+    ],
+    "unavailable": [
+      "evidence that the named systems exhaust the relevant prior-work population",
+      "negative evidence for every system-property cell",
+      "a shared causal constraint behind the three-property conjunction",
+      "a concrete pattern, counterexample, model fact, or result supporting a non-definitional Observation"
+    ]
+  },
+  "protected_tokens": [
+    "AegisVM",
+    "ServiceBox",
+    "PersonaKit",
+    "personality",
+    "per-tenant",
+    "Host",
+    "资源权威"
+  ],
+  "forbidden_actions": [
+    "rewrite either paragraph",
+    "declare the artifact observation false merely because its abstraction is poor",
+    "treat in the named systems as sufficient support for the conjunctive gap",
+    "invent the missing root constraint or Observation",
+    "silently reclassify P2 as a requirement and pass its promised Observation role"
+  ],
+  "hard_gates": [
+    "The review distinguishes the PersonaKit source observation from the deployment-control capability and the manuscript-level comparison claim.",
+    "It rejects the three-property conjunctive absence as a causal gap or novelty result without population, parallel negative cells, and a shared constraint.",
+    "It records P2's promised Observation separately from its delivered definitional and requirement content and supplies no replacement prose."
+  ],
+  "expected_behavior": [
+    "Explain that artifact or build detail can be valid evidence yet still be the wrong argumentative abstraction unless the build mechanism itself matters.",
+    "Recover actor, changeable object, stage, control, and deployment consequence for the PersonaKit sentence without asserting unavailable facts.",
+    "Separate comparison parallelism, negative prior-work evidence, and the missing causal bridge as distinct findings.",
+    "Identify the exact P1-to-P2 handoff that assumes a conjunction absence has produced an ownership-authority insight.",
+    "Test P2 for an evidence anchor, non-definitional relation, information gain, prediction, and boundary.",
+    "Explain that P2 mostly states definitions and design requirements and that its ending repeats the promised ownership-authority split."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Reviews only P1 and P2, remains read-only, and performs no external inspection.", "points": 1},
+    {"id": "R2", "criterion": "Treats the PersonaKit build fact as source evidence rather than automatically manuscript-ready prose.", "points": 1},
+    {"id": "R3", "criterion": "Names the actor, object, stage, control, and capability inference needed to distill the artifact fact.", "points": 1},
+    {"id": "R4", "criterion": "Does not claim the artifact fact is false solely because it is too forensic for the paragraph.", "points": 1},
+    {"id": "R5", "criterion": "Identifies P1's last sentence as a conjunctive or set-intersection gap rather than a causal explanation.", "points": 1},
+    {"id": "R6", "criterion": "Names missing population coverage and parallel negative property cells for the conjunction.", "points": 1},
+    {"id": "R7", "criterion": "Separately identifies the absent shared constraint and does not treat hedging as a repair.", "points": 1},
+    {"id": "R8", "criterion": "Records P2's explicit Observation promise and its delivered definition-plus-requirement role independently.", "points": 1},
+    {"id": "R9", "criterion": "Tests and rejects the vague above-differences bridge at its exact relation to P1.", "points": 1},
+    {"id": "R10", "criterion": "Explains that interface and admission definitions do not themselves constitute a non-obvious observation.", "points": 1},
+    {"id": "R11", "criterion": "Runs the ending information-gain test and identifies the repeated ownership-authority conclusion.", "points": 1},
+    {"id": "R12", "criterion": "Requests the exact evidence or author decision needed and ends with complete scoped coverage.", "points": 1}
+  ]
+}

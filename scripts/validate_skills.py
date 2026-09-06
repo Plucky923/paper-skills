@@ -59,7 +59,7 @@ EXPECTED_PROVENANCE_FILES = [
     }
 ]
 EXPECTED_ACCEPTANCE = {
-    "fixture_count": 40,
+    "fixture_count": 42,
     "minimum_score_per_fixture": 10,
     "allow_regression": False,
     "require_all_hard_gates": True,
@@ -105,6 +105,8 @@ OBSERVED_FAILURE_FIXTURE_NUMBERS = {
     "decision-history-pending-head": 38,
     "decision-lineage-promotion-workflow": 39,
     "decision-conflict-prose-receipt": 40,
+    "positioning-observation-review": 41,
+    "positioning-observation-revision": 42,
 }
 WORKFLOW_STAGES = ("review", "grill_open", "grill_confirm", "revise", "rereview")
 WORKFLOW_SKILLS = ["systems-paper-review", "systems-paper-grill", "systems-paper-revise"]
@@ -118,6 +120,13 @@ INTERFACE_BOUNDARY_CONTRACT_PATH = (
 )
 INTERFACE_BOUNDARY_CONTRACT_ENTRY = {
     "path": INTERFACE_BOUNDARY_CONTRACT_PATH,
+    "consumers": PAPER_SKILLS,
+}
+POSITIONING_INSIGHT_CONTRACT_PATH = (
+    "skills/systems-paper-revise/references/positioning-and-insight.md"
+)
+POSITIONING_INSIGHT_CONTRACT_ENTRY = {
+    "path": POSITIONING_INSIGHT_CONTRACT_PATH,
     "consumers": PAPER_SKILLS,
 }
 DECISION_RECORD_PATH = "skills/systems-paper-grill/references/decision-record.md"
@@ -305,6 +314,14 @@ def check_bundle(
         report.error(
             f"{rel(BUNDLE_MANIFEST)}: canonical_references must include the shared "
             "interface-boundary contract for Review and Revise"
+        )
+    if (
+        isinstance(canonical_references, list)
+        and POSITIONING_INSIGHT_CONTRACT_ENTRY not in canonical_references
+    ):
+        report.error(
+            f"{rel(BUNDLE_MANIFEST)}: canonical_references must include the shared "
+            "positioning-and-insight contract for Review and Revise"
         )
     if (
         isinstance(canonical_references, list)
@@ -763,6 +780,62 @@ def check_interface_boundary_contract(report: Report) -> None:
             if literal not in text:
                 report.error(
                     f"{relative}: missing interface-boundary marker {literal!r}"
+                )
+
+
+def check_positioning_insight_contract(report: Report) -> None:
+    """Verify evidence distillation, conjunctive-gap, and Observation routing."""
+    required_by_path = {
+        POSITIONING_INSIGHT_CONTRACT_PATH: (
+            "source evidence",
+            "artifact-to-capability distillation",
+            "conjunctive gap",
+            "Evidence observation",
+            "non-definitional",
+            "prediction",
+            "`author evidence`",
+            "`author clarification`",
+        ),
+        "skills/systems-paper-review/SKILL.md": (
+            "positioning and intellectual-move contract",
+            "Artifact-backed prior-work positioning",
+        ),
+        "skills/systems-paper-revise/SKILL.md": (
+            "positioning and intellectual-move contract",
+            "artifact-backed prior-work comparisons",
+        ),
+        "skills/systems-paper-review/references/review-protocol.md": (
+            "artifact-to-capability distillation",
+            "conjunctive-gap test",
+            "observation ladder",
+        ),
+        "skills/systems-paper-review/references/structure-and-sections.md": (
+            "SS-09B",
+            "Promised observations and insights",
+        ),
+        "skills/systems-paper-review/references/prose-and-terminology.md": (
+            "PT-10B",
+            "Evidence provenance",
+        ),
+        "skills/systems-paper-revise/references/revision-protocol.md": (
+            "artifact-to-capability distillation",
+            "every promised Observation/Insight",
+        ),
+        "skills/systems-paper-revise/references/revision-strategies.md": (
+            "artifact-to-capability distillation",
+            "fluent requirement prose is not an",
+        ),
+    }
+    for relative, literals in required_by_path.items():
+        path = REPO_ROOT / relative
+        if not path.is_file():
+            report.error(f"missing positioning-and-insight contract file: {relative}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for literal in literals:
+            if literal not in text:
+                report.error(
+                    f"{relative}: missing positioning-and-insight marker {literal!r}"
                 )
 
 
@@ -1399,6 +1472,7 @@ def main() -> int:
         check_coverage_contract(report)
         check_interactive_clarification_contract(report)
         check_interface_boundary_contract(report)
+        check_positioning_insight_contract(report)
         check_decision_history_contract(report)
     fixture_count = check_fixtures(report)
     installed_mapping_count = 0

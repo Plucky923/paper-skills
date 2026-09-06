@@ -31,6 +31,7 @@ Load only the branch that the request needs:
 - Read [chinese-writing.md](references/chinese-writing.md) for Chinese prose or Chinese-to-English translation.
 - Read [revision-strategies.md](references/revision-strategies.md) for structural, evaluation, figure/table, venue, or multi-finding repairs.
 - Read the shared [interface-boundary contract](references/interface-boundaries.md) for interface or virtualization boundaries, semantic freedom, customization, protection/authority, compound isolation, or direct/delegated execution-path claims.
+- Read the shared [positioning and intellectual-move contract](references/positioning-and-insight.md) for artifact-backed prior-work comparisons, conjunctive gaps, or prose labeled Observation, Insight, Requirement, or Design objective.
 - Read [change-safety.md](references/change-safety.md) before editing files or prose with technical values, citations, equations, notation, identifiers, macros, figures, tables, or other fragile content.
 - Read [convergence-loop.md](references/convergence-loop.md) only when the user explicitly requests iteration/fixed-point revision or when several interacting edits make a single pass unsafe.
 - Read [multi-agent-revision.md](references/multi-agent-revision.md) only when a sufficiently large authorized scope benefits from independent read-only checks during such a loop.

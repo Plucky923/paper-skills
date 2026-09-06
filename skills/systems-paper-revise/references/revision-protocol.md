@@ -80,7 +80,7 @@ Use this branch when the requested prose does not yet exist.
 1. Identify the section or paragraph contract in [writing-core.md](writing-core.md). When contribution type controls the contract, route through [paper-archetypes.md](paper-archetypes.md).
 2. Extract the strongest supported answer, the premises required to understand it, the evidence that changes its credibility, and its material boundary.
 3. Build the shortest dependency outline that completes the reader obligation. For one move with several claimed outcomes, include only `stated`, `text-licensed`, or explicitly author-supplied and evidence-compatible edges from the writing core's fan-out map. Select evidence by function; do not preserve note order or include every true detail.
-4. Draft one manuscript-ready version. Add an inferential bridge only when it follows from established premises; otherwise narrow the claim or expose the missing item.
+4. Draft one manuscript-ready version. Apply the [positioning and intellectual-move contract](positioning-and-insight.md) when notes contain artifact inspection or promise an Observation/Insight: distill evidence to the supported capability, reject an unsupported conjunctive gap, and leave the intellectual-move unit pending when no evidence-bearing relation is supplied. Add an inferential bridge only when it follows from established premises; otherwise narrow the claim or expose the missing item.
 
 Composition is complete when the requested unit performs its section role, each material claim has support, and omitted notes do not change the decision case.
 
@@ -100,6 +100,30 @@ level while preserving `P is necessary` at exactly its original strength. Keep
 the missing support for P's necessity blocked. This category repair neither
 asserts Q/R nor selects a new thesis, so do not route it to Grill or return the
 whole sentence unchanged merely because the necessity proof is absent.
+
+Another non-atomic case is an artifact-backed prior-work paragraph followed by a
+promised Observation or Insight. Apply the
+[positioning and intellectual-move contract](positioning-and-insight.md) before
+rewriting either unit:
+
+- Distill a repository, build, link, or configuration fact into its supported
+  actor/object/stage/control capability only when that inference is established;
+  preserve the deployment qualification and keep the raw provenance outside the
+  argumentative center unless the realization itself matters.
+- Decompose `A, B, and C have not appeared together` into population coverage,
+  parallel property cells, negative evidence, and a shared causal bridge. A
+  wording hedge closes none of those obligations. Route an intended descriptive
+  map, distinct question, or negative gap as an author choice when it would
+  change the claim.
+- Audit the next paragraph's delivered role. If its claimed observation is only a
+  definition, requirement, objective, or mechanism list, do not polish that
+  material into an insight. Apply safe local cleanup, then request the concrete
+  pattern or model fact, supported non-definitional relation, predicted design
+  consequence, and intended role.
+
+Once those inputs are supplied, rebuild within the authorized paragraph around
+the controlling update. Renaming or repurposing the paragraph remains a
+structural choice even when the resulting prose would be more fluent.
 
 The inverse case is not a safe frontier: a completed-paper placeholder may share
 a sentence with the comparison question, workload condition, residual-cost
@@ -159,9 +183,10 @@ Re-read the complete frozen scope against the same standard used by Review and c
 10. every in-scope section, paragraph, sentence, relation, and lexical occurrence—including unchanged passed units and the last unit at each level—has a coverage state; when completing rather than pausing, every received finding has a terminal closure state and `unreviewed = 0`.
 11. every identified local repair on the safe frontier was either applied or explicitly classified as optional/not applied; an evidence or structure blocker did not become a reason to skip an independent meaning-preserving correction.
 12. every intellectual-move dependency added or strengthened by the revision is source-grounded or explicitly author-supplied and evidence-compatible; no reviewer-hypothesized bridge was promoted into manuscript prose, and independent outcomes were not falsely unified.
-13. no requested `author clarification` or `author evidence` item remains pending;
+13. every artifact-backed positioning sentence was checked for artifact-to-capability distillation, every conjunctive gap passed its evidence and causal tests or remained pending, and every promised Observation/Insight delivers a non-definitional intellectual update rather than a requirement restatement.
+14. no requested `author clarification` or `author evidence` item remains pending;
     if one does, this is an interactive pause and the completion gate has not run.
-14. every literal decision version has been classified; only executable heads
+15. every literal decision version has been classified; only executable heads
     constrained edits, and every stale, rejected, superseded, out-of-scope,
     evidence-conflicting, or structurally conflicting version is named in the
     decision receipt.

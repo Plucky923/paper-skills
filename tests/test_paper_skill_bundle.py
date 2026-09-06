@@ -272,6 +272,69 @@ class InterfaceBoundaryContractTests(unittest.TestCase):
         self.assertTrue(self.check())
 
 
+class PositioningInsightContractTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.paths = [
+            validator.POSITIONING_INSIGHT_CONTRACT_PATH,
+            "skills/systems-paper-review/SKILL.md",
+            "skills/systems-paper-revise/SKILL.md",
+            "skills/systems-paper-review/references/review-protocol.md",
+            "skills/systems-paper-review/references/structure-and-sections.md",
+            "skills/systems-paper-review/references/prose-and-terminology.md",
+            "skills/systems-paper-revise/references/revision-protocol.md",
+            "skills/systems-paper-revise/references/revision-strategies.md",
+        ]
+        for relative in self.paths:
+            source = validator.REPO_ROOT / relative
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(source.read_bytes())
+
+    def check(self):
+        with patch.object(validator, "REPO_ROOT", self.root):
+            report = validator.Report()
+            validator.check_positioning_insight_contract(report)
+        return report.errors
+
+    def test_valid_positioning_and_observation_contract(self):
+        self.assertEqual(self.check(), [])
+
+    def test_missing_artifact_distillation_is_rejected(self):
+        path = self.root / validator.POSITIONING_INSIGHT_CONTRACT_PATH
+        path.write_text(
+            path.read_text().replace(
+                "artifact-to-capability distillation", "artifact summary"
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_conjunctive_gap_gate_is_rejected(self):
+        path = self.root / validator.POSITIONING_INSIGHT_CONTRACT_PATH
+        path.write_text(path.read_text().replace("conjunctive gap", "combined claim"))
+        self.assertTrue(self.check())
+
+    def test_missing_review_route_is_rejected(self):
+        path = self.root / "skills/systems-paper-review/SKILL.md"
+        path.write_text(
+            path.read_text().replace(
+                "Artifact-backed prior-work positioning", "Prior-work positioning"
+            )
+        )
+        self.assertTrue(self.check())
+
+    def test_missing_revise_observation_gate_is_rejected(self):
+        path = self.root / "skills/systems-paper-revise/references/revision-protocol.md"
+        path.write_text(
+            path.read_text().replace(
+                "every promised Observation/Insight", "each labeled paragraph"
+            )
+        )
+        self.assertTrue(self.check())
+
+
 class DecisionHistoryContractTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()

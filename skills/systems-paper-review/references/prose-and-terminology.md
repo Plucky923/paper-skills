@@ -134,6 +134,16 @@ commitment differs.
 - **Repair direction:** Restore the shortest supported causal relation at the appropriate abstraction level; retain lower-level detail only where it changes a decision, property, or boundary.
 - **Sources:** [USER-NOTES], [FIVE-VENUE-CORPUS].
 
+## PT-10B — Evidence provenance is distilled at the manuscript's comparison level
+
+- **Nature:** General systems-writing principle with evidence-scope consequences.
+- **Reviewer attack:** “The sentence narrates what the authors found in a repository or build instead of stating the prior system capability that matters to this comparison.”
+- **Check:** For repository, artifact, build, link, or configuration facts used in positioning, apply the shared [artifact-to-capability distillation](../../systems-paper-revise/references/positioning-and-insight.md). Recover actor, object, stage, required control, and comparison-axis consequence. Keep the raw observation distinct from the inference, and test whether the implementation detail itself is material to the argument.
+- **Severity:** `S1` when an unsupported inference carries the gap; `S2` when forensic detail obscures a comparison; `S3` for a local abstraction mismatch.
+- **Exceptions / false positives:** Concrete build or artifact detail is appropriate when it is the mechanism under study, establishes implementation reality, or is necessary to bound the claim. A citation or evidence note may preserve provenance without centering it in the argumentative sentence.
+- **Repair direction:** State the narrowest supported capability or limitation and retain its deployment qualification. Missing inference or alternative deployment paths require evidence rather than editorial abstraction.
+- **Sources:** [SYSTEMS-GUIDE], [FIVE-VENUE-CORPUS].
+
 ## Sentence logic and grammar
 
 ## PT-11 — Every sentence has one dominant assertion
