@@ -70,6 +70,6 @@
     {"id": "R9", "criterion": "Names the exact structural operation and destination decision still needed.", "points": 1},
     {"id": "R10", "criterion": "Routes only that decision through clarification or Grill.", "points": 1},
     {"id": "R11", "criterion": "Marks the structural finding pending clarification rather than closed or terminally blocked.", "points": 1},
-    {"id": "R12", "criterion": "Adds no scientific content and does not issue a terminal closure map or coverage receipt while waiting.", "points": 1}
+    {"id": "R12", "criterion": "Adds no scientific content and does not issue a terminal closure map or manuscript coverage receipt while waiting. The separate compact decision receipt remains mandatory.", "points": 1}
   ]
 }

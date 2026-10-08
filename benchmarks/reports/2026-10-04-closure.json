@@ -1,0 +1,3529 @@
+{
+  "schema_version": 1,
+  "completed_at_utc": "2026-10-04T09:19:29.591388+00:00",
+  "evaluation_kind": "development model evaluation and matched diagnostic; not formal whole-suite acceptance",
+  "evidence_root": "/Users/plucky/.codex/research/paperskills-benchmarks/2026-10-04-154054",
+  "selected_final_guidance": "candidate-06",
+  "decision": "retain evidence-supported development changes; not behaviorally accepted",
+  "formal_acceptance": {
+    "accepted": false,
+    "final_frozen_tree_full49_matched_blind_run_completed": false,
+    "all_final_gates_pass": false,
+    "no_regression": false,
+    "reason": "Case23 ID continuity and case31 paragraph hierarchy still fail; matched case32 loses one rubric point. Final candidate06 has not run a full49 matched acceptance."
+  },
+  "model": {
+    "name": "gpt-6.1-sol",
+    "effort": "high",
+    "cli": "0.159.2"
+  },
+  "conditions": {
+    "S": {
+      "tree": "baseline",
+      "generation": [
+        "R01",
+        "R03"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "S",
+        "expected_cases": 49,
+        "scored_cases": 49,
+        "complete": true,
+        "status_counts": {
+          "pass": 39,
+          "execution_failure": 5,
+          "hard_gate_failure": 5,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 518,
+        "delivered_content_maximum": 528,
+        "cases": [
+          {
+            "number": 1,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "3083a21992c87df05f91449f6cce81d52bfbea2cdb7d2942d1ba7fd5b80a904c",
+            "supplement_sha256": "4ff1a3fcd8c1a3d366fec8410b5fa1d3c2dbb1cb0950f26142d7e61ae0b43f3f",
+            "packet_sha256": "1786545f2b0918e11a9b7698e51af552be2f72c57c874922a7d0dd0d73f36968"
+          },
+          {
+            "number": 2,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "377b6f6d6cc2764c096c1fdb75a72a63b7a4fd3c93e4c348f223178d8f750f53",
+            "supplement_sha256": "8bcb9c928e2b750bfae9e38ac66b4d2d12f44381171fceb1d343d1c6a9e41250",
+            "packet_sha256": "dd40bf088a064d8fa579b7ec8775f941532a8811ecee4b30dae6281224c9cb72"
+          },
+          {
+            "number": 3,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "2b7730817a1dc7650b7fcc8d38386d42f4e564506f60668bc2b0e87b07e13229",
+            "supplement_sha256": "5a0fc66c53349fcd192dfb490e73ad8420f0fef49e1ead7e586b09aa71c9c30e",
+            "packet_sha256": "1fab105500f3250a8d30d87ab631bfe41ac3bca3194d9547ee6987c14e2028dc"
+          },
+          {
+            "number": 4,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "bf2292b4a2c5582fa7cbb4c0660b0a5a02708206e799325ef47f9fd77fa2b0c2",
+            "supplement_sha256": "d2e634c5af5243a10f095a09e207c0ba101dfb727a9ed06611d3aab330629675",
+            "packet_sha256": "39919b49c895484f09fc1cdacd360afd5e8a0b4c31419f2c7154281e74e6def1"
+          },
+          {
+            "number": 5,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "98f5a10bc53b9c9bbf199deebf9410817f38b74e854ff4e27887dfac45dd1f79",
+            "supplement_sha256": "ff0d1ef5cd61c274f16d92bb5ebd54fcb1b8598d65057f9e0e79b552dc5852b8",
+            "packet_sha256": "04b44a8e5697aea93146070ed89e355dfafde77055be564968868dec524706fd"
+          },
+          {
+            "number": 6,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "df704fcafe6461b3a9c5e7db05399ac9f368df043f6151b55d470d8cffced3c9",
+            "supplement_sha256": "ffcadbda91cb10f07aa2ca5efbc0e7b389b9615c0728cdf3ee0433e486c19fde",
+            "packet_sha256": "69a11ec8a516d66fd62647c398c8ce3bbaed621436c53727a195c34b4b1b6344"
+          },
+          {
+            "number": 7,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "918abd15ff5110fdacfbca3f44b8e0cd01cb2f1bc34a65821177591b88ca5d6d",
+            "supplement_sha256": "ae7f5faaefcdf8d8ad91876d4f78b6418fe402efd014407efd828fe870d55d1e",
+            "packet_sha256": "0c8cd844bea40b4e8f16ab2e06997122df96b5c6e407344a79136324efaf236e"
+          },
+          {
+            "number": 8,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "26649293fdbb8363386ee7ecbc22cbe7eeace3753490bd97c13900776beb940d",
+            "supplement_sha256": "3069b2b0192c3ceff2451ab0c7262e072a8e13650ba276d2727468fb457a77c0",
+            "packet_sha256": "e291d0e9b6d458909f3130951acb1853ff857e24b9a31a7374606341cc395258"
+          },
+          {
+            "number": 9,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "05403489601e834314da139a14d1cef7dd38d74c7b66bbbd44fe4908b21b7ae0",
+            "supplement_sha256": "08d6103dd91fc0675ae6dec359c4307c01d252d68f54301536578111f136bbb9",
+            "packet_sha256": "0ea9a8086a46bb25895d4a139ccbdf0e09d849cec368094dc36acd0f773929eb"
+          },
+          {
+            "number": 10,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6f7837955612ebde3b75f6045967dc33884ce3444030134864b66204a3b785c1",
+            "supplement_sha256": "7fa67a139361bc2405fab024f7f3b2c5844d30ddb8f8bb4a22931ec829e48f4b",
+            "packet_sha256": "3ff025456c07967a0831c2a9d04e49ebdb59cd47c7a98dbd1cbbde92ec769b85"
+          },
+          {
+            "number": 11,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0854d03a4e46bcf3cac41988e4f4949381180461df74576b4b1bc08a35354fa7",
+            "supplement_sha256": "f9f66cdceecc3b5accfccf82ff304aa83eac92e47b1f5a7cd8f729f9b58a5611",
+            "packet_sha256": "4fa2871d9751f7b175ae11e1c7f493269267cc7f494bdebc20933f57f3658062"
+          },
+          {
+            "number": 12,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d6c3882a465a9a2ff453515730c55cf96e063e1d00e5d892e8b107e10deb5275",
+            "supplement_sha256": "a42c90806e8d6a2763af9f2e5acbf3af31d8faa7b60a0ea2e3a4093350ee00de",
+            "packet_sha256": "48dea605311a8652fffc0f4c4c5cc9c1f40ca9748897fe6c558c48c1a8c0a5ab"
+          },
+          {
+            "number": 13,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "3abec12dcca44043be034371526186d191045a58f48a55eab15d2c67afc44f30",
+            "supplement_sha256": "476fc84543647c21ce184c509855b0346c47f2d44912d61f4753397c36c53f7e",
+            "packet_sha256": "1e7829b6d758490eb90b5ec8cadc034fdbcc3a81d25c4fe8c22d1c2d1f9da04a"
+          },
+          {
+            "number": 14,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "e54df45eb952a726ff53ad093d9fefa2d622140fd047d7f1d4e5f4c2f2f5a54e",
+            "supplement_sha256": "a7b01aef36467072e7b58cdabb4030d8a4905bf8940401b14fd2a1e1265833e4",
+            "packet_sha256": "4a27cc570b5a8fc9b5e183c98a6f778ca3a790497554dc35a1d1e400016b07de"
+          },
+          {
+            "number": 15,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f61b5e50b7f85eda1ce1535ec59710c4ca746a39c360dddb6200c477f8799c77",
+            "supplement_sha256": "c4b19c01ad51c02013291371f8d823c6f0418472dcb40e5686ceafa607fe0771",
+            "packet_sha256": "364dbc49de8331844cb9e626961123607e7b2676902cfe932fb7a8fd4e7dabfb"
+          },
+          {
+            "number": 16,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "5999547e654253bd50a54cb56f0d2c57348b0d32a0ea1ab54fbe928574882d41",
+            "supplement_sha256": "62cd5ea1338c90c68c1c4fca838484fa9b22073123031ef4042fddf8e61c333d",
+            "packet_sha256": "7863b8e702e6b14112260b19686444225b4b65423c90ae012640acdf6393d762"
+          },
+          {
+            "number": 17,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f8f847b7a9f5222c41e250c43400e9feb6e78c7b8149aa2c440e40bd49335f92",
+            "supplement_sha256": "0eb12b2c3bc3ab89b1d54218fea346cefdfbe1abbe5e9ce161f40a4fa760f13b",
+            "packet_sha256": "50280fcdc3782b9cae8791e851f9e46ef61854b3e03cb9b539c462605387b449"
+          },
+          {
+            "number": 18,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "c3129a27130869d2aa458ed9dbbcdb1bcbc0c0696603e4974cb67b172013fee9",
+            "supplement_sha256": "c81699309db0c7cc7835ca36e636eb10ec656a7445a1c7764415256df5de53b2",
+            "packet_sha256": "197e664b653fdd24a706e34d0b23513a084de6c0879956871bdcd871a8b0d661"
+          },
+          {
+            "number": 19,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R3"
+            ],
+            "gates": [
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "c1621a5221e2c9d456efcfbfd519a4b79546c1fb88ac9375168c3749dd91861b",
+            "supplement_sha256": "9f5bd424442ac717020970cad04accca136bddcf7eed962fabac282d2b25cb75",
+            "packet_sha256": "2efdf65702813277a535ce63c4abd7538581f1ef518542f8eb8d5574b6319cf2"
+          },
+          {
+            "number": 20,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "5aa295f65c8392385b0bfa5a1b4d89e7ad76f7f97fb6316b19c5708a7cd004a4",
+            "supplement_sha256": "19500b0ffd6b858c755cdf6235f4ac17dbbd01815bc73176c3f746b73314ab1a",
+            "packet_sha256": "c0432dddf2bf3f9b0620a5ef75f1dc504f4401a5c8591d93811c8c9d70f1caba"
+          },
+          {
+            "number": 21,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "fail",
+              "fail",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "unresolved",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "5c78b8bbf7b920cf55fd341a2b96efd583bc1c504008ee6ac420001f3feebe16",
+            "supplement_sha256": "7d0a2aba72b83351b9a303c1bf9fcb52e428c5e26d4120adc374f3a3c04c8963",
+            "packet_sha256": "e56a253d49e3d476d00f7ef100afb083090a1170a78e8a71b1067282f2a60b58"
+          },
+          {
+            "number": 22,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "fail",
+              "fail",
+              "fail",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "unresolved",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b472211d0f276cfc9f916a2dcbedf1bf8ad11ea43ff551c45804d07723ae9c9b",
+            "supplement_sha256": "e176d5729168a4488fa5f79a2d9fb1c77810e12abbf39e077a63b6739ceae7f2",
+            "packet_sha256": "2bfb46ac263da617f40a28842d6111b5670e8a9059b49608dad9284698570336"
+          },
+          {
+            "number": 23,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0faaa1b6c25cfa34422a7644c29cb994de6ff1a204ab8a28f4505ed6e7890694",
+            "supplement_sha256": "83147b65649763e1ac585143a1c3bd83647144842acc8366c84414c53c8fcf72",
+            "packet_sha256": "6773cf5f66854a704fdaecfca40ca9a82e36c9fb979d8b147ca7075bc6607624"
+          },
+          {
+            "number": 24,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b547938b73bbb050b159f92602986b532c3e6f3f052fd87f9ae4c9ac24fead57",
+            "supplement_sha256": "3d687f4052f38426cfeea3541cd29efd0583ddb05032d6788f60428c176c93d0",
+            "packet_sha256": "57c5daa7be4d493656b1d2185c2c0c13a8ea26c4c5d3f6015557627181edc04b"
+          },
+          {
+            "number": 25,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "2007f7288db6c730a640df7f090463f29be302e44ec64f79c1b3bb8316166420",
+            "supplement_sha256": "7c3536f844265900b684ba7f10b0170b23351b5c6fc3bc6ea052b31226fcf961",
+            "packet_sha256": "78b6e7b9e86efcb082b18141b9e3ea9fa03c490548cd0914ed2979c7dee01001"
+          },
+          {
+            "number": 26,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f974d423999f4ad2f385188633a7a2c7084f6d61675c79a0b8be9aee7967b3d2",
+            "supplement_sha256": "61d572a4b7806cf42640e8daf14239bc8ac61b47ade6389822a8ddfa25a375a8",
+            "packet_sha256": "c066a43344ba360c0005843b7cabb533a977aad6f2ab2fdcb3a79bacc0db10cb"
+          },
+          {
+            "number": 27,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "430d58edde012c73fefb734f0c0f8b64abc5c4ce19e287ae9888e4e8cde1ef03",
+            "supplement_sha256": "4a3590e8a4435ebc100b49c70764a2d8159ebc199c5e658825258940efa37a31",
+            "packet_sha256": "b0c66aa21f3ce078a0e58853898f8b6eb332ec72419ca00bf9309905115707ed"
+          },
+          {
+            "number": 28,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d3eaef8ae1f3b50d54272351c02d643899309c416f55d2abd65bafdfdc33cde2",
+            "supplement_sha256": "ff689cec67cc1153422f276e1729a3cd8c1070432b675a65d5f57c93d4af5a19",
+            "packet_sha256": "bfa6530349e511d38d2ac0a604845fc6fdd392c3399371036b97e03ff0fe5d6f"
+          },
+          {
+            "number": 29,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b36286a1b7e56e481717e2b1a90de64f154b694f5f744087b320ea63da5f82bc",
+            "supplement_sha256": "1e1071eb27f0dc7dd0981e37af1fedfa1c62a953eacdaad41ff0d3780703c2a8",
+            "packet_sha256": "0b474c54dfe42ef6d3ba92e3d976a812b752b152234d11f0ab643d917e0e66f4"
+          },
+          {
+            "number": 30,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "dbff9a3fcb42cb200a1234cd99d7bdbd147a9c015a229f1edf0abe1afad930d2",
+            "supplement_sha256": "8b739d9603d4e4806b5bd50167d4522a9b710c6c9908f366cc7c27563b5ba10f",
+            "packet_sha256": "38826cfddffb607086820c4febb15386b7bb476b9c3c8fd3f1da1f51619fe7b9"
+          },
+          {
+            "number": 31,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R8"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "4cf4d029fb2fcac8b73dd2a33691a45db769114b8c14c1ac2146e91ce195ed67",
+            "supplement_sha256": "3ab7a7416302150cf933a66c639d80c082cf8e68b849fe3b15252efc7a54c9be",
+            "packet_sha256": "fde651b72c390f9f674d80353b57460ff791ea80d1ea47d596a6c8fba3b97acd"
+          },
+          {
+            "number": 32,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "pass",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b56c8206c71fed0acc678fd7bb4954e3852212c3eaa98ee4701259b874a5c4ee",
+            "supplement_sha256": "b8483adc316fdddec36d02fff9408a75802628b3b387f93d14ca9d1d01c17dce",
+            "packet_sha256": "e860b2b32d65017a60f53c8f1e8606853a2b2f4c890630a5a85ff3bc577d71c4"
+          },
+          {
+            "number": 33,
+            "status": "hard_gate_failure",
+            "content_score": 9,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10",
+              "R11",
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "7745a24f536d465f34723b3052808a61fefede21813e4ca37b098a124cd78ce0",
+            "supplement_sha256": "892db22cdac56979151afb631778d8b64ec8619331b9edfdab6dd279c8400a1c",
+            "packet_sha256": "eae268a203b44feb170875d1901ff806f21f21fb0b22c67b2b836374b55d13fa"
+          },
+          {
+            "number": 34,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "pass",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "cdd5b2de5e18b3c18c22e5688d8dfbc67338367476954d5e970834e705bca6e8",
+            "supplement_sha256": "7d3086390108a869846bc2001acda69618e16e2748d32ef5dbf18b8f9adc87ab",
+            "packet_sha256": "f7e94973fb3a68737f2b523c1ad52548d0da272e7f554df0582e7fdc1dab2890"
+          },
+          {
+            "number": 35,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "253da1794aca4e124313704f72475602537f13d328992ce772a380b5d1e2ea56",
+            "supplement_sha256": "4a9ba76e627887253fd288e1a3ebf7d32a135d744f44756862c9f2c8543d3337",
+            "packet_sha256": "2603251f0e6a01d319854b55b4691c6cf8ae4ec3a85ef387ea3fa5d15a3afea2"
+          },
+          {
+            "number": 36,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "c2bfcbc0d4bca8f2e4b77964b6fce27db00f05fe5207c0ad6d7e1158075a4dec",
+            "supplement_sha256": "8e91dcad3d436b43f06defb06fd368074f2b0302dfbe1fcd99e6a3a3b1cb4d86",
+            "packet_sha256": "d0e3f2c8d3c5504234c8ec8b4269d2031042f8271154d338be08d6749e51f24f"
+          },
+          {
+            "number": 37,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "372fbb0603cb3c31d9f310ab8c74ad5824551f15e4caa54d375d32345a999768",
+            "supplement_sha256": "c58ad1de8fd1b712ef88e2d02905dfda829ab2679d960c317913f9fd5eaca1ca",
+            "packet_sha256": "d48cc3ef35d5b0584a9b9e74f020369a46115233eb88a4cff38e8cf361748546"
+          },
+          {
+            "number": 38,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d8ba001f31097803c136b2e300b8db77ab264a9e3947a6db5393bc47dfb72486",
+            "supplement_sha256": "f29c1909995891f93c01d2a0c839d2851dc9f669d17b02c4a2016b9f475df3aa",
+            "packet_sha256": "4d096ad268f56b90a0b38148fee5a25ed3954dbd4eb0321c32a954d28a6f39a8"
+          },
+          {
+            "number": 39,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "362a937ed72674b47ac78f08f7f6932ef3fd353d3dc8d9d057d745d7713622d9",
+            "supplement_sha256": "83644bb5bedf271ea10b15a8a967ebec7735326ebb9ec47817e5cf173c74e2bf",
+            "packet_sha256": "ddb43ddf650c22cb7894cc1476b005fe2c9eb0b4d252e7a9d94d56483a6e5a6d"
+          },
+          {
+            "number": 40,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "8d08bfe6b782cd9caf854e981af9048e9c1583db3ede378449226212693e1d01",
+            "supplement_sha256": "d72759aca153280ad5b4fa69058b4c628a194b510dfc39a7109131b86be35d6f",
+            "packet_sha256": "fa0b66007b2c09ba1044a958ef55083b675abf2abf36b8547aa687aef2dea938"
+          },
+          {
+            "number": 41,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "pass",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d9e75a605274cfdc64a061c3d762915dad49faa19c2568841ba6a6293cdd2561",
+            "supplement_sha256": "4b0fc61621394ee98bd785d2399e75cefe2d70e11c0e5af8a0cfb6accb04b296",
+            "packet_sha256": "54cae7bf36cd4c97dceb859a984126f6df22a7611ec20caf1eba2dfbdaad40c6"
+          },
+          {
+            "number": 42,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b2b48cb3ea63c6f9d6a34b7a61246ac25a2420c4b1e1f33e6d7a94494a91c5df",
+            "supplement_sha256": "834034eecbccbed0cafcdb9e4ed7e83e885302ed0c7493037b8cab9056d5981a",
+            "packet_sha256": "ce2aec65286ad83547efdcb5d32d399ef35b9c989433c859f63a1f2c3db1674c"
+          },
+          {
+            "number": 43,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "56eed4c046c8e687154e9dc49638936d8d8a5d5e8f630226e2a4ab50fe4bee97",
+            "supplement_sha256": "3e7495e77daa7142b592ec26a27f39e992ff4a3bab36acb271531db7de30d90a",
+            "packet_sha256": "7327e1340f0d9b07a20e9aef69e4085fe7a296c9f04cd58bf9edc12c9cc955d2"
+          },
+          {
+            "number": 44,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "13feaff811a29f66654c338d902d141fabc73bd08a660d88d4e636a3600bd9b8",
+            "supplement_sha256": "4a739cd230c20767688e3b4e1774d55a8ac360b5c7ebff9a0efd5983128d3691",
+            "packet_sha256": "2684e84bb6065fa59cb7629f61a16d033f0784d1caae27234edeebdefe196b25"
+          },
+          {
+            "number": 45,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "20506b91a403bd8ca7e6faf45c334f9a9c985913179d9ec16511234224db3547",
+            "supplement_sha256": "09db3a2187be4815d40ad62046d410ab8636edddb33f7ed3d3ae1339d2889529",
+            "packet_sha256": "1381f28bb4213f81cbf3a0973020a1b6eaf98dbaefc83eb86b45175cd329071c"
+          },
+          {
+            "number": 46,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "5df2a63a306dd47d17c088cbf097dd3be7343b6798b05555cc460cc7ffb86fcf",
+            "supplement_sha256": "17b29314661325e6c13444286af8c411deb744b8f6311ede0e1a16de1202b739",
+            "packet_sha256": "b3d56aabb157398ee0d1f993546bda1dd225d0eab2aa1d246ea32e00e79d9256"
+          },
+          {
+            "number": 47,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6b560ed7c59c456b54cc7b17c9529b18fe11dd7ecba350c7098bb335a63b4c08",
+            "supplement_sha256": "da286e735f0bea9a17371388bd301b1d301957f317f20b4c6ced34b14337a8a8",
+            "packet_sha256": "d0b8fd8b459491c4e49453e066bed4cdec10099fa1e09a0a16de656b37bdbb20"
+          },
+          {
+            "number": 48,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "7bd399f76d1194c88cd750e6dbd8743c554817f94d68a624edb3d681e1f695c1",
+            "supplement_sha256": "ca65b1039b3d91e3833d429a2a4eb5c577aac45cb1a65e884f33ee1a7ce2c84a",
+            "packet_sha256": "ee8ba26737854221cc0b2d24ff57fc863956a42d86d8a434eb2a38e51bbb8c1c"
+          },
+          {
+            "number": 49,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "8e6eca1b002c5a38faa6c80f86d808afe9dff530d3d76a0a2be7f0db45d1e720",
+            "supplement_sha256": "b3b08d773b3bd395322e99571d51f64c4ed89ec2ec39a2e152612276caeeb13c",
+            "packet_sha256": "61dd46560e0f4aa52a164e6874e58fc9167fe898cb17011268ceb372e1cbfeb7"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "e1eb5eb3708de49e0736fa6b183f20063d1af94ddc00e7744bca53f514b61e4b"
+    },
+    "T": {
+      "tree": "baseline",
+      "generation": [
+        "R02"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "T",
+        "expected_cases": 6,
+        "scored_cases": 6,
+        "complete": true,
+        "status_counts": {
+          "pass": 6,
+          "execution_failure": 0,
+          "hard_gate_failure": 0,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 70,
+        "delivered_content_maximum": 72,
+        "cases": [
+          {
+            "number": 1,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "72795d53b8d4b5265a2d7293e516afb580dd5e529ba954394f47178b632a6b00",
+            "supplement_sha256": null,
+            "packet_sha256": "3709a1a6969ee6f95738a85577ae7f4505d045ee7c2c937033223c35da4c3334"
+          },
+          {
+            "number": 2,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R11"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "10f3ad3ade166e02c5af5d1dfb84581d5fb6747d55b9c39ffb737992757fa16b",
+            "supplement_sha256": null,
+            "packet_sha256": "304db285c0d2731c3a595b9050c5ca5a05f179f9150f67088161325926871e36"
+          },
+          {
+            "number": 3,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "130a486ed4a1551e47a4a220dc2d43d80d7827a8ffa72697aab678241c802633",
+            "supplement_sha256": null,
+            "packet_sha256": "7729bd0ae4b05acdefd472bc96a15e1634fe2657f89f6aac7be16a9181984295"
+          },
+          {
+            "number": 4,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "22c588eb50c8876522309fd9f3d434b2e8251b1e55bc4018d7da725d7a7d1025",
+            "supplement_sha256": null,
+            "packet_sha256": "67d01eff8e281516597cfee3b0812007d4ee117fc2ae90b86e18d6ed42674932"
+          },
+          {
+            "number": 5,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "8f178e539402a14552aeaf671c81852f04e8d1a5f9d5a52cdcaf1b892f724f2f",
+            "supplement_sha256": null,
+            "packet_sha256": "2bbdce7ad1ae787abc0e0f71c6e4e6fc01d51a80913566907cacd4adb8c20be4"
+          },
+          {
+            "number": 6,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R1"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "2a3ce32cba775e31ed139aba9851d8dcfb88313e4417810cc3b5d2b9c53ba064",
+            "supplement_sha256": null,
+            "packet_sha256": "1373c992649489ec5b3d25413d4332b4020c48aa53483a3bef9385852228cfdc"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "42d3df602afc10051ccbc3a9ddb75700f57973d875bff8b170b653a91938dc9d"
+    },
+    "U": {
+      "tree": "candidate-01",
+      "generation": [
+        "R04"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "U",
+        "expected_cases": 4,
+        "scored_cases": 4,
+        "complete": true,
+        "status_counts": {
+          "pass": 2,
+          "execution_failure": 1,
+          "hard_gate_failure": 1,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 33,
+        "delivered_content_maximum": 36,
+        "cases": [
+          {
+            "number": 1,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "e90d2381b45a60b15ab2f456b7d93e5893bf6c701888eeeefc51dcc85e9f10f4",
+            "supplement_sha256": null,
+            "packet_sha256": "1154a8aa14f9d7a3731822dc8699a3758e67dc63d744fdebe1bd4948c2af241a"
+          },
+          {
+            "number": 7,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "00eaaa6cb82535206b3eb25fb3b4a31b886aae3ff7fc7ddae81877efdcb83f01",
+            "supplement_sha256": null,
+            "packet_sha256": "d2039ed68d1853f590828366ae1a99da927ddd31efdac0ac094d107f719c7880"
+          },
+          {
+            "number": 21,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "dbe932577825f62f5f3797749b3ab15ab1df842d3218bf4ddffc94cc3240403b",
+            "supplement_sha256": null,
+            "packet_sha256": "6102d201cb553742903a6c727af22b91b359d1420a31a0f88932d8aed26b4e8e"
+          },
+          {
+            "number": 22,
+            "status": "hard_gate_failure",
+            "content_score": 10,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R2",
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [],
+            "protocol_gates": [],
+            "score_sha256": "f3214d611f53b8ab6b3efae22fa51eed7aa805f9a389b7328963c204b154fdb9",
+            "supplement_sha256": null,
+            "packet_sha256": "fa00bd44f0f80d2b91514ff881c7c088478e7205532463d08341c7a41209d043"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "1c4ed59efa6260032a57a61eaf5cbb3d5480531a36a3eb43cb15033023daeab8"
+    },
+    "V": {
+      "tree": "candidate-04",
+      "generation": [
+        "R06"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "V",
+        "expected_cases": 49,
+        "scored_cases": 49,
+        "complete": true,
+        "status_counts": {
+          "pass": 37,
+          "execution_failure": 8,
+          "hard_gate_failure": 4,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 482,
+        "delivered_content_maximum": 492,
+        "cases": [
+          {
+            "number": 1,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f64c6637ded2e5c7b384d3172420d9dd848e98a9b23a7c5b280cf0377bbf4cdf",
+            "supplement_sha256": null,
+            "packet_sha256": "5336980083ba50690b171cdcbc236c8109edca262349f43e2d9c33193d19489c"
+          },
+          {
+            "number": 2,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "002c9c8dbdfbbaefee983c350db499734cd9f4fbb0c0345787146e9b16e07ac8",
+            "supplement_sha256": null,
+            "packet_sha256": "4ef09fe586bed821fec8e0ee203f3f2cd7688ca37bd6b9fee45d147e8c764b01"
+          },
+          {
+            "number": 3,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R2"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "65eb3c8fb9c1cca7877fa68da6e79f58effc2530aba370ebf13ea9f720b1de2a",
+            "supplement_sha256": null,
+            "packet_sha256": "2694d6e90f9d0b2725430c9b811aff01fc2884306ee3c86b8b503433ed6c730d"
+          },
+          {
+            "number": 4,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "276ad206246fbacd6ab27f18ed226601e76c4a388bcb2215c8f1b784b50d8331",
+            "supplement_sha256": null,
+            "packet_sha256": "e58e8d0b245e44ea6bff8758125aff40708f859e7cb727f982ee9e7b649d0235"
+          },
+          {
+            "number": 5,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6a14b4b647b0e9f5ad9f76de18558d08d2c63cf907caa6b2f282b29157536db1",
+            "supplement_sha256": null,
+            "packet_sha256": "fad5e5d38863eddaf4ad82872b0bf41a1944a2ac19a427632c58cd44466d5730"
+          },
+          {
+            "number": 6,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b6c1803448cb1a98a6d891e3b549b08bf37916d123fe13d92c916f7926ca7c80",
+            "supplement_sha256": null,
+            "packet_sha256": "6cd2e9d124185de9c5334fa93bef272b8f4cdb3aa6143f95dbae911db213664d"
+          },
+          {
+            "number": 7,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0b284ce1d61f6dd7a892bcbda48bb6e2c5f734eb0d36832ba284c84ab02abc26",
+            "supplement_sha256": null,
+            "packet_sha256": "3bd5f7854e417db35c62437ef74fea4a30aad40385cd93444af996804711ed3f"
+          },
+          {
+            "number": 8,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "31f5bcccf8b670f505950c36d0a134664f8ab84c25ddaaf165c3cc558aecbb13",
+            "supplement_sha256": null,
+            "packet_sha256": "334406d470edd3f2fad1dfe3a721a047014b914428cf5ea6a8f992cbb668a106"
+          },
+          {
+            "number": 9,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "711d8a3a6aa2aa3326ef8daad521765e1eb0840476abacb2c4331c9362caa7f6",
+            "supplement_sha256": null,
+            "packet_sha256": "df5f6da9da47fa4c1e7c7e2c8b50a6606ccb8eb40d02ef6e67ced76ff06143fc"
+          },
+          {
+            "number": 10,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6312b7f09c1bbb8d3dbbe05851dae239b86431e857e93d04a52b8818a93f5e1d",
+            "supplement_sha256": null,
+            "packet_sha256": "2352904298264d7d6b4c5790651e1d5388b09b936341dd659f0c478e1d3d76a2"
+          },
+          {
+            "number": 11,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "95694ad77f90132307b3756339c07545d98bc131ca41b2d63c3f6ecfacb627c7",
+            "supplement_sha256": null,
+            "packet_sha256": "c23f0402175fad02f33054753274721eadd528dfd0f22b9478a5f604cab718cc"
+          },
+          {
+            "number": 12,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6beeb1d13a4c38c22de60006b021252220f2cde1d0e14fc4613ca69028984dc3",
+            "supplement_sha256": null,
+            "packet_sha256": "54756a04eae6afd044b138980d4eaba0d7d7cfed7ede5574706c68663ffe8016"
+          },
+          {
+            "number": 13,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "e7218377b7b34d23cdc2455a74da4b601286fabc18f50da8866da4e8db0643b4",
+            "supplement_sha256": null,
+            "packet_sha256": "7cc77e180bb69689917ffeb08ee67bf5d2476b23def9357ef43fbd10a7acfb55"
+          },
+          {
+            "number": 14,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "2dd287732626f649eaa2cd9a704eba4fb20ff420b17fc073d2ad297cd7c9fb87",
+            "supplement_sha256": null,
+            "packet_sha256": "d532c7ac51d6965fa0855e83aac4e4fce79bc765878b44a07605b08ea249b620"
+          },
+          {
+            "number": 15,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R1"
+            ],
+            "gates": [
+              "fail",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f8d4672598416d6d61ce132e9c1e9246a44007d7b6e024cd25e8317138a84f11",
+            "supplement_sha256": null,
+            "packet_sha256": "5e78f2ea4ca68597c41241ff5f27908c99b059888644f57b712b28e22a7c2129"
+          },
+          {
+            "number": 16,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "7fe2bcbed4190c1ef2bc53afa06453d9a86ac7af645284d945c90934bfaf6ee8",
+            "supplement_sha256": null,
+            "packet_sha256": "985ef0c53070a40cb8d6a4b8e10809b53b82957ed97e45c45b92a6a556157790"
+          },
+          {
+            "number": 17,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "82c76359ff5dd3fbef91326593cfb3ef9405c170d9d74d466be41ef51b363510",
+            "supplement_sha256": null,
+            "packet_sha256": "ad9b501c03943b227d320c4482c10e2856abd893a9eda1a1de377948693f2cce"
+          },
+          {
+            "number": 18,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "2f2cb51cda13431b94ea1c1463e3c35dea05b094c77ee5f55fc843d2621bd17b",
+            "supplement_sha256": null,
+            "packet_sha256": "dc693575cae6b14d4307750262809ea8957763eb219e52a2464ac7de465dd818"
+          },
+          {
+            "number": 19,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R3"
+            ],
+            "gates": [
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "fail"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "84edfcd9191acd692271e924adb20bec011ff8cc83e167a0e19beceb7aade8e0",
+            "supplement_sha256": null,
+            "packet_sha256": "ca0d030cc08d4b65d25db712704d62870efd176e061a39d8f73cc92f450d2a35"
+          },
+          {
+            "number": 20,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "19f71edb8726f0c9a3e2baf3efdbcdf0c325c7e13b0072c33f0d449aeecfb3bb",
+            "supplement_sha256": null,
+            "packet_sha256": "1b85ba58c581c5458be7991158c5683e14cd215f3bc0c082cbc7ea85422e4c84"
+          },
+          {
+            "number": 21,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "a35d6aa98ad1d210c4ca929aa70f487b75fdb6f0b8939dd599c8796ebb9db5e7",
+            "supplement_sha256": null,
+            "packet_sha256": "644bc7bd599a7bb54aa93a77ee392694ea712c9c88f36b670b9013cff3aa7747"
+          },
+          {
+            "number": 22,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "406b4fb062435c0134a61b7051799255cd5f6c7cb7499f373d45e6a900dc8e02",
+            "supplement_sha256": null,
+            "packet_sha256": "5184873d3c1c10a145d93c6d0fea2bd568e31f0edca9e28d55474ae50c5012ba"
+          },
+          {
+            "number": 23,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "88f46435ff4bed0c08f4b0d73e2dd483e78988d146d6691591d97f00efa2d101",
+            "supplement_sha256": null,
+            "packet_sha256": "d1ab62915401c6b496c859bebfc063e96240c487e46d0bdf28985aef5f3761e0"
+          },
+          {
+            "number": 24,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "ce6d9b1ed6382a4ae955a9ebf54ddd72613fa44dee47b0f8dc26c485634921d3",
+            "supplement_sha256": null,
+            "packet_sha256": "e1a35929156ff25afc522c6c59eef1d2c9ca87df3a1ff5cc157ccabd22b19c5f"
+          },
+          {
+            "number": 25,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "39303fe2a2a17dd2aaaf031dc5c4c8521152c136687237a0e11ce11fc40f5e4d",
+            "supplement_sha256": null,
+            "packet_sha256": "580fba27a335b50726435287eab8a8a14ecc51ea6754739e7a1d5f46e50d4bca"
+          },
+          {
+            "number": 26,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "165b538873b4a7f1aeb9fc2d11a60cbc7114a27a6a9d97dd55e6ae55f73fa428",
+            "supplement_sha256": null,
+            "packet_sha256": "856c43fe89497f7aea059f90adf2f3d3b4132b1784050e3a8f4ec93e9e54a248"
+          },
+          {
+            "number": 27,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "222d10505a8dc34b1f83caec31d18d4c393712797e8dc3df67b63f6065b7fd5a",
+            "supplement_sha256": null,
+            "packet_sha256": "070ad6c59e9d9aeb6d6cdbba741ea40ef06321adb3daf1f3d9859509efc5413c"
+          },
+          {
+            "number": 28,
+            "status": "pass",
+            "content_score": 10,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R8",
+              "R9"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d5c137e7bc6799a92459e84f3375cf6286dbc04bc0a05b0e482ac8526089f93e",
+            "supplement_sha256": null,
+            "packet_sha256": "d0b595c63c31fbb2b6c836d9638772b2ca6462eb99b9e772618d60efd88c072a"
+          },
+          {
+            "number": 29,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "a758e1d07ec706916f004a2fda8649e32d965619811b2374d22b366aeb16dc98",
+            "supplement_sha256": null,
+            "packet_sha256": "ea11a7977df9892963f3c0499234a7169eb2fa071122c3f1851c6629c0df7c4e"
+          },
+          {
+            "number": 30,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "800c6b7c7f25f1a8014cbd3b887a073d304b87c709f472e5e5854daf29774834",
+            "supplement_sha256": null,
+            "packet_sha256": "df43367479ac5c43ea56681a347239bcdd421883b2e98e755e5ef060910edad8"
+          },
+          {
+            "number": 31,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R8"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "14d82453ab2cddebb8f6288521e15f7a2f5e856f4d721a8a67edde6fe495a093",
+            "supplement_sha256": null,
+            "packet_sha256": "f0b1c2a8222afa0707ec2058a850c05c3efba0d5c985a8ecc237a07101a1fe5f"
+          },
+          {
+            "number": 32,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6665af32dce0b53348af5af2ff12e5d9f9b111019ba9c1691a161708ff1bee38",
+            "supplement_sha256": null,
+            "packet_sha256": "f13e1e7b889cd61174a8d33e23578721e57644548e6c3c88a25eca1aadd05e00"
+          },
+          {
+            "number": 33,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "59716372389c85a5c920888ed197db521fad326c19e65660f01a7629c7c0d7d4",
+            "supplement_sha256": null,
+            "packet_sha256": "4f21ee46fe88887ffe4e57dc3c990e843874dda87d7492959442ff85d498b0d8"
+          },
+          {
+            "number": 34,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "7396b4b803e52e597c2a4b997fd798c6bca924e175a571fd4ec290d90e34eea5",
+            "supplement_sha256": null,
+            "packet_sha256": "e14727c7938a75bac24b45030099f50390df8b18d514238fb80a7f1e549ddeae"
+          },
+          {
+            "number": 35,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R11"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "91e247ecc559b71f0899f2aa6033762747e17275b138a1e7d9c0dca25db70848",
+            "supplement_sha256": null,
+            "packet_sha256": "e449a73cd8e541a33bce02ca4714e24e8188bfe3b8a7f0c095455ef81693110f"
+          },
+          {
+            "number": 36,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "12596591234ad57f958fd2e1af38f1a3817f27c2fdfcc7fcc579d2a0622d275a",
+            "supplement_sha256": null,
+            "packet_sha256": "4041a5b3ff56f78f684181d7bc2b53a9515873854c8eafc254c0a6212e818f7c"
+          },
+          {
+            "number": 37,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "9d397422fbe9274d47f77b5ff1bc8bf29d39e7190d144896379b43e43e31689d",
+            "supplement_sha256": null,
+            "packet_sha256": "bf0ff4eb9e1e9ed62992c0837b353709543940d3643145c7631b57f82ca068b7"
+          },
+          {
+            "number": 38,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "9bc99ca8abf3651f51ce2d1dcee937c3501d315e3608458bf0079464ec5bf5ad",
+            "supplement_sha256": null,
+            "packet_sha256": "dcb9fb7dac725d83b87542528ea9c8d156380fda0328f266e9173b1d28875e4e"
+          },
+          {
+            "number": 39,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "708f191a01fec70a57f4bca98bb6a1d4777ad09442b83abdda18b676632cffd4",
+            "supplement_sha256": null,
+            "packet_sha256": "b4c35432cce8036da54136311e3f47319b43221196c35c67821c36a96a48bc98"
+          },
+          {
+            "number": 40,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "cac6cf35c422e7658197559b6527fea55ff62b5d9b2057e4da035812ea9b3007",
+            "supplement_sha256": null,
+            "packet_sha256": "6891683fb923e92815a18e714dd6fbaded1dab78cef0a72e8accf955b39c77a7"
+          },
+          {
+            "number": 41,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "8c5c8e6059dcf47acdf657b8e1c695c8d4b097321f7462f1c7d979f444b6d88e",
+            "supplement_sha256": null,
+            "packet_sha256": "84c2977ae3d6b6d85da321225e34f077aa013e2114f6710465f8189a3742eecd"
+          },
+          {
+            "number": 42,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "512cd14e92397316e9307c25446f637d11ab73ed52b42782a4db12130a76c9ec",
+            "supplement_sha256": null,
+            "packet_sha256": "831b77f17fddd0c3923c9a3fdc6e404fd7ed8459a0a0fd8f0c2fc76a7768ece2"
+          },
+          {
+            "number": 43,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "3b6f07359bb89591fa7d741b3cf8fad24c78410b8d65ab0f3048fad80a61d685",
+            "supplement_sha256": null,
+            "packet_sha256": "2748694e90c65d66127c1f83eb72785dca5bcad2d5b292a5837c6d322144ac5d"
+          },
+          {
+            "number": 44,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "1b9d67a5d949bd2ef4a7ae8027dd02800d78263211f3692711a6a264861a5907",
+            "supplement_sha256": null,
+            "packet_sha256": "683d124f2b60efb939467d5ee806b7eb7be36d07959230cfc609eae122243cdc"
+          },
+          {
+            "number": 45,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "c6f650d2c95beeb535ca3a271989430bc3b36885f973e4ca9c5948da758f9e4e",
+            "supplement_sha256": null,
+            "packet_sha256": "08f05dc4872489fee73e9ac1344f2cdf17bc0d67e698d67fd180fd87d326a235"
+          },
+          {
+            "number": 46,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "43cf5cc86b29959685b6f075df41c783f5258592f58ceac0404cf9952182c9a1",
+            "supplement_sha256": null,
+            "packet_sha256": "dae2b392e666b2362b285997433a18e57857a3388deda278c6cd262cbcc9a51b"
+          },
+          {
+            "number": 47,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d595ed8f8ccbdf8294fa797555652c45c301233517b5cddb89d958f369ab8a5c",
+            "supplement_sha256": null,
+            "packet_sha256": "4c3993de516f523f79ba96f36cb5d68880051388db9dfe26f717eee6e239a1f0"
+          },
+          {
+            "number": 48,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "60b329fd27b37d79bccfe056871a04444d1001c6e80d397a1dd3c35c48b17664",
+            "supplement_sha256": null,
+            "packet_sha256": "d02bdf805639dae5f39ffe2e67b71f19ac9575f0ded9a1d528dc5a399537d2b0"
+          },
+          {
+            "number": 49,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "8581fe08b41996cb23b703f99ef9614397ef02fd494b82d836de39a2de0df2e1",
+            "supplement_sha256": null,
+            "packet_sha256": "46b488c8e00f44350f4fb76bdb3c611277f857dc697a33bc06b5ebf418eac362"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "f7e55b2466a403a14af4eb7e7c08e2e827ac1337367dcafb83b5c0a069b06920"
+    },
+    "W": {
+      "tree": "candidate-05",
+      "generation": [
+        "R07"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "W",
+        "expected_cases": 4,
+        "scored_cases": 4,
+        "complete": true,
+        "status_counts": {
+          "pass": 3,
+          "execution_failure": 0,
+          "hard_gate_failure": 1,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 46,
+        "delivered_content_maximum": 48,
+        "cases": [
+          {
+            "number": 1,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "dcb293d6f130bb27bc5eb9e3872b65b0d6d2ea4ff6bc20e198e0ee574b0ccf69",
+            "supplement_sha256": null,
+            "packet_sha256": "5eb1c6207cf1f55db20739029814331771c35b3d2a2bb9432bd8306213b2e652"
+          },
+          {
+            "number": 3,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "bb8f12ae5ca878bce6be0fa4ca6e319e50140ce566023cb2360faf1632f757d7",
+            "supplement_sha256": null,
+            "packet_sha256": "4324888d09a81b981457d733baa612affaa41e8cfef4bf732836e5c832f2606b"
+          },
+          {
+            "number": 15,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "661fe6717b788dff0c3056913c07ef33df13d9cd6484b83344098c21a805d5f3",
+            "supplement_sha256": null,
+            "packet_sha256": "e8dbe7b7db309a7854ef91945bc6dc4d83be7efe2bbd2d35d916d82cdadb9e69"
+          },
+          {
+            "number": 19,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R3"
+            ],
+            "gates": [
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "fail"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "1bfedd75305cd575f37a44bcc4ef12b0c7db0b0de0c19b025df91e89950d8e83",
+            "supplement_sha256": null,
+            "packet_sha256": "933ab7a6e0900f850ea8e9329bd083fcd3e30e7ac692f3561a7c4c73426960cf"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "4ad0c4799abb571e5ab0cfa4af65e0b88e74d863fcd25df2c89e344b2b6eff2e"
+    },
+    "Z": {
+      "tree": "candidate-06",
+      "generation": [
+        "R08"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "Z",
+        "expected_cases": 1,
+        "scored_cases": 1,
+        "complete": true,
+        "status_counts": {
+          "pass": 1,
+          "execution_failure": 0,
+          "hard_gate_failure": 0,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 12,
+        "delivered_content_maximum": 12,
+        "cases": [
+          {
+            "number": 19,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0c83848e41f4b578ac1e2b803cb13f44f159f922e88fe9ebc76b1b30b386b868",
+            "supplement_sha256": null,
+            "packet_sha256": "4b95fe957729b21590b682a52ecd01de6b96bc1b22d910c3dfbd7f0f86131c50"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "be5fb9628315bb003e035657fc156be2455033267aa4785e8bdf9d6a9fe55798"
+    },
+    "J": {
+      "tree": "baseline",
+      "generation": [
+        "R09"
+      ],
+      "timeout_seconds": 600,
+      "summary": {
+        "condition": "J",
+        "expected_cases": 11,
+        "scored_cases": 11,
+        "complete": true,
+        "status_counts": {
+          "pass": 8,
+          "execution_failure": 1,
+          "hard_gate_failure": 2,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 117,
+        "delivered_content_maximum": 120,
+        "cases": [
+          {
+            "number": 21,
+            "status": "execution_failure",
+            "content_score": null,
+            "maximum_if_delivered": null,
+            "failed_rubric_items": [],
+            "gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "universal_gates": [
+              "unresolved",
+              "unresolved",
+              "unresolved"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0c126787b541daf3214b6dfd671af66baeba0225a2dcd35e583fd0b4103d1c69",
+            "supplement_sha256": null,
+            "packet_sha256": "5595d385a24a596aba6f92918a6ccab2ce8cf11f863d4c72e7bb6ae534af9dae"
+          },
+          {
+            "number": 22,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "b7d90a43bf9186b8678a6b3eeae3731313df79b1ca6d3ccea6bca89a1e44d8ff",
+            "supplement_sha256": null,
+            "packet_sha256": "9ec5cd59bb52c79ff65537e154fce62873513172c7a36be47a80f49529a3ad80"
+          },
+          {
+            "number": 23,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "42415ba3fcdfd0c3b83621aee338bf0990a6c0afd0d48e17830524b88812cb75",
+            "supplement_sha256": null,
+            "packet_sha256": "93910ae0f146ff564f8560ed596fe18eb0eb8878cee470178549d244793d2498"
+          },
+          {
+            "number": 25,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "a5482cb4f2a51fedba860a80f01080afe238587b85ee73379fff54de6312dea4",
+            "supplement_sha256": null,
+            "packet_sha256": "b05d3e2d6f1f5468c609a11c6eb7bce1f49e81b0e45287a86946ce5d2e2c1de0"
+          },
+          {
+            "number": 26,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "31c235574dbede9ebd84ca10fe8f65b04dd237064b21d665b45f1cd48dad3ad3",
+            "supplement_sha256": null,
+            "packet_sha256": "a68a615944442c04d659a4f41ec49043b184ca9c09e3a2849a2a9f3d0d16391f"
+          },
+          {
+            "number": 31,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R8"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "d45addcc670544006a34213f822bb002c7190789696de109b9fdf6776e67155e",
+            "supplement_sha256": null,
+            "packet_sha256": "a09df21ccab74e415449fc839b1f5e6fcdaab9b5f4f3e16a98401ed27ab985f1"
+          },
+          {
+            "number": 32,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "390908f818c23ad0f0ff7a9004c3dc5a907914e37a80391c00c0ee26484eb3b6",
+            "supplement_sha256": null,
+            "packet_sha256": "763ab5f82c58e460384e7af63a5733313b895b10777ef34dd2aef6d5f8b5af73"
+          },
+          {
+            "number": 33,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6f7ab0fdafefa43eaf8c024abe21e60c7779ab324f0c2822e7854bc62cf2b136",
+            "supplement_sha256": null,
+            "packet_sha256": "03adb571510e09f8a0eb91f13d5b48b60485cc5bbb1c0784457e65f4a080f311"
+          },
+          {
+            "number": 34,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0b993ac6c522a83a7ecca7b94d36c4b804b609e9aacc39d8fe3eeeb75d2b8efb",
+            "supplement_sha256": null,
+            "packet_sha256": "76220f8fb69b5ad8fcaf49746dabf9ac97bc76d36c604902a76ada3b3d0579e9"
+          },
+          {
+            "number": 41,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "c9f728d57a4b0edb9fae5b57c3a4f81f3832737e6bed66ef5d8f624b78c4445f",
+            "supplement_sha256": null,
+            "packet_sha256": "180b549bb8a15031a78827a0fb62beaa7c8a6e4e5301b4538e3b293060207f13"
+          },
+          {
+            "number": 49,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "171834ff22241d722d6af3fff4cd797fc2bb3a92fbf3bd0c00201eec6061d5fe",
+            "supplement_sha256": null,
+            "packet_sha256": "b397371ac02ce5d69c15bfe7d20ffbcdfc36318f6a26f98258fd54a467d0a132"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "75b4612068b1fad6a2020a4ad3c26b0b58b72bfb9f02fc4d96ec4c4cc06f12df"
+    },
+    "K": {
+      "tree": "candidate-06",
+      "generation": [
+        "R10"
+      ],
+      "timeout_seconds": 600,
+      "summary": {
+        "condition": "K",
+        "expected_cases": 11,
+        "scored_cases": 11,
+        "complete": true,
+        "status_counts": {
+          "pass": 9,
+          "execution_failure": 0,
+          "hard_gate_failure": 2,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 129,
+        "delivered_content_maximum": 132,
+        "cases": [
+          {
+            "number": 21,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "6611f8b06beb7e545418769b0a55a344953110a01903660670fefce19b1bb0e7",
+            "supplement_sha256": null,
+            "packet_sha256": "cfdec385d42f60c5f817a0d21180916877e8b03cb7703bf4b78941fb2249f10d"
+          },
+          {
+            "number": 22,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "499abe63df67cfcb120d3b6520179df67cec1a82782bd5127a231b1a2abb3e16",
+            "supplement_sha256": null,
+            "packet_sha256": "c278fa7327c035c3aabb0ce1b538a76a7923d9e30bf48010396c0743980f5bed"
+          },
+          {
+            "number": 23,
+            "status": "hard_gate_failure",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "fail",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [
+              "fail"
+            ],
+            "score_sha256": "e1fa16267847eabe8c6f46aabba9427e8422d372a8070786effc6c30cf05bcdc",
+            "supplement_sha256": null,
+            "packet_sha256": "6fc114d2e3633485d76acb11108af31440d80f33af1ae542bc1ee7055a1d585a"
+          },
+          {
+            "number": 25,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "0e3d31440faa27ce140885d54496a74a71995a7bc29de01672a9e681e3995785",
+            "supplement_sha256": null,
+            "packet_sha256": "b8965622a889f0829d9c3f6f332b828b2d1e1cffefbb75568dba490ec2060e99"
+          },
+          {
+            "number": 26,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f64c6c7cda0fb6c1ae023588d417d4677ac102f874673a48beeb02b4977f26a4",
+            "supplement_sha256": null,
+            "packet_sha256": "33b5098453ab12a9f4d51350aa54ed1abe42dd381c1f4419dea5bf3db039bbf8"
+          },
+          {
+            "number": 31,
+            "status": "hard_gate_failure",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R8"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "f8929ce289ab270212112487760fe3ab61798522613abde6d739686c420f3cc0",
+            "supplement_sha256": null,
+            "packet_sha256": "b2e4364c5599a9385082eaca2e653a9af98a74eb66bfa728d797b66dee2b1468"
+          },
+          {
+            "number": 32,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R10"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "77a0ee108ce51b96727f6164307c474cdf8ced2ed9006c4557195f1e876a26d8",
+            "supplement_sha256": null,
+            "packet_sha256": "27c315fa2d0ed62ca846993077928f59204662a313438c09f97e209f91af7fde"
+          },
+          {
+            "number": 33,
+            "status": "pass",
+            "content_score": 11,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R12"
+            ],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "9298334c52049308aae266f38d816361392ab156202d5653938f863bfb30f6a3",
+            "supplement_sha256": null,
+            "packet_sha256": "f41f27c481eb2a8bac5a0729922e0b45d1785101dc9ae00b079c2255c991d828"
+          },
+          {
+            "number": 34,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "82aa3711e00a491de442010d8cfc04633ff2c2b6f66e8ad8eadc05ea04567ac2",
+            "supplement_sha256": null,
+            "packet_sha256": "a4a19d612e97724a3961adf396b3ededd15280df56c944d8fc34af08f1f5ca2d"
+          },
+          {
+            "number": 41,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "35efe95aa50162b252d3cd4e06f6fa1fdfa31793f36b46a5fd07a74580c78cdb",
+            "supplement_sha256": null,
+            "packet_sha256": "fc936b9939d1ba6f8125b82bc6f5db8111685bded04fbdec9a131d4b15e6cea8"
+          },
+          {
+            "number": 49,
+            "status": "pass",
+            "content_score": 12,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [],
+            "gates": [
+              "pass",
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "a8603e7dc8561634c9149b28c5bf9d337aac388c3d97afd077788e2848fa40d6",
+            "supplement_sha256": null,
+            "packet_sha256": "1a64def23058a921e7ea0eda49a883ced478ca468f1364df506d83e068312908"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "9a22401db3fb2f41762bff667973187990a561fbaee45cc2ae7ea17d66e1bfee"
+    },
+    "N": {
+      "tree": "candidate-07",
+      "generation": [
+        "R11"
+      ],
+      "timeout_seconds": 240,
+      "summary": {
+        "condition": "N",
+        "expected_cases": 1,
+        "scored_cases": 1,
+        "complete": true,
+        "status_counts": {
+          "pass": 0,
+          "execution_failure": 0,
+          "hard_gate_failure": 1,
+          "unresolved_gate": 0,
+          "quality_failure": 0
+        },
+        "delivered_content_score": 10,
+        "delivered_content_maximum": 12,
+        "cases": [
+          {
+            "number": 31,
+            "status": "hard_gate_failure",
+            "content_score": 10,
+            "maximum_if_delivered": 12,
+            "failed_rubric_items": [
+              "R5",
+              "R8"
+            ],
+            "gates": [
+              "pass",
+              "fail",
+              "fail"
+            ],
+            "universal_gates": [
+              "pass",
+              "pass",
+              "pass"
+            ],
+            "protocol_gates": [],
+            "score_sha256": "c2d5e1817fa50b2243591ac78aef3b2021a61841f1e6e6fc385fe4e4bda46f96",
+            "supplement_sha256": null,
+            "packet_sha256": "d02fc5ba8edc6cd524a6f203bbb63848b7c7d01fa8ba09bd6adaa9b65d689adc"
+          }
+        ],
+        "evaluation_kind": "development benchmark; not a completed blind A/B acceptance"
+      },
+      "summary_sha256": "a3e9bf880c88e2795077d225fbf23b4279af6854f715617dac31c56fbe1b23c6"
+    }
+  },
+  "matched_diagnostic": {
+    "case_numbers": [
+      21,
+      22,
+      23,
+      25,
+      26,
+      31,
+      32,
+      33,
+      34,
+      41,
+      49
+    ],
+    "controls": {
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "jobs": 2,
+      "timeout_seconds": 600.0,
+      "codex_version": "codex-cli 0.159.2"
+    },
+    "common_delivered_cases": [
+      22,
+      23,
+      25,
+      26,
+      31,
+      32,
+      33,
+      34,
+      41,
+      49
+    ],
+    "baseline_common_score": 117,
+    "candidate_common_score": 117,
+    "maximum_common_score": 120,
+    "score_regressions": [
+      {
+        "number": 32,
+        "baseline": 12,
+        "candidate": 11
+      }
+    ],
+    "new_gate_failures": [
+      23
+    ],
+    "observed_gate_recoveries": [
+      49
+    ],
+    "baseline_execution_failure_candidate_completed": [
+      21
+    ]
+  },
+  "label_reveal": {
+    "revealed_at_utc": "2026-10-04T09:18:42.385128+00:00",
+    "mapping": {
+      "J": "baseline; generation R09",
+      "K": "candidate-06; generation R10"
+    },
+    "score_hashes_frozen_before_reveal": {
+      "evaluation-packets/J/scores/21.json": "0c126787b541daf3214b6dfd671af66baeba0225a2dcd35e583fd0b4103d1c69",
+      "evaluation-packets/J/scores/22.json": "b7d90a43bf9186b8678a6b3eeae3731313df79b1ca6d3ccea6bca89a1e44d8ff",
+      "evaluation-packets/J/scores/23.json": "42415ba3fcdfd0c3b83621aee338bf0990a6c0afd0d48e17830524b88812cb75",
+      "evaluation-packets/J/scores/25.json": "a5482cb4f2a51fedba860a80f01080afe238587b85ee73379fff54de6312dea4",
+      "evaluation-packets/J/scores/26.json": "31c235574dbede9ebd84ca10fe8f65b04dd237064b21d665b45f1cd48dad3ad3",
+      "evaluation-packets/J/scores/31.json": "d45addcc670544006a34213f822bb002c7190789696de109b9fdf6776e67155e",
+      "evaluation-packets/J/scores/32.json": "390908f818c23ad0f0ff7a9004c3dc5a907914e37a80391c00c0ee26484eb3b6",
+      "evaluation-packets/J/scores/33.json": "6f7ab0fdafefa43eaf8c024abe21e60c7779ab324f0c2822e7854bc62cf2b136",
+      "evaluation-packets/J/scores/34.json": "0b993ac6c522a83a7ecca7b94d36c4b804b609e9aacc39d8fe3eeeb75d2b8efb",
+      "evaluation-packets/J/scores/41.json": "c9f728d57a4b0edb9fae5b57c3a4f81f3832737e6bed66ef5d8f624b78c4445f",
+      "evaluation-packets/J/scores/49.json": "171834ff22241d722d6af3fff4cd797fc2bb3a92fbf3bd0c00201eec6061d5fe",
+      "evaluation-packets/J/scores/summary21-26.json": "525aba1d1493591d2b51e199f72377c08226e358aceec4c2e863ab22dc744be0",
+      "evaluation-packets/J/scores/summary31-49.json": "f9151fd61ae323aa42e35d54500e646aa898fa3556f04b53f6e5062cc188471e",
+      "evaluation-packets/K/scores/21.json": "6611f8b06beb7e545418769b0a55a344953110a01903660670fefce19b1bb0e7",
+      "evaluation-packets/K/scores/22.json": "499abe63df67cfcb120d3b6520179df67cec1a82782bd5127a231b1a2abb3e16",
+      "evaluation-packets/K/scores/23.json": "e1fa16267847eabe8c6f46aabba9427e8422d372a8070786effc6c30cf05bcdc",
+      "evaluation-packets/K/scores/25.json": "0e3d31440faa27ce140885d54496a74a71995a7bc29de01672a9e681e3995785",
+      "evaluation-packets/K/scores/26.json": "f64c6c7cda0fb6c1ae023588d417d4677ac102f874673a48beeb02b4977f26a4",
+      "evaluation-packets/K/scores/31.json": "f8929ce289ab270212112487760fe3ab61798522613abde6d739686c420f3cc0",
+      "evaluation-packets/K/scores/32.json": "77a0ee108ce51b96727f6164307c474cdf8ced2ed9006c4557195f1e876a26d8",
+      "evaluation-packets/K/scores/33.json": "9298334c52049308aae266f38d816361392ab156202d5653938f863bfb30f6a3",
+      "evaluation-packets/K/scores/34.json": "82aa3711e00a491de442010d8cfc04633ff2c2b6f66e8ad8eadc05ea04567ac2",
+      "evaluation-packets/K/scores/41.json": "35efe95aa50162b252d3cd4e06f6fa1fdfa31793f36b46a5fd07a74580c78cdb",
+      "evaluation-packets/K/scores/49.json": "a8603e7dc8561634c9149b28c5bf9d337aac388c3d97afd077788e2848fa40d6",
+      "evaluation-packets/K/scores/summary21-26.json": "d8616f31ba3617d02f5ca97633047602206791b54b4d4f4c37a7050c2a42b574",
+      "evaluation-packets/K/scores/summary31-49.json": "c1e65b480420e2eed41538c0bbb8ccb1c50b11e5b7ab518af48a841604e78a44"
+    },
+    "evaluation_kind": "matched development diagnostic; not formal whole-suite blind acceptance",
+    "runner_and_root_knew_mapping": true,
+    "independent_evaluators_were_not_given_mapping_before_score_freeze": true
+  },
+  "observed_local_improvements": [
+    {
+      "number": 3,
+      "problem": "candidate04 dropped per-request serialization",
+      "before": "evaluation-packets/V/scores/03.json",
+      "after": "evaluation-packets/W/scores/03.json",
+      "interpretation": "candidate05 targeted recovery; not a full final-candidate regression proof",
+      "before_sha256": "65eb3c8fb9c1cca7877fa68da6e79f58effc2530aba370ebf13ea9f720b1de2a",
+      "after_sha256": "bb8f12ae5ca878bce6be0fa4ca6e319e50140ce566023cb2360faf1632f757d7"
+    },
+    {
+      "number": 7,
+      "problem": "baseline omitted specific benchmark behavioral-fidelity question",
+      "before": "evaluation-packets/S/scores/07.json",
+      "after": "evaluation-packets/V/scores/07.json",
+      "interpretation": "observed recovery in candidate04; no full final-candidate proof",
+      "before_sha256": "918abd15ff5110fdacfbca3f44b8e0cd01cb2f1bc34a65821177591b88ca5d6d",
+      "after_sha256": "0b284ce1d61f6dd7a892bcbda48bb6e2c5f734eb0d36832ba284c84ab02abc26"
+    },
+    {
+      "number": 15,
+      "problem": "candidate04 rewrote already adequate body",
+      "before": "evaluation-packets/V/scores/15.json",
+      "after": "evaluation-packets/W/scores/15.json",
+      "interpretation": "candidate05 targeted recovery",
+      "before_sha256": "f8d4672598416d6d61ce132e9c1e9246a44007d7b6e024cd25e8317138a84f11",
+      "after_sha256": "661fe6717b788dff0c3056913c07ef33df13d9cd6484b83344098c21a805d5f3"
+    },
+    {
+      "number": 19,
+      "problem": "baseline and candidate05 changed before-execution premise to before-loading",
+      "before": "evaluation-packets/S/universal/19.json",
+      "after": "evaluation-packets/Z/scores/19.json",
+      "interpretation": "candidate06 targeted 240-second recovery, all gates pass",
+      "before_sha256": "9f5bd424442ac717020970cad04accca136bddcf7eed962fabac282d2b25cb75",
+      "after_sha256": "0c83848e41f4b578ac1e2b803cb13f44f159f922e88fe9ebc76b1b30b386b868"
+    },
+    {
+      "number": 29,
+      "problem": "baseline asked unrelated completion-status question",
+      "before": "evaluation-packets/S/scores/29.json",
+      "after": "evaluation-packets/V/scores/29.json",
+      "interpretation": "candidate04 observed rubric recovery",
+      "before_sha256": "b36286a1b7e56e481717e2b1a90de64f154b694f5f744087b320ea63da5f82bc",
+      "after_sha256": "a758e1d07ec706916f004a2fda8649e32d965619811b2374d22b366aeb16dc98"
+    },
+    {
+      "number": 33,
+      "problem": "baseline terminal blocker omitted required evidence fields and authority distinction",
+      "before": "evaluation-packets/S/scores/33.json",
+      "after": "evaluation-packets/V/scores/33.json",
+      "interpretation": "observed hard-gate recovery; R12 explanation omission remains",
+      "before_sha256": "7745a24f536d465f34723b3052808a61fefede21813e4ca37b098a124cd78ce0",
+      "after_sha256": "59716372389c85a5c920888ed197db521fad326c19e65660f01a7629c7c0d7d4"
+    },
+    {
+      "number": 49,
+      "problem": "baseline rewrote exact adequate sentence",
+      "before": "evaluation-packets/J/scores/49.json",
+      "after": "evaluation-packets/K/scores/49.json",
+      "interpretation": "same 600-second control: baseline hard-gate fail11, candidate06 pass12",
+      "before_sha256": "171834ff22241d722d6af3fff4cd797fc2bb3a92fbf3bd0c00201eec6061d5fe",
+      "after_sha256": "a8603e7dc8561634c9149b28c5bf9d337aac388c3d97afd077788e2848fa40d6"
+    }
+  ],
+  "unclosed": [
+    {
+      "number": 1,
+      "problem": "local report concision lost one point"
+    },
+    {
+      "number": 23,
+      "problem": "Revise resets retained source lexical IDs; separate handoff observability limit"
+    },
+    {
+      "number": 31,
+      "problem": "principle sentence still followed by flat mechanism inventory"
+    },
+    {
+      "number": 32,
+      "problem": "matched candidate loses detailed-limitation-placement explanation point"
+    },
+    {
+      "number": 33,
+      "problem": "experiment-existence and withdrawal-authority explanation point still absent"
+    },
+    {
+      "number": 28,
+      "problem": "candidate04 lost two structure/placement points; not retested in final candidate"
+    },
+    {
+      "number": 35,
+      "problem": "candidate04 lost same-revision continuation explanation; not retested in final candidate"
+    }
+  ],
+  "reverted_attempt": {
+    "reason": "Candidate07 failed case31 at 10/12, introduced P2 compression gate failure, and did not close organization gate. Retain candidate06 guidance; preserve negative test and frozen candidate07.",
+    "changes": [
+      {
+        "file": "skills/systems-paper-revise/references/positioning-and-insight.md",
+        "reverted_sha256": "b9dab25d79d7801f8fd4a6c0a5c3d1ce31661ff6b89d4854574049a34ae521e8",
+        "retained_sha256": "adeab00b8cafb455641ad2a5c368376951e3c2326c11931be1463b217a6a3f8f"
+      },
+      {
+        "file": "skills/systems-paper-revise/references/writing-core.md",
+        "reverted_sha256": "c0d52a70a9289fb1e6c23c1ff73427d72c4c1617a61cc4e2005fbbe549e834f0",
+        "retained_sha256": "f433255991a041f402e79aa9fd39434501ece9608fb210430c3cf96a6fd45770"
+      }
+    ]
+  },
+  "install": {
+    "record": "/Users/plucky/.codex/research/paperskills-benchmarks/2026-10-04-154054/install-sync.json",
+    "record_sha256": "16d0378f2eef56b53b696485e7a55d75e2c1c3624c28699b7c14adf36c8a184e",
+    "all_declared_files_byte_exact": true,
+    "structural_validation": "PASS zero warnings; 3 skills, 10 canonical references, 1 provenance,49 main fixtures,6 authoring fixtures",
+    "tool_tests": "118/118 passed,7.510 seconds",
+    "git_diff_check": "passed"
+  },
+  "fixtures_and_provenance_unchanged_this_turn": true,
+  "tree_digest_records": {
+    "baseline-digests.json": "bd5be2f73d1858c7facfc94e55c1aa67c3c329a5c23ec08430d2eb8f6c358062",
+    "candidate-04-digests.json": "56f2ba1a7c1cdb18cf85be3a34cd331548e9f6f7314c4cdd0a47b1ad1f893aa9",
+    "candidate-05-digests.json": "1e1d7b9d6121925a9281ba352715d362f2163c19e91e4ce953fc0b6f228dde39",
+    "candidate-06-digests.json": "4c7a6c9951ce3af226ae70dfea2a7bb69b0050a53d29c3d18b982b663ce81097",
+    "candidate-07-digests.json": "84c6c6cd584e13cea14f719dc4b69b24842e7d67df40d058f9781ef15aa14546"
+  },
+  "limitations": [
+    "All guidance was supplied inline; native skill discovery and progressive loading were not tested.",
+    "Generation/root knew condition identity; independent pair evaluators scored before identity reveal.",
+    "Tool events and project snapshots are not a complete OS access log.",
+    "Venue sources retained URLs/open events and handoff, not full retrieved pages and all fetch times.",
+    "Final Review cannot see Revise chat-only ID map; coherent final reconstruction does not prove intermediate map continuity.",
+    "Only one output per condition/case; no held-out generalization set or statistical causal claim.",
+    "Different runs overlapped; timeout and elapsed-time differences do not establish a skill performance effect.",
+    "Original startup misclassification, capability diagnostics, failed attempts and cancelled R05 remain in raw evidence.",
+    "STE authoring70/72 baseline is reused because the isolated tested guidance section is unchanged; no final authoring rerun is claimed."
+  ],
+  "unchanged_ste_authoring_guidance_sha256": "6d7cbf218a5574ad35ecaea0d90551cce84b473ef1c2c3568eca1a5a1c1f5170",
+  "report_sha256": "02100360659df35df746e365bace9227eed00eb9f71a45167c60b125f6b7f6cd"
+}

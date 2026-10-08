@@ -130,7 +130,9 @@ class CoverageContractTests(unittest.TestCase):
 
     def test_missing_independent_dimension_marker_is_rejected(self):
         path = self.root / validator.COVERAGE_CONTRACT_PATH
-        path.write_text(path.read_text().replace("argument role/organization", "argument"))
+        path.write_text(
+            path.read_text().replace("Argument role/organization", "argument")
+        )
         self.assertTrue(self.check())
 
     def test_missing_reviewer_hypothesis_marker_is_rejected(self):
@@ -195,7 +197,7 @@ class InteractiveClarificationContractTests(unittest.TestCase):
         path = self.root / "skills/systems-paper-revise/SKILL.md"
         path.write_text(
             path.read_text().replace(
-                "Do not issue a terminal closure map",
+                "do not give a terminal closure map",
                 "Issue a closure map",
             )
         )
@@ -205,7 +207,7 @@ class InteractiveClarificationContractTests(unittest.TestCase):
         path = self.root / "skills/systems-paper-grill/SKILL.md"
         path.write_text(
             path.read_text().replace(
-                "resume the same revision automatically",
+                "continue the same revision without a second request",
                 "start another revision",
             )
         )
@@ -266,7 +268,7 @@ class InterfaceBoundaryContractTests(unittest.TestCase):
         path = self.root / "skills/systems-paper-revise/SKILL.md"
         path.write_text(
             path.read_text().replace(
-                "direct/delegated execution-path claims", "execution claims"
+                "direct/delegated path claim", "execution claims"
             )
         )
         self.assertTrue(self.check())
@@ -320,7 +322,8 @@ class PositioningInsightContractTests(unittest.TestCase):
         path = self.root / "skills/systems-paper-review/SKILL.md"
         path.write_text(
             path.read_text().replace(
-                "Artifact-backed prior-work positioning", "Prior-work positioning"
+                "prior-work positioning with artifact evidence",
+                "Prior-work positioning",
             )
         )
         self.assertTrue(self.check())
@@ -329,7 +332,7 @@ class PositioningInsightContractTests(unittest.TestCase):
         path = self.root / "skills/systems-paper-revise/references/revision-protocol.md"
         path.write_text(
             path.read_text().replace(
-                "every promised Observation/Insight", "each labeled paragraph"
+                "each promised Observation/Insight", "each labeled paragraph"
             )
         )
         self.assertTrue(self.check())
@@ -367,7 +370,7 @@ class DecisionHistoryContractTests(unittest.TestCase):
         path = self.root / validator.DECISION_RECORD_PATH
         path.write_text(
             path.read_text().replace(
-                "A new pending candidate never displaces a confirmed head",
+                "Keep the confirmed head effective while a pending candidate is present",
                 "A new candidate replaces the current head",
             )
         )
@@ -384,7 +387,12 @@ class DecisionHistoryContractTests(unittest.TestCase):
 
     def test_missing_grill_persistence_gate_is_rejected(self):
         path = self.root / "skills/systems-paper-grill/SKILL.md"
-        path.write_text(path.read_text().replace("persistence gate", "handoff gate"))
+        path.write_text(
+            path.read_text().replace(
+                "Before you complete a changed decision, save it at the authorized path",
+                "handoff gate",
+            )
+        )
         self.assertTrue(self.check())
 
     def test_missing_shared_record_route_is_rejected(self):

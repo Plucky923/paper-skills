@@ -1,0 +1,133 @@
+{
+  "id": "ste-action-order",
+  "title": "Preserve ordered actions and overlapping activity when dividing overloaded systems prose",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请用 systems-paper-revise 润色下面的英文稿件，保留作者确认的技术含义、条件和主张强度。不要搜索外部资料，不要添加未提供的机制或结果。把诊断置于稿件之外，并附独立的 decision coverage receipt。只修改给出的两个原段。可以在各自原段内拆分或重组句子，不得移动、合并或拆分段落。\n\nThe reclaim worker clears the owner field and returns the slot to the free list after all readers leave the slot, but this must finish first, and the return must not expose a slot whose owner field is still set.\n\nThe scan worker scans the inactive segment while the storage worker writes the previous segment, and the admission worker continues to admit new requests throughout that write even if the scan has not finished.",
+  "scope": {
+    "authorized": [
+      "the two supplied paragraphs only",
+      "sentence splitting and local reorganization inside each original paragraph",
+      "local wording repairs supported by the author-confirmed facts"
+    ],
+    "excluded": [
+      "moving, combining, or splitting paragraphs",
+      "moving content between the two paragraphs",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented synchronization, actors, measurements, or guarantees",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt and a separate decision coverage receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "The reclaim worker recycles one slot. All readers must leave that slot before the worker clears its owner field.",
+      "The owner-field clear must finish before the reclaim worker returns the slot to the free list. A slot with its owner field still set cannot be exposed through the free list.",
+      "The scan worker scans the inactive segment. The storage worker writes the previous segment. These two activities overlap; their start and finish times need not be identical.",
+      "The admission worker continues to admit new requests throughout the write of the previous segment, including while the inactive-segment scan is unfinished.",
+      "The supplied facts give no additional synchronization mechanism or performance measurement."
+    ]
+  },
+  "protected_tokens": [
+    "reclaim worker",
+    "owner field",
+    "slot",
+    "free list",
+    "all readers",
+    "scan worker",
+    "inactive segment",
+    "storage worker",
+    "previous segment",
+    "admission worker",
+    "throughout",
+    "even if"
+  ],
+  "forbidden_actions": [
+    "clear the owner field before all readers leave the slot",
+    "return a slot before its owner-field clear finishes",
+    "make scanning finish before writing can start",
+    "replace the overlapping scan/write relation with sequential execution",
+    "delay admission until the scan or write finishes",
+    "infer identical start or finish times for the overlapping activities",
+    "invent a barrier, lock, memory-order rule, speedup, or guarantee",
+    "move content across paragraphs, inspect external material, or change persistent state"
+  ],
+  "hard_gates": [
+    "All readers leave the slot before its owner-field clear, and that clear finishes before the slot returns to the free list.",
+    "The scan and write still overlap. Admission continues throughout the write even when the scan is unfinished, without a new completion prerequisite or lockstep timing claim.",
+    "The revision preserves the four named workers and their assigned objects, keeps the two original paragraphs and their content ownership, and uses no invented mechanism or result.",
+    "The output includes independent zero-history decision accounting and does not create a decision record or inspect excluded material."
+  ],
+  "expected_behavior": [
+    "Return two conservative revised paragraphs before any receipt or diagnostic.",
+    "Make the overloaded recycling chain and its ambiguous precedence reference readable while preserving every action dependency and the owner-field exposure constraint.",
+    "Keep the overlapping scan/write interval and admission during that interval distinct from a finish-before-start sequence.",
+    "Keep worker roles and inactive/previous segment identities stable without supplying an unprovided synchronization mechanism.",
+    "Apply only supported local repairs and report author-confirmed absent decision history in a separate decision receipt."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Keeps two manuscript paragraphs in their initial order without transferring content between them.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Makes each recycling action and its prerequisite clear, resolving the ambiguous precedence reference through splitting or other local syntax.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Keeps departure of all readers as a prerequisite for clearing the slot owner field.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Keeps completion of the owner-field clear as a prerequisite for returning the slot to the free list.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Keeps scanning and writing as overlapping activities rather than consecutive phases.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Keeps admission active throughout the previous-segment write.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Keeps an unfinished scan from becoming a new prerequisite that blocks admission.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Does not strengthen overlapping activity into identical start times, finish times, or continuous lockstep execution.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keeps the reclaim, scan, storage, and admission workers assigned to their supplied actions.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Keeps slot/owner-field/free-list and inactive-segment/previous-segment object identities distinct.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Uses only the supplied facts without inventing synchronization, performance results, or external evidence.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Gives a separate zero-history decision coverage receipt without fabricated decision IDs or an unnecessary record-path question.",
+      "points": 1
+    }
+  ]
+}

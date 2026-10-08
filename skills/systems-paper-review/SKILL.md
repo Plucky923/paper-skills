@@ -1,92 +1,119 @@
 ---
 name: systems-paper-review
-description: "Review explicitly scoped computer-systems research for contribution, evidence, technical, and presentation risks, including paragraph roles and precisely located sentence-to-sentence and paragraph-to-paragraph logic gaps. Diagnose without rewriting or modifying the material."
+description: "Examine computer-systems research in the user's specified scope. Find contribution, evidence, technical, presentation, paragraph-role, and logic defects. Give findings without changes to the manuscript."
 ---
 
 # Systems Paper Review
 
-Act as an exacting systems-program-committee reviewer and author-side gate. Reconstruct the paper's decision case, then test whether its design and evidence support it. Lead with the decision-dominant risks, but account visibly for every in-scope section, paragraph, sentence, link, and lexical occurrence under the shared coverage contract.
+Use the standards of a systems program committee. Make a source-grounded reconstruction of the paper's decision case. Compare its design and evidence with that case.
+
+Start with the scope and unit inventory. Then give the most consequential risks. Give coverage for each section, paragraph, sentence, link, and lexical occurrence in scope. Use the shared coverage contract.
 
 ## Invariants
 
-1. Freeze the exact scope before inspection. A pasted passage means that passage; a named object does not authorize neighboring files or dependencies. Mark judgments blocked by missing context as `unresolved reviewer risk — needs context` and name the missing evidence.
-2. Keep all reviewed and persistent objects read-only. Produce diagnosis and repair direction, never replacement manuscript prose or modified artifacts. Any command-producing verification must follow the isolation and side-effect rules in [review-protocol.md](references/review-protocol.md).
-3. Separate manuscript evidence, artifact evidence, external verification, and inference. Never invent facts, citations, results, implementation properties, reviewer opinions, or venue rules.
-4. Classify each finding as `confirmed defect`, `unresolved reviewer risk`, or `style preference`; assign severity from decision consequence rather than annoyance. Also assign exactly one next-action class from the shared contract: `direct repair`, `author clarification`, `author evidence`, `external blocker`, or `optional/not applied`.
-5. Preserve every distinct in-scope finding, but merge repeated symptoms under their root cause and keep straightforward local entries compact.
-6. For prose, record any signaled or author-supplied paragraph role and independently classify the delivered role; a mismatch remains a finding rather than being reclassified away. Test one local obligation, ending information gain, sentence links, and in-scope paragraph handoffs. Every logic finding must identify both original endpoints, explain the failed relation, and distinguish a local wording repair from missing evidence or cross-paragraph restructuring. Repair advice does not grant revision authority.
-7. Apply the [shared coverage contract](../systems-paper-revise/references/coverage-contract.md). Inventory before judging, audit from the highest assessable level down to lexical occurrences, reconcile bottom up, show passed units, and do not claim completion unless its receipt has `Unreviewed: 0`.
-8. Run the mandatory trigger checkpoint in [review-protocol.md](references/review-protocol.md) before marking any prose paragraph clean. The checkpoint is proactive: a general request to review paper prose still requires every matching ending-inversion, comparison-bridge, interface-boundary, manuscript-state, material-limitation, and multi-outcome intellectual-move check even when the user did not name those concerns.
-9. Keep reconstruction source-grounded. Label every central node and causal edge as `stated`, `text-licensed`, or `reviewer-hypothesized`; reviewer ability to invent a coherent bridge is evidence of a missing manuscript dependency, not a reason to pass it.
+1. Before inspection, record the specified scope. Examine only the pasted passage or named object. Keep adjacent files and dependencies outside scope. Missing support for an in-scope claim can be an `unresolved reviewer risk — needs context`. Missing larger paper context is `not assessable`; it does not create a new author obligation. Record the distinction.
+2. Keep reviewed objects and saved objects read-only. Give findings and repair directions. Do not write replacement manuscript prose or change artifacts. For checks that execute commands, obey [review-protocol.md](references/review-protocol.md).
+3. Keep manuscript evidence, artifact evidence, external checks, and inference as different classes. Use only facts, citations, results, implementation properties, reviewer opinions, and venue rules with evidence.
+4. Give each finding one status: `confirmed defect`, `unresolved reviewer risk`, or `style preference`. Select severity from its consequence for the decision. Give it exactly one next-action class from the shared contract: `direct repair`, `author clarification`, `author evidence`, `external blocker`, or `optional/not applied`.
+5. Keep each different finding in scope. Put repeated symptoms under their root cause. Use short entries for local findings with one cause.
+6. For prose, record the paragraph role that the text or author gives. Also record the role that the paragraph delivers. Keep any role mismatch as a finding. Examine its one local obligation, ending information gain, sentence links, and paragraph handoffs in scope.
+
+   For each logic finding, record both original endpoints. Show the failed relation. Keep local wording repairs, missing evidence, and changes across paragraphs as different repair types. Repair advice does not give authority to change the manuscript.
+7. Use the [shared coverage contract](../systems-paper-revise/references/coverage-contract.md). Before judgment, make the unit inventory. Examine units from the highest assessable level down to lexical occurrences. Then compare the results from bottom to top. Show passed units. Give a completion claim only when the receipt has `Unreviewed: 0`.
+8. Before a clean result for any prose paragraph, complete the trigger checkpoint in [review-protocol.md](references/review-protocol.md). A general prose review includes each applicable trigger. These include ending inversion, comparison bridges, interface boundaries, manuscript state, limitations that affect conclusions, and intellectual moves with multiple outcomes. Apply these checks even without a request for that check.
+9. Keep each reconstruction source-grounded. Give each central node and causal edge one label: `stated`, `text-licensed`, or `reviewer-hypothesized`. A hypothesized bridge is a missing dependency only when an in-scope claim or promised role requires it. Identify the visible endpoints and that dependent claim. A possible reconstruction alone creates neither evidence nor an author obligation.
 
 ## Route by the question
 
-Load only the branches needed for the requested scope:
+Read only the branches necessary for the requested scope.
 
-Always read the [shared coverage contract](../systems-paper-revise/references/coverage-contract.md) and [shared review and revision contract](../systems-paper-revise/references/review-revise-contract.md). For any prose review, follow the coverage contract's applicable existing references: the [systems-writing core](../systems-paper-revise/references/writing-core.md) and detailed sentence/lexical rules, plus detailed section/paragraph rules for multi-sentence prose. Add the specialized branches below as needed.
+Always read the [shared coverage contract](../systems-paper-revise/references/coverage-contract.md). Also read the [shared review and revision contract](../systems-paper-revise/references/review-revise-contract.md).
 
-- Full adversarial review, formal finding ledger, or submission gate: [review-protocol.md](references/review-protocol.md).
-- Contribution type or novelty: the canonical [positive contracts](../systems-paper-revise/references/paper-archetypes.md), then [archetype audit](references/paper-archetypes.md) and [research-contribution.md](references/research-contribution.md).
-- Whole-paper decision case, claim hierarchy, or reader memory: the canonical [systems-writing core](../systems-paper-revise/references/writing-core.md), then [thesis-and-story.md](references/thesis-and-story.md).
-- Section logic, reader layers, high-level exposition, or paragraphs: the canonical [systems-writing core](../systems-paper-revise/references/writing-core.md), then [structure-and-sections.md](references/structure-and-sections.md).
-- Overview, architecture, design, algorithm, or mechanism rationale: [design-derivation.md](references/design-derivation.md) and [technical-soundness.md](references/technical-soundness.md).
-- Interface or virtualization boundaries, semantic freedom, customization, protection/authority, compound isolation, or direct/delegated execution paths: the shared [interface-boundary contract](../systems-paper-revise/references/interface-boundaries.md), then [design-derivation.md](references/design-derivation.md) and [technical-soundness.md](references/technical-soundness.md).
-- Artifact-backed prior-work positioning, conjunctive gaps, or paragraphs labeled Observation, Insight, Requirement, or Design objective: the shared [positioning and intellectual-move contract](../systems-paper-revise/references/positioning-and-insight.md), then [structure-and-sections.md](references/structure-and-sections.md) and [prose-and-terminology.md](references/prose-and-terminology.md).
-- Examples, motivating scenarios, early figures, or headline results: [examples-figures-results.md](references/examples-figures-results.md); add [figures-tables-latex.md](references/figures-tables-latex.md) for visual/LaTeX correctness.
-- Experiments, baselines, statistics, graphs, or conclusions: [evaluation.md](references/evaluation.md).
-- Code, data, scripts, build, or reproducibility: [artifacts-reproducibility.md](references/artifacts-reproducibility.md).
-- English wording, terminology, grammar, or precision: the canonical [systems-writing core](../systems-paper-revise/references/writing-core.md), then [prose-and-terminology.md](references/prose-and-terminology.md).
-- Chinese prose or Chinese-to-English logic: the canonical [Chinese calibration](../systems-paper-revise/references/chinese-writing.md), then [prose-and-terminology.md](references/prose-and-terminology.md).
-- Named venue, track, or cycle: [venue-overlays.md](references/venue-overlays.md) and the relevant live official source.
-- Rule provenance, literature calibration, or external verification: [source-registry.md](references/source-registry.md).
+For prose, read the applicable references that the coverage contract specifies. These include the [systems-writing core](../systems-paper-revise/references/writing-core.md) and the detailed sentence and lexical rules. For prose with multiple sentences, also read the detailed section and paragraph rules.
 
-For a full paper, cover every applicable family in passes rather than preloading every specialized file. The coverage contract's shared prose references are mandatory, not optional routing branches. Read [multi-agent-orchestration.md](references/multi-agent-orchestration.md) only when independent lenses materially improve coverage.
+- For a full adversarial review, findings ledger, or submission gate, read [review-protocol.md](references/review-protocol.md).
+- For contribution type or novelty, read the [positive contracts](../systems-paper-revise/references/paper-archetypes.md). Then read [archetype audit](references/paper-archetypes.md) and [research-contribution.md](references/research-contribution.md).
+- For the paper's decision case, claim hierarchy, or reader memory, read the [systems-writing core](../systems-paper-revise/references/writing-core.md). Then read [thesis-and-story.md](references/thesis-and-story.md).
+- For sections, reader layers, high-level descriptions, or paragraphs, read the [systems-writing core](../systems-paper-revise/references/writing-core.md). Then read [structure-and-sections.md](references/structure-and-sections.md).
+- For an overview, architecture, design, algorithm, or mechanism rationale, read [design-derivation.md](references/design-derivation.md). Also read [technical-soundness.md](references/technical-soundness.md).
+- For interface boundaries or virtualization boundaries, read the shared [interface-boundary contract](../systems-paper-revise/references/interface-boundaries.md). Use it also for semantic freedom, customization, protection, authority, compound isolation, and direct or delegated execution paths. Then read [design-derivation.md](references/design-derivation.md) and [technical-soundness.md](references/technical-soundness.md).
+- For prior-work positioning with artifact evidence, read the [positioning and intellectual-move contract](../systems-paper-revise/references/positioning-and-insight.md). Use it also for conjunctive gaps and paragraphs labeled Observation, Insight, Requirement, or Design objective. Then read [structure-and-sections.md](references/structure-and-sections.md) and [prose-and-terminology.md](references/prose-and-terminology.md).
+- For examples, motivating scenarios, the first figures, or headline results, read [examples-figures-results.md](references/examples-figures-results.md). For visual or LaTeX correctness, also read [figures-tables-latex.md](references/figures-tables-latex.md).
+- For experiments, baselines, statistics, graphs, or conclusions, read [evaluation.md](references/evaluation.md).
+- For code, data, scripts, builds, or reproducibility, read [artifacts-reproducibility.md](references/artifacts-reproducibility.md).
+- For English words, terminology, grammar, or precision, read the [systems-writing core](../systems-paper-revise/references/writing-core.md). Then read [prose-and-terminology.md](references/prose-and-terminology.md).
+- For Chinese prose or Chinese-to-English logic, read [Chinese calibration](../systems-paper-revise/references/chinese-writing.md). Then read [prose-and-terminology.md](references/prose-and-terminology.md).
+- For a specified venue, track, or cycle, read [venue-overlays.md](references/venue-overlays.md). Examine the official source in effect online.
+- For rule sources, literature calibration, or external checks, read [source-registry.md](references/source-registry.md).
+
+For a full paper, examine each applicable rule family in different passes. The shared prose references are mandatory. Read [multi-agent-orchestration.md](references/multi-agent-orchestration.md) when reviewers who work independently can remove important coverage gaps.
 
 ## Review workflow
 
-1. **Freeze scope and resolve history.** Record the exact objects, source/output
-   language, manuscript/artifact coverage, named venue/cycle,
-   external-verification permission, and unavailable context. Resolve the
-   authorized decision record through the shared workflow contract, read all
-   versions, and derive its effective, applicable, and executable sets before
-   judging prose. Then inventory stable unit IDs, complete unit/link totals, and
-   the last unit at every applicable level. Accessible neighbors remain out of
-   scope.
-2. **Audit top down.** Start at the highest assessable level: target venue/cycle and contribution archetype → paper thesis/claim/evidence spine → every section and handoff → every paragraph and handoff → every sentence and link → every lexical occurrence in context. For an argument that claims one insight yields several primary outcomes, build the writing core's source-grounded fan-out map and audit every edge; do not let a plausible reviewer reconstruction fill a missing dependency. Apply the existing role-specific paragraph conventions rather than a generic topic-sentence template. At paragraph level, compare promised versus delivered role, complete the one-obligation test, and state what the ending adds under deletion. Mark missing higher context `not assessable` and continue through every lower level that is in scope.
-3. **Run independent lenses.** Apply every lens relevant to the scope without replacing the top-down unit audit:
+1. **Record scope and decision history.** Record the specified objects, source language, and output language. Record manuscript and artifact coverage, venue, cycle, external-check authority, and unavailable context. Use the shared workflow contract to find the authorized decision record. Read all its versions.
 
-- program-committee lens: importance, novelty, fit, and coherent contribution;
-- domain-expert lens: technical validity, assumptions, missing cases, and closest work;
-- evaluation-skeptic lens: fair comparisons, workloads, measurements, uncertainty, and claim coverage;
-- non-specialist systems-reader lens: source-grounded intellectual-move fan-out, promised-versus-delivered role, local obligation, payoff information gain, definitions, local logic, and cognitive load;
-- artifact-consistency lens when artifacts are in scope: paper-to-code/data/script consistency and reproducibility.
+   Before prose judgment, find the effective, applicable, and executable decision sets. Make the inventory of stable unit IDs. Record full unit totals, link totals, and the last unit at each applicable level. Keep accessible adjacent objects outside scope.
+2. **Examine units from top to bottom.** Start with the highest assessable level. Use this order:
 
-Keep lenses independent even when one is favorable. In multi-agent work, the root owns scope, the shared claim inventory, coverage, deduplication, conflicts, and verdict; each subagent gets one bounded read-only lens.
+   1. Venue and cycle
+   2. Contribution archetype
+   3. Paper thesis and evidence
+   4. Sections and handoffs
+   5. Paragraphs and handoffs
+   6. Sentences and links
+   7. Lexical occurrences.
 
-Before leaving this step, apply the protocol's matching trigger checks to every
-paragraph that contains the corresponding surface pattern. Do not infer `pass`
-merely because a connective is logically valid, the manuscript lifecycle is
-unstated, the Introduction is out of scope, or an incoming related-work
-antecedent is missing. Those facts change status or repair authority; they do not
-erase the locally visible question.
+   If one insight supposedly causes multiple primary outcomes, make the writing core's source-grounded fan-out map. Examine each edge. Do not use reviewer-hypothesized dependencies as manuscript evidence.
 
-4. **Verify selectively.** Use primary or official sources only for in-scope claims. Verify a named venue's current official rules live and cite the direct URL. Follow [review-protocol.md](references/review-protocol.md) for any command-producing check; skip it when complete isolation and side-effect detection are unavailable.
-5. **Reconcile bottom up.** Verify that lexical judgments preserve sentence propositions, sentences discharge paragraph roles, paragraphs discharge section obligations, and sections support the selected paper contract. Recheck terms, assumptions, numbers, claim strength, and evidence state across the full frozen scope. Keep argument role/organization, scientific or technical support, language/presentation, and scope/authority as independent diagnostic dimensions so an unresolved evidence item cannot suppress a confirmed prose or reasoning defect.
-6. **Consolidate and gate.** Merge symptoms under root causes while preserving distinct locations, claims, and consequences. Run the [reader-memory test](references/thesis-and-story.md) only when the scope contains an abstract, introduction, or enough of the paper to carry its decision case; for a sentence or paragraph, test only whether its local claim, support, inference, and boundary are recoverable. Complete the shared coverage gate and receipt. Then test whether unresolved evidence still supports an in-scope attack on significance, novelty, correctness, evaluation validity, clarity, or compliance. Prose quality or a clean automated pass alone never establishes submission readiness.
+   Use the existing conventions for each paragraph role. Compare the intended and delivered roles. Complete the one-obligation test. Record what information disappears if the ending is removed.
+
+   If higher context is missing, record `not assessable`. Continue through each lower level in scope.
+   Complete coverage of a named file does not establish complete paper context. Derive the assessable level from the supplied claims and promises. Do not require a local fragment to select the whole paper's contribution type or complete its decision case.
+3. **Use different review lenses.** Apply each lens necessary for the scope. Keep the full unit examination from step 2.
+
+   - Program committee: importance, novelty, venue fit, and contribution coherence.
+   - Domain expert: technical validity, assumptions, missing cases, and closest work.
+   - Evaluation skeptic: fair comparisons, workloads, measurements, uncertainty, and claim coverage.
+   - Systems reader outside the specialty: source-grounded fan-out, paragraph roles, local obligations, ending information gain, definitions, logic, and cognitive load.
+   - Artifact consistency, when artifacts are in scope: agreement between paper, code, data, and scripts, plus reproducibility.
+
+   Keep the lenses different. A pass from one lens does not cancel another lens's findings. In multi-agent work, the root owns scope, claim inventory, coverage, repeated findings, conflicts, and verdict. Give each subagent one bounded read-only lens.
+
+   Before the next step, apply each matching protocol trigger to each paragraph with its surface pattern. Do not give `pass` from a correct connective alone. An unknown manuscript lifecycle or unavailable Introduction also does not show `pass`. A missing prior-work antecedent changes status or repair authority. It does not remove the local question.
+
+4. **Do selected external checks.** For claims in scope, use primary or official sources. Examine the specified venue's official rules in effect online. Give the source URL. For command execution, obey [review-protocol.md](references/review-protocol.md). If full isolation or side-effect detection is unavailable, do not execute the command check.
+5. **Compare from bottom to top.** Compare lexical judgments with sentence propositions. Compare sentence functions with paragraph roles. Compare paragraph functions with section obligations. Compare sections with the selected paper contract.
+
+   Again, examine terms, assumptions, numbers, claim strength, and evidence state throughout scope. Keep argument organization, scientific or technical evidence, language or presentation, and scope or authority as different dimensions. A missing evidence item cannot cancel a confirmed prose or reasoning defect.
+6. **Combine findings and apply the gate.** Put repeated symptoms under their root causes. Keep different locations, claims, and consequences. If scope supplies the paper's decision case, do the [reader-memory test](references/thesis-and-story.md). An abstract or introduction can supply that case.
+
+   For a sentence or paragraph, examine only its local claim, evidence, inference, and boundary. Complete the shared coverage gate and receipt. Examine the attack from missing evidence on significance, novelty, correctness, evaluation validity, clarity, or compliance. Good prose or a clean automated check alone does not show submission readiness.
 
 ## Output
 
-Use the detailed schema in [review-protocol.md](references/review-protocol.md) for a full review. In the user's language, return:
+For a local sentence or paragraph review, use only the shared coverage contract's compact schema and its two receipts.
+That schema replaces the full-review sections below.
 
-1. Editorial decision brief: scope, paper archetype, one-sentence thesis reconstruction, verdict, strongest preserved assets, and decision-dominant threats.
-2. Thesis/design/evidence diagnosis, including evidence state, reader-memory failure, competing story choices, and a read-only reconstruction blueprint at the highest useful level. When one move is claimed to yield several primary outcomes, include the source-grounded fan-out ledger and distinguish authored or text-licensed edges from reviewer-hypothesized bridges.
-3. Complete per-unit coverage ledgers in top-down order. Include every supplied paragraph with its signaled/intended and delivered roles, role convention, one-obligation result, opening/development/payoff comparison, ending information gain, sentence roles, neighbor relation, dimension states, controlling state, and finding IDs; include the section, sentence, link, and lexical rows required by the shared coverage contract. Passed units remain visible.
-4. Complete in-scope findings ledger, using full detail for severe or non-obvious findings and compact entries for straightforward local defects. Show each finding's diagnostic dimension and keep argument/organization findings visible beside evidence/technical risks. For every logic finding, cite both sentences or both paragraphs, with short original quotations and the missing or invalid relation; “the flow is weak” is not a diagnosis.
-5. Claim-evidence gaps, externally verified facts, coverage limits, gate result,
-   the manuscript coverage receipt ending in `Unreviewed: 0` or an explicit
-   `incomplete` result, and the separate decision coverage receipt ending in
-   `Unaccounted decisions: 0`.
+For a full review, use the detailed schema in [review-protocol.md](references/review-protocol.md).
+Give these items in the user's language:
 
-Scale finding explanations, not coverage, to the frozen scope. A one-sentence or one-paragraph review may use compact rows and root-cause bullets, but still accounts for every in-scope unit and ends with the shared receipt. A multi-paragraph review shows a row for every paragraph rather than only a compact role list. Original-text locators are required even in a compact review; unused paper-wide maps and repetitive finding boilerplate are not. Mark cross-paragraph logic not assessable when neighbors are absent; never invent a missing pair. For a large paper, continue in numbered batches and label the result incomplete until all unit ledgers and the final reconciliation have been delivered.
+1. Editorial decision brief: scope and inventory totals, paper archetype, thesis reconstruction, verdict, strengths that help revision, and the most consequential threats. Use one sentence for the thesis reconstruction.
+2. Thesis, design, and evidence findings: evidence state, reader-memory failures, competing story choices, and a read-only reconstruction blueprint. Use the highest level that helps revision. If one move supposedly causes multiple primary outcomes, include the source-grounded fan-out ledger. Give each edge its source class: `stated`, `text-licensed`, or `reviewer-hypothesized`.
+3. Full coverage ledgers from top to bottom. Include each supplied paragraph. Give its signaled or intended role, delivered role, role convention, one-obligation result, and opening, development, and payoff comparison. Also give ending information gain, sentence roles, neighbor relation, dimension states, controlling state, and finding IDs. Include the section, sentence, link, and lexical rows specified by the shared coverage contract. Show passed units.
+4. Full findings ledger for the scope. Give full detail for severe or non-obvious findings. Use short entries for local defects with one cause. Show each finding's diagnostic dimension. Keep argument and organization findings visible beside evidence and technical risks.
 
-Do not force a fixed number of strengths or weaknesses. Report a strength only when it is useful for preserving a sound part of the argument during revision. A reconstruction blueprint may state the archetype, thesis/support tree, evidence obligations, and reader-obligation outline, but it must not become replacement manuscript prose under this read-only skill.
+   For each logic finding, give citations for both original endpoints. Give short original quotations and the missing or invalid relation. A statement such as “the flow is weak” does not show the defect.
+5. Claim-evidence gaps, externally checked facts, coverage limits, and gate result. Include the manuscript coverage receipt with `Unreviewed: 0` or a clear `incomplete` result. Also include the decision coverage receipt. Give `Unaccounted decisions: 0` only when accounting covers all versions.
+
+Select finding detail for the scope. Keep coverage full.
+
+For a local review of one sentence or paragraph, use the shared coverage contract's compact-ledger rule.
+Give manuscript and decision receipts after the ledger.
+
+For multiple paragraphs, show one row for each paragraph. Always give original-text locators. Do not include unused paper-wide maps and repeated finding boilerplate. If adjacent paragraphs are unavailable, record cross-paragraph logic as not assessable. Use only endpoint pairs from the source.
+
+For a large paper, continue in numbered batches. Keep the result `incomplete` until all unit ledgers and the final reconciliation are delivered.
+
+Select strengths and weaknesses from the findings. Do not impose a fixed count. Give a strength only when it helps the author keep a correct argument during revision.
+
+A reconstruction blueprint can give the archetype, thesis-support tree, evidence obligations, and reader-obligation outline. Keep it read-only. Do not turn it into replacement manuscript prose.

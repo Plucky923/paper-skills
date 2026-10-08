@@ -43,21 +43,23 @@ For each output, record `pass`, `fail` or `unresolved` for both gates:
   legitimate clarification request is not fabricated prose, but it also is not
   a completed revision. Distinguish missing input from a failed edit.
 
-Then compare observable writing quality: precise terms and referents, explicit
-logical relations, coherent sentence progression, an opening that establishes
-the paragraph's role and an ending that completes or connects its supported
-argument. Favor the abstraction level that explains the relevant principle or
+Then compare terms, referents, logical relations and sentence progression.
+Check whether the opening establishes the paragraph's role and the ending completes or connects its supported argument.
+Favor the abstraction level that explains the relevant principle or
 design reason without hiding the necessary mechanism. Do not reward invented
 motivation, a stock topic/conclusion formula, elaborate vocabulary or minimum
 length. Concision means no avoidable burden **while retaining necessary
 support**, not simply fewer words.
 
-Record preference as `A`, `B`, `tie`, `neither` or `unresolved`, with short reasons
-and the relevant input/output spans. A candidate with either failed gate cannot
-win on style. If both fail, choose `neither`; if material uncertainty prevents
-the comparison, choose `unresolved`. When both pass, use the quality comparison;
-ties need not be broken. These judgments assess preservation of the supplied
-research meaning, not whether the underlying research is scientifically true.
+Record preference as `A`, `B`, `tie`, `neither` or `unresolved`.
+Give short reasons and the relevant input/output spans.
+A candidate that fails either gate cannot win on style.
+If each candidate fails at least one gate, choose `neither`.
+If uncertainty prevents the comparison, choose `unresolved`.
+
+Compare quality only when each candidate passes both gates. A tie is a valid result.
+These judgments assess preservation of the supplied research meaning.
+They do not verify whether the underlying research is scientifically true.
 
 ## Report without hiding failures
 

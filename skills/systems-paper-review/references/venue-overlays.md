@@ -1,168 +1,169 @@
 # Venue and Submission Overlays
 
-Use this reference only when the user names a venue, track, year/cycle, submission stage, or asks for submission readiness. Venue rules change. Never rely on a remembered page limit, deadline, anonymity rule, artifact rule, ethics statement, generative-AI policy, or supplementary-material policy.
+Use this reference for a specified venue, track, cycle, submission stage, or submission-readiness request. Venue rules change. Examine rules in effect for page limits, deadlines, anonymity, artifacts, ethics, generative AI, and supplementary material.
 
-## VO-01 — Resolve exact venue, cycle, track, and stage
+## VO-01 — Find the specified venue, cycle, track, and stage
 
-- **Nature:** Hard prerequisite to venue compliance review.
+- **Nature:** Prerequisite for venue compliance review.
 - **Reviewer attack / consequence:** “The authors followed a different year's, round's, track's, or revision stage's rules.”
-- **Check:** Record official venue name, year/cycle, track, round, submission/revision/camera-ready/artifact stage, and timezone if deadlines matter.
-- **Severity:** `S0` when mismatch causes invalid submission; `S1` when requirements remain uncertain.
-- **Exceptions / false positives:** If the user asks only for generic venue fit and gives no cycle, do not fabricate one; report that volatile compliance is not assessable.
-- **Repair direction:** Obtain exact target or label review generic; use current official source.
-- **Sources:** Current official venue page. Verify live.
+- **Check:** Record official venue, cycle, track, round, and stage. If deadlines matter, record the timezone. Include submission, revision, camera-ready, or artifact stage as applicable.
+- **Severity:** `S0` when mismatch causes invalid submission. `S1` when requirements stay uncertain.
+- **Exceptions / false positives:** For a generic venue-fit request without a cycle, keep volatile compliance not assessable. Do not invent a cycle.
+- **Repair direction:** Get the specified target or give the review a generic label. Use the official source in effect.
+- **Sources:** Official venue page in effect. Examine it online.
 
 ## VO-02 — Official sources outrank aggregators and remembered rules
 
-- **Nature:** Hard evidence rule.
+- **Nature:** Condition for evidence.
 - **Reviewer attack / consequence:** “The compliance advice came from a stale blog, call aggregator, prior cycle, or search snippet.”
-- **Check:** Prefer official conference domain and publisher/society author resources. Follow linked policies/templates and record direct URLs. Apply each page only to the cycle and stage it governs.
-- **Severity:** `S0` if wrong advice would invalidate submission; otherwise `S1`.
-- **Exceptions / false positives:** Organizers may publish official updates on a linked submission site or society page; verify provenance.
-- **Repair direction:** Replace with official current source and record discrepancies.
+- **Check:** If possible, use official conference domains and publisher or society author resources. Open their policy and template links. Record direct URLs. Apply each page only to its specified cycle and stage.
+- **Severity:** `S0` if wrong advice would invalidate submission. For other cases, `S1`.
+- **Exceptions / false positives:** Official updates can occur on linked submission systems or society pages. Examine their source authority.
+- **Repair direction:** Use official sources in effect. Record differences from earlier advice.
 - **Sources:** [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING], [NSDI-CFP], [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
-## VO-03 — Hard requirements are separated from reviewer preferences
+## VO-03 — Requirements and reviewer preferences have different classes
 
-- **Nature:** Hard classification rule.
+- **Nature:** Condition for rule classification.
 - **Reviewer attack / consequence:** “The review treats optional advice as desk-reject policy, or misses a binding rule because it looks stylistic.”
-- **Check:** Label each retrieved item `required`, `prohibited`, `recommended`, `review criterion`, or `unclear`. Preserve exact condition/track/stage; do not infer `must` from examples.
-- **Severity:** By underlying rule; classification uncertainty is `S1` until resolved if submission-critical.
-- **Exceptions / false positives:** Program-chair FAQs and submission-system validation may clarify official rules; cite them.
-- **Repair direction:** Quote/paraphrase minimally with direct official citation and ask organizer only when official sources conflict.
-- **Sources:** Current official venue and publisher sources.
+- **Check:** Give each retrieved item one label: `required`, `prohibited`, `recommended`, `review criterion`, or `unclear`. Keep its specified condition, track, and stage. Examples alone do not show `must`.
+- **Severity:** By underlying rule. For submission-critical rules, use `S1` until the classification question has an answer.
+- **Exceptions / false positives:** Program-chair FAQs and submission-system validation can resolve rule questions. Give citations for them.
+- **Repair direction:** Give a short quotation or summary with a direct official citation. If official sources conflict, give the author a question for the organizer.
+- **Sources:** Official venue and publisher sources in effect.
 
-## VO-04 — Scope and contribution fit use current review criteria
+## VO-04 — Scope and contribution fit use review criteria in effect
 
-- **Nature:** Venue requirement / reviewer criterion.
+- **Nature:** Venue requirement or reviewer criterion.
 - **Reviewer attack:** “The paper is out of scope or its primary advance is not the kind this venue evaluates.”
-- **Check:** Map central problem, contribution type, evaluated object, and audience to official topics and criteria. Treat topic lists as inclusive/exemplary where wording says so.
-- **Severity:** `S0` for clear out-of-scope; `S1` for weak fit.
-- **Exceptions / false positives:** Interdisciplinary work may fit through its systems/architecture/networking/security contribution; topic keywords alone are not sufficient.
-- **Repair direction:** Clarify the target-community advance or choose a fitting venue/track.
-- **Sources:** Live target CFP; examples [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING], [NSDI-CFP].
+- **Check:** Compare the central problem, contribution type, evaluated object, and audience with official topics and criteria. Treat example topic lists as non-exhaustive where specified.
+- **Severity:** `S0` for clear out-of-scope. `S1` for weak fit.
+- **Exceptions / false positives:** Interdisciplinary work can fit through systems, architecture, networking, or security contributions. Topic keywords alone are insufficient.
+- **Repair direction:** Give the advance for the target community or select an applicable venue or track.
+- **Sources:** Target CFP in effect. Examples [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING], [NSDI-CFP].
 
 ## VO-04A — Apply venue emphasis without flattening the contribution
 
-- **Nature:** Review calibration; live official criteria control.
-- **Check:** Use the cycle-specific examples below to select reviewer questions, then verify the target cycle and track before reporting compliance.
+- **Nature:** Review calibration. Use official criteria in effect.
+- **Check:** Use the cycle-specific examples below to select reviewer questions. Before a compliance result, examine the target cycle and track.
 
 | Venue/cycle example | Decision emphasis | Writing risk to inspect |
 |---|---|---|
-| OSDI 2027 / OSDI 2026 | Significant systems problem, compelling advance, potential research/practice impact; operational knowledge is a valid contribution | An application result that never becomes a systems advance; an operational story with scale but no reusable knowledge |
-| SOSP 2026 | New territory or an important research dialogue; design, implementation, analysis, evaluation, deployment, and measurement can carry the contribution | Principles reduced to slogans, or a narrow artifact with no transferable insight |
-| EuroSys 2027 | Benefits, limitations, and advantage over prior work; experience lessons should be general, rigorous, quantitative, and useful | Benefits presented without cost/boundary, or deployment scale substituted for a transferable lesson |
-| ASPLOS 2027 | Substantive advance to architecture, OS, PL, or a new domain connected to at least one of those pillars; pros/cons and implementation status matter | Merely using a pillar technique, unexplained cross-layer necessity, or an overclaimed incomplete implementation |
-| USENIX ATC, writing reference | Practical implementation and experimental evidence, with pros/cons and implementation status | Treating pragmatism as a lower evidence standard or treating ATC as a current submission target |
+| OSDI 2027 / OSDI 2026 | Important systems problem, strong advance, potential research/practice impact. Operational knowledge can be a contribution | An application result without a systems advance. An operational story with scale but no reusable knowledge |
+| SOSP 2026 | New territory or an important research dialogue. Design, implementation, analysis, evaluation, deployment, and measurement can carry the contribution | Principles reduced to slogans, or a narrow artifact with no transferable insight |
+| EuroSys 2027 | Benefits, limitations, and advantage over prior work. Experience lessons must have generality, methodological rigor, and quantitative evidence that helps other systems | Benefits presented without cost/boundary, or deployment scale substituted for a transferable lesson |
+| ASPLOS 2027 | Important advance in architecture, OS, PL, or a new domain connected to at least one of those pillars. Pros/cons and implementation status matter | Use of a pillar technique without a contribution in that pillar, unexplained cross-layer necessity, or an overclaimed incomplete implementation |
+| USENIX ATC, writing reference | Practical implementation and experimental evidence, with pros/cons and implementation status | Treating pragmatism as a lower evidence standard or treating ATC as a submission target in use |
 
-- **Severity:** Use the live venue's consequence. A mismatch with these examples alone is not noncompliance.
-- **Repair direction:** Name the actual target-community advance and apply its current official rubric without distorting the contribution type.
+- **Severity:** Use the consequence from the venue rule in effect. A mismatch with these examples alone is not noncompliance.
+- **Repair direction:** Give the advance in the paper for the target community. Use its official rubric in effect. Keep the contribution type accurate.
 - **Sources:** [OSDI-CFP], [SOSP-CFP], [EUROSYS-CFP], [ASPLOS-CFP], [ATC-WRITING].
 
 ## VO-04B — Rapid-review page boundaries are applied only when official
 
-- **Nature:** Hard venue rule where currently enacted; otherwise diagnostic heuristic.
-- **Check:** Verify the exact review stage and what reviewers are instructed to read. If the live target CFP requires a first-two-page rapid review, enforce its stated self-containment requirements. Distinguish an enacted procedure from a possibility described in a preliminary CFP. Otherwise, a two-page test may diagnose discoverability but cannot establish noncompliance.
-- **Severity:** `S0`/`S1` by the confirmed live venue rule; otherwise report only the underlying reader risk.
-- **Exceptions / false positives:** Page boundaries and stages can change before submission. Never transfer one venue's rapid-review rule to another.
-- **Repair direction:** Put the decision case and credibility preview inside the actual reviewed unit; do not cram in mechanism inventory merely to satisfy a diagnostic.
-- **Sources:** [ASPLOS-CFP], [OSDI-CFP]. Live verification required.
+- **Nature:** Venue rule only if mandatory in the specified cycle. In other cases, a diagnostic aid.
+- **Check:** Examine the specified review stage and required reading. If the CFP in effect makes first-two-page rapid review mandatory, apply its self-containment requirements. Keep mandatory procedures and preliminary possibilities in different classes. Without that rule, use two-page tests only for discoverability findings.
+- **Severity:** `S0`/`S1` by the confirmed venue rule in effect. For other cases, report only the underlying reader risk.
+- **Exceptions / false positives:** Page boundaries and stages can change before submission. Apply rapid-review rules only to their source venue.
+- **Repair direction:** Put the decision case and credibility preview inside the specified unit for review. Do not use unnecessary mechanism inventories.
+- **Sources:** [ASPLOS-CFP], [OSDI-CFP]. Online verification is necessary.
 
 ## VO-05 — Format, length, and required content are checked on rendered submission
 
-- **Nature:** Hard submission requirement.
+- **Nature:** Submission requirement.
 - **Reviewer attack / consequence:** Desk rejection or upload rejection for page count, font/margin, columns, paper size, references/appendix accounting, title/author block, abstract length, or file format.
-- **Check:** Retrieve official template/version and rule wording; render final PDF; inspect body/reference/appendix page accounting, paper size, fonts, margins, columns, anonymity fields, file size, and mandatory sections/statements.
-- **Severity:** `S0` for verified violation; `S1` if final rendered form unavailable.
-- **Exceptions / false positives:** Draft source line count is irrelevant. Do not enforce publisher camera-ready rules on anonymous submission unless the CFP does.
-- **Repair direction:** Use official template and remove noncompliant hacks; do not infer compliance from source alone.
-- **Sources:** Live target author instructions, [ACM-TEMPLATE] or [USENIX-TEMPLATE] as applicable.
+- **Check:** Get the official template, version, and rule text. Render the final PDF. Examine body, reference, and appendix page accounting, page size, fonts, margins, columns, anonymity, and file size. Examine mandatory sections and statements.
+- **Severity:** `S0` for verified violation. `S1` if final rendered form unavailable.
+- **Exceptions / false positives:** Draft line count is irrelevant. Camera-ready rules apply to anonymous submission only if the CFP makes them mandatory.
+- **Repair direction:** Use the official template. Remove noncompliant adjustments. Examine rendered compliance in different checks from source compliance.
+- **Sources:** Target author instructions in effect, [ACM-TEMPLATE] or [USENIX-TEMPLATE] as applicable.
 
 ## VO-06 — Anonymity and conflicts are checked across all submitted material
 
-- **Nature:** Hard policy condition where anonymous review applies.
+- **Nature:** Policy condition where anonymous review applies.
 - **Reviewer attack / consequence:** Desk rejection, compromised review, or policy breach.
-- **Check:** Verify single/double/open review, self-citation requirements, acknowledgments, artifact/repository anonymity, URLs, PDF metadata, file names, code/user paths, grant text, prior-paper wording, conflicts, and submission-system declarations. Inspect only material in scope; disclose incomplete coverage.
-- **Severity:** `S0` for confirmed breach; `S1` for high-risk unassessable artifact/link.
-- **Exceptions / false positives:** Some venues permit nonanonymous preprints or artifacts; follow exact policy. Public identity is not inherently a breach.
-- **Repair direction:** Apply official anonymization/conflict procedure, not generic deletion that harms scholarship.
-- **Sources:** Live target CFP, FAQ, submission and artifact instructions.
+- **Check:** Examine review type, self-citations, acknowledgments, artifact anonymity, URLs, PDF metadata, filenames, code paths, usernames, grants, prior-paper wording, conflicts, and declarations. Examine only material in scope. Give incomplete-coverage limits.
+- **Severity:** `S0` for confirmed breach. `S1` for high-risk unassessable artifact/link.
+- **Exceptions / false positives:** Some venues give permission for public preprints or artifacts. Obey the policy in effect. Public identity alone does not show a violation.
+- **Repair direction:** Obey the official anonymity and conflict procedures. Keep necessary scholarship information.
+- **Sources:** Target CFP in effect, FAQ, submission and artifact instructions.
 
-## VO-07 — Prior publication, preprint, overlap, and concurrent submission rules are current
+## VO-07 — Prior publication, preprint, overlap, and consubmission rules are in effect
 
-- **Nature:** Hard publication-ethics condition.
+- **Nature:** Condition for publication ethics.
 - **Reviewer attack / consequence:** Rejection or ethics investigation for duplicate/concurrent publication or undisclosed overlap.
-- **Check:** Retrieve definitions of prior publication, workshop/preprint allowances, overlap thresholds/procedures, concurrent review, extended versions, disclosure/citation, and author responsibility. Do not make legal/ethical accusations from textual similarity alone.
-- **Severity:** `S0` for confirmed violation; `S1` unresolved high-stakes risk.
-- **Exceptions / false positives:** Policies vary sharply; preprints are often allowed under conditions.
-- **Repair direction:** Disclose/cite/describe overlap as required and seek chair guidance for ambiguity.
-- **Sources:** Live target ethics/submission policy and publisher policy.
+- **Check:** Get prior-publication definitions, workshop or preprint allowances, overlap thresholds and procedures, concurrent-review rules, extended-version rules, disclosures, citations, and author responsibilities. Text similarity alone does not show legal or ethical violations.
+- **Severity:** `S0` for confirmed violation. `S1` unresolved high-stakes risk.
+- **Exceptions / false positives:** Policies can have large differences. Preprints often have conditional permission.
+- **Repair direction:** Give required overlap disclosure, citations, and explanation. For ambiguity, get chair guidance.
+- **Sources:** Target ethics/submission policy in effect and publisher policy.
 
 ## VO-08 — Human-subjects, data, security, and ethics requirements are addressed
 
-- **Nature:** Hard policy/ethical condition where applicable.
+- **Nature:** Policy or ethical condition where applicable.
 - **Reviewer attack / consequence:** Missing IRB/ethics review, consent, data authorization, risk disclosure, responsible vulnerability handling, or required ethics statement.
-- **Check:** Search official ethics guidance and required statements; inspect study population, personal data, network scanning, vulnerable systems, dual use, environmental/resource cost, and disclosure timeline within scope.
-- **Severity:** `S0` for confirmed material violation; `S1` for missing required statement or unresolved approval.
-- **Exceptions / false positives:** Not all telemetry or user data constitutes human-subjects research; jurisdiction/institutional determination matters. Do not invent approval requirements.
-- **Repair direction:** Add accurate approval/exemption/consent/risk disclosure, change practice if authorized, or consult chairs/institution.
-- **Sources:** Live target ethics policy and applicable institutional/legal authority.
+- **Check:** Find official ethics guidance and required statements. Examine the population, personal data, network scans, vulnerable systems, dual use, environmental or resource costs, and disclosure timeline.
+- **Severity:** `S0` for confirmed violation that affects submission. `S1` for missing required statement or unresolved approval.
+- **Exceptions / false positives:** Telemetry or user data does not always have human-subjects research status. Jurisdiction and institutional decisions matter. Use only approval requirements from applicable official sources.
+- **Repair direction:** Give accurate approval, exemption, consent, and risk disclosures. If authorized, change practice. For other cases, give questions for chairs or institutions.
+- **Sources:** Target ethics policy in effect and applicable institutional/legal authority.
 
 ## VO-09 — Generative-AI and tool-use policy is verified, not assumed
 
-- **Nature:** Hard venue/publisher policy where stated.
+- **Nature:** Venue or publisher policy where specified.
 - **Reviewer attack / consequence:** Missing disclosure, prohibited authorship/citation/review use, confidentiality breach, or unsupported generated content.
-- **Check:** Retrieve current policy for authoring, disclosure, authorship, figures, code, citations, reviewer confidentiality, and responsibility. Distinguish language assistance from content generation only as official wording does.
-- **Severity:** `S0` for confirmed prohibited use/noncompliance; `S1` when disclosure requirement is unresolved.
-- **Exceptions / false positives:** Policies differ by venue and year. Never transfer one venue's AI policy to another.
-- **Repair direction:** Follow exact disclosure/prohibition and verify all facts/citations/results independently.
-- **Sources:** Live venue and publisher AI policy.
+- **Check:** Get policies in effect for writing, disclosure, authorship, figures, code, citations, reviewer confidentiality, and responsibility. Use language-assistance and content-generation distinctions only as officially specified.
+- **Severity:** `S0` for confirmed prohibited use/noncompliance. `S1` when disclosure requirement is unresolved.
+- **Exceptions / false positives:** Policies differ by venue and year. Apply AI policies only to their source venue.
+- **Repair direction:** Obey disclosure and prohibition rules in effect. Do checks of facts, citations, and results independently.
+- **Sources:** Venue and publisher AI policy in effect.
 
 ## VO-10 — Supplementary material is treated according to reviewer obligations
 
-- **Nature:** Hard venue rule plus general argument principle.
+- **Nature:** Venue rule and general argument principle.
 - **Reviewer attack / consequence:** Central evidence is placed in optional, nonarchival, over-limit, or impermissible supplement.
-- **Check:** Verify allowed formats/length, reviewer obligation, anonymity, archival status, links, appendices, videos, and whether supplement counts toward limits. Test whether required paper stands alone.
-- **Severity:** `S0` for prohibited/over-limit material; `S1` when central case depends on optional material.
-- **Exceptions / false positives:** Proofs, extended results, videos, and artifacts may appropriately supplement when official rules allow.
-- **Repair direction:** Move central evidence into required paper or narrow claim; package supplement exactly as instructed.
-- **Sources:** Live target CFP/author instructions.
+- **Check:** Examine permitted formats, length, reviewer obligations, anonymity, archival status, links, appendices, videos, and page-limit accounting. Examine the required paper's self-containment.
+- **Severity:** `S0` for prohibited/over-limit material. `S1` when central case depends on optional material.
+- **Exceptions / false positives:** Proofs, extended results, videos, and artifacts can supplement the paper with official permission.
+- **Repair direction:** Put central evidence in the required paper or narrow the claim. Package supplements with the required procedure unchanged.
+- **Sources:** Target CFP in effect/author instructions.
 
 ## VO-11 — Artifact requirements and badges use the target cycle's definitions
 
-- **Nature:** Hard when artifact submission/evaluation is required or a badge is claimed.
+- **Nature:** Condition when artifacts are mandatory or a badge is claimed.
 - **Reviewer attack / consequence:** Ineligible artifact, missed deadline, nonanonymous link, or inflated badge/reproduction claim.
-- **Check:** Verify eligibility, timing, required/optional status, packaging, availability, reviewer platform, documentation, licenses, anonymity, badges, and paper-artifact linkage. Use `AR` rules for quality.
-- **Severity:** `S0` for binding noncompliance; `S1` for missing central artifact support.
-- **Exceptions / false positives:** Artifact evaluation may be post-acceptance or optional; do not impose it on initial paper unless current rules do.
-- **Repair direction:** Follow target artifact call and calibrate claims/badge language.
-- **Sources:** Live target artifact call; [NSDI-ARTIFACT], [ACM-ARTIFACT] for concepts.
+- **Check:** Examine eligibility, timing, required or optional status, packaging, availability, reviewer platform, documentation, licenses, anonymity, badges, and paper-artifact relation. For quality, use `AR` rules.
+- **Severity:** `S0` for binding noncompliance. `S1` for missing central artifact support.
+- **Exceptions / false positives:** Artifact evaluation can be optional or occur after acceptance. Initial-paper obligations depend on rules in effect.
+- **Repair direction:** Obey the target artifact call. Make sure that claims and badge terms agree with evidence.
+- **Sources:** Target artifact call in effect. [NSDI-ARTIFACT], [ACM-ARTIFACT] for concepts.
 
 ## VO-12 — Track-specific evaluation criteria are not flattened
 
-- **Nature:** Hard review-routing condition.
+- **Nature:** Condition for review routing.
 - **Reviewer attack:** “A short/experience/operational/measurement/artifact/deployed/vision track is judged by the wrong contribution or evidence model.”
-- **Check:** Retrieve track purpose, eligible contribution types, review criteria, length, required evidence, and relationship to main track. Preserve track-specific values such as operational lessons, negative results, or early vision.
-- **Severity:** `S1`; `S0` for ineligible track submission.
-- **Exceptions / false positives:** Track names recur across venues but definitions differ.
-- **Repair direction:** Apply exact track rubric or reassess track choice.
-- **Sources:** Live target track page.
+- **Check:** Get track purpose, eligible contributions, review criteria, length, evidence requirements, and primary-track relation. Keep track-specific operational lessons, negative results, or vision for a future system.
+- **Severity:** `S1`. `S0` for ineligible track submission.
+- **Exceptions / false positives:** Repeated track names can have different definitions across venues.
+- **Repair direction:** Use the track rubric in effect or examine the track choice again.
+- **Sources:** Target track page in effect.
 
 ## VO-13 — Deadlines and submission mechanics include timezone and version
 
-- **Nature:** Hard operational requirement when the user asks readiness/schedule.
+- **Nature:** Operational requirement for readiness or schedule requests.
 - **Reviewer attack / consequence:** Missed registration/submission/artifact/revision deadline or wrong submission portal/version.
-- **Check:** Verify date, time, timezone/AoE meaning, abstract registration, author freeze, revision windows, portal, file/version policy, and whether updates are allowed. Cross-check official page and linked system.
-- **Severity:** `S0` if missed/noncompliant; `S1` if ambiguous.
-- **Exceptions / false positives:** Do not add schedule checks to a pure prose review unless requested.
-- **Repair direction:** Record exact official timestamp and prerequisite; resolve conflicts with chairs.
-- **Sources:** Live official venue page/submission system.
+- **Check:** Examine date, time, timezone or AoE meaning, abstract registration, author-list deadline, and revision windows. Examine portal, file policy, version policy, and update permission. Compare official pages with linked systems.
+- **Severity:** `S0` if missed/noncompliant. `S1` if ambiguous.
+- **Exceptions / false positives:** For a pure prose review, add schedule checks only if requested.
+- **Repair direction:** Record the specified official timestamp and prerequisites. Give the author any source conflicts and a question for chair resolution.
+- **Sources:** Official venue page/submission system in effect.
 
-## Live overlay procedure
+## Procedure for rules in effect
 
-1. Search the exact venue + cycle + track + stage.
-2. Open the official CFP/author instructions; follow official policy/template/artifact links.
-3. Record:
+1. Search for the specified venue, cycle, track, and stage.
+2. Open the official CFP or author instructions.
+3. Open official policy, template, and artifact links.
+4. Record these fields:
 
    ```text
    Venue:
@@ -172,10 +173,13 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
    Official URL:
    ```
 
-4. Extract only rules relevant to the in-scope material.
-5. For each rule, record exact condition, classification, report location, and compliance evidence.
-6. If two official pages conflict, prefer the more specific/recent source only when clearly identified; otherwise mark blocked and recommend chair clarification.
-7. Do not hardcode retrieved volatile facts back into generic review rules.
+5. Collect only rules related to material in scope.
+6. For each rule, record its specified condition, class, report location, and compliance evidence.
+7. If official pages conflict, examine their specificity and dates.
+8. If clear evidence gives source precedence, use the source for the specified case or a more recent source.
+9. If the conflict stays, record the blocker.
+10. Give the author a question for chair resolution.
+11. Keep volatile retrieved facts outside generic review rules.
 
 ## Official entry points studied
 
@@ -190,11 +194,11 @@ Use this reference only when the user names a venue, track, year/cycle, submissi
 - [USENIX paper templates](https://www.usenix.org/conferences/author-resources/paper-templates)
 - [ACM proceedings templates](https://www.acm.org/publications/proceedings-template)
 
-These cycle-specific links are research entry points, not automatically the current target for a request. Verify the target cycle and each page's status live; ATC is a writing reference, not a submission target.
+These links are research starting points. They do not automatically apply to the specified target. Examine the target cycle and each page's status in effect online. ATC stays a writing reference. It is not a submission target.
 
 ## Venue compliance table
 
 | Rule | Classification | Official source | In-scope evidence | Status | Consequence | Required action |
 |---|---|---|---|---|---|---|
 
-Use `compliant`, `noncompliant`, `not assessable`, `not applicable`, or `source conflict`. A paper can be scientifically strong and still fail a hard submission rule; report these dimensions separately.
+Use `compliant`, `noncompliant`, `not assessable`, `not applicable`, or `source conflict`. Give different scientific-quality and submission-rule results. A scientifically strong paper can violate submission rules.

@@ -1,42 +1,57 @@
 # Structural Revision Strategies
 
-Use this reference when a defect spans several sentences, sections, claims, or evidence objects. Diagnose the root cause before selecting a repair; apply the positive prose standard in [writing-core.md](writing-core.md) after the scientific structure is sound.
+Use this reference when a defect spans sentences, sections, claims, or evidence objects.
+Find the root cause before repair selection.
+After scientific structure is sound, apply [writing-core.md](writing-core.md).
 
-The paragraph-local contract in [revision-protocol.md](revision-protocol.md) controls existing prose. Use the strategies below to diagnose needed work; perform cross-paragraph movement, splitting, merging, content expansion, or reframing only under an explicit author restructuring request. A supplied whole paper or review finding is not that permission.
+The paragraph-local contract in [revision-protocol.md](revision-protocol.md) controls existing prose.
+Use these strategies to diagnose necessary work.
+Get a clear author restructuring request before cross-paragraph movement, splitting, combination, content expansion, or reframing.
+A full paper or supplied review finding does not give that permission.
 
-## Choose the repair
+## Select the repair
 
-Ask:
+Find these answers:
 
 1. What claim or reader obligation fails?
-2. Is it false or unsupported, missing a premise, organized around the wrong dependency, expressed at the wrong level, or merely unclear?
-3. Which support already exists inside scope or in a permitted verified source?
-4. Can the root cause be repaired inside the affected original paragraph without changing its purpose or adding content?
-5. Could that change create a new promise, contradiction, or author-intent choice elsewhere in scope?
+2. Is it false, unsupported, missing a premise, or organized around the incorrect dependency?
+3. Does it use the incorrect explanation level, or is it only unclear?
+4. What support exists in scope or in a permitted verified source?
+5. Can a repair stay in the initial paragraph without a purpose change or new content?
+6. Can that repair make a new promise, contradiction, or author-intent choice elsewhere in scope?
 
-A paragraph-local repair may clarify or reorder that paragraph's supported propositions and make their existing relation explicit. If the repair needs broader authority or new evidence, identify the exact sentence or paragraph dependency and stop that repair.
+A paragraph-local repair can make its supported propositions and existing relations clearer.
+It can change their order in that paragraph.
+If broader permission or evidence is necessary for the repair, identify the specified sentence or paragraph dependency.
+Stop only that repair.
 
-Authority must match the repair. Restructuring permission changes placement, not scientific claim strength. For existing prose, a missing premise or unsupported claim remains an author decision even during restructuring. Depending on the explicit request, a repair may:
+Get permission that covers the repair.
+Restructuring permission changes placement, not scientific claim strength.
+During restructuring, get author decisions for existing prose with missing premises or unsupported claims.
+According to the clear request, a repair can do these actions:
 
-- correct a proposition from authoritative evidence;
-- expose an inference already warranted by established premises;
-- reorganize supported material around its dependencies;
-- narrow or delete a claim when the author explicitly authorizes that scientific correction;
-- add supported content required to complete the local argument.
+- Correct a proposition from authoritative evidence
+- Make an inference from shown premises clear
+- Put supported material in its dependency order
+- Narrow or delete a claim with clear author permission for that scientific correction
+- Add supported content necessary for the local argument.
 
-When none applies, state the evidence, source, context, or author decision required. Prose alone cannot repair that gap.
+If none applies, give the required evidence, source, context, or author decision.
+Prose alone cannot resolve that gap.
 
-## Rebuild only with explicit author authority
+## Rebuild only with clear author authority
 
-These conditions can justify proposing a rebuild, not performing one without an explicit author request:
+These conditions can justify a rebuild proposal:
 
-- no single controlling thesis explains the scoped material;
-- the prose follows a contribution contract different from the evidence it offers;
-- major mechanisms or analyses do not derive from visible requirements;
-- headline evidence does not test the main claim;
-- local repairs preserve contradictory promises across the scope.
+- No controlling thesis gives an explanation for the scoped material.
+- The prose uses a contribution contract different from its evidence.
+- Important mechanisms or analyses do not come from visible requirements.
+- Headline evidence does not do a test of the primary claim.
+- Local repairs keep contradictory promises across the scope.
 
-For an authorized rebuild, first choose the positive contract in [paper-archetypes.md](paper-archetypes.md). Then build only the necessary internal maps:
+They do not give permission for a rebuild without a clear author request.
+For a permitted rebuild, first select the contract in [paper-archetypes.md](paper-archetypes.md).
+Then make only the necessary internal maps:
 
 ```text
 controlling thesis
@@ -46,62 +61,69 @@ controlling thesis
   → boundary and failure consequence
 ```
 
-Use a design-derivation map or claim-evidence map only when that relation is actually broken. At paragraph scale, repair directly from the local obligation instead of constructing a paper-wide model.
+Make a design-derivation or claim-evidence map only when that relation is broken.
+At paragraph scale, repair from the local obligation.
+Make a paper-wide model only when it is necessary.
 
 ## Contribution and positioning
 
-- Recover actor, setting, failure or unknown, and consequence from existing evidence. Flag unsupported prevalence or impact; changing the importance claim requires an author decision.
-- Check the exact change in assumption, boundary, capability, guarantee, cost, or evidence relative to prior work. An open-world superlative needs support or an author-authorized correction, not a silently substituted bounded claim.
-- Group related work by a decision-relevant dimension rather than publication chronology.
-- Separate prototype, simulation, deployment, and production status; state transfer conditions instead of universal generality.
-- Preserve an author decision when several contribution hierarchies are scientifically defensible.
+- Find the actor, setting, failure or unknown, and consequence in existing evidence.
+- Flag prevalence or impact claims without support.
+  For an importance-claim change, get an author decision.
+- Examine the specified prior-work delta in assumption, boundary, capability, guarantee, cost, or evidence.
+- For an open-world superlative, request support or an author-permitted correction.
+  Do not replace it with a bounded claim without an author decision.
+- Group related work by a decision-related dimension rather than publication date.
+- Keep prototype, simulation, deployment, and production as different status categories.
+- Give transfer conditions instead of universal generality.
+- If several contribution hierarchies are defensible, get the author's choice.
 
-For artifact-backed comparisons, conjunctive gaps, and promised Observation or
-Insight paragraphs, apply the shared
-[positioning and intellectual-move contract](positioning-and-insight.md). Use its
-artifact-to-capability distillation rather than turning repository inspection
-into the paragraph's narrative center. A negative tuple such as `A, B, and C do
-not occur together` remains blocked until its population, parallel cells,
-negative evidence, and shared causal constraint are established. If the next
-paragraph delivers a definition, requirement, objective, or mechanism instead of
-its promised observation, preserve that mismatch and ask for the missing anchor,
-relation, prediction, and role choice; fluent requirement prose is not an
-intellectual move.
+For artifact-backed comparisons, conjunctive gaps, and promised Observation/Insight paragraphs, apply [positioning-and-insight.md](positioning-and-insight.md).
+Use its artifact-to-capability distillation.
+Do not make repository inspection the paragraph's primary subject unless that specified realization matters.
+For `A, B, and C do not occur together`, give population coverage, parallel cells, negative evidence, and a shared causal constraint.
+Keep its blocked status until those requirements are met.
+
+If the next paragraph gives a definition, requirement, objective, or mechanism instead of its promised observation, record the mismatch.
+Request the missing anchor, relation, prediction, and role choice.
+Fluent requirement prose is not an intellectual move.
 
 ## Interface and boundary repair
 
-Apply the shared [interface-boundary contract](interface-boundaries.md) when an
-interface, protection boundary, customization model, isolation claim, or
-direct/delegated path controls the argument.
+Apply [interface-boundaries.md](interface-boundaries.md) for arguments controlled by interfaces, protection boundaries, customization, isolation, or direct/delegated paths.
+Obey these rules:
 
-- Preserve the three-axis ledger: semantic commitments determine what can vary
-  above the interface; protection/authority mechanisms establish bounded system
-  properties; execution paths support path-local cost claims. Do not use one axis
-  as prose evidence for another.
-- Replace vague customization only with the supplied actor, artifact, stage, and
-  control facts. Source-level modifiability is not tenant-controlled runtime
-  replacement, and an interface is not abstraction-free.
-- Keep a delegated path connected to its setup, persistent enforcement,
-  revocation, and cleanup; describe the actual control events rather than saying
-  either that the path has no mediation or that a Host checks every operation.
-- A universal gap, impossibility, or tradeoff can become a bounded tension only
-  when authoritative evidence or an explicit author decision permits that
-  claim-strength change. Otherwise preserve the assertion and route the exact
-  choice through clarification.
-- Keep removal of a transition, copy, or emulation step as a path fact or
-  prediction until matched end-to-end evidence supplies a measured outcome.
+- Keep the three-axis ledger.
+  Semantic commitments determine what varies above an interface.
+  Protection/authority mechanisms show bounded system properties.
+  Execution paths show path-local cost facts or predictions.
+  One axis is not evidence for another.
+- Replace vague customization only with supplied actor, artifact, stage, and control facts.
+  Source changes differ from tenant-controlled runtime replacement.
+  An interface fixes abstractions.
+- Keep a delegated path connected to setup, persistent enforcement, revocation, and cleanup.
+  Give the control events that occur.
+  Do not claim either zero mediation or a Host check of each operation without support.
+- Change a universal gap, impossibility, or trade-off into a bounded tension only with authoritative evidence or clear author permission.
+  If that condition does not hold, keep the assertion and give the specified choice through clarification.
+- Keep transition, copy, or emulation-step removal as a path fact or prediction until matched end-to-end evidence gives a measured outcome.
 
 ## Technical explanation
 
-- Introduce actors, resources, trust, fault, and workload boundaries before a mechanism depends on them.
-- Explain an operation as input/state → action → output/property, including lifecycle or failure behavior only where it affects the claim.
-- State the objective and constraints before comparing a design alternative; account for setup, offline, operator, and shifted resource costs beside the claimed benefit.
-- Distinguish designed, implemented, emulated, simulated, and future components.
-- Reconcile prose, figure, equation, pseudocode, and example against one supported interpretation. Conflicting sources require resolution, not a silent choice.
+- Before a mechanism uses them, introduce actors, resources, trust, fault, and workload boundaries.
+- Give an operation as input/state → action → output/property.
+- Include lifecycle or failure behavior where it affects the claim.
+- Before a design comparison, give its objective and constraints.
+- Put setup, offline, operator, and transferred resource costs beside the claimed benefit.
+- Keep designed, implemented, emulated, simulated, and future components as different categories.
+- Make prose, figure, equation, pseudocode, and example agree with one supported interpretation.
+- If sources conflict, resolve that conflict clearly.
+  Get an author decision before selection.
 
 ## Evaluation and result interpretation
 
-Organize the evaluation around falsifiable claims or recoverable questions rather than experiment chronology. For each decisive result, make the following relation visible:
+Organize evaluation around falsifiable claims or clear questions rather than experiment order.
+For each decisive result, make this relation clear:
 
 ```text
 claim or question
@@ -111,41 +133,64 @@ claim or question
   → supported scope and remaining alternative explanations
 ```
 
-- Match end-to-end results to practical claims and use microbenchmarks or ablations only for the causal attribution they can support.
-- Compare like-for-like semantics, resources, tuning opportunities, and objectives. Record a deliberately relaxed guarantee as part of the result.
-- Define timing and resource boundaries, aggregation, numerator/denominator, repetitions, and uncertainty when they affect interpretation.
-- Check conclusions against evaluated workloads, hardware, scale, data, failure model, and implementation status. Flag an exceeded boundary; changing an existing scientific conclusion requires author authorization.
-- Add a robustness or ablation result only when expansion is authorized, the evidence exists, and the corresponding claim requires it. Otherwise expose the evidence gap; narrow an existing claim only with explicit author authorization.
-- Treat negative results, failure regions, and plausible alternative explanations as scientific information rather than prose to hide.
+- Match end-to-end results to claims about system use.
+- Use microbenchmarks or ablations only for causal attribution that their evidence supports.
+- Compare equivalent semantics, resources, tuning opportunities, and objectives.
+- Record an intentionally weaker guarantee as part of the result.
+- Give timing/resource boundaries, aggregation, numerator/denominator, repetitions, and uncertainty when they affect interpretation.
+- Compare conclusions with evaluated workloads, hardware, scale, data, failure model, and implementation status.
+- Flag conclusions beyond those boundaries.
+  Before an existing scientific conclusion change, get author permission.
+- Add robustness or ablation results only with expansion permission, available evidence, and a corresponding claim requirement.
+- If that condition does not hold, give the evidence gap.
+  Narrow an existing claim only with clear author permission.
+- Keep negative results, failure regions, and plausible alternative explanations visible as scientific information.
 
 ## Section and attention repair
 
-When section restructuring is explicitly requested, use the section contracts in [writing-core.md](writing-core.md) and reallocate attention according to novelty and uncertainty:
+For clear section restructuring, use the section contracts in [writing-core.md](writing-core.md).
+Give attention according to novelty and uncertainty:
 
-- expand the counterintuitive constraint, intellectual move, critical mechanism, closest-work delta, decisive evidence, and material limitation;
-- compress commodity background, implementation inventory, repeated motivation, and secondary results that do not alter the decision case;
-- define concepts before substantive use and remove terminology with no later reasoning role;
-- move enough motivation evidence before the requirement it licenses, while retaining full methodology where it belongs;
-- keep overview, design rationale, implementation reality, and evaluation evidence at distinct depths even when a paper combines their sections.
+- Expand the unusual constraint, intellectual move, critical mechanism, closest-work delta, decisive evidence, and important limitation.
+- Make usual background, implementation inventories, repeated motivation, and secondary results shorter when they do not change the decision case.
+- Give concepts before scientific use.
+- Remove terms with no subsequent reasoning role.
+- Put sufficient motivation evidence before its resulting requirement.
+- Keep full methodology at its proper location.
+- Keep overview, design rationale, implementation status, and evaluation evidence at different depths, even in combined sections.
 
-For a title, abstract, introduction, or whole-paper story, route through [paper-archetypes.md](paper-archetypes.md). Do not convert an empirical, negative-result, formal, or operational contribution into a mechanism narrative merely to make it resemble a conventional system paper.
+For a title, abstract, introduction, or full-paper account, use [paper-archetypes.md](paper-archetypes.md).
+Keep the contribution type that the evidence supports.
+Do not force empirical, negative-result, formal, or operational work into a conventional mechanism account.
 
 ## Figures, tables, and captions
 
-- Give each figure or table one argumentative job: expose a mismatch, define a model or boundary, show a causal workflow, or test a claim.
-- Repair data truth, scale, normalization, uncertainty, missing cases, and comparable conditions before layout.
-- Make the caption identify the object and setting, state the supported takeaway, and preserve the material boundary.
-- Keep semantic encodings consistent across in-scope visuals; ensure the rendered result remains legible without using aspect compression to manufacture an effect.
-- Modify underlying data or analysis only when explicitly authorized for a scientific correction. Any changed output makes dependent prose unverified until rerun and checked.
+- Give each figure or table one argument role.
+  It can show a mismatch, give a model/boundary, show a causal workflow, or do a claim test.
+- Before layout changes, correct data truth, scale, normalization, uncertainty, missing cases, and comparison conditions.
+- Make the caption identify the object and setting.
+- Give the supported takeaway and important boundary.
+- Keep semantic encodings the same across in-scope visuals.
+- Make sure that rendered output stays easy to read.
+- Do not compress an aspect ratio to manufacture an effect.
+- Change underlying data or analysis only for a clearly permitted scientific correction.
+- After output changes, keep dependent prose unverified until the related work runs again and passes its checks.
 
 ## Venue and submission material
 
-Fetch the current official call and instructions for the named venue, cycle, and track before revising policy or formatting content. Separate hard compliance from general writing practice. Preserve accurate anonymity, ethics, overlap, AI-use, artifact, supplement, and implementation disclosures.
+Before policy or formatting revision, get the applicable official call and instructions for the named venue, cycle, and track.
+Keep required compliance and general writing practice as different categories.
+Keep anonymity, ethics, overlap, AI-use, artifact, supplement, and implementation disclosures correct.
 
-A venue mismatch that changes the contribution, audience, evidence, or paper length is an author decision rather than a wording repair.
+For a venue mismatch affecting contribution, audience, evidence, or paper length, get an author decision.
+It is not a wording repair.
 
-## Delete or demote safely
+## Delete or demote only with author permission
 
-Under an explicit deletion or restructuring request, remove or move material only when it does not change the thesis, a required premise, a decisive mechanism/finding, evidence credibility, or a material boundary. In paragraph-local revision, remove redundant wording rather than substantive content, and report any placement issue separately.
+For a clear deletion or restructuring request, remove or move material only when its scientific function stays intact.
+Protect thesis, required premises, decisive mechanisms/findings, evidence credibility, and important boundaries.
+During paragraph-local revision, remove redundant words rather than substantive content.
+Give placement issues independently.
 
-Retain negative evidence, limitations, attribution, assumptions, and reviewer-relevant costs near the claims they constrain. Report any deletion or reframing that materially changes what the author foregrounds.
+Keep negative evidence, limitations, attribution, assumptions, and reviewer-related costs near the claims they limit.
+Give a different note for deletion or reframing that changes an important part of the author's emphasis.

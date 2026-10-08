@@ -1,48 +1,49 @@
 # Multi-Agent Orchestration for Systems-Paper Review
 
-Use this protocol to parallelize independent reviewer perspectives without weakening scope, evidence discipline, or coverage. It is an optional execution mode of `systems-paper-review`, not a different review standard. The root coordinator remains responsible for the final report.
+Use this protocol for parallel reviews that occur independently. Keep scope, evidence discipline, and coverage unchanged. This is an optional `systems-paper-review` execution mode. The root coordinator owns the final report.
 
 ## 1. Select single-agent or multi-agent mode
 
-Use multi-agent mode when collaboration tools are available and the frozen scope contains independent, substantial review work, such as:
+If collaboration tools are available, use multiple agents for substantial independent work within the defined scope. Examples include:
 
-- a full paper or several substantial sections;
-- a manuscript plus explicitly scoped figures, code, data, or experiment scripts;
-- contribution, mechanism, evaluation, and presentation arguments that can be inspected independently;
-- several in-scope factual, venue, citation, or closest-work checks that can proceed independently;
-- a final full-scope gate where independent perspectives materially improve coverage.
+- A full paper or multiple substantial sections.
+- A manuscript with explicitly scoped figures, code, data, or experiment scripts.
+- Independent contribution, mechanism, evaluation, and presentation arguments.
+- Independent factual, venue, citation, or closest-work checks in scope.
+- A last full-scope gate where different perspectives remove important coverage gaps.
 
-Prefer single-agent mode when:
+If possible, use one agent for these conditions:
 
-- the scope is one sentence, a short paragraph, one caption, or another narrow object;
-- one ordered reasoning chain dominates the task;
-- all roles would need the same small context and reach the same local judgment;
-- collaboration tools are unavailable;
-- parallelism would be dominated by one external operation;
-- token cost or coordination would exceed the likely coverage or latency benefit.
+- One sentence, short paragraph, caption, or other narrow object.
+- One controlling sequence of reasoning.
+- The same small context and local judgment for all roles.
+- Unavailable collaboration tools.
+- One controlling external operation with no parallel benefit.
+- Token or coordination cost greater than the likely coverage or latency benefit.
 
-Do not use a fixed word, page, or token threshold. Decide from task shape. Never enlarge the user's scope merely to justify delegation.
+Select mode from task structure. Use no fixed word, page, or token threshold. Keep the user's scope unchanged during delegation.
 
 ## 2. Root coordinator responsibilities
 
-Only the root coordinator may:
+Keep these responsibilities with the root:
 
-1. freeze and interpret scope;
-2. create and verify the immutable scope manifest;
-3. build the shared claim inventory;
-4. execute any authorized command that can write temporary output;
-5. select applicable reviewer roles;
-6. assign concurrency waves;
-7. adjudicate contradictory findings;
-8. merge duplicates while preserving affected locations;
-9. determine status, severity, and final gate result;
-10. produce the user-facing report.
+1. Record scope. Give its interpretation.
+2. Make the immutable scope manifest.
+3. Do its verification.
+4. Make the shared claim inventory.
+5. Execute authorized commands with temporary output.
+6. Select applicable reviewer roles.
+7. Set concurrency waves.
+8. Get decisions about contradictory findings.
+9. Combine repeated findings with all affected locations.
+10. Select status, severity, and final gate result.
+11. Write the report for the user.
 
-The root must not outsource final synthesis to another subagent. A role agent may give a role-level risk summary, but not the paper-wide verdict.
+Keep final synthesis with the root. A role agent can give a role-specific risk summary. It cannot give the paper-wide verdict.
 
-## 3. Create one immutable review packet
+## 3. Make one immutable review packet
 
-Before spawning any role, prepare the same scope packet for all roles:
+Before subagent creation, make the same scope packet for all roles.
 
 ```text
 Review mode: multi-agent, strictly read-only
@@ -61,22 +62,22 @@ Required finding schema:
 Role-specific assignment and references:
 ```
 
-For file scopes, provide explicit paths. For a named range, provide anchors or line boundaries. For pasted text, include only the pasted text. Do not give a broad repository path when only one file or passage is authorized.
+For files, give their full paths. For a named range, give anchors or line boundaries. For pasted text, give only that text. Give a repository path only if the repository is authorized scope.
 
-Every role receives:
+Give each role these items:
 
-- [review-protocol.md](review-protocol.md);
-- this frozen packet;
-- only its role-specific references;
-- the same finding schema and evidence/status/severity definitions.
+- [review-protocol.md](review-protocol.md).
+- This scope packet with unchanged content.
+- Only the references for that role.
+- The same finding schema and evidence, status, and severity definitions.
 
-Also provide `source-registry.md` or the relevant verified official source only to roles that need provenance, literature calibration, novelty verification, or venue rules. Do not preload it into purely internal technical or prose checks.
+Give [source-registry.md](source-registry.md) or verified official sources only to roles with source requirements. Applicable requirements include provenance, literature calibration, novelty checks, and venue rules. Keep purely internal technical or prose checks free of that unnecessary load.
 
-Do not send one role another role's raw reasoning. Independence is useful; the root handles reconciliation after results return.
+Keep each role's raw reasoning unavailable to other roles. The root gets decisions about differences after results arrive.
 
-## 4. Freeze one exact content version
+## 4. Keep one unchanged content version
 
-Before each reviewer wave, the root creates a non-Git scope manifest:
+Before each reviewer wave, make a non-Git scope manifest at the root.
 
 ```text
 Manifest ID: <round/wave label plus digest of ordered entries>
@@ -88,143 +89,159 @@ Created before wave at:
 Verified unchanged after wave at:
 ```
 
-Digest the exact bytes of each in-scope file. For pasted text, digest the exact supplied text. For a named range, record its file path/anchors and digest the exact extracted range. For an explicit whole LaTeX project, first freeze the authorized transitive dependency list—root/source files, bibliography, figures, class/style files, and build configuration actually needed—then digest each entry. Do not discover this closure by opening unauthorized files: a named `main.tex` alone permits only parsing its dependency names and yields a context blocker until the required files are added to scope.
+Calculate a digest of all bytes of each file. For pasted text, use the supplied text unchanged. For a range, record its path and anchors. Calculate a digest of the extracted range unchanged.
 
-Every role prompt includes the same manifest ID, and every role result echoes it. The root recomputes the manifest after all roles return and before synthesis. If any entry changes because of an external edit, tool side effect, or agent violation, discard stale judgments and halt the gate. Do not silently accept or refreeze the modified state, and do not create or use backup copies or Git for recovery. Disclose the affected objects and before/after digests; require the user to recover the intended content or explicitly authorize the current content as a new baseline. Only then create a new manifest and rerun all affected roles. Do not infer a version from timestamps or Git.
+For an authorized full LaTeX project, first record the necessary transitive dependency list. Include source files, bibliography, figures, class or style files, and build configuration. Keep that list unchanged. Then calculate each entry's digest.
 
-## 5. Broker command-producing evidence through the root
+Keep unauthorized files unopened during dependency discovery. With `main.tex` alone, read only dependency names. Missing authority for the dependencies gives a context blocker.
 
-Reviewer subagents may use only operations that are provably read-only for local and external state. They must not compile, render, lint, run tests/benchmarks, execute experiment scripts, or invoke a command that may create caches, logs, generated files, network requests with side effects, device state, database changes, or other persistent output.
+Put the same manifest ID in each role prompt. Make sure that each result gives the unchanged ID. After all results return, calculate the manifest again before synthesis.
 
-When an authorized check needs command execution:
+If an external edit, tool side effect, or agent violation changes an entry, discard stale judgments. Stop the gate. Keep the modified content outside a new baseline without user authority. Do not use backup copies or Git for recovery.
 
-1. The root assesses filesystem, network, device, database, credential, and external-service side effects.
-2. The root refuses or requests authorization for any effect outside the user's scope.
-3. The root freezes a pre-command content manifest and, for the explicitly scoped project root, a non-content tree inventory of paths/types/sizes needed to detect new caches or generated files without reading out-of-scope contents.
-4. The root runs the source through a read-only sandbox/mount when available, uses a fresh isolated temporary directory outside the source tree, and redirects every writable cache/output there.
-5. The root serializes the command outside active reviewer work on shared state.
-6. The root records command, environment, input manifest ID, exit status, and relevant output.
-7. The root verifies both scoped content digests and the source-tree inventory are unchanged.
-8. The root distributes the resulting evidence summary to the applicable roles.
+Give affected objects and their before and after digests. Before a new baseline, get user recovery or clear authority for the content after the change. After that, make a new manifest. Run all affected roles again.
 
-If read-only isolation or complete side-effect detection cannot be established, do not execute the command. Mark the check `not assessable` and name what safe environment or authorization is required.
+Use content evidence for version identity. Timestamps and Git alone are insufficient.
+
+## 5. Give command-producing evidence through the root
+
+Give subagents only operations with provably read-only local and external behavior. Keep compilation, rendering, lint, tests, benchmarks, and experiment scripts with the root.
+
+Also keep potentially mutating commands with the root. Possible effects include caches, logs, generated files, network mutations, device state, database changes, and saved outputs.
+
+If command execution is necessary for an authorized check, use these root steps:
+
+1. Examine filesystem, network, device, database, credential, and external-service side effects.
+2. Reject effects outside scope or get the required authority.
+3. Before execution, make the content manifest.
+4. For the scoped project root, make a non-content inventory of paths, types, and sizes.
+5. Keep file contents outside scope unread during that inventory.
+6. If available, use a read-only sandbox or mount for the source.
+7. Use a fresh isolated temporary directory outside the source tree.
+8. Put all writable caches and outputs there.
+9. Execute the command outside active reviewer work on shared state.
+10. Record command, environment, input manifest ID, exit status, and related output.
+11. Make sure that scoped digests and the source-tree inventory stay unchanged.
+12. Give the resulting evidence summary to applicable roles.
+
+If read-only isolation or full side-effect detection is unavailable, do not execute the command. Record `not assessable`. Give the missing isolation or side-effect-detection prerequisite. Get author authority only for effects that the review contract permits.
 
 ## 6. Reviewer roles
 
-Assign each applicable role to one distinct subagent. Do not create one subagent per rule or per reference: use coherent reviewer lenses that can reason across related rules.
+Give each applicable role to a different subagent. Use coherent review lenses across related rules. Do not create one subagent per rule or reference.
 
 ### Role R1 — PC / Contribution Reviewer
 
-**Primary question:** Is this an important, novel, coherent, and venue-relevant systems contribution?
+**Primary question:** Is this an important, novel, coherent systems contribution related to the venue?
 
 **Load:**
 
 - [paper-archetypes.md](paper-archetypes.md)
 - [thesis-and-story.md](thesis-and-story.md)
 - [research-contribution.md](research-contribution.md)
-- [venue-overlays.md](venue-overlays.md) when a venue/cycle is named
-- section contracts `SS-12`–`SS-16`, `SS-21`–`SS-24` when those sections are in scope
+- [venue-overlays.md](venue-overlays.md), for a specified venue or cycle
+- Section contracts `SS-12`–`SS-16` and `SS-21`–`SS-24`, for sections in scope
 
-**Inspect:** primary archetype, controlling thesis, supporting-claim hierarchy, problem reality/significance, intellectual move, contribution type, closest-work delta, nontriviality, co-design, lessons, limitations, audience/venue fit, introduction promises, reader-memory result, and conclusion alignment.
+**Examine:** Primary archetype, thesis, claim hierarchy, problem evidence, significance, intellectual move, contribution type, closest-work difference, nontriviality, and co-design. Also examine lessons, limitations, audience or venue fit, introduction promises, reader memory, and conclusion agreement.
 
-**Do not:** attempt a detailed correctness proof, benchmark audit, or prose rewrite unless a local issue directly changes the contribution case.
+**Boundary:** Detailed correctness proofs, benchmark audits, and prose revisions are outside this role. Examine local issues only where they directly change the contribution case.
 
 ### Role R2 — Domain / Technical Reviewer
 
-**Primary question:** Does the system model and mechanism actually support its claimed properties under realistic assumptions and failures?
+**Primary question:** Do the model and mechanism show their properties with realistic assumptions and failures?
 
 **Load:**
 
 - [design-derivation.md](design-derivation.md)
 - [technical-soundness.md](technical-soundness.md)
-- relevant [research-contribution.md](research-contribution.md) rules only when assumptions or implementation maturity alter the contribution
-- relevant externally verified primary technical sources when permitted
+- [research-contribution.md](research-contribution.md), where assumptions or implementation maturity change the contribution
+- Related verified primary technical sources, where authorized
 
-**Inspect:** constraint-to-requirement-to-mechanism derivation, actors, boundaries, assumptions, threat/fault/workload model, mechanisms, invariants, lifecycle, concurrency, failure/recovery, edge cases, design choices, alternatives, cost boundaries, scale, security/privacy, implementation status, and internal technical consistency.
+**Examine:** Constraint-to-requirement-to-mechanism derivation, actors, boundaries, assumptions, threat or fault or workload models, mechanisms, invariants, lifecycle, and concurrency. Also examine failure, recovery, edge cases, design choices, alternatives, cost boundaries, scale, security, privacy, implementation status, and internal consistency.
 
-**Do not:** infer missing implementation behavior, run unauthorized artifact operations, or treat a plausible counterexample as confirmed without evidence.
+**Boundary:** Keep missing implementation behavior unresolved. Keep unauthorized artifact operations outside the role. A counterexample with evidence for its applicability must still have evidence for confirmed status.
 
 ### Role R3 — Evaluation / Artifact Reviewer
 
-**Primary question:** Does the evidence validly establish every empirical claim, and can the in-scope artifact support or reproduce it?
+**Primary question:** Does evidence show each empirical claim? Can artifacts in scope give evidence for or reproduce it?
 
 **Load:**
 
-- relevant [thesis-and-story.md](thesis-and-story.md) headline-evidence rules
-- [examples-figures-results.md](examples-figures-results.md) when headline results or motivating measurements are in scope
+- Headline-evidence rules in [thesis-and-story.md](thesis-and-story.md)
+- [examples-figures-results.md](examples-figures-results.md), for headline results or motivating measurements in scope
 - [evaluation.md](evaluation.md)
-- [artifacts-reproducibility.md](artifacts-reproducibility.md) only when artifacts are explicitly in scope
-- quantitative-integrity rules `FL-03`–`FL-05`, `FL-09`–`FL-10`
+- [artifacts-reproducibility.md](artifacts-reproducibility.md), only for explicitly scoped artifacts
+- Quantitative-integrity rules `FL-03`–`FL-05` and `FL-09`–`FL-10`
 
-**Inspect:** thesis-to-decisive-evidence alignment, headline-result hierarchy, claim-evidence mapping, recoverable questions, baselines/configurations, workloads/data separation, metrics, measured boundary, procedure, repetition/uncertainty/statistics, end-to-end and mechanism evidence, sensitivity, negative results, graphical truth, interpretation, reproducibility, and artifact consistency.
+**Examine:** Thesis-evidence agreement, headline hierarchy, claim-evidence relations, questions, baselines, configurations, workloads, data separation, metrics, measured boundaries, and procedure. Also examine repetitions, uncertainty, statistics, end-to-end evidence, mechanism evidence, sensitivity, negative results, graphics, interpretation, reproducibility, and artifact consistency.
 
-**Do not:** change code/data/scripts, install dependencies, run commands that can write or affect external state, fabricate a missing experiment, or equate a repository's existence with reproducibility. Request root-brokered execution evidence when needed.
+**Boundary:** Keep code, data, scripts, and dependencies unchanged. Keep mutating commands outside the role. Use only experiments with evidence. Repository existence alone does not show reproducibility. If necessary, get execution evidence from the root.
 
 ### Role R4 — Reader / Presentation Reviewer
 
-**Primary question:** Can a non-specialist systems reviewer recover the intended argument accurately and efficiently from the rendered material?
+**Primary question:** Can a systems reviewer outside the specialty find the intended argument accurately and efficiently from rendered material?
 
 **Load:**
 
-- relevant [thesis-and-story.md](thesis-and-story.md) reader-memory and attention rules
-- [examples-figures-results.md](examples-figures-results.md) when examples, early figures, or headline results are in scope
+- Reader-memory and attention rules in [thesis-and-story.md](thesis-and-story.md)
+- [examples-figures-results.md](examples-figures-results.md), for examples, the first figures, or headline results in scope
 - [structure-and-sections.md](structure-and-sections.md)
 - [prose-and-terminology.md](prose-and-terminology.md)
-- [figures-tables-latex.md](figures-tables-latex.md), excluding quantitative-validity judgments already owned by R3
+- [figures-tables-latex.md](figures-tables-latex.md), except quantitative-validity judgments owned by R3
 
-**Inspect:** reader-memory result, global and local flow, dependency order, section/paragraph promises, examples and counterexamples, argumentative work of early figures, terminology, definitions, referents, claim language, grammar in the source language, figure/table readability, captions/callouts, citations/references, math notation, LaTeX correctness, and rendered layout when in scope.
+**Examine:** Reader memory, global and local logic, dependency sequence, and section or paragraph promises. Examine examples, counterexamples, arguments in the first figures, terminology, definitions, referents, and claim language. Also examine source-language grammar, visual readability, captions, callouts, citations, references, notation, LaTeX correctness, and rendered layout in scope.
 
-**Do not:** downgrade unsupported science to a style issue, impose nonuniversal house preferences, rewrite text, or compile/render the project. Inspect root-brokered rendered evidence when available.
+**Boundary:** Do not treat scientific evidence defects as style defects. Use house preferences only where applicable. Keep text unchanged. Keep compilation and rendering with the root. Examine the root's rendered evidence where available.
 
 ## 7. Role applicability
 
-All four roles apply to a full systems-paper review. For narrower scopes:
+For a full systems-paper review, use all four roles. For narrower scopes, use this table.
 
 | Scope | Minimum applicable roles |
 |---|---|
-| Introduction/abstract/conclusion | R1 + R4; add R2/R3 for technical or result claims |
-| Design/protocol/mechanism | R2 + R4; add R1 for contribution/design-choice claims |
-| Evaluation section or result figures | R3 + R4; add R2 when mechanism explanations are claimed |
+| Introduction/abstract/conclusion | R1 + R4. Add R2/R3 for technical or result claims. |
+| Design/protocol/mechanism | R2 + R4. Add R1 for contribution or design-choice claims. |
+| Evaluation section or result figures | R3 + R4. Add R2 for mechanism explanation claims. |
 | Related work/novelty passage | R1 + R4 |
 | Paper plus artifact | R1 + R2 + R3 + R4 |
-| Short prose-only passage | Prefer single-agent with the relevant lenses |
+| Short prose-only passage | If possible, use one agent with applicable lenses. |
 
-Omitting a role because it is not applicable is valid. Omitting it because no concurrency slot is currently free is not; schedule another wave.
+Include each applicable role. If slots are unavailable, use another wave for necessary roles.
 
 ## 8. Concurrency and scheduling
 
-Use no more active subagents than the runtime permits. Keep one subagent per role even when roles run in separate waves.
+Keep active subagents within runtime limits. Keep one subagent per role across different waves.
 
-Recommended scheduling when three subagent slots are available:
+If three subagent slots are available, use this sequence:
 
-1. Spawn R1, R2, and R3 concurrently.
-2. Wait for the first completed role.
-3. Start R4 in the freed slot.
-4. Wait for all applicable roles before synthesis.
+1. Start R1, R2, and R3 concurrently.
+2. Wait for the first role to complete its work.
+3. Start R4 in the available slot.
+4. Before synthesis, wait for all applicable roles.
 
-For other limits, schedule the same roles in as few waves as possible. Do not merge R2 and R3 merely to fit a concurrency limit; their adversarial questions differ. Do not allow role subagents to spawn descendants unless the root explicitly delegates a concrete, bounded subtask that cannot be handled within the role.
+For other limits, use the fewest feasible waves. Keep R2 and R3 different because their questions differ. Let descendants work only on clear root assignments. Give them bounded subtasks beyond the role's capacity.
 
-The root may organize the claim inventory and synthesis scaffolding while roles run, but must not finalize before all applicable results arrive.
+During reviews, the root can organize claims and prepare the synthesis structure. Keep last synthesis pending until all applicable results arrive.
 
 ## 9. Subagent contract
 
-Each role prompt must state:
+Give these items in each role prompt:
 
-- exact role and primary question;
-- exact frozen scope and explicit exclusions;
-- strict read-only behavior, including no file edits;
-- allowed references, strictly read-only tools, and external verification boundary;
-- the scope manifest ID to echo unchanged;
-- prohibition on compiling, rendering, tests, scripts, or any command that may write or affect external state;
-- requirement to inspect every applicable assigned rule;
-- requirement to distinguish confirmed defects, unresolved risks, and preferences;
-- the finding schema from [review-protocol.md](review-protocol.md);
-- a role coverage summary and not-assessable rules;
-- no final paper-wide verdict;
-- no descendant delegation unless authorized;
-- concise return of evidence and findings rather than raw notes.
+- Specified role and primary question.
+- Specified scope with unchanged content and clear exclusions.
+- Strict read-only behavior, including unchanged files.
+- Permitted references, read-only tools, and external-check boundaries.
+- Scope manifest ID for unchanged return.
+- Compilation, rendering, tests, scripts, and potentially mutating commands outside the role.
+- All applicable assigned rules as required inspection.
+- Give each finding its corresponding status: confirmed defect, unresolved risk, or preference.
+- Finding schema from [review-protocol.md](review-protocol.md).
+- Role coverage summary and not-assessable rules.
+- Paper-wide verdict reserved for the root.
+- Descendant delegation only with authority.
+- Short evidence and findings instead of raw notes.
 
-Use this task shape:
+Use this task structure:
 
 ```text
 Act as <role>. Review only <scope>. Do not open or modify anything outside it.
@@ -237,7 +254,7 @@ paper-wide verdict.
 
 ## 10. Required role result
 
-Every role returns:
+Make sure that each role returns these fields:
 
 ```text
 Role:
@@ -253,49 +270,56 @@ Possible duplicates or cross-role dependencies:
 Role-level gate: clear | actionable | blocked
 ```
 
-`Role-level gate` does not determine the final gate. A role may be clear while another finds a blocker.
+`Role-level gate` does not select the final gate. One role can be clear while another finds a blocker.
 
 ## 11. Root synthesis
 
-After all applicable roles return:
+After all applicable roles return, use these steps:
 
-1. Verify every role echoed the current scope manifest ID.
-2. Recompute the manifest. If scoped content changed, halt and do not refreeze; require user recovery or explicit authorization of the current content as a new baseline, then rerun every affected role.
-3. Verify each role stayed inside scope and remained read-only.
-4. Reject findings that lack evidence or exceed the assigned scope.
-5. Merge findings only when they share the same root cause and repair direction; retain all locations and affected claims.
-6. Keep separate findings whose resolution tests differ.
-7. Reconcile severity/status from evidence, not by voting or automatically choosing the harshest role.
-8. For a material conflict, ask the conflicting role for a focused follow-up when possible; otherwise report the uncertainty and resolution test.
-9. Build one claim-evidence matrix and one coverage ledger.
-10. Apply the final rejection gate in the root context.
-11. Return one unified report in the user's language.
+1. Make sure that each role returned the scope manifest ID for this review.
+2. Calculate the manifest again.
+3. If content changed, stop the gate.
+4. Before a new baseline, get user recovery or clear authority.
+5. After baseline authority, run each affected role again.
+6. Make sure that each role stayed within scope and read-only.
+7. Reject findings without evidence or outside the assigned scope.
+8. Combine findings only with the same root cause and repair direction.
+9. Keep all their locations and affected claims.
+10. Divide findings with different resolution tests.
+11. Select severity and status from evidence.
+12. Keep voting and automatic selection of the harshest role outside that decision.
+13. For a conflict that affects conclusions, give the role a focused follow-up if possible.
+14. If follow-up is unavailable, give the uncertainty and resolution test.
+15. Make one claim-evidence matrix.
+16. Make one coverage ledger.
+17. Apply the final rejection gate in the root context.
+18. Give one report in the user's language.
 
-Do not expose raw subagent transcripts as the report. Summaries must preserve evidence, locations, rule IDs, dissent that affects confidence, and all not-assessable coverage.
+Keep raw subagent transcripts outside the report. Summaries must keep evidence, locations, rule IDs, consequential dissent, and all not-assessable coverage.
 
 ## 12. Failure handling
 
-- If a role exceeds scope, invokes a potentially writing command, or edits state, discard its result and stop further side effects. Do not refreeze or continue from the modified state. Disclose the breach and require user recovery or explicit authorization of a new baseline before rerunning.
-- If the scope manifest changes during a wave, treat all affected role results as stale and halt. Do not claim a gate result until the user-established intended content is frozen and reviewed again.
-- If a role fails or returns incomplete coverage, follow up with the missing bounded assignment or rerun that role.
-- If a required role remains unavailable, mark its rules `not assessable — role unavailable`; do not claim exhaustive multi-role coverage or a clean gate.
-- If collaboration tools disappear mid-run, complete unperformed roles sequentially in the root context.
-- If the user changes scope while roles run, stop or disregard stale assignments, refreeze scope, and redelegate only the new work.
+- If a role exceeds scope or mutates state, discard its result. Stop further side effects. Give the violation to the user. Before another review, get recovery or clear authority for a new baseline. Potentially mutating commands also cause this response.
+- If the manifest changes during a wave, discard affected stale results. Stop the gate. Before another full review and gate result, get the user's intended baseline.
+- If a role fails or gives incomplete coverage, give a bounded follow-up or run that role again.
+- If a required role stays unavailable, record `not assessable — role unavailable`. Keep exhaustive-coverage and clean-gate claims unavailable.
+- If collaboration tools disappear, do unfinished roles sequentially in the root context.
+- If the user changes scope, stop or discard stale assignments. Record the new scope. Delegate only the new work.
 
 ## 13. Performance discipline
 
-Subagents increase token use. Obtain speed and focus benefits by:
+Subagents increase token use. For speed and focused context, use these practices:
 
-- delegating only independent roles justified by scope;
-- loading only role-specific references;
-- sharing one claim inventory instead of making each role reconstruct unrelated context;
-- returning structured findings rather than long narrative reviews;
-- scheduling to the actual concurrency limit;
-- avoiding repeated external searches across roles;
-- using focused follow-ups rather than rerunning every role for one missing field.
+- Delegate only independent roles justified by scope.
+- Load only role-specific references.
+- Give all roles one shared claim inventory.
+- Give structured findings.
+- Schedule within concurrency limits in effect.
+- Do not repeat the same external searches across roles.
+- Use focused follow-ups for missing fields.
 
-Lower latency or fewer main-context tokens count as improvement only if final coverage, evidence quality, and scope compliance remain intact.
+Lower latency or fewer root-context tokens are improvements only with unchanged coverage, evidence quality, and scope compliance.
 
 ## Sources
 
-This protocol applies the review principles in this skill and the orchestration guidance in [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT]. OpenAI documents that Codex can follow skill instructions requesting delegation, that parallel read-heavy work is a strong use case, that the root synthesizes results, and that parallel work costs more tokens and is a poor fit for shared mutable state. See [source-registry.md](source-registry.md).
+This protocol uses the skill's review principles and [OPENAI-CODEX-SUBAGENTS] and [OPENAI-MULTI-AGENT] orchestration guidance. OpenAI documentation includes skill-directed delegation, parallel read-heavy work, root synthesis, increased token costs, and risks from shared mutable state. See [source-registry.md](source-registry.md).

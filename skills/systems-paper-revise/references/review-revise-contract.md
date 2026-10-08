@@ -1,148 +1,238 @@
 # Shared Paper Workflow Contract
 
-Review checks; Grill discusses and records; Revise edits. All three use [writing-core.md](writing-core.md) as the same standard for paragraph purpose, high-level explanation, sentence and paragraph logic, precision, and concision. They use the [shared coverage contract](coverage-contract.md) for stable unit IDs, top-down execution, visible accounting, and finding closure. The shared archetype and Chinese references specialize that standard; review checklists add diagnostic detail, not a different quality bar.
+Review does checks, Grill discusses and records, and Revise edits.
+All three use [writing-core.md](writing-core.md) for paragraph purpose, explanation level, logic, precision, and concision.
+They use the [shared coverage contract](coverage-contract.md) for unit IDs, top-down checks, visible accounting, and finding closure.
+The archetype and Chinese references add specialized requirements.
+Review checklists add diagnostic detail, not a different quality standard.
 
 ## Same judgment, different action
 
-Before Review or Revise judges prose, resolve and account for its decision history
-under the [decision-record rules](../../systems-paper-grill/references/decision-record.md).
-Use an explicitly established record path, or *paper-decisions.md* at the root of
-an explicitly named paper project. An absent record in that project means zero
-history and is not created by Review or Revise. For pasted text, ambiguous project
-ownership, or a manuscript-only path, ask for the record or the author's explicit
-confirmation that this scope has no prior history. Do not search neighboring
-projects. This lookup rule does not create project configuration or expand
-manuscript scope.
+Before a manuscript judgment, do decision-history resolution with the [decision-record rules](../../systems-paper-grill/references/decision-record.md).
+Use a clearly shown record path.
+If no record path is established for a clearly named paper project, use *paper-decisions.md* at its root.
+An absent record in that project means zero history.
+Review and Revise do not make that record.
 
-Read every decision version and derive all, effective, applicable, and executable
-sets before using any entry. Only an effective, applicable, evidence-compatible,
-conflict-free confirmed version with authority for the current operation may
-constrain a manuscript change. Pending, rejected, superseded, stale, conflicting,
-and out-of-scope versions remain visible history. Every Review and Revise reports
-the separate decision coverage receipt, including `Unaccounted decisions: 0`;
-even a prose-only Revise returns its compact receipt after the manuscript.
+For pasted text, ambiguous project ownership, or a manuscript-only path, give the author a record-location question.
+Get the record path or clear confirmation that this scope has no history.
+Do not search neighboring projects.
+This lookup does not make project configuration or expand manuscript scope.
 
-For the same passage and available evidence, all three skills distinguish:
+Read each decision version.
+Derive all, effective, applicable, and executable sets before entry use.
+Only an executable confirmed version can constrain a manuscript change.
+It must be effective, applicable, evidence-compatible, conflict-free, and permitted for the requested operation.
+Keep pending, rejected, superseded, stale, conflicting, and out-of-scope versions as visible history.
 
-- **Confirmed defect:** identify the original anchor, failed standard, and supporting evidence. Review explains it; Revise performs the authorized repair and checks that the same defect is resolved.
-- **Unresolved reviewer risk:** identify the missing context, premise, evidence, or author decision. Neither skill treats uncertainty as an established error or invents its resolution.
-- **Style preference:** a defensible alternative, not a mandatory correction. Review labels it as optional; Revise follows its optional-wording output contract.
+Give a decision coverage receipt in each Review and Revise result, independently of manuscript coverage.
+Include `Unaccounted decisions: 0` when the accounting covers all versions.
+For prose-only Revise, put its compact receipt after the manuscript.
+Honor an explicit author restriction to manuscript body only or exclusion of receipts; keep that accounting internal.
 
-An unchanged unsupported assertion remains unresolved, not acceptable simply because editing it is unauthorized. Adequate wording does not become defective because another formulation is possible. Reassess a finding when new evidence or author clarification changes its basis; explain that change rather than silently reversing the judgment.
+For the same passage and evidence, keep these judgments as different categories:
 
-A reviewer reconstruction is a hypothesis about the manuscript, not author
-evidence. When Review recovers a central argument, it marks each node and edge
-`stated`, `text-licensed`, or `reviewer-hypothesized` under the writing core. A
-reviewer-hypothesized edge remains a finding or unresolved risk even when the
-completed reconstruction is elegant. Grill may confirm the intended relation and
-its evidence; Revise may express it only after that relation is supported and the
-author has authorized the affected edit boundary.
+- **Confirmed defect:** Find the initial anchor, failed standard, and evidence.
+  Review gives the explanation for the defect.
+  Revise makes the permitted repair and does the initial resolution test.
+- **Unresolved reviewer risk:** Find the missing context, premise, evidence, or author decision.
+  The skills do not accept uncertainty as a shown error or invent a resolution.
+- **Style preference:** Give a defensible optional alternative.
+  It is not a required correction.
+  Review gives it the optional status.
+  Revise obeys its optional-wording output contract.
 
-Treat author input as four separable things: diagnosis or dissatisfaction,
-intended meaning/role, scientific evidence, and edit authority. A question such as
-`should this be a Challenge paragraph?`, a placement hypothesis, or agreement that
-the current prose is awkward establishes neither a measured result nor permission
-to split, move, merge, or repurpose text. Structural authority requires an explicit
-instruction or confirmation naming the allowed operation and target boundary.
+An unchanged unsupported assertion stays unresolved even when an edit is not permitted.
+Sufficient wording does not become defective because an alternative is available.
+If new evidence or author clarification changes a finding's basis, examine that finding again.
+Give the reason for the changed judgment.
+After an explicit author withdrawal or replacement, recheck each linked finding against the propositions still asserted.
+Keep its original ID, anchors, resolution test, and missing-evidence history.
+Use `not applied` with the author decision when that requirement no longer applies; do not report the old test passed.
+Audit the retained claim with evidence appropriate to its inference type.
+Actual author-supplied observations are evidence inputs, separately from intent and edit permission.
+A bounded qualitative observation does not assert a quantitative metric, comparative gain, causal explanation, or general guarantee.
+Do not reopen a question only to satisfy an evidence requirement for the explicitly withdrawn proposition.
+An inherited missing-input list does not itself establish a current scientific obligation.
+Keep independently retained results, comparisons, guarantees, questions, conditions, and boundaries subject to their evidence requirements.
+An absent outcome or a weaker verb alone does not remove those requirements.
 
-Review assigns each finding a stable ID, affected section/paragraph/sentence/lexical
-unit or relation IDs, repair boundary, and observable resolution test. These IDs
-survive discussion and revision even when prose changes; short quotations preserve
-identity when paragraph numbering becomes stale. Every handoff retains all
-findings, including passed controls that matter to preservation, unresolved items,
-and rejected preferences. No stage silently drops an item because it is inconvenient
-or outside its own action authority.
+A reviewer reconstruction is a manuscript hypothesis, not author evidence.
+For each central node and edge, use the writing core's source status:
 
-Each finding also carries one next-action class. A mixed finding is decomposed so
-each independent subrepair has its own action. This is routing metadata, not a
-closure judgment:
+- `stated`
+- `text-licensed`
+- `reviewer-hypothesized`.
 
-- `direct repair`: a meaning-preserving authorized edit can be made from current
-  evidence without asking the author;
-- `author clarification`: intent, claim strength, terminology, paragraph role, or
-  an exact structural operation and destination must be chosen by the author;
-- `author evidence`: the author must supply a premise, implementation fact,
-  metric, baseline, condition, result, uncertainty, citation, or other evidence
-  that may exist but is not currently available;
-- `external blocker`: the prerequisite cannot be answered by an author decision,
-  author-supplied material, or a permission question in the current workflow and
-  requires new research or context, artifact, or source that is genuinely
-  inaccessible after allowed checks;
-- `optional/not applied`: the item is a style preference, rejected, stale,
-  conflicting, already satisfied, or outside the current edit scope; state which.
+A `reviewer-hypothesized` edge stays a finding or unresolved risk when an in-scope claim or promised role requires it, even when reconstruction has clear dependencies.
+Identify that claim and its visible endpoints before routing an author question.
+Missing whole-paper context alone creates no local repair obligation.
+If an inherited finding requires an unasserted claim or an out-of-scope paper decision, preserve its ID and original test as `not applied`, with the scope reason.
+Do not claim that its original test passed, discard independently supported risks, or apply a pending decision.
+Grill can get the author's relation and evidence.
+Revise can write it only with support and author permission for the affected edit boundary.
 
-When it is unclear whether missing material exists, prefer `author evidence` and
-ask for it. Do not promote an author-answerable item to `external blocker` merely
-because it was absent from the Review scope or because verification needs the
-author's permission; ask that permission as `author clarification`.
+Record four types of author input in different categories:
+
+- Diagnosis or dissatisfaction
+- Intended meaning or role
+- Scientific evidence
+- Edit permission.
+
+`should this be a Challenge paragraph?`, a placement hypothesis, or agreement about awkward prose does not show a measured result.
+It also does not give permission for text splitting, movement, combination, or repurposing.
+For structural permission, get a clear instruction or confirmation with the operation and target boundary.
+
+Review gives each finding a stable ID and these fields:
+
+- Affected section, paragraph, sentence, lexical, or relation IDs
+- Repair boundary
+- Observable resolution test.
+
+Keep those IDs during discussion and revision, even after prose changes.
+If paragraph numbering becomes stale, use short quotations to keep identity clear.
+Each handoff keeps all findings and important passed controls.
+Keep unresolved items and rejected preferences visible.
+Do not drop an item because it is difficult or not permitted by this skill.
+
+Give each finding one next-action class.
+Divide a mixed finding into independent repairs, each with its own action.
+This class gives routing, not closure:
+
+| Class | Required action or state |
+|---|---|
+| `direct repair` | An identified defect has a permitted edit that keeps meaning and uses available evidence. An author question is not necessary. |
+| `author clarification` | The author must select intent, claim strength, term, paragraph role, or specified structural operation and destination. |
+| `author evidence` | The author must supply a missing premise, implementation fact, metric, baseline, condition, result, uncertainty, citation, or other evidence. |
+| `external blocker` | No author decision, supplied material, or permission answer can supply the prerequisite in this workflow. New research or inaccessible context, artifact, or source is necessary. |
+| `optional/not applied` | The item is optional, rejected, stale, conflicting, satisfied, or not in edit scope. Give the applicable reason. |
+
+If the missing material's availability is unclear, use `author evidence`.
+Request that material.
+Absence from Review scope alone does not make an item an `external blocker`.
+If author permission is necessary for verification, put that question in `author clarification`.
 
 ## Discuss uncertain logic with the author
 
-Use Grill when a needed repair depends on unresolved author intent, competing technical interpretations, an absent scientific premise, actual experiment outcomes, a shared prior-work root cause, placement against unseen context, or a decision to change the claim or paragraph structure. Review assigns the action class and gives the exact unit IDs. Ordinary grammar, category alignment, redundancy, and unambiguous local logic repairs need no interview when they preserve meaning. In particular, if prose says a property cannot replace proof of already named properties, Revise may align the comparison to those object-level properties while preserving the original claim strength and leaving its evidence unresolved. Review can report the rest of its findings; Revise completes every safe local subrepair before asking about the author-answerable frontier.
+If an author choice or missing scientific input is necessary for a repair, use Grill.
+Applicable inputs include intent, competing technical interpretations, premises, experiment outcomes, or a shared prior-work root cause.
+They also include placement against unseen context and claim-strength or paragraph-structure decisions.
+Review gives the action class and specified unit IDs.
 
-A request to Revise against Review findings already authorizes an embedded
-clarification loop for every prerequisite-ready `author clarification` and
-`author evidence` item on that repair queue. Revise must not wait for a separate
-request to use Grill, tell the author to start another task, or convert those
-items directly into terminal blockers. It first applies all independent `direct
-repair` items, then asks the whole ready frontier in the Grill round format,
-including a recommendation and the exact answer or evidence needed. It labels
-these items `pending clarification`, waits for the author's answers, recomputes
-the frontier, and resumes the same revision automatically. `pending
-clarification` is a non-terminal workflow state, not a closure state and not a
-completed revision. An explicit one-shot, no-discussion, or prose-only request
-may opt out; preserve the affected prose and report the unresolved item under
-that output contract.
+An interview is not necessary for meaning-preserving grammar, category, redundancy, or clear local-logic repairs.
+A statement about a property's inability to replace proof can have an independent category defect.
+If the system obligations have names in the source, compare those object-level properties.
+Keep the initial claim strength and its unresolved evidence status.
+Complete each permitted meaning-preserving local repair before the author-input questions.
 
-Standalone Grill remains available when discussion itself is requested. It asks
-paper-specific questions and records the answers using the [decision-record
-rules](../../systems-paper-grill/references/decision-record.md) when a record
-location is authorized. A read-only Review request does not authorize record
-writes or start revision. Keep the discussion within the supplied manuscript
-scope and shared standard.
+A request to revise against Review findings gives permission for an embedded clarification loop.
+It includes each prerequisite-ready `author clarification` and `author evidence` item in that queue.
+Do not wait for another Grill request or tell the author to start another task.
+Do not give these items terminal blocker states immediately.
+Limit the ready question queue to inputs that affect a requested repair or its authority.
+Keep supplied plans as plans unless the user requests a change to established claims.
+When no permitted repair depends on manuscript lifecycle, record it as unknown instead of asking a separate question.
 
-Wait for the author's answer before applying the disputed repair. A recommendation
-is not confirmation; agreement with a writing goal supplies neither experimental
-evidence nor an unstated mechanism. Grill persists each substantive intermediate
-or settled outcome as a versioned full snapshot in the authorized paper decision
-record. A pending successor does not displace the confirmed head; confirming a
-successor atomically records both sides of the supersession relation. Rejected
-and superseded snapshots remain in the ledger. When Review IDs exist, each
-version carries the source finding and unit IDs, original resolution test,
-intended meaning, evidence state, and allowed edit. Confirmation applies only to
-the named meaning and allowed edit, not every suggestion in the conversation.
-Grill reads back each material update before it claims completion or returns an
-embedded clarification to Revise.
+Do the loop in this order:
 
-Terminal `blocked` is reserved for an `external blocker`, or for an
-author-answerable item after the author explicitly declines, cannot provide the
-required input, or confirms that it is unavailable. Silence while Revise is
-waiting is not a terminal decision. If the author supplies only part of an
-answer, settle that part, retain the remainder as `pending clarification`, and
-ask the newly ready frontier rather than issuing a completion receipt.
+1. Apply all independent `direct repair` items.
+2. Give the full ready question queue in Grill round format.
+3. Include a recommendation and the specified answer or evidence necessary for each question.
+4. Set those items to `pending clarification`.
+   Tell the author that their answers will resume this revision.
+5. Wait for author answers.
+6. Recalculate the ready question queue.
+7. Continue the same revision automatically.
 
-For common blockers, Grill asks for the smallest decisive input: the shared
-assumption or mechanism that causes a related-work gap; the metric, baseline,
-conditions, result, and uncertainty needed for an evidence-derived conclusion;
-the common changed constraint or boundary and each move-to-outcome causal edge
-when several headline properties are claimed to share one insight; the causal
-layer supplied by an enabling substrate versus complementary runtime mechanisms;
-the intended paragraph role and whether mechanism detail may move; the exact
-split/merge/move operation and destination; or the broad-reader claim that a
-limitation constrains. If the author supplied that input already, use it without
-reconfirming.
+`pending clarification` is a non-terminal workflow state.
+It is not a closure state or a completed revision.
+A clear one-shot, no-discussion, or prose-only request can exclude the loop.
+In that case, keep affected prose and give the unresolved issue with the applicable output contract.
+
+Use standalone Grill when the user requests discussion itself.
+Give paper-specified questions.
+If the record location is permitted, record answers with the [decision-record rules](../../systems-paper-grill/references/decision-record.md).
+A read-only Review request gives no permission for record writes nor revision.
+Keep discussion in the supplied manuscript scope and shared standard.
+
+Before the disputed edit, wait for the author's answer.
+A recommendation is not confirmation.
+Agreement with a writing goal gives neither experimental evidence nor an unstated mechanism.
+Save each substantive intermediate or settled Grill outcome as a versioned full snapshot when the record is writable within scope.
+Use only the permitted paper decision record.
+When persistence is explicitly excluded, retain the answer and its anchors in the conversation as current-request authority.
+Keep the same revision open and resume after the necessary answer.
+Do not represent a chat-only answer as saved decision history.
+
+A pending successor does not replace the confirmed head.
+Confirmation of a successor atomically records the two sides of the supersession relation.
+Keep rejected and superseded snapshots in the ledger.
+When Review IDs exist, include these fields in each version:
+
+- Source finding and unit IDs
+- Initial resolution test
+- Intended meaning and evidence state
+- Allowed edit.
+
+Confirmation applies only to the named meaning and edit.
+It does not apply to each suggestion in the discussion.
+Read back each permitted record update before completion or return to embedded Revise.
+
+Use terminal `blocked` only for an `external blocker` or a clear author answer that ends the input request.
+Such answers decline the request, cannot supply the input, or confirm its unavailability.
+Silence during a wait is not a terminal decision.
+If an answer is partial, settle only that part.
+Keep the rest `pending clarification`.
+Give the newly ready questions without a completion receipt.
+
+For common blockers, request the smallest decisive input:
+
+- The shared assumption or mechanism that causes a related-work gap
+- Metric, baseline, conditions, result, and uncertainty for a quantitative or comparative experimental conclusion
+- Observed object, setting, outcome, and scope for a qualitative observation
+- The common changed constraint or boundary for a claimed shared insight
+- Each move-to-outcome edge for its headline properties
+- The causal layer supplied by an enabling substrate and complementary runtime mechanisms
+- The intended paragraph role and permission for mechanism-detail movement
+- The specified split, combination, or movement operation and destination
+- The broad-reader claim that a limitation constrains.
+
+If the author supplied the necessary input, use it without another confirmation.
 
 ## Carry the decision into revision
 
-Review findings and Grill discussion are editorial input, not manuscript prose. Revise uses the original anchors, diagnosis, supplied evidence, and explicitly confirmed decision to make only the requested change. A completed review or discussion does not itself authorize editing files or moving content across paragraphs.
+Review findings and Grill discussion are editorial input, not manuscript prose.
+Use initial anchors, diagnosis, supplied evidence, and confirmed decisions to make only the requested change.
+A completed review or discussion alone does not give permission for file edits or cross-paragraph movement.
 
-Before editing, read the authorized decision record and any newer explicit author
-corrections alongside the original manuscript and supplied Review findings.
-Follow the decision-record rules to match anchors, separate confirmation from
-evidence, validate lifecycle links, and handle stale or conflicting lineages. Use
-only executable heads at their named locations; do not treat the whole history as
-a list of edits. A material embedded clarification must be persisted before
-revision resumes. In a new task, request unavailable source text or decisions
-rather than guessing them.
+Before edits, read the permitted decision record and newer clear author corrections.
+Read them with the initial manuscript and supplied Review findings.
+Apply the decision-record rules to anchors, confirmation, evidence, lifecycle links, and stale or conflicting lineages.
+Use only executable heads at their named locations.
+The full history is not a list of edits.
 
-After revision, re-audit the complete frozen scope under the coverage contract, including unchanged passed units. Only when no requested item remains `pending clarification`, map every received finding to terminal `closed`, `blocked`, `not applied`, or `reopened`. Close a finding only when its original resolution test passes without changing another supported proposition or introducing a new defect. A rejected item is not applied; missing scientific support is blocked only under the terminal-blocker rule above, even when intended wording is confirmed. Deleting the question, condition, boundary, or claim that missing evidence was supposed to answer does not close an evidence-derived-payoff finding unless the author explicitly withdraws that scientific proposition. Review stays read-only throughout; a review request does not automatically start revision.
+Save each important embedded clarification before revision resumes when a writable decision record is within scope.
+Otherwise, use the chat-only branch above.
+In a new task, request unavailable source text or decisions.
+Do not guess them.
+
+After revision, audit the full scope through the coverage contract.
+Include unchanged passed units.
+After no requested item stays `pending clarification`, give each received finding one terminal closure state.
+Use `closed`, `blocked`, `not applied`, or `reopened`.
+
+Close a finding only when its initial test passes without a new defect or another supported proposition's change.
+For an explicitly withdrawn proposition, apply the applicability check above and retain its finding as `not applied` when appropriate.
+Set a rejected item to `not applied`.
+Use `blocked` for missing support only with the terminal-blocker rule, even with confirmed intended wording.
+For a terminal evidence blocker, list each missing input needed by the initial resolution test.
+For an experimental comparison, name the metric and aggregation, baseline configuration, operating conditions, outcome, and material uncertainty.
+Honor a one-shot clarification opt-out by listing missing inputs without opening a question round.
+Explain in the terminal report why the supplied information cannot satisfy the resolution test.
+An experiment's existence supplies neither its outcome nor authority to withdraw the comparison.
+Explain why neither result replacement nor withdrawal can close the finding without the applicable evidence or permission.
+Deleting an unresolved scientific question, condition, boundary, or claim does not close its evidence-derived-payoff finding.
+Only a clear author withdrawal of that proposition can remove that requirement.
+
+Review stays read-only throughout.
+A review request does not automatically start revision.

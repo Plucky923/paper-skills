@@ -1,0 +1,128 @@
+{
+  "id": "ste-terms-and-context",
+  "title": "Keep canonical object names and contextual technical meanings without collapsing distinct concepts",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请根据作者确认的事实润色下面的英文系统论文正文，使表达清楚、准确。可以在原段内调整句子，但保持一个段落及其技术含义、条件和主张强度；已合格的正文应保留。不要搜索外部资料，不要添加未提供的事实。请先给英文正文，再给简短的中文修改说明和必要的 decision receipt。\n\nArbor grants each tenant a quota handle. The scheduler reads the budget reference and consumes one credit when it accepts a request. The allowance pointer reports an initial balance of 8 credits. A request occupies one queue slot until completion. In this protocol, a credit is permission to admit one request. The return value of try_admit reports whether admission succeeded.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "meaning-preserving local revisions supported by the author-confirmed facts",
+      "sentence-level reorganization inside the one original paragraph"
+    ],
+    "excluded": [
+      "splitting or moving the paragraph",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented mechanisms, actors, measurements, or guarantees",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "Object names: quota handle, budget reference, and allowance pointer denote the same handle in this passage. The project's declared name for this handle is quota handle.",
+      "The handle refers to a tenant's quota state. The scheduler uses that handle to read the remaining-credit count; the initial count is 8.",
+      "Admission accounting: the scheduler consumes one credit when it accepts a request. A credit represents permission to admit one request.",
+      "Queue occupancy: one request occupies one queue slot until that request completes. A queue slot is storage for a request, not an admission permission or a quota handle.",
+      "try_admit is the API identifier. Its return value reports whether admission succeeded; return value denotes a function result, not replenishment of credits.",
+      "No credit-replenishment rule, performance result, or broader guarantee is supplied."
+    ]
+  },
+  "protected_tokens": [
+    "Arbor",
+    "quota handle",
+    "scheduler",
+    "credit",
+    "8",
+    "queue slot",
+    "until completion",
+    "try_admit"
+  ],
+  "forbidden_actions": [
+    "leave the three handle names as unexplained interchangeable manuscript terms",
+    "merge the quota handle, quota state, admission credit, queue slot, request, or function return value into one concept",
+    "reinterpret credit as money or replace the API identifier with an ordinary-language paraphrase",
+    "make 8 a constant remaining balance rather than an initial count",
+    "invent a credit-replenishment rule or claim that request completion necessarily returns a credit",
+    "rewrite the adequate queue-occupancy, credit-definition, or API-return sentences merely to satisfy a dictionary or synonym preference",
+    "split the paragraph, access external material, or omit the mandatory compact decision receipt"
+  ],
+  "hard_gates": [
+    "The manuscript consistently uses quota handle for the established handle identity and preserves the distinct handle, quota state, credit, request, queue slot, and function-result meanings.",
+    "The scheduler reads the remaining-credit count through the handle and consumes exactly one credit when it accepts a request. The count of 8 remains initial rather than constant.",
+    "The three adequate sentences beginning A request occupies, In this protocol, and The return value remain unchanged, including try_admit and their technical meanings.",
+    "No credit-return rule, financial interpretation, new result, or guarantee is introduced. The output remains one manuscript paragraph with a separate compact zero-history decision receipt."
+  ],
+  "expected_behavior": [
+    "Normalize the handle aliases to the author-declared term without merging the handle with the state or permissions it exposes.",
+    "Make the handle-to-state and scheduler-reading relations clear without adding an implementation.",
+    "Keep credit and return value in their supplied technical senses even if a different everyday meaning or dictionary entry exists.",
+    "Retain the three adequate control sentences instead of manufacturing a style defect.",
+    "Return the revised paragraph first, then concise change commentary and the mandatory decision receipt."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Returns exactly one English manuscript paragraph before separate commentary and metadata.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Uses quota handle consistently for the supplied alias identity rather than retaining unexplained budget reference or allowance pointer names.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Preserves the quota handle as a reference to quota state, not as a request, queue position, or admission permission.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Makes the scheduler's reading of the remaining-credit count through the handle clear.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Preserves consumption of one credit when the scheduler accepts a request.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Preserves 8 as the initial credit count without making it an invariant balance.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Keeps credits, requests, and queue slots as distinct concepts and invents no credit-replenishment relation.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Keeps A request occupies one queue slot until completion. unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keeps In this protocol, a credit is permission to admit one request. unchanged, retaining the admission meaning of credit.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Keeps The return value of try_admit reports whether admission succeeded. unchanged, retaining the identifier and function-result meaning.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Adds no financial meaning, implementation detail, measurement, or broader guarantee.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Appends the mandatory compact zero-history decision receipt and keeps it outside the manuscript.",
+      "points": 1
+    }
+  ]
+}

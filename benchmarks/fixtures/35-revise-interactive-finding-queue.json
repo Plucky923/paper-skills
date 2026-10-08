@@ -58,13 +58,13 @@
     "split or move P2 before the author confirms the exact operation and target",
     "replace charges merely to satisfy F-04",
     "mark F-02 or F-03 terminally blocked before asking the author",
-    "issue a final finding-closure map or completed coverage receipt while answers are pending",
+    "issue a final finding-closure map or completed manuscript coverage receipt while answers are pending",
     "tell the author to start a separate Grill or Revise task"
   ],
   "hard_gates": [
     "The response repairs F-01 immediately while preserving its technical meaning and does not apply optional F-04.",
     "It classifies and preserves all four Review findings, with F-02 as author clarification and F-03 as author evidence rather than terminal blockers.",
-    "It asks both prerequisite-ready F-02 and F-03 questions in one Grill-style round with recommendations and exact required inputs, then waits without a terminal closure map or coverage receipt."
+    "It asks both prerequisite-ready F-02 and F-03 questions in one Grill-style round with recommendations and exact required inputs, then waits without a terminal closure map or manuscript coverage receipt. The separate compact decision receipt remains mandatory."
   ],
   "expected_behavior": [
     "Treat the supplied Review findings as the primary work queue and reclassify the older author-decision wording into the canonical action classes.",
@@ -87,6 +87,6 @@
     {"id": "R9", "criterion": "The F-02 question requests the exact structural operation, target, and resulting roles and includes a recommendation.", "points": 1},
     {"id": "R10", "criterion": "The F-03 question requests metric, baseline, conditions, result, and material uncertainty and includes an evidence-safe recommendation.", "points": 1},
     {"id": "R11", "criterion": "Uses pending clarification rather than terminal blocked for F-02 and F-03 and promises to resume the same revision.", "points": 1},
-    {"id": "R12", "criterion": "While waiting, emits no terminal closure map, completed coverage receipt, separate-task handoff, or unsupported prose.", "points": 1}
+    {"id": "R12", "criterion": "While waiting, emits no terminal closure map, completed manuscript coverage receipt, separate-task handoff, or unsupported prose. The separate compact decision receipt remains mandatory.", "points": 1}
   ]
 }

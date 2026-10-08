@@ -2,7 +2,7 @@
 
 ## 核验范围
 
-本次直接读取 mattpocock/skills 的 GitHub 页面、GitHub Git Trees API 与 raw 源文件。API 对 `main` 返回的 SHA 为 `3cca18b368ae95cdbdebbff572ccafa662551015`，且 `truncated: false`；因此本次核验时的当前上游恰好等于本项目指定的固定 commit，没有两个不同版本可供比较。下文源码链接均固定到该 commit，避免把未来 `main` 当成本次结果。[当前树 API](https://api.github.com/repos/mattpocock/skills/git/trees/main?recursive=1)、[固定版本](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015)
+首次调研直接读取了 mattpocock/skills 的 GitHub 页面、GitHub Git Trees API 与 raw 源文件。当时 API 对 `main` 返回的 SHA 为 `3cca18b368ae95cdbdebbff572ccafa662551015`，且 `truncated: false`。它与本项目固定的 commit 相同。本文描述该快照，不表示今天的 `main` 仍是这个版本。下文源码链接均固定到该 commit。[首次调研使用的树 API](https://api.github.com/repos/mattpocock/skills/git/trees/main?recursive=1)、[固定版本](https://github.com/mattpocock/skills/tree/3cca18b368ae95cdbdebbff572ccafa662551015)
 
 全文读取范围包括四个 `SKILL.md`、四个 `agents/openai.yaml`、domain-modeling 的两个格式文件、setup 的 `SKILL.md` 和 `domain.md`、上游关于 setup 软硬依赖的 ADR，以及 domain-modeling / grill-with-docs 的一方解释文档。本文只研究这些源码的指令含义，未实际运行交互访谈，也未把本地安装添加的 metadata 当成上游原文件。
 
@@ -57,8 +57,8 @@ domain-modeling 要求即时指出用户用语与既有词汇表的冲突，拆�
 
 - **提问主干已经保留。** 当前入口保留依赖树、整轮问题与建议、等待回答、重新计算下一轮。论文适配将查证限制在授权材料内，并允许明确记录证据阻塞。[本地入口](../skills/systems-paper-grill/SKILL.md)
 - **记录范围有意不同。** 本地使用单一 paper-decisions.md，保存待确认事项、已确认决定和否决项，还保留原文定位与证据依据。这满足作者希望保留中间结果的需求，但不是原版 CONTEXT/ADR 的默认行为；不能直接用 ADR 的高门槛删掉这些中间结果。[记录规则](../skills/systems-paper-grill/references/decision-record.md)
-- **采用简短记录。** 模板以 ID/状态、原文位置、短段落决定及证据组成，保留确认依据和必要的待确认或否决信息，而不要求填写逐项表格；兼容已有记录格式。更新后回读核对。[当前模板](../skills/systems-paper-grill/assets/paper-decisions-template.md)
+- **保存完整决定版本。** 每个实质变化在稳定 lineage 下新增完整快照，保留 ID、状态、原文位置、决定、证据、确认依据与允许的修改。pending 候选不取代旧 confirmed head；确认 successor 时，在同一次写入中建立双向接替链接。旧决定正文保持不变，更新后回读核对。模板可以用简短段落表达这些信息，不要求逐项表格。[当前模板](../skills/systems-paper-grill/assets/paper-decisions-template.md)
 - **主动澄清术语。** Grill 遇到与既有定义冲突的术语时明确追问，必要时以具体假设场景区分概念，将定义和应避免的混用词记在对应决定旁。假设场景不作为论文证据。[本地入口](../skills/systems-paper-grill/SKILL.md)
-- **共享发现约定，不增加 setup。** 用户授权使用论文项目讨论记录后，三个 skills 优先读取指定路径，否则查项目根的 paper-decisions.md。单段或仅正文请求不触发邻近文件搜索。Revise 匹配原文并处理冲突；不会自动写入论文项目 AGENTS/CLAUDE。[交接约定](../skills/systems-paper-revise/references/review-revise-contract.md)
+- **共享记录查找约定。** 三个 skills 优先读取指定路径，否则查已授权论文项目根目录的 paper-decisions.md。明确的项目中没有该文件时，按零条历史继续。只有粘贴文字或归属不明时，先取得记录路径，或让作者明确确认本次没有既有历史；不搜索其他项目。Revise 匹配原文并处理冲突，不自动写入项目 AGENTS/CLAUDE，也不增加 setup 前置步骤。[交接约定](../skills/systems-paper-revise/references/review-revise-contract.md)
 
 建议保留三个对外 skills 和一个论文记录文件，采用上游的轻量访谈、即时记录及显式消费思想；不照搬软件 issue tracker、CONTEXT-MAP、多份 ADR 或额外 setup 技能。

@@ -1,6 +1,8 @@
 # Multi-Agent Review–Revise Loop
 
-Use this protocol only for a large authorized scope whose independent scientific, evaluation, or presentation checks materially improve the convergence loop in [convergence-loop.md](convergence-loop.md). A sentence, paragraph, narrow local repair, or strongly sequential argument stays single-agent.
+Use this protocol only when independent checks help resolve important risks in a large permitted convergence scope.
+Use [convergence-loop.md](convergence-loop.md) for that loop.
+Keep a sentence, paragraph, narrow local repair, or strongly sequential argument single-agent.
 
 ## Ownership model
 
@@ -12,33 +14,44 @@ read-only reviewers inspect independent questions in parallel
   → root decides whether another supported edit remains
 ```
 
-The root owns scope, evidence, author-intent choices, synthesis, edits, validation commands, stopping decisions, and the final response. Reviewer subagents inspect and report; they do not draft replacement prose or modify any shared object.
+The root controls scope, evidence, author-intent choices, synthesis, edits, and validation commands.
+It also controls stopping decisions and the last response.
+Reviewer subagents examine and give findings.
+They do not write replacement prose or change any shared object.
 
-Every agent follows the same boundaries:
+Give each agent these limits:
 
-- inspect only the exact frozen scope and permitted primary sources;
-- preserve the distinction between manuscript evidence, artifact evidence, external verification, and inference;
-- use no Git or source-control API and create no branch, commit, stash, tag, patch, diff report, or backup;
-- leave compile, render, lint, tests, benchmarks, scripts, installations, and other state-changing commands to the root and only when separately authorized.
+- Examine only the specified frozen scope and permitted primary sources.
+- Keep manuscript evidence, artifact evidence, external verification, and inference as different categories.
+- Do not use Git or a source-control API.
+- Do not make a branch, commit, stash, tag, patch, diff report, or backup.
+- Leave each state-changing command to the root.
 
-If collaboration tools are unavailable, run only the independent checks that remain useful in the root context; do not simulate agreement among fictional reviewers.
+State-changing commands include compilation, rendering, lint, tests, benchmarks, scripts, and installations.
+The root runs them only with separate permission.
+
+If collaboration tools are unavailable, do the independent checks that help answer their assigned questions in the root context.
+Do not invent reviewers or agreement.
 
 ## Select reviewers by question
 
 Use only roles that can make independent progress on the scoped material:
 
-- contribution and broad-reader coherence;
-- domain assumptions, design derivation, correctness, or closest work;
-- claim-to-evidence alignment, baselines, measurement, and uncertainty;
-- paragraph, terminology, figure, and local logic;
-- paper–artifact consistency when artifacts are explicitly in scope;
-- bounded primary-source or venue-rule verification.
+- Contribution and coherence for broad readers
+- Domain assumptions, design derivation, correctness, or closest work
+- Claim-to-evidence alignment, baselines, measurement, and uncertainty
+- Paragraphs, terms, figures, and local logic
+- Paper–artifact consistency, when artifacts are clearly in scope
+- Bounded verification of primary sources or venue rules.
 
-Do not merge materially different questions merely because concurrency is limited; schedule them in waves. Additional agents are justified by a new independent question or failed coverage, not by a finding being difficult.
+If concurrency is limited, schedule different questions in waves.
+Do not combine questions about different scientific content only to fit that limit.
+Add agents only for a new question without shared prerequisites or failed coverage.
+A difficult finding alone does not justify another agent.
 
 ## Baseline wave
 
-The root first freezes:
+First, the root records these items and keeps them unchanged during the wave:
 
 ```text
 authorized objects and explicit exclusions
@@ -49,42 +62,74 @@ protected technical content
 questions assigned to each reviewer
 ```
 
-Send each reviewer the same scope boundary and current content, plus only the references needed for its question. Require a read-only result containing evidence, location, consequence, repair direction or blocker, and coverage limits.
+Give each reviewer the same scope boundary and content for this round.
+Supply only the references necessary for its question.
+Request a read-only result with evidence, location, consequence, repair direction or blocker, and coverage limits.
 
-Wait for every applicable reviewer. The root verifies each finding, merges true duplicates without losing affected locations, and resolves disagreement from evidence rather than majority vote. A request for a stronger claim loses to evidence that cannot support it; a stylistic deletion loses when it removes a material limitation.
+Wait for each applicable reviewer.
+Examine each finding against the evidence.
+Combine true duplicates without losing affected locations.
+Resolve disagreements from evidence rather than a majority vote.
+Reject a stronger claim when evidence cannot support it.
+Reject a style deletion when it removes an important limitation.
 
-If scoped content changes while reviewers are reading, their judgments apply to a stale version. Stop the wave, establish the intended current content with the user when necessary, and rerun affected checks before writing.
+If scoped content changes during review, the judgments apply to an old version.
+Stop the wave.
+If necessary, get the user's decision about the intended content for this round.
+Run affected checks again before edits.
 
 ## Root-only synthesis and writing
 
-Order the consolidated problems by scientific dependency. Apply [revision-protocol.md](revision-protocol.md), [paper-archetypes.md](paper-archetypes.md), and [revision-strategies.md](revision-strategies.md) only where relevant. Before writing, run the preservation snapshot in [change-safety.md](change-safety.md).
+1. Order the combined problems by scientific dependency.
+2. Apply [revision-protocol.md](revision-protocol.md), [paper-archetypes.md](paper-archetypes.md), and [revision-strategies.md](revision-strategies.md) where applicable.
+3. Record the preservation snapshot in [change-safety.md](change-safety.md).
+4. Write one draft with clear dependencies through [writing-core.md](writing-core.md).
 
-The root then produces one coherent draft through [writing-core.md](writing-core.md). Reviewer suggestions are diagnoses, not text to paste. Alternatives that encode different technical meaning, contribution priority, assumption, or trade-off become an author decision; ordinary wording resolves to one conservative version.
+Reviewer suggestions are diagnoses, not manuscript text to paste.
+For different technical meanings, contribution priorities, assumptions, or trade-offs, get an author decision.
+For usual wording, use one conservative version.
 
-No reviewer writes concurrently with the root. Any authorized command that can produce output runs through the root, with writable output isolated outside the source tree. The root verifies that scoped content and the source tree did not change as an unintended side effect.
+Keep reviewers read-only while the root writes.
+Run each permitted output-producing command through the root.
+Put writable output in a different directory from the source tree.
+Make sure that commands cause no unintended changes to scoped content or the source tree.
 
 ## Regression wave
 
-After preservation checks, ask every still-applicable role to inspect the complete revised scope, not only changed lines. Supply the current content and the findings the revision intended to close. Require each role to state:
+After preservation checks, give each applicable reviewer the full revised scope.
+A review of changed lines alone is insufficient.
+Supply the content for this round and the findings that the edits intended to close.
+Request these results:
 
-- which assigned issue is closed, still open, regressed, or blocked, with evidence;
-- any new materially distinct issue;
-- which question it checked and which part remained unassessable.
+- Each assigned issue's state: closed, open, regressed, or blocked, with evidence
+- Each new issue that changes scientific content
+- The question examined and the part that stayed not assessable.
 
-Wait for all applicable roles, verify that they assessed the current content, and consolidate again. One clean role cannot close another role's evidence-backed concern. A minority fatal finding remains open until the evidence resolves it.
+Wait for all applicable roles.
+Make sure that each examined the content for this round.
+Combine the findings again.
+One clean role cannot close another role's concern when evidence supports that concern.
+A fatal minority finding stays open until evidence resolves it.
 
 ## Iterate and stop
 
-Return to root-only writing only when a specific evidence-safe repair remains. Apply the progress and stopping conditions in [convergence-loop.md](convergence-loop.md). A locally complete multi-agent gate additionally requires:
+Return to root-only edits only when a specified permitted repair that keeps evidence status stays.
+Obey the progress and stopping conditions in [convergence-loop.md](convergence-loop.md).
+For a locally complete multi-agent gate, make sure that these additional conditions hold:
 
-- every applicable role finished after the last edit;
-- no actionable issue or required evidence/context/source/author choice remains;
-- disagreements are resolved or exposed as blockers;
-- the root independently passed [change-safety.md](change-safety.md);
-- no reviewer modified shared state and no agent used Git.
+- Each applicable role finishes after the last edit.
+- No actionable issue or required evidence, context, source, or author choice stays.
+- Disagreements are resolved or visible as blockers.
+- The root independently passes [change-safety.md](change-safety.md).
+- No reviewer changes shared state.
+- No agent uses Git.
 
-If a required role fails and cannot be safely rerun, report incomplete reviewer coverage rather than exhaustive convergence.
+If a required role fails, repeat its check only in the permitted scope.
+If no such repeat is possible, give the reviewer coverage as incomplete.
+Do not claim exhaustive convergence.
 
 ## Final handoff
 
-Lead with the revised manuscript or exact edited files. Report only the roles used, consequential changes, actual validation, unresolved blockers, and readiness for human Git diff review. The root remains the sole writer throughout.
+Start with the revised manuscript or specified edited files.
+Give only the roles used, important changes, validation results, unresolved blockers, and readiness for human Git diff review.
+The root stays the sole writer throughout.

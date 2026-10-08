@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "ste-authoring",
+  "source": {
+    "url": "https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf",
+    "issue": 9,
+    "release_date": "2025-01-15",
+    "sha256": "d1f4ea9e7cd6e46b47aa9057209f99e78c0e9cfc4e27a5b07895b05c1a166431"
+  },
+  "cases": [
+    "01-part-of-speech.json",
+    "02-meaning-and-technical-terms.json",
+    "03-noun-clusters.json",
+    "04-procedural-actions.json",
+    "05-word-limits-and-protected-text.json",
+    "06-paragraphs-and-passive.json"
+  ],
+  "minimum_score": 10,
+  "require_all_hard_gates": true
+}

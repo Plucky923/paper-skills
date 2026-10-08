@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "revision": "2026-10-04-output-authority-v2",
+  "created_at_utc": "2026-10-04T11:13:38.466868+00:00",
+  "manuscript_case_count": 49,
+  "authoring_case_count": 6,
+  "changed_cases": [
+    13,
+    16,
+    17,
+    18,
+    40
+  ],
+  "unchanged_contract_fields": [
+    "id",
+    "title",
+    "skills",
+    "scope",
+    "evidence",
+    "protected_tokens",
+    "forbidden_actions",
+    "hard_gates",
+    "expected_behavior",
+    "rubric"
+  ],
+  "scope": "Only candidate-visible response-format authorizations changed. Original frozen runs and scores remain immutable. Future comparisons use these exact task inputs for both instruction trees.",
+  "author_priority": "Explicit author output exclusions take precedence over skill defaults. An incompatible evaluator requirement invalidates the task oracle; it cannot be solved by disobeying the author.",
+  "records": [
+    {
+      "number": 1,
+      "case_id": "review-scope-trap",
+      "path": "benchmarks/fixtures/01-review-scope-trap.json",
+      "original_file_sha256": "1b404556dea7db483a2fc14748a847f049911816bb4b6363860dd49e867b6586",
+      "current_file_sha256": "1b404556dea7db483a2fc14748a847f049911816bb4b6363860dd49e867b6586",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "702af7ac6db4ff9c1d35e9cb8a9b0bb8c8592e8614d30ed9d747d470b076453f"
+    },
+    {
+      "number": 2,
+      "case_id": "revise-preservation",
+      "path": "benchmarks/fixtures/02-revise-preservation.json",
+      "original_file_sha256": "49d29de44eb3588aa950099f17cb522a6e6c51f9fd78299f331e1e6abf2efd98",
+      "current_file_sha256": "49d29de44eb3588aa950099f17cb522a6e6c51f9fd78299f331e1e6abf2efd98",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "668737f1bd4ea52fbc3e5d9e72603466010b20454b4a80ab7bf9018721f6e22b"
+    },
+    {
+      "number": 3,
+      "case_id": "generic-high-level",
+      "path": "benchmarks/fixtures/03-generic-high-level.json",
+      "original_file_sha256": "75d6a0446e8b62968c7fa85189217b711431e059342083df19f8ec4349ff8ab6",
+      "current_file_sha256": "75d6a0446e8b62968c7fa85189217b711431e059342083df19f8ec4349ff8ab6",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "c4796eff41f276a8b3f383abfa79c32d516f00d06580df68d1c6751c7b2b67e9"
+    },
+    {
+      "number": 4,
+      "case_id": "concise-low-level",
+      "path": "benchmarks/fixtures/04-concise-low-level.json",
+      "original_file_sha256": "2f48c6505c291c7232aad5e9cc52f12a60543247589dd0951795694d525a4197",
+      "current_file_sha256": "2f48c6505c291c7232aad5e9cc52f12a60543247589dd0951795694d525a4197",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "5cdd76917a9175ed05f6d7cc6f34340f590377d204799df2dd38d947adefaa2d"
+    },
+    {
+      "number": 5,
+      "case_id": "measurement-negative-result",
+      "path": "benchmarks/fixtures/05-measurement-negative-result.json",
+      "original_file_sha256": "f4abd37865ee0e42091bed58415b833fa81c20591d01b61f24cc6e306a0fe098",
+      "current_file_sha256": "f4abd37865ee0e42091bed58415b833fa81c20591d01b61f24cc6e306a0fe098",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "702dc0770c450d95387c052df4014a3e3f6f9d73ecfab850d26b20eccfc2b9ae"
+    },
+    {
+      "number": 6,
+      "case_id": "operational-experience",
+      "path": "benchmarks/fixtures/06-operational-experience.json",
+      "original_file_sha256": "ebfb3da3a2c363c6da8fea4c3c2537dda2ef5491ed33dac76a4e4d1de892b421",
+      "current_file_sha256": "ebfb3da3a2c363c6da8fea4c3c2537dda2ef5491ed33dac76a4e4d1de892b421",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "2b5b0c8c8d13595e2b01ac24ea2d24a79bba66e3baa4eb09ddfac98eaf26e189"
+    },
+    {
+      "number": 7,
+      "case_id": "benchmark-infrastructure",
+      "path": "benchmarks/fixtures/07-benchmark-infrastructure.json",
+      "original_file_sha256": "cba8009954c27aee4cc1c4263ce76ab4c8bbb698e9acf8e8399b39912ec0d0ec",
+      "current_file_sha256": "cba8009954c27aee4cc1c4263ce76ab4c8bbb698e9acf8e8399b39912ec0d0ec",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "deead4151eef425a95241a1b0dfa59c1b06dfd74afcbc461b14eb0e95f6f790a"
+    },
+    {
+      "number": 8,
+      "case_id": "paragraph-density",
+      "path": "benchmarks/fixtures/08-paragraph-density.json",
+      "original_file_sha256": "533783f6305b7d2618ae623d52e3d532269832a89c57479333ce5aa11cc997b8",
+      "current_file_sha256": "533783f6305b7d2618ae623d52e3d532269832a89c57479333ce5aa11cc997b8",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "0fc8e6e7cf5053dbb3d25cae50cceabb7a3547f5c889f73e786262649b0edcae"
+    },
+    {
+      "number": 9,
+      "case_id": "precision-verbs-logic",
+      "path": "benchmarks/fixtures/09-precision-verbs-logic.json",
+      "original_file_sha256": "cef3e5dcafb94ea4991f679fdb6b3aca8a3a3f98d4fe918430b3662518a387e4",
+      "current_file_sha256": "cef3e5dcafb94ea4991f679fdb6b3aca8a3a3f98d4fe918430b3662518a387e4",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "ca2e36d9334a0d4f46e6661b2347b398530c72a8c8062c443c050b1a4caf788b"
+    },
+    {
+      "number": 10,
+      "case_id": "chinese-translation",
+      "path": "benchmarks/fixtures/10-chinese-translation.json",
+      "original_file_sha256": "3df3c5e2e2747f00f3b677a5cda809246425cfec8dcd80bdd0c61ad275d9da5c",
+      "current_file_sha256": "3df3c5e2e2747f00f3b677a5cda809246425cfec8dcd80bdd0c61ad275d9da5c",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "bdf24ed6cfa0eaa1c7b7df25a37439fb57e9a8ef152fca687ad5ebd563c8d8cc"
+    },
+    {
+      "number": 11,
+      "case_id": "latex-token-safety",
+      "path": "benchmarks/fixtures/11-latex-token-safety.json",
+      "original_file_sha256": "267f0396986de85f0b27e13ec830036ede6ed8835d1acf432d5003bfbe64cef1",
+      "current_file_sha256": "267f0396986de85f0b27e13ec830036ede6ed8835d1acf432d5003bfbe64cef1",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "50c003e35b2f124cb66b951db10caf16e30c52c3bae3b129ef0584515f968d86"
+    },
+    {
+      "number": 12,
+      "case_id": "venue-integrated-review-revise",
+      "path": "benchmarks/fixtures/12-venue-integrated-review-revise.json",
+      "original_file_sha256": "7a9814bd064fd5c2143d14ff1e4207da91e71d1729c1d246613443e7ae3e4293",
+      "current_file_sha256": "7a9814bd064fd5c2143d14ff1e4207da91e71d1729c1d246613443e7ae3e4293",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "25cdb5c8558860f4404c83ac16a0ef49381192be8a3fc599731c723822058f04"
+    },
+    {
+      "number": 13,
+      "case_id": "paragraph-local-revision",
+      "path": "benchmarks/fixtures/13-paragraph-local-revision.json",
+      "original_file_sha256": "0fb66fc97ccb0274622d0026f93125468bb476bcbc9f3a66176b2c1bf8bd12b3",
+      "current_file_sha256": "d319ec92f81eba651b7b6ef47fb895d0ef4e7c86e0c301cbf803081751b29bfe",
+      "changed_fields": [
+        "prompt"
+      ],
+      "non_prompt_fields_sha256": "610f86de866eff8c04dd5299cb57363405e943f27fae1c0d419be1d039827f76",
+      "original_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面正文改得更 high-level、简洁、逻辑准确，只给修改后的英文论文正文。\n\nThe coordinator serializes every admission decision. Requests wait for the coordinator even when a worker has spare capacity.\n\nA worker can admit a request while credits remain. Each worker has a local pool of 32 admission credits. The worker requests more credits from the coordinator only after the pool is exhausted.\n\nWe replayed one trace with 16 workers. Throughput was 18% higher than with centralized admission. Both configurations used the same hardware.",
+      "current_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面正文改得更 high-level、简洁、逻辑准确，只给修改后的英文论文正文，并在正文后附上必要的单行简短决策覆盖凭据；不要附加其他说明。\n\nThe coordinator serializes every admission decision. Requests wait for the coordinator even when a worker has spare capacity.\n\nA worker can admit a request while credits remain. Each worker has a local pool of 32 admission credits. The worker requests more credits from the coordinator only after the pool is exhausted.\n\nWe replayed one trace with 16 workers. Throughput was 18% higher than with centralized admission. Both configurations used the same hardware.",
+      "reason": "Authorize the existing required metadata explicitly, resolving the manuscript-body-only output restriction without changing scientific obligations or evaluator criteria.",
+      "original_fixture_text": "{\n  \"id\": \"paragraph-local-revision\",\n  \"title\": \"Improve local logic without moving paragraph content\",\n  \"skills\": [\n    \"systems-paper-revise\"\n  ],\n  \"material_origin\": \"synthetic\",\n  \"prompt\": \"我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\\n\\n请把下面正文改得更 high-level、简洁、逻辑准确，只给修改后的英文论文正文。\\n\\nThe coordinator serializes every admission decision. Requests wait for the coordinator even when a worker has spare capacity.\\n\\nA worker can admit a request while credits remain. Each worker has a local pool of 32 admission credits. The worker requests more credits from the coordinator only after the pool is exhausted.\\n\\nWe replayed one trace with 16 workers. Throughput was 18% higher than with centralized admission. Both configurations used the same hardware.\",\n  \"scope\": {\n    \"authorized\": [\n      \"the three supplied prose paragraphs\"\n    ],\n    \"excluded\": [\n      \"other manuscript text\",\n      \"new evidence\",\n      \"external sources\",\n      \"persistent-state changes\"\n    ],\n    \"output_language\": \"English\"\n  },\n  \"evidence\": {\n    \"paragraph_1\": [\n      \"the coordinator serializes every admission decision\",\n      \"requests wait even when a worker has spare capacity\"\n    ],\n    \"paragraph_2\": [\n      \"each worker has a local pool of 32 admission credits\",\n      \"a worker can admit a request while credits remain\",\n      \"more credits are requested only after the pool is exhausted\"\n    ],\n    \"paragraph_3\": [\n      \"one trace replay with 16 workers\",\n      \"18% higher throughput than centralized admission\",\n      \"both configurations use the same hardware\"\n    ],\n    \"unavailable\": [\n      \"tail latency\",\n      \"fault tolerance\",\n      \"credit implementation\",\n      \"other workloads\"\n    ]\n  },\n  \"protected_tokens\": [\n    \"32\",\n    \"16 workers\",\n    \"18%\",\n    \"centralized admission\"\n  ],\n  \"forbidden_actions\": [\n    \"change paragraph count or order\",\n    \"move or duplicate scientific content into another paragraph\",\n    \"replace a paragraph's role\",\n    \"add unsupported mechanisms, measurements, guarantees, or conditions\",\n    \"add role labels, headings, bullets, tables, or commentary beyond the mandatory compact decision receipt\"\n  ],\n  \"hard_gates\": [\n    \"The output contains exactly three manuscript prose paragraphs in their original order, followed only by the mandatory compact decision receipt.\",\n    \"Each paragraph preserves its substantive propositions and owns only those propositions or their locally warranted relations.\",\n    \"No new research content, generalized result, or cross-paragraph content transfer appears.\"\n  ],\n  \"expected_behavior\": [\n    \"Recognize problem, mechanism, and evaluation roles without printing labels.\",\n    \"Leave sound wording alone and make only needed local improvements.\",\n    \"Make the definition-use relation for the local credit pool recoverable within paragraph 2.\",\n    \"Keep the bounded throughput result in paragraph 3 rather than promoting it into a design promise.\",\n    \"Treat high-level and concise as writing goals, not restructuring authority.\"\n  ],\n  \"rubric\": [\n    {\n      \"id\": \"R1\",\n      \"criterion\": \"Returns English manuscript prose first, followed only by a compact zero-history decision receipt.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R2\",\n      \"criterion\": \"Preserves exactly three paragraphs in the original order.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R3\",\n      \"criterion\": \"Paragraph 1 remains a coordinator-serialization problem statement, not a solution preview.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R4\",\n      \"criterion\": \"Preserves waiting despite spare worker capacity in paragraph 1.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R5\",\n      \"criterion\": \"Paragraph 2 defines or clearly identifies the local pool before its use becomes ambiguous.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R6\",\n      \"criterion\": \"Preserves 32 admission credits and local admission while credits remain in paragraph 2.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R7\",\n      \"criterion\": \"Preserves replenishment only after pool exhaustion in paragraph 2.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R8\",\n      \"criterion\": \"Keeps one trace and 16 workers as the evaluation scope in paragraph 3.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R9\",\n      \"criterion\": \"Keeps the 18% throughput comparison against centralized admission in paragraph 3.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R10\",\n      \"criterion\": \"Preserves the matched-hardware condition without inventing additional controls.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R11\",\n      \"criterion\": \"Improves local expression or definition-use order without transferring content between paragraphs.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R12\",\n      \"criterion\": \"Adds no credit implementation, latency claim, fault-tolerance guarantee, or broader workload conclusion.\",\n      \"points\": 1\n    }\n  ]\n}\n"
+    },
+    {
+      "number": 14,
+      "case_id": "sentence-paragraph-logic",
+      "path": "benchmarks/fixtures/14-sentence-paragraph-logic.json",
+      "original_file_sha256": "216ebe68e3b1a77b79f2a4e9363c3acfc1ecb185619cf7e9eb6a8a79b6ba7124",
+      "current_file_sha256": "216ebe68e3b1a77b79f2a4e9363c3acfc1ecb185619cf7e9eb6a8a79b6ba7124",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "cd7da9d003bb95b1a9545b1ff466dd05c48eb80c9a06841a2dab0dacd6de96ae"
+    },
+    {
+      "number": 15,
+      "case_id": "adequate-prose-optional-wording",
+      "path": "benchmarks/fixtures/15-adequate-prose-optional-wording.json",
+      "original_file_sha256": "ec0d4ddedb385861fabeee3fe5546acf2a03acc73567f6aec6f90e206a42a3e1",
+      "current_file_sha256": "ec0d4ddedb385861fabeee3fe5546acf2a03acc73567f6aec6f90e206a42a3e1",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "cf21845897022abbe085f3708984d099bb19ed4cf857d5c5c78216f6a50c6363"
+    },
+    {
+      "number": 16,
+      "case_id": "prose-only-scientific-gap",
+      "path": "benchmarks/fixtures/16-prose-only-scientific-gap.json",
+      "original_file_sha256": "c2db3775dfcb10ba3f0440451cacb4e0806342dc81ca0a4f04459af72ac0b3a4",
+      "current_file_sha256": "15c8c3bb7cc53dd74b088a90309d64383ac1f9a9285b6dea08e6471747054d02",
+      "changed_fields": [
+        "prompt"
+      ],
+      "non_prompt_fields_sha256": "d0b1642af29f3f100ad295cf3d887420593a2a9df4a4be7ddf6172b433e7c262",
+      "original_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面内容改得简洁、严谨，只给英文论文正文。\n\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.",
+      "current_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面内容改得简洁、严谨，只给英文论文正文；若仍有未解决科学问题，附上必要的最小问题说明，最后附单行简短决策覆盖凭据；不要附加其他说明。\n\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.",
+      "reason": "Authorize the existing required metadata explicitly, resolving the manuscript-body-only output restriction without changing scientific obligations or evaluator criteria.",
+      "original_fixture_text": "{\n  \"id\": \"prose-only-scientific-gap\",\n  \"title\": \"Fix safe wording but retain and precisely flag an unsupported scientific inference\",\n  \"skills\": [\n    \"systems-paper-revise\"\n  ],\n  \"material_origin\": \"synthetic\",\n  \"prompt\": \"我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\\n\\n请把下面内容改得简洁、严谨，只给英文论文正文。\\n\\nEach worker keep a local queue. A background thread submits queued requests in batches.\\n\\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\",\n  \"scope\": {\n    \"authorized\": [\n      \"the supplied two manuscript paragraphs\"\n    ],\n    \"excluded\": [\n      \"other manuscript text\",\n      \"external sources\",\n      \"new evidence\",\n      \"persistent-state changes\"\n    ],\n    \"output_language\": \"English\"\n  },\n  \"evidence\": {\n    \"facts\": [\n      \"Each worker keeps a local queue.\",\n      \"A background thread submits queued requests in batches.\",\n      \"The reported measurement is mean latency under one workload.\"\n    ],\n    \"unavailable\": [\n      \"tail-latency measurements\",\n      \"cross-workload evidence\",\n      \"proof of a latency guarantee\",\n      \"isolated causal effect of batching\"\n    ]\n  },\n  \"protected_tokens\": [\n    \"local queue\",\n    \"background thread\",\n    \"mean latency\",\n    \"one workload\",\n    \"Therefore, batching guarantees lower tail latency for every workload.\"\n  ],\n  \"forbidden_actions\": [\n    \"invent evidence or mechanism benefits\",\n    \"silently weaken or delete the unsupported conclusion\",\n    \"leave the independent subject-verb agreement error unfixed\",\n    \"emit optional rewrites, process notes beyond the mandatory compact decision receipt, or a full review\"\n  ],\n  \"hard_gates\": [\n    \"The manuscript keeps its two original paragraphs and scientific propositions, including the unchanged unsupported conclusion.\",\n    \"The independent subject-verb agreement error is corrected without expanding the mechanism description.\",\n    \"A minimal separate note locates the unsupported inference and its missing scientific basis despite the prose-only request; no replacement argument is supplied, and the compact zero-history decision receipt follows.\"\n  ],\n  \"expected_behavior\": [\n    \"Correct keep to keeps in paragraph 1.\",\n    \"Do not infer reduced coordination overhead from queueing and batching.\",\n    \"Keep the unsupported tail-latency guarantee unchanged pending author decision.\",\n    \"Locate P2.S1 to P2.S2 using exact identifying anchors and distinguish mean, tail, population, and causal support.\",\n    \"Suppress optional wording and routine commentary; append only the mandatory compact decision receipt after the scientific note.\"\n  ],\n  \"rubric\": [\n    {\n      \"id\": \"R1\",\n      \"criterion\": \"Corrects the subject-verb agreement error.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R2\",\n      \"criterion\": \"Keeps the first paragraph's queue and batching facts.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R3\",\n      \"criterion\": \"Adds no mechanism purpose or benefit.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R4\",\n      \"criterion\": \"Preserves the mean-latency measurement and one-workload scope.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R5\",\n      \"criterion\": \"Leaves the unsupported concluding sentence unchanged.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R6\",\n      \"criterion\": \"Preserves two manuscript paragraphs in the original order.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R7\",\n      \"criterion\": \"Returns manuscript text before the issue note.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R8\",\n      \"criterion\": \"Locates both original sentences of the failed inference.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R9\",\n      \"criterion\": \"Explains that mean latency does not establish tail latency.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R10\",\n      \"criterion\": \"Explains that one workload does not establish an every-workload guarantee.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R11\",\n      \"criterion\": \"Does not invent a causal experiment or weaken the conclusion to may.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R12\",\n      \"criterion\": \"Keeps the scientific note brief, appends the compact zero-history decision receipt, and omits optional wording, other process commentary, and replacement prose.\",\n      \"points\": 1\n    }\n  ]\n}\n"
+    },
+    {
+      "number": 17,
+      "case_id": "chinese-faithful-local-repair",
+      "path": "benchmarks/fixtures/17-chinese-faithful-local-repair.json",
+      "original_file_sha256": "8c3bb89d7cd4c496b52daf546eb92be98584b7cba4e34492ba8b77dbc41f45e8",
+      "current_file_sha256": "367ec149521c2cb6e2855b8107946e78bfc70eca28905f304f8ff2f0d338c4a0",
+      "changed_fields": [
+        "prompt"
+      ],
+      "non_prompt_fields_sha256": "6285bf52746bca2d92c2d5e55bbe5824879c06e3c239d4d18bc47b0c79f17345",
+      "original_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
+      "current_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文，并在正文后附上必要的单行简短决策覆盖凭据；不要附加其他说明。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
+      "reason": "Authorize the existing required metadata explicitly, resolving the manuscript-body-only output restriction without changing scientific obligations or evaluator criteria.",
+      "original_fixture_text": "{\n  \"id\": \"chinese-faithful-local-repair\",\n  \"title\": \"Repair Chinese redundancy without supplying absent technical explanations\",\n  \"skills\": [\n    \"systems-paper-revise\"\n  ],\n  \"material_origin\": \"synthetic\",\n  \"prompt\": \"我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\\n\\n请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文。\\n\\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\\n\\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。\",\n  \"scope\": {\n    \"authorized\": [\n      \"the supplied two manuscript paragraphs\"\n    ],\n    \"excluded\": [\n      \"other manuscript text\",\n      \"external sources\",\n      \"new evidence\",\n      \"persistent-state changes\"\n    ],\n    \"output_language\": \"Chinese\"\n  },\n  \"evidence\": {\n    \"facts\": [\n      \"Each worker thread maintains a local queue.\",\n      \"Requests enter that queue; a background thread submits queued requests in batches.\",\n      \"The system recomputes a placement decision for each request.\"\n    ],\n    \"unavailable\": [\n      \"coordination protocol\",\n      \"batching benefits\",\n      \"placement scope or algorithm\",\n      \"performance or scalability measurements\"\n    ]\n  },\n  \"protected_tokens\": [\n    \"本地队列\",\n    \"后台线程\",\n    \"批量提交\",\n    \"每个请求\",\n    \"重新计算\",\n    \"放置决策\"\n  ],\n  \"forbidden_actions\": [\n    \"replace clear prose merely to sound academic\",\n    \"add coordination, isolation, performance, or scaling claims\",\n    \"move content across paragraphs\",\n    \"emit diagnostic labels, optional wording, or commentary beyond the mandatory compact decision receipt\"\n  ],\n  \"hard_gates\": [\n    \"The two manuscript paragraphs remain in their original order and retain their own technical content.\",\n    \"The first paragraph remains unchanged; actual redundancy in the second is removed without changing its proposition.\",\n    \"No new technical explanation, consequence, evidence, or diagnostic scaffolding appears; only the mandatory compact decision receipt may follow the manuscript.\"\n  ],\n  \"expected_behavior\": [\n    \"Retain the adequate queueing and batching description.\",\n    \"Remove the repeated per-request placement-computation statement.\",\n    \"Do not invent global placement, cluster-size costs, local reuse, boundary crossings, or future experiments.\",\n    \"Return Chinese manuscript prose followed only by the compact zero-history decision receipt.\"\n  ],\n  \"rubric\": [\n    {\n      \"id\": \"R1\",\n      \"criterion\": \"Returns Chinese manuscript prose.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R2\",\n      \"criterion\": \"Preserves two paragraphs in their original order.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R3\",\n      \"criterion\": \"Keeps the adequate first paragraph unchanged.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R4\",\n      \"criterion\": \"Preserves each worker thread as the owner of a local queue.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R5\",\n      \"criterion\": \"Preserves requests entering that queue.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R6\",\n      \"criterion\": \"Preserves the background thread's batching action.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R7\",\n      \"criterion\": \"Removes the repeated proposition in paragraph 2.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R8\",\n      \"criterion\": \"Preserves placement recomputation for each request.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R9\",\n      \"criterion\": \"Adds no global scope, algorithm, or cost scaling.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R10\",\n      \"criterion\": \"Adds no batching benefit or guarantee.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R11\",\n      \"criterion\": \"Transfers no technical content between paragraphs.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R12\",\n      \"criterion\": \"Adds no headings, role labels, optional alternatives, or routine commentary beyond the mandatory compact decision receipt.\",\n      \"points\": 1\n    }\n  ]\n}\n"
+    },
+    {
+      "number": 18,
+      "case_id": "confirmed-grill-handoff",
+      "path": "benchmarks/fixtures/18-confirmed-grill-handoff.json",
+      "original_file_sha256": "42189dc241fb3300d8af894e0573a15fedccacfd84d486c2ff55654dfb9365a5",
+      "current_file_sha256": "e4c54b0b36b16cf962958734fc65b147ba3b41393174f8f2106cad8cff81d5e5",
+      "changed_fields": [
+        "prompt"
+      ],
+      "non_prompt_fields_sha256": "82a231eaedb71c8ba5a8160bcd967854581cb0127a4e139c3abd570cb05f87ec",
+      "original_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n根据以下 Review 和 grill-me 讨论的已确认结果修改两段英文正文，只给正文。\n\n原文：\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\n\nReview：P1.S1 主谓不一致；P2.S1 → P2.S2 从单一 workload 平均延迟跳到所有 workload 的 tail latency 保证。\nGrill：助手建议 Q1 删除 P2.S2 的保证。作者：接受 Q1，只测了一个 workload 的平均延迟，没有 tail latency 或其他 workload 数据，请删除这个保证。助手建议 Q2 添加队列降低协调开销的说明。作者：不接受 Q2，没有依据。助手汇总：只修 P1.S1 语法，删除 P2.S2，保留 P2.S1，不加收益，不跨段重组。作者：确认，按这个修改。",
+      "current_prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n根据以下 Review 和 grill-me 讨论的已确认结果修改两段英文正文，只给正文，并在正文后附上必要的单行简短决策覆盖凭据；不要附加其他说明。\n\n原文：\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\n\nReview：P1.S1 主谓不一致；P2.S1 → P2.S2 从单一 workload 平均延迟跳到所有 workload 的 tail latency 保证。\nGrill：助手建议 Q1 删除 P2.S2 的保证。作者：接受 Q1，只测了一个 workload 的平均延迟，没有 tail latency 或其他 workload 数据，请删除这个保证。助手建议 Q2 添加队列降低协调开销的说明。作者：不接受 Q2，没有依据。助手汇总：只修 P1.S1 语法，删除 P2.S2，保留 P2.S1，不加收益，不跨段重组。作者：确认，按这个修改。",
+      "reason": "Authorize the existing required metadata explicitly, resolving the manuscript-body-only output restriction without changing scientific obligations or evaluator criteria.",
+      "original_fixture_text": "{\n  \"id\": \"confirmed-grill-handoff\",\n  \"title\": \"Apply confirmed Grill decisions without rejected suggestions\",\n  \"skills\": [\n    \"systems-paper-revise\"\n  ],\n  \"material_origin\": \"synthetic\",\n  \"prompt\": \"我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\\n\\n根据以下 Review 和 grill-me 讨论的已确认结果修改两段英文正文，只给正文。\\n\\n原文：\\nEach worker keep a local queue. A background thread submits queued requests in batches.\\n\\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.\\n\\nReview：P1.S1 主谓不一致；P2.S1 → P2.S2 从单一 workload 平均延迟跳到所有 workload 的 tail latency 保证。\\nGrill：助手建议 Q1 删除 P2.S2 的保证。作者：接受 Q1，只测了一个 workload 的平均延迟，没有 tail latency 或其他 workload 数据，请删除这个保证。助手建议 Q2 添加队列降低协调开销的说明。作者：不接受 Q2，没有依据。助手汇总：只修 P1.S1 语法，删除 P2.S2，保留 P2.S1，不加收益，不跨段重组。作者：确认，按这个修改。\",\n  \"scope\": {\n    \"authorized\": [\n      \"the two original paragraphs\",\n      \"the supplied Review and confirmed Grill conversation\"\n    ],\n    \"excluded\": [\n      \"external sources\",\n      \"other manuscript text\",\n      \"new evidence\",\n      \"persistent-state changes\"\n    ],\n    \"output_language\": \"English\"\n  },\n  \"evidence\": {\n    \"facts\": [\n      \"A worker keeps a local queue.\",\n      \"A background thread submits queued requests in batches.\",\n      \"Mean latency was measured under one workload.\"\n    ],\n    \"unavailable\": [\n      \"numeric latency results\",\n      \"comparators\",\n      \"tail measurements\",\n      \"other workloads\",\n      \"coordination-overhead benefits\"\n    ]\n  },\n  \"protected_tokens\": [\n    \"local queue\",\n    \"background thread\",\n    \"mean latency\",\n    \"one workload\"\n  ],\n  \"forbidden_actions\": [\n    \"apply a rejected or unconfirmed Grill suggestion\",\n    \"preserve the guarantee despite the explicit author correction\",\n    \"invent results or supporting mechanisms\",\n    \"change paragraph ownership or format\"\n  ],\n  \"hard_gates\": [\n    \"The revision applies the confirmed grammar fix and deletion of the unsupported guarantee.\",\n    \"It preserves the two paragraphs and all remaining technical propositions.\",\n    \"The rejected overhead suggestion and absent scientific evidence do not enter the manuscript.\"\n  ],\n  \"expected_behavior\": [\n    \"Use the original prose, Review diagnosis, and confirmed Grill outcome together.\",\n    \"Treat explicit author confirmation as authority for the named deletion, not as proof of a new scientific claim.\",\n    \"Do not ask the same settled question again or append the discussion to the manuscript.\"\n  ],\n  \"rubric\": [\n    {\n      \"id\": \"R1\",\n      \"criterion\": \"Corrects keep to keeps in paragraph 1.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R2\",\n      \"criterion\": \"Preserves the queue and background batching mechanism.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R3\",\n      \"criterion\": \"Removes only the explicitly rejected guarantee in paragraph 2.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R4\",\n      \"criterion\": \"Preserves the actual mean-latency measurement statement.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R5\",\n      \"criterion\": \"Retains two paragraphs in their original order.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R6\",\n      \"criterion\": \"Does not insert the rejected coordination-overhead suggestion.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R7\",\n      \"criterion\": \"Does not invent a numeric result or comparator.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R8\",\n      \"criterion\": \"Does not invent tail-latency or multi-workload evidence.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R9\",\n      \"criterion\": \"Applies the confirmed decision rather than preserving the superseded guarantee.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R10\",\n      \"criterion\": \"Does not reopen already settled questions.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R11\",\n      \"criterion\": \"Returns manuscript prose first without Grill labels or a decision log, then only the compact zero-history decision receipt.\",\n      \"points\": 1\n    },\n    {\n      \"id\": \"R12\",\n      \"criterion\": \"Rechecks the resulting scientific meaning without claiming that missing experiments were performed.\",\n      \"points\": 1\n    }\n  ]\n}\n"
+    },
+    {
+      "number": 19,
+      "case_id": "grill-pending-record",
+      "path": "benchmarks/fixtures/19-grill-pending-record.json",
+      "original_file_sha256": "d80553ff7212050ee5e913065d8dc9ada0157aeb880119bf08c1f2a51448869c",
+      "current_file_sha256": "d80553ff7212050ee5e913065d8dc9ada0157aeb880119bf08c1f2a51448869c",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "5df19ded8b7f8ccb1ccbb164b6247ec6ee57a52c35bbc6808d73b7069c55f58c"
+    },
+    {
+      "number": 20,
+      "case_id": "paper-discussion-workflow",
+      "path": "benchmarks/fixtures/20-paper-discussion-workflow.json",
+      "original_file_sha256": "c7a9c9ae5484240b2889a4770e63744cb12c6932cdab0ca1369ab42698b72f68",
+      "current_file_sha256": "c7a9c9ae5484240b2889a4770e63744cb12c6932cdab0ca1369ab42698b72f68",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "13ea6da868cf008497afd99fb4df9ebcf97e43a7c0391bb95681e052741a2607"
+    },
+    {
+      "number": 21,
+      "case_id": "top-down-paragraph-roles",
+      "path": "benchmarks/fixtures/21-top-down-paragraph-roles.json",
+      "original_file_sha256": "b06140362f9d3ea35543d4322bef1369f0a0620b1b16ba6529c69f5a42a56493",
+      "current_file_sha256": "b06140362f9d3ea35543d4322bef1369f0a0620b1b16ba6529c69f5a42a56493",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "c745a024120e5edfb4b6525c9fd904ff9257c9f6a0e08ee66c380556dc96f9f7"
+    },
+    {
+      "number": 22,
+      "case_id": "coverage-last-clean-units",
+      "path": "benchmarks/fixtures/22-coverage-last-clean-units.json",
+      "original_file_sha256": "a176b343ecb1e7e9c917c4d5e7d57e1365bc88555f2c9dd47ddf26f830a717df",
+      "current_file_sha256": "a176b343ecb1e7e9c917c4d5e7d57e1365bc88555f2c9dd47ddf26f830a717df",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "2e025ec57e9055bc5096b1734d74933d8702f3b1727024deab520782bc95b0d6"
+    },
+    {
+      "number": 23,
+      "case_id": "coverage-closure-workflow",
+      "path": "benchmarks/fixtures/23-coverage-closure-workflow.json",
+      "original_file_sha256": "bf23991763cc7c613a37aa2aa582f8292cdd68ff338376a3ee8122cd0863a490",
+      "current_file_sha256": "bf23991763cc7c613a37aa2aa582f8292cdd68ff338376a3ee8122cd0863a490",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "c73ff47d537a293d813d4aff37b4a3e9e83733d4a87e337eec68df6ccdc85edb"
+    },
+    {
+      "number": 24,
+      "case_id": "property-proof-category",
+      "path": "benchmarks/fixtures/24-property-proof-category.json",
+      "original_file_sha256": "8ae6693c5c52047c392b441b12bd9a0506133241eeba75311958c9a533f21a70",
+      "current_file_sha256": "8ae6693c5c52047c392b441b12bd9a0506133241eeba75311958c9a533f21a70",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "c074fd5e5b51601f1fceeecb53fe5abc42cf5d831fbe6cd56b201f9e44d17228"
+    },
+    {
+      "number": 25,
+      "case_id": "related-work-root-cause",
+      "path": "benchmarks/fixtures/25-related-work-root-cause.json",
+      "original_file_sha256": "099ffa4f9eeb70ebd4a0e453eeb8e175c12b9c9698df76fe858024bd966c3543",
+      "current_file_sha256": "099ffa4f9eeb70ebd4a0e453eeb8e175c12b9c9698df76fe858024bd966c3543",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "16386131a5be0107e5dc8d2638430581b245f68c09eb08e5f53a811e24a4898f"
+    },
+    {
+      "number": 26,
+      "case_id": "payoff-and-role-review",
+      "path": "benchmarks/fixtures/26-payoff-and-role-review.json",
+      "original_file_sha256": "23a579b84d4cbaa295a7a280e308210e7d8a7385c5d61e82459c6ee08c31adcb",
+      "current_file_sha256": "23a579b84d4cbaa295a7a280e308210e7d8a7385c5d61e82459c6ee08c31adcb",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "aef2f502c74409c2b77c932f81ec981e7a7bef0e87e49a43a45e2797c3f9be26"
+    },
+    {
+      "number": 27,
+      "case_id": "evidence-derived-conclusion",
+      "path": "benchmarks/fixtures/27-evidence-derived-conclusion.json",
+      "original_file_sha256": "5a55af80b7a39eec4312695f7e56247cde86ddbbb13dec02f9949d815ed4377f",
+      "current_file_sha256": "5a55af80b7a39eec4312695f7e56247cde86ddbbb13dec02f9949d815ed4377f",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "df73ca054216165e9e077afa13c4c179fe9247d27f43096d2ae246bcc9ce11ff"
+    },
+    {
+      "number": 28,
+      "case_id": "mixed-evaluation-challenge",
+      "path": "benchmarks/fixtures/28-mixed-evaluation-challenge.json",
+      "original_file_sha256": "71b198b079755eba9db164bbb652821c95e7c749bcb3c513a06b077edb6a2ba8",
+      "current_file_sha256": "71b198b079755eba9db164bbb652821c95e7c749bcb3c513a06b077edb6a2ba8",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "2cd8ab7f402cf832d57686b8219d00ed1ec4bd7f4ee19e4dbb4901fcc914caa6"
+    },
+    {
+      "number": 29,
+      "case_id": "structural-question-authority",
+      "path": "benchmarks/fixtures/29-structural-question-authority.json",
+      "original_file_sha256": "aec850f555104fb6438564e945b9a616c4ef8147bba4dd8a1f0fa9e93eee981d",
+      "current_file_sha256": "aec850f555104fb6438564e945b9a616c4ef8147bba4dd8a1f0fa9e93eee981d",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "5cedff458e3495802bc19700e6e6986550148c1bb182a2809e7bcd7b0e639b88"
+    },
+    {
+      "number": 30,
+      "case_id": "limitation-introduction-placement",
+      "path": "benchmarks/fixtures/30-limitation-introduction-placement.json",
+      "original_file_sha256": "235b3497b6e5c2685eca060871011adadfc16abf4e718508c00699f9efc97927",
+      "current_file_sha256": "235b3497b6e5c2685eca060871011adadfc16abf4e718508c00699f9efc97927",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "78c0835e6e7abd94b046a63fa9266d00af87fbd1d3fe02b7495e642b4d2f5490"
+    },
+    {
+      "number": 31,
+      "case_id": "safe-local-repair-frontier",
+      "path": "benchmarks/fixtures/31-safe-local-repair-frontier.json",
+      "original_file_sha256": "6738458e42da5230e65fed5aed77b9f01cf3e1635726bb7d11c88505e0a60241",
+      "current_file_sha256": "6738458e42da5230e65fed5aed77b9f01cf3e1635726bb7d11c88505e0a60241",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "f00a856be2e7e3691052bd9ddfd04517c574e6ebc86cd4f89c73f2f3c162479a"
+    },
+    {
+      "number": 32,
+      "case_id": "cold-review-trigger-checkpoint",
+      "path": "benchmarks/fixtures/32-cold-review-trigger-checkpoint.json",
+      "original_file_sha256": "d9dca570aa8cc575f33d3ddaf2a89b52cfcfc77c716e4c626573de1ac10b2837",
+      "current_file_sha256": "d9dca570aa8cc575f33d3ddaf2a89b52cfcfc77c716e4c626573de1ac10b2837",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "631b160f4b98228eec26909d507e24a9d39cf7bb775f509c3968a2c4c83487da"
+    },
+    {
+      "number": 33,
+      "case_id": "missing-result-placeholder-block",
+      "path": "benchmarks/fixtures/33-missing-result-placeholder-block.json",
+      "original_file_sha256": "7b6abd9fc88ca76abdd31dfbd83f2bca368b6de462627c14622f3130673fddf2",
+      "current_file_sha256": "7b6abd9fc88ca76abdd31dfbd83f2bca368b6de462627c14622f3130673fddf2",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "43c2269671ebfec90d869af946b8edc3137f909baf67da737c5b629b04641aa4"
+    },
+    {
+      "number": 34,
+      "case_id": "intellectual-move-fanout-grounding",
+      "path": "benchmarks/fixtures/34-intellectual-move-fanout-grounding.json",
+      "original_file_sha256": "6cf79f2288ef5d75997d15276ba8a6e1f53d054a7ef55e311f44b5d6801c7efa",
+      "current_file_sha256": "6cf79f2288ef5d75997d15276ba8a6e1f53d054a7ef55e311f44b5d6801c7efa",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "d5f2182449011426db743f87f6c425d1f41eefdc1409c3b4404da4f6641f8b6c"
+    },
+    {
+      "number": 35,
+      "case_id": "revise-interactive-finding-queue",
+      "path": "benchmarks/fixtures/35-revise-interactive-finding-queue.json",
+      "original_file_sha256": "a505c708edc87589cdc12be9cddd2e4c6b84963476beef8df2a737b3d9dd2143",
+      "current_file_sha256": "a505c708edc87589cdc12be9cddd2e4c6b84963476beef8df2a737b3d9dd2143",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "c77b7a6fc331061dca8cc61c327716567af005cbe71f63c3270d20b1bf0b24f0"
+    },
+    {
+      "number": 36,
+      "case_id": "boundary-distinct-question",
+      "path": "benchmarks/fixtures/36-boundary-distinct-question.json",
+      "original_file_sha256": "43a16d9cb39f81ff7a3589a6d7ec67d9b6ef2f3f17c484268508097f502d1475",
+      "current_file_sha256": "43a16d9cb39f81ff7a3589a6d7ec67d9b6ef2f3f17c484268508097f502d1475",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "7f77d3afeb889c4008e7ee390fddb42ebcc7c9009d3fe1af14f46ee586524f62"
+    },
+    {
+      "number": 37,
+      "case_id": "interface-axis-revision",
+      "path": "benchmarks/fixtures/37-interface-axis-revision.json",
+      "original_file_sha256": "5668965ccadeee6f027880ae475d5c2508755830480cbb10a62c0eac137f5d5e",
+      "current_file_sha256": "5668965ccadeee6f027880ae475d5c2508755830480cbb10a62c0eac137f5d5e",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "2d4e0c5a9e5525548d0ae81991629da6516e44bd90bd7a1229fc5213f7183005"
+    },
+    {
+      "number": 38,
+      "case_id": "decision-history-pending-head",
+      "path": "benchmarks/fixtures/38-decision-history-pending-head.json",
+      "original_file_sha256": "12a3d1b1464e75934b591a95289ab09fe4fc779c3e02199eeaa32e2501de1dfc",
+      "current_file_sha256": "12a3d1b1464e75934b591a95289ab09fe4fc779c3e02199eeaa32e2501de1dfc",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "f37bd6676f28ec401c5bd4f5c51047a3a143fcdff4a2c43a3365a66e20ee9dd9"
+    },
+    {
+      "number": 39,
+      "case_id": "decision-lineage-promotion-workflow",
+      "path": "benchmarks/fixtures/39-decision-lineage-promotion-workflow.json",
+      "original_file_sha256": "807b838ebec9259b9952ebb3f1a44c124d534095dd92d5ebbeb8187e36455ddf",
+      "current_file_sha256": "807b838ebec9259b9952ebb3f1a44c124d534095dd92d5ebbeb8187e36455ddf",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "4c099abab2a820f68a4804c287df19f0c9cc836f0f73130f059a6975ccbe97af"
+    },
+    {
+      "number": 40,
+      "case_id": "decision-conflict-prose-receipt",
+      "path": "benchmarks/fixtures/40-decision-conflict-prose-receipt.json",
+      "original_file_sha256": "d783fc6ebce9d7bcdde3b4a19feee5821f58daf036b8fc2209f55b379cd7435e",
+      "current_file_sha256": "eeb801111d94c943692c876e91133e740c276a13e55bcb8826fc840b7d01bed3",
+      "changed_fields": [
+        "prompt"
+      ],
+      "non_prompt_fields_sha256": "51cde5e3b99f97dc01ce32fd3efb8b24d3465c92661a4a9055ac688251913174",
+      "original_prompt": "使用 systems-paper-revise 修改下面英文，只给正文。随文给出的 paper-decisions.md 是本次授权的完整记录，不要访问文件系统。\n\n正文：\nEach worker process requests through a local queue. Nimbus guarantees tenant isolation.\n\npaper-decisions.md：\n## D3.v1 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces memory isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied memory-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names memory isolation only.\n\n## D3.v2 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces scheduling isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied scheduling-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names scheduling isolation only.",
+      "current_prompt": "使用 systems-paper-revise 修改下面英文，只给正文，并在正文后附上必要的单行简短决策覆盖凭据；不要附加其他说明。随文给出的 paper-decisions.md 是本次授权的完整记录，不要访问文件系统。\n\n正文：\nEach worker process requests through a local queue. Nimbus guarantees tenant isolation.\n\npaper-decisions.md：\n## D3.v1 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces memory isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied memory-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names memory isolation only.\n\n## D3.v2 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces scheduling isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied scheduling-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names scheduling isolation only.",
+      "reason": "Authorize the existing required metadata explicitly, resolving the manuscript-body-only output restriction without changing scientific obligations or evaluator criteria.",
+      "original_fixture_text": "{\n  \"id\": \"decision-conflict-prose-receipt\",\n  \"title\": \"Apply an independent local repair while refusing to guess between conflicting confirmed heads\",\n  \"skills\": [\n    \"systems-paper-revise\"\n  ],\n  \"material_origin\": \"synthetic\",\n  \"prompt\": \"使用 systems-paper-revise 修改下面英文，只给正文。随文给出的 paper-decisions.md 是本次授权的完整记录，不要访问文件系统。\\n\\n正文：\\nEach worker process requests through a local queue. Nimbus guarantees tenant isolation.\\n\\npaper-decisions.md：\\n## D3.v1 — Isolation wording [confirmed]\\nLineage: D3\\nSuperseded by: none\\nLocation: S2, \\\"guarantees tenant isolation\\\"\\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces memory isolation between tenants.\\nReason: intended protection boundary.\\nEvidence: supported; author-supplied memory-isolation mechanism.\\nConfirmation basis: author confirmed.\\nResolution test: wording names memory isolation only.\\n\\n## D3.v2 — Isolation wording [confirmed]\\nLineage: D3\\nSuperseded by: none\\nLocation: S2, \\\"guarantees tenant isolation\\\"\\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces scheduling isolation between tenants.\\nReason: intended protection boundary.\\nEvidence: supported; author-supplied scheduling-isolation mechanism.\\nConfirmation basis: author confirmed.\\nResolution test: wording names scheduling isolation only.\",\n  \"scope\": {\n    \"authorized\": [\n      \"the supplied two-sentence paragraph\",\n      \"the complete inline paper-decisions.md record\",\n      \"meaning-preserving local grammar repair\"\n    ],\n    \"excluded\": [\n      \"filesystem, neighboring manuscript, or external-source access\",\n      \"record mutation\",\n      \"selecting or merging conflicting isolation decisions\",\n      \"inventing a combined protection claim\"\n    ],\n    \"output_language\": \"English manuscript followed only by the mandatory compact decision receipt\"\n  },\n  \"evidence\": {\n    \"supported\": [\n      \"Each worker processes requests through a local queue.\",\n      \"The original manuscript says only tenant isolation.\",\n      \"The record contains two same-lineage confirmed heads with different isolation meanings and no supersession link.\"\n    ],\n    \"unresolved\": [\n      \"whether memory isolation or scheduling isolation is the intended current head\"\n    ]\n  },\n  \"protected_tokens\": [\n    \"worker\",\n    \"local queue\",\n    \"Nimbus guarantees tenant isolation.\",\n    \"D3.v1\",\n    \"D3.v2\"\n  ],\n  \"forbidden_actions\": [\n    \"leave the independent process grammar error unfixed\",\n    \"choose D3.v2 because it has the higher version number or appears last\",\n    \"apply D3.v1, D3.v2, or a merger of both to S2\",\n    \"rewrite or silently repair the decision record\",\n    \"omit the decision receipt because the user asked for prose only\",\n    \"emit a full review, optional wording, or routine process commentary\"\n  ],\n  \"hard_gates\": [\n    \"The response repairs process to processes while preserving the local-queue proposition.\",\n    \"It leaves the original isolation sentence unchanged because the D3 lineage has two conflicting effective confirmed heads.\",\n    \"It does not choose by file order, version number, or synthesis and performs no persistent mutation.\",\n    \"After the manuscript it emits one compact decision receipt accounting for both IDs, the conflict, no executable D3 head, and Unaccounted decisions: 0.\"\n  ],\n  \"expected_behavior\": [\n    \"Decompose the direct grammar repair from the decision-dependent isolation edit.\",\n    \"Classify both confirmed entries as apparent effective and applicable heads, then make the conflicted lineage non-executable.\",\n    \"Preserve the affected manuscript sentence until the record or author resolves the conflict.\",\n    \"Honor the prose-only format except for the mandatory compact decision accounting line.\"\n  ],\n  \"rubric\": [\n    {\"id\": \"R1\", \"criterion\": \"Corrects Each worker process to Each worker processes or an exactly equivalent grammatical form.\", \"points\": 1},\n    {\"id\": \"R2\", \"criterion\": \"Preserves worker request processing through a local queue.\", \"points\": 1},\n    {\"id\": \"R3\", \"criterion\": \"Leaves Nimbus guarantees tenant isolation unchanged.\", \"points\": 1},\n    {\"id\": \"R4\", \"criterion\": \"Does not add memory isolation, scheduling isolation, or a combined protection claim.\", \"points\": 1},\n    {\"id\": \"R5\", \"criterion\": \"Lists both D3.v1 and D3.v2 in all versions and reports confirmed:2.\", \"points\": 1},\n    {\"id\": \"R6\", \"criterion\": \"Recognizes both entries as unsuperseded same-lineage confirmed heads rather than selecting the larger ID.\", \"points\": 1},\n    {\"id\": \"R7\", \"criterion\": \"Marks both heads applicable to S2 but the D3 lineage non-executable.\", \"points\": 1},\n    {\"id\": \"R8\", \"criterion\": \"Names the multiple-effective-head conflict explicitly.\", \"points\": 1},\n    {\"id\": \"R9\", \"criterion\": \"Does not mutate or claim to repair paper-decisions.md.\", \"points\": 1},\n    {\"id\": \"R10\", \"criterion\": \"Returns the revised manuscript before metadata and adds no optional wording or full diagnostic report.\", \"points\": 1},\n    {\"id\": \"R11\", \"criterion\": \"Appends exactly one compact decision coverage line despite the prose-only request.\", \"points\": 1},\n    {\"id\": \"R12\", \"criterion\": \"The receipt names paper-decisions.md, both IDs, status counts, sets, conflict, and Unaccounted decisions: 0.\", \"points\": 1}\n  ]\n}\n"
+    },
+    {
+      "number": 41,
+      "case_id": "positioning-observation-review",
+      "path": "benchmarks/fixtures/41-positioning-observation-review.json",
+      "original_file_sha256": "650e2bdf59650c3769018dfe9170b7ed9442ec61c5140ea135840b08613bb626",
+      "current_file_sha256": "650e2bdf59650c3769018dfe9170b7ed9442ec61c5140ea135840b08613bb626",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "54952990ef7c1ea0a5b3ef4b081dbd1d8df030b232ea46e14d65e9fbb253ecb2"
+    },
+    {
+      "number": 42,
+      "case_id": "positioning-observation-revision",
+      "path": "benchmarks/fixtures/42-positioning-observation-revision.json",
+      "original_file_sha256": "b9146c4902c5abd81bad6b381306cc9202da08d7ec98a487e789f3eea1587b53",
+      "current_file_sha256": "b9146c4902c5abd81bad6b381306cc9202da08d7ec98a487e789f3eea1587b53",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "29e2974a0ff3cc139d0c1d927b150ec79a55f897cc8e7d92dcf52504c3c75262"
+    },
+    {
+      "number": 43,
+      "case_id": "ste-clarity-preservation",
+      "path": "benchmarks/fixtures/43-ste-clarity-preservation.json",
+      "original_file_sha256": "6dc88ac2ddfa7044efd122d10a2d49ead98ee9c769c8836fb13ae8650b6d16c6",
+      "current_file_sha256": "6dc88ac2ddfa7044efd122d10a2d49ead98ee9c769c8836fb13ae8650b6d16c6",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "51df31253b1b02e3e21ae519805660cd7afc4026ed425b75ca1eb7542886361e"
+    },
+    {
+      "number": 44,
+      "case_id": "ste-terms-and-context",
+      "path": "benchmarks/fixtures/44-ste-terms-and-context.json",
+      "original_file_sha256": "d81fecb8e5cbc8db27d8e7dcfe6f27ea6423e6da3d3a01a9edfbce31b84def97",
+      "current_file_sha256": "d81fecb8e5cbc8db27d8e7dcfe6f27ea6423e6da3d3a01a9edfbce31b84def97",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "1349cf8bc85bb7f0f663331199e3f8aac1451a7b7836a216734381cb5079092f"
+    },
+    {
+      "number": 45,
+      "case_id": "ste-noun-clusters",
+      "path": "benchmarks/fixtures/45-ste-noun-clusters.json",
+      "original_file_sha256": "f7e7e7e3d3e2c8ea42a2343ad2ff938d4dbc69ef3ccec59c4873fcff3ca4456d",
+      "current_file_sha256": "f7e7e7e3d3e2c8ea42a2343ad2ff938d4dbc69ef3ccec59c4873fcff3ca4456d",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "baa128d56f145d964d1e655a37b7081f3b85aef9addc1adc683eec45214949ef"
+    },
+    {
+      "number": 46,
+      "case_id": "ste-condition-scope",
+      "path": "benchmarks/fixtures/46-ste-condition-scope.json",
+      "original_file_sha256": "1275e09a145dfa9be3c813c0abef485ec1c30f6c6a80a7e264b343eba2d684f6",
+      "current_file_sha256": "1275e09a145dfa9be3c813c0abef485ec1c30f6c6a80a7e264b343eba2d684f6",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "8732b344fd65066151197477d2562269978ffd941625492dd66abc82f1f55918"
+    },
+    {
+      "number": 47,
+      "case_id": "ste-action-order",
+      "path": "benchmarks/fixtures/47-ste-action-order.json",
+      "original_file_sha256": "8c224abe7fbbf90c076eec3bb9cb66d5523d265ba3712b828fc0f0b649468f03",
+      "current_file_sha256": "8c224abe7fbbf90c076eec3bb9cb66d5523d265ba3712b828fc0f0b649468f03",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "ebfb2878de19c6a6fc218798b8bba96427d4e686c7c5b8f41f2e86f7cb360f8f"
+    },
+    {
+      "number": 48,
+      "case_id": "ste-unknown-actor",
+      "path": "benchmarks/fixtures/48-ste-unknown-actor.json",
+      "original_file_sha256": "043d4fd47cabe5442f456bf6274d670d8e0868a9e0c5eda0886af494bac0db11",
+      "current_file_sha256": "043d4fd47cabe5442f456bf6274d670d8e0868a9e0c5eda0886af494bac0db11",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "533b0e37104db8fc6a8e741010b1bb10de333ee695f8e2eac0586e95b867eb7f"
+    },
+    {
+      "number": 49,
+      "case_id": "ste-information-order",
+      "path": "benchmarks/fixtures/49-ste-information-order.json",
+      "original_file_sha256": "17c6635c138437b8869e2ca1c4c6f029079c17830dace1b7dff4b69b3decf720",
+      "current_file_sha256": "17c6635c138437b8869e2ca1c4c6f029079c17830dace1b7dff4b69b3decf720",
+      "changed_fields": [],
+      "non_prompt_fields_sha256": "31029074e3530f956590a01a20ab7e35211c606d6db5b9c69171268eb00bb8d1"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
   ],
   "material_origin": "synthetic",
   "stage_prompts": {
-    "review": "使用 systems-paper-review，只读检查 {project}/manuscript.md，定位句间与段间的逻辑问题，区分缺陷和需要确认的问题。不要读其他论文文件，不要写文件。",
+    "review": "使用 systems-paper-review，只读检查论文项目 {project} 中的 manuscript.md 和完整 paper-decisions.md，定位句间与段间的逻辑问题，区分缺陷和需要确认的问题。不要读其他论文文件，不要写文件。",
     "grill_open": "使用 systems-paper-grill，读取 {project}/manuscript.md、review.md 和现有 paper-decisions.md，讨论 Review 指出的问题，把中间结果写入 paper-decisions.md。暂时没有更多技术材料，请先提问。只允许修改记录，正文和 Review 只读。",
     "grill_confirm": "我确认原文 one replica 写错了：实际协议是所有三个副本都持久化该写入后，客户端才确认。请记录纠正第一句和修复语法的决定。我们没有足够的故障模型说明或证明，所以删除第二句的 durability 保证，不增加替代保证。第二段只是独立介绍只读性能实验，保持原样。我否决添加复制延迟、吞吐量收益和未提供的同步细节。以上是最终确认的修改范围。请更新 {project}/paper-decisions.md 并交接，不要改正文。",
     "revise": "使用 systems-paper-revise，在论文项目 {project} 中读取该项目的讨论记录和 review.md，按已确认的决定修改 manuscript.md。只能修改正文，保留段落格式；记录和 Review 文件只读。",

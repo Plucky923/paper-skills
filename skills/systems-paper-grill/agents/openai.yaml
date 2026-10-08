@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Grill"
-  short_description: "Clarify review findings and preserve coverage IDs"
-  default_prompt: "Use $systems-paper-grill to clarify only paper findings that need author decisions, preserve coverage IDs and evidence boundaries, and persist substantive decision evolution as versioned full snapshots; a pending successor must not displace the confirmed head, and saved changes must be read back before handoff."
+  short_description: "Get author decisions and keep finding IDs"
+  default_prompt: "Use $systems-paper-grill to get author decisions about paper findings. Keep coverage IDs and evidence boundaries. Save each changed decision state as a versioned full snapshot. Keep the confirmed head while its successor is pending. Read saved changes again before handoff."

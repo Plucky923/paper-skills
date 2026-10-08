@@ -1,56 +1,80 @@
 # Shared Coverage Contract
 
-Review, Grill, and Revise use this contract to keep one auditable view of the
-authorized material. It governs inventory, execution order, coverage state, and
-handoff. The separate [decision-record rules](../../systems-paper-grill/references/decision-record.md)
-govern complete decision-history accounting and its receipt. Neither contract
-grants access to neighboring material, authorizes a manuscript edit, or replaces
-the quality rules in the linked references.
+Review, Grill, and Revise use this contract for one auditable record of permitted material.
+It controls inventory, execution order, coverage state, and handoff.
+The [decision-record rules](../../systems-paper-grill/references/decision-record.md) control full decision-history accounting and its receipt.
+Neither contract gives access to neighboring material or gives permission for a manuscript edit.
+They do not replace the linked quality rules.
 
 ## Load the existing standard
 
-Use the [systems-writing core](writing-core.md) and
-[positive archetype contracts](paper-archetypes.md) for the stable systems-paper
-standard. For any prose, load the existing detailed
-[sentence and lexical rules](../../systems-paper-review/references/prose-and-terminology.md);
-for multi-sentence prose, also load the detailed
-[section and paragraph rules](../../systems-paper-review/references/structure-and-sections.md).
-The role-specific opening, development, and payoff expectations come from the
-existing [paragraph-role research](../../../research/systems-paper-writing-requirements.md#每一种段落应怎样写);
-do not invent a second role matrix. When a target venue, track, or cycle is named,
-add the [live venue overlay](../../systems-paper-review/references/venue-overlays.md).
+Use the [systems-writing core](writing-core.md) and [positive archetype contracts](paper-archetypes.md) for the stable standard.
+For any prose, read the detailed [sentence and lexical rules](../../systems-paper-review/references/prose-and-terminology.md).
+For multi-sentence prose, also read the detailed [section and paragraph rules](../../systems-paper-review/references/structure-and-sections.md).
+Use the existing [paragraph-role research](../../../research/systems-paper-writing-requirements.md#每一种段落应怎样写) for opening, development, and payoff expectations.
+Do not invent another role matrix.
+If the user names a venue, track, or cycle, add the [live venue overlay](../../systems-paper-review/references/venue-overlays.md).
 
-These sources are cumulative at their applicable levels. A request about wording
-does not bypass paragraph or section reasoning that is assessable inside the
-frozen scope. A high-level failure cannot be cleared by fluent lower-level prose.
+These sources apply together at their related levels.
+For a wording request, do each possible paragraph or section check in the frozen scope too.
+Fluent words at a lower level cannot resolve a higher-level failure.
 
-## Freeze and inventory before judging
+## Record the scope and inventory before judgment
 
-Freeze the exact authorized objects and record unavailable context before analysis.
-Inventory the complete scope in reading order before reporting the first finding:
+Give the specified permitted objects before analysis.
+Record unavailable context.
+Keep the scope unchanged.
+Before the first finding, inventory the full scope in reading order.
+Use these rules:
 
-- use the author's stable section/path labels when available; otherwise assign
-  `SEC-01`, `SEC-02`, and so on;
-- identify paragraphs within each section as `SEC-01.P01`, and sentences as
-  `SEC-01.P01.S01`; keep these IDs stable through one Review–Grill–Revise cycle;
-- inventory headings, prose, lists, captions, equations, figures, tables, and
-  other reader-visible units that the user put in scope rather than pretending
-  every object is an ordinary paragraph;
-- inventory every adjacent section, paragraph, and sentence link whose two
-  endpoints are in scope, plus explicitly signaled longer dependencies;
-- for English, identify reader-visible word or token occurrences in sentence
-  order; for Chinese or mixed prose, use the smallest semantically stable word,
-  term, punctuation, or code/math span and disclose segmentation uncertainty;
-- record the first and last unit ID at every applicable level. Do not start with
-  a suspicious excerpt and infer that the remaining units were inspected.
+- Use the author's stable section/path labels when available.
+  If that condition does not hold, give sections IDs `SEC-01`, `SEC-02`, and so on.
+- Give paragraphs IDs such as `SEC-01.P01`.
+  Give sentences IDs such as `SEC-01.P01.S01`.
+  Keep those IDs stable through one Review–Grill–Revise cycle.
+- Keep incoming lexical occurrence IDs in the source-to-revision mapping.
+  Before assigning new IDs, align surviving occurrences with the incoming inventory using the procedure below.
+- Inventory headings, prose, lists, captions, equations, figures, tables, and each other reader-visible object in scope.
+  Do not treat each object as a usual paragraph.
+- Inventory each adjacent section, paragraph, and sentence link with the two endpoints in scope.
+  Include clearly signaled longer dependencies.
+- For English, identify word or token occurrences in sentence order.
+- For Chinese or mixed prose, use the smallest semantically stable word, term, punctuation, or code/math span.
+  Disclose segmentation uncertainty.
+- Record the first and last unit ID at each applicable level.
+  Do not infer full-scope coverage from a suspicious excerpt.
 
-If the user supplies only a sentence or paragraph, paper and section context may
-be `not assessable`; this is not permission to inspect surrounding files. Source
-line wraps are not paragraph or sentence boundaries.
+For a supplied sentence or paragraph, paper and section context can be `not assessable`.
+That state gives no permission to read surrounding files.
+Source line wraps are not paragraph or sentence boundaries.
+
+### Align lexical occurrences after revision
+
+Keep the incoming segmentation rule and source IDs.
+Apply these steps before counting the revised text:
+
+1. Match each current occurrence to at most one source occurrence.
+   Use its token text, source unit, phrase, grammatical or technical function, and surviving neighboring occurrences.
+   Count repeated tokens as separate occurrences.
+2. Keep the source ID for each unambiguous surviving match.
+   Record its current location, including movement within an authorized local edit.
+   A changed sentence can contain unchanged occurrences.
+   Align those occurrences individually before classifying the remaining text.
+3. Give unmatched inserted or replacement occurrences unused new IDs.
+   Mark unmatched source occurrences as deleted.
+   Keep replacement and deletion links in the mapping.
+4. Resolve ambiguous matches from the original anchors and current text.
+   If identity remains uncertain, record that uncertainty and keep the mapping incomplete.
+5. Check that every current occurrence has one unique ID and every source occurrence has one recorded disposition.
+   A deleted ID cannot identify different text after revision.
+   Derive current coverage and weighted state totals from this final mapping.
+
+Carry this mapping into the next authorized handoff.
+It is necessary when source IDs alone cannot recover current occurrence identity.
 
 ## Execute top down, then reconcile bottom up
 
-Use this order without skipping an assessable level:
+Use this order at each assessable level:
 
 ```text
 scope, target venue/cycle, and contribution archetype
@@ -63,178 +87,234 @@ scope, target venue/cycle, and contribution archetype
               -> coverage reconciliation
 ```
 
-At the paper level, determine the applicable archetype, controlling thesis,
-supporting claims, decisive evidence, and material boundary. Mark every recovered
-central node and edge `stated`, `text-licensed`, or `reviewer-hypothesized` under
-the writing core. When one move is meant to yield several primary outcomes,
-inventory every move-to-outcome dependency in the source-grounded fan-out map;
-the reviewer's ability to supply a missing bridge does not make the edge covered.
-At the section level,
-compare each section's conventional reader obligation with what it promises and
-delivers, its claim–evidence contribution, and both handoffs. At the paragraph
-level, record any role promised by a heading, roadmap, opening claim, explicit
-label such as `key insight`, or author-supplied intent. Independently classify
-the role the paragraph actually delivers. Compare both with the applicable role
-convention, opening, development, payoff or handoff, sentence roles, and neighboring
-paragraph relations. A mixed, unclear, or promise-versus-delivery mismatch is a
-result, not a reason to silently reclassify the paragraph into the role it happens
-to perform. Complete the one-obligation and payoff-information tests in the
-systems-writing core even when the paragraph also has an evidence risk.
+### Paper level
 
-At the sentence level, record the dominant assertion, local function, actor,
-action, object, evidence state, conditions, boundary, and relations to adjacent
-sentences. At the lexical level, check each occurrence in its proposition for term
-identity and definition, referent, quantifier, modifier/negation scope, technical
-verb commitment, epistemic strength, comparison, collocation, tense, grammar,
-punctuation, units, and notation. Do not treat a dictionary-valid word as correct
-when its local technical commitment is unsupported.
+Find the applicable archetype, controlling thesis, supporting claims, decisive evidence, and important boundary.
+Give each central node and edge a source status in the writing core.
+Use `stated`, `text-licensed`, or `reviewer-hypothesized`.
+If one move yields several primary outcomes, inventory each move-to-outcome dependency in the source-grounded fan-out map.
+A reviewer-supplied bridge does not show coverage of a missing edge.
 
-Finally reconcile upward: lexical repairs must preserve sentence propositions;
-sentences must discharge their paragraph; paragraphs must discharge their section;
-sections must support the selected paper contract and evidence spine. Recheck
-terms, assumptions, numbers, claim strength, and evidence status across the
-complete frozen scope.
+### Section level
 
-Keep four diagnostic dimensions independent during this reconciliation:
-argument role/organization, scientific or technical support, language/presentation,
-and scope/authority. Passing or blocking in one dimension does not clear another.
-For example, missing evidence may leave a scientific claim unresolved while the
-same paragraph still has a confirmed role mismatch, nonparallel comparison, or
-redundant payoff.
+Compare each section's conventional reader obligation with its promised and delivered content.
+Record its claim–evidence contribution and the two handoffs.
+Distinguish section genre, observable content promise, and delivered local function.
+A broad section heading selects checks; it does not require each paragraph to supply every genre component.
+A confirmed role mismatch needs a specific scoped promise or demonstrated reader dependency with failed delivery at that same level.
+If genre alone supplies the expected function and necessary macro context is absent, mark broader adequacy `not assessable`.
+Complete all local role, obligation, payoff, and link checks.
+Request an author role or structural decision only when an evidence-supported repair requires that choice.
 
-## Give every unit a coverage state
+### Paragraph level
 
-Every inventoried unit and link receives one controlling state; no cell is blank:
+Record any promised role from a heading, roadmap, opening claim, clear label, or author-supplied intent.
+A clear label can be `key insight`.
+Independently find the role that the paragraph delivers.
+Compare promised and delivered roles with the applicable convention.
+Do a check of opening, development, payoff or handoff, sentence roles, and neighboring paragraph relations.
 
-- `pass`: the unit was inspected under every applicable loaded criterion and no
-  defect, unresolved risk, or useful preference remains;
-- `finding`: at least one confirmed defect or useful style preference is anchored
-  to the unit; use the finding's own status to distinguish them;
-- `unresolved`: inspection exposed a risk that requires missing context, evidence,
-  source verification, or an author decision, and no confirmed defect controls
-  the unit;
-- `not assessable`: the level or relation cannot be judged from the authorized
-  scope; state exactly what is absent.
+A mixed, unclear, or promise-versus-delivery mismatch is a result.
+Do not replace the promised role with the delivered role without an author decision.
+Do the writing core's one-obligation and payoff-information tests even when evidence risk also exists.
 
-When a unit has both a confirmed defect and an unresolved risk, its controlling
-coverage state is `finding` and both finding IDs remain linked. Coverage states do
-not replace Review's finding status, diagnostic dimension, severity, confidence,
-evidence class, repair boundary, or resolution test.
+### Sentence and lexical levels
+
+For each sentence, record these items:
+
+- Dominant assertion and local function
+- Actor, action, and object
+- Evidence state, conditions, and boundary
+- Relations to adjacent sentences.
+
+For each lexical occurrence, do the applicable checks in its proposition:
+
+- Term identity, definition, and referent
+- Quantifier, modifier scope, and negation scope
+- Technical verb commitment and epistemic strength
+- Comparison, collocation, and tense
+- Grammar, punctuation, units, and notation.
+
+A dictionary-valid word can make a technical commitment without support.
+Do not give it a pass for dictionary validity alone.
+
+### Reconcile upward
+
+Make sure that lexical repairs keep sentence propositions.
+Make sure that sentences complete their paragraph's obligation.
+Make sure that paragraphs complete their section's obligation.
+Make sure that sections support the paper contract and evidence spine.
+Do the full-scope checks of terms, assumptions, numbers, claim strength, and evidence status again.
+
+Keep these diagnostic dimensions independent:
+
+- Argument role/organization
+- Scientific or technical support
+- Language/presentation
+- Scope/authority.
+
+A pass or blocker in one dimension does not resolve another.
+For example, missing evidence can coexist with a confirmed role mismatch, category comparison defect, or redundant payoff.
+
+## Give each unit a coverage state
+
+Give each inventoried unit and link one controlling state.
+Leave no cell blank.
+Use these states:
+
+| State | Meaning |
+|---|---|
+| `pass` | Each applicable loaded criterion has a completed check. No defect, unresolved risk, or preference with a clear benefit stays. |
+| `finding` | A confirmed defect or style preference with a clear benefit has an anchor at the unit. The finding's status distinguishes them. |
+| `unresolved` | Missing context, evidence, source verification, or an author decision prevents judgment. No confirmed defect controls the unit. |
+| `not assessable` | The permitted scope cannot show this level or relation. Give the specified missing material. |
+
+If a unit has a confirmed defect and unresolved risk, use controlling state `finding`.
+Keep the two finding IDs linked.
+Coverage states do not replace Review's finding fields:
+
+- Status, diagnostic dimension, severity, and confidence
+- Evidence class and repair boundary
+- Resolution test.
 
 ## Keep visible per-unit ledgers
 
-Review exposes enough detail to prove coverage, including passed units:
+Review shows sufficient detail to prove coverage, including passed units.
+Give these rows at their applicable levels:
 
-- paper row: archetype, thesis, claim/evidence spine, boundary, state, finding IDs;
-- intellectual-move dependency row when applicable: shared move, advertised
-  outcome, original anchors, causal layer, source status, counterfactual, coverage
-  state, and finding IDs;
-- section row: expected and actual obligation, entering question, delivered answer,
-  claim/evidence contribution, incoming/outgoing handoff, state, finding IDs;
-- paragraph row: section, signaled/intended role when observable, delivered role,
-  role convention, one-obligation result, expected/actual opening, development,
-  payoff/handoff and its information gain, sentence roles, neighbor relation,
-  dimension states, controlling state, and finding IDs;
-- sentence row: dominant assertion, function, actor/action/object, evidence state,
-  condition/boundary, incoming/outgoing relation, language state, finding IDs;
-- lexical row: occurrence/span, sentence ID, technical or grammatical function,
-  applicable checks, state, finding IDs.
+- Paper: archetype, thesis, claim/evidence spine, boundary, state, and finding IDs
+- Intellectual-move dependency: shared move, advertised outcome, initial anchors, causal layer, source status, counterfactual, state, and finding IDs
+- Section: expected/actual obligation, entering question, delivered answer, claim/evidence contribution, incoming/outgoing handoff, state, and finding IDs
+- Paragraph: section, signaled/intended role when observable, delivered role, role convention, and one-obligation result
+- Paragraph, continued: expected/actual opening, development, payoff/handoff, information gain, sentence roles, and neighboring paragraph relation
+- Paragraph, continued: dimension states, controlling state, and finding IDs
+- Sentence: dominant assertion, function, actor/action/object, evidence state, condition/boundary, incoming/outgoing relation, language state, and finding IDs
+- Lexical occurrence: occurrence/span, sentence ID, technical or grammatical function, applicable checks, state, and finding IDs.
 
-Every risk-bearing lexical occurrence gets its own row. Contiguous ordinary passed
-occurrences may be range-compressed only when the exact sentence-local span and
-occurrence count are shown; the compression means every occurrence in the range
-was checked, not sampled. Never hide clean sections, paragraphs, sentences, or
-lexical spans behind a findings-only list.
+Use one paragraph row with all paragraph fields.
+The split list above only makes the field description easier to read.
+Give each risk-bearing lexical occurrence its own row.
+Compress contiguous passed occurrences without risk into a range only with its specified sentence-local span and count.
+That range states that each occurrence received a check.
+It does not represent sampling.
 
-A local review may keep finding explanations compact, but it still shows all
-in-scope unit rows and its coverage receipt. For a large paper, continue the
-ledgers in numbered batches or an explicitly authorized report artifact. Mark the
-review `incomplete` until the final batch and reconciliation are delivered.
+Do not hide passed sections, paragraphs, sentences, or lexical spans in a findings-only list.
+For a local Review, use one compact ledger for all inventoried units and links.
+Keep every required field at its owning unit or dependency row.
+Domain maps, trigger results, and dimension tables are views of these same records.
+Integrate their required fields into those rows instead of adding another ledger.
+State common field labels once in a header or key.
+Reference another row or finding when it already records the applicable value.
+Each reference must resolve to evidence or a field value for that particular unit.
+Use the source anchor instead of paraphrasing an unchanged proposition again.
+Explain each root cause once in its finding entry, with its anchors and resolution test.
+Other rows give the applicable field value, coverage state, and finding IDs.
+Add prose there only for a new fact specific to that unit.
+When the same cause controls several fields, use its finding ID instead of repeating its explanation.
+Use this local report order:
 
-Revise maintains the same full-scope ledgers before and after editing. It normally
-returns the manuscript first, followed by a compact closure map and manuscript
-coverage receipt; if the author explicitly asks for prose only, keep these
-ledgers internal and follow the prose-only exception in the revision protocol.
-The compact decision coverage receipt remains mandatory after prose-only output.
-Grill displays only the source units and findings being decided; it does not rerun
-the full audit.
+1. Scope, inventory totals, and unavailable context
+2. One canonical unit ledger, including each applicable map and dependency
+3. Short finding entries with distinct root causes and resolution tests
+4. Manuscript and decision coverage receipts.
+
+Keep the verdict in the manuscript receipt.
+Keep the necessary next evidence in its finding's resolution test.
+Before delivery, remove repeated conclusions, maps, causal explanations, and evidence requests from other report parts.
+Keep their source IDs and resolvable references in the canonical records.
+Keep exact passed lexical spans and counts, last-unit states, and both coverage receipts.
+For a large paper, continue ledgers in numbered batches or a clearly permitted report artifact.
+Keep result `incomplete` until the last batch and reconciliation are delivered.
+
+Revise keeps the same full-scope ledgers before and after edits.
+It usually gives the manuscript first, then a compact closure map and manuscript coverage receipt.
+For a clear prose-only request, keep ledgers internal.
+Obey the revision protocol's prose-only exception.
+Give the compact decision coverage receipt after prose-only output when workflow metadata is permitted.
+Honor explicit manuscript-body-only or receipt exclusions; keep the same accounting internal.
+
+Grill shows only the source units and findings for discussion.
+It does not repeat the full audit.
 
 ## Account for decision history independently
 
-Before Review or Revise reports a manuscript judgment, follow the decision-record
-rules to resolve the authorized record, classify every literal version ID, and
-derive the effective, applicable, and executable sets. Decision accounting is
-orthogonal to unit coverage: `Unreviewed: 0` cannot hide an unaccounted decision,
-and `Unaccounted decisions: 0` cannot hide an unreviewed manuscript unit.
+Before a manuscript judgment, use the decision-record rules to resolve the permitted record.
+Put each literal version ID in its status and set classes.
+Derive effective, applicable, and executable sets.
+Decision accounting is independent of unit coverage.
+`Unreviewed: 0` cannot hide an unaccounted decision.
+`Unaccounted decisions: 0` cannot hide an unreviewed manuscript unit.
 
-Broken lifecycle links, conflicting heads, unavailable history, and decisions
-excluded from execution remain visible in the decision receipt. They do not
-authorize guessing or suppress inspection of unaffected manuscript units. During
-an interactive Revise pause, report current decision accounting without calling
-the manuscript coverage or finding closure terminal.
+Keep broken lifecycle links, conflicting heads, unavailable history, and excluded decisions visible in the decision receipt.
+They give no permission to guess or skip unaffected manuscript checks.
+During an interactive Revise pause, give decision accounting at this point.
+Do not call manuscript coverage or finding closure terminal.
 
-## Preserve IDs and close the loop
+## Keep IDs and close the loop
 
-Review assigns stable finding IDs and includes the affected unit/link IDs, status,
-repair boundary, observable resolution test, and one next-action class from the
-shared workflow contract: `direct repair`, `author clarification`, `author
-evidence`, `external blocker`, or `optional/not applied`. A finding that needs
-author intent is routed to clarification; one that needs scientific support is
-routed to author evidence or an external blocker without treating confirmation
-of intended wording as proof.
+Review gives each finding a stable ID and these fields:
 
-Grill carries the Review finding and unit IDs into the decision record when they
-exist. It records the author's meaning, evidence state, permitted edit, and
-materially rejected alternatives. `pending` is not revision authority.
+- Affected unit/link IDs and status
+- Repair boundary and observable resolution test
+- One next-action class from the shared workflow contract.
 
-During an interactive revision, `pending clarification` is a non-terminal
-workflow state for an author-answerable item. It is neither `blocked` nor a
-closure state. Revise asks the complete ready frontier and resumes the same
-revision after the author answers. It maps every received finding to one closure
-state only after no requested item remains pending:
+Use `direct repair`, `author clarification`, `author evidence`, `external blocker`, or `optional/not applied`.
+Route author-intent questions to clarification.
+Route scientific support requirements to author evidence or an external blocker.
+Confirmed intended wording is not proof.
 
-- `closed`: the authorized edit or already-satisfied text passes the original
-  resolution test and the post-edit full-scope audit;
-- `blocked`: an external prerequisite remains unavailable, or the author has
-  explicitly declined, cannot provide, or confirms unavailable the exact
-  clarification or evidence requested;
-- `not applied`: the item is rejected, optional, outside the current edit scope,
-  stale, or conflicts with a newer decision; state which condition applies;
-- `reopened`: the original problem persists or the edit creates an equal-or-higher
-  impact regression.
+When Review IDs exist, Grill carries finding and unit IDs into the decision record.
+Record author meaning, evidence state, permitted edit, and important rejected alternatives.
+`pending` is not edit permission.
 
-No finding disappears from the handoff. Revise cannot close an item merely because
-text changed, and Review cannot claim that a withdrawn claim gained evidence.
+During interactive revision, `pending clarification` gives an author-answerable item awaiting a response.
+It is non-terminal, not `blocked`, and not a closure state.
+Revise gives each ready question and resumes after answers.
+After no requested item stays pending, give each received finding one closure state:
+
+| State | Required condition |
+|---|---|
+| `closed` | The permitted edit or existing text passes the initial test and post-edit full-scope audit. |
+| `blocked` | An external prerequisite stays unavailable, or the author clearly declines, cannot supply, or confirms the requested input's unavailability. |
+| `not applied` | The item is rejected, optional, not in scope, stale, or conflicts with a newer decision. Give the reason. |
+| `reopened` | The initial problem stays, or the edit introduces an equal-or-higher-impact regression. |
+
+Keep each finding in the handoff.
+A text change alone does not close a finding.
+A withdrawn claim does not gain evidence.
+Recheck linked findings after an explicit author withdrawal or replacement, through [review-revise-contract.md](review-revise-contract.md).
+Preserve their IDs and tests; use `not applied` for requirements that no longer apply, with the decision and reason.
+Audit each retained claim independently without treating the old test as passed.
 
 ## Completion gate and receipt
 
-Before saying an audit or revision is complete, verify all of the following:
+Before a full-audit or full-revision claim, do these checks:
 
-1. inventory totals equal ledger totals at every applicable level and for every
-   adjacency/dependency class;
-2. the recorded last unit at each level has a nonblank state;
-3. passed as well as problematic units are represented;
-4. every finding maps to all affected units and every received finding has a
-   closure state after Revise; an interactive pause instead exposes the pending
-   queue and does not claim completion;
-5. no unresolved or not-assessable item is described as passed or closed;
-6. the bottom-up reconciliation found no new contradiction, scope drift,
-   terminology drift, claim-strength change, or evidence promotion;
-7. every paragraph was checked independently for promise-versus-delivery role,
-   competing obligations, payoff information gain, and evidence status, so a
-   blocker in one dimension did not suppress a finding in another;
-8. every assessable central node and dependency has a source status; when the text
-   claims one move yields several outcomes, every advertised outcome appears in
-   the fan-out ledger and every reviewer-hypothesized edge remains a finding or
-   unresolved risk;
-9. every decision version read has a status and set classification, with conflicts
-   and exclusions named rather than silently resolved;
-10. `unreviewed = 0` and `Unaccounted decisions: 0`. If either is false or
-    unknown, the result is explicitly `incomplete`.
+1. Derive receipt totals and any state subtotals from the final ledger.
+   Count each compressed range by its declared occurrence count, not as one occurrence.
+   Make sure that inventory totals equal ledger totals at each applicable level and adjacency/dependency class.
+2. Make sure that the last unit at each level has a nonblank state.
+3. Make sure that ledgers include passed and problematic units.
+4. Make sure that each finding maps to all affected units.
+5. At completed Revise, make sure that each received finding has a closure state.
+   Verify the required source-occurrence mapping before claiming complete source-ID continuity or a completed revision audit.
+   If that mapping remains incomplete, report the audit as incomplete even when every current occurrence received a check.
+6. At an interactive pause, show the pending queue without a completion claim.
+7. Make sure that no unresolved or not-assessable item appears as passed or closed.
+8. Make sure that upward reconciliation finds no contradiction, scope drift, term drift, claim-strength change, or evidence promotion.
+9. Make sure that each paragraph has independent role, competing-obligation, payoff-information, and evidence checks.
+10. Make sure that a blocker in one dimension does not suppress a finding in another.
+11. Make sure that each assessable central node and dependency has a source status.
+12. For one move with several outcomes, make sure that each advertised outcome appears in the fan-out ledger.
+13. Keep each `reviewer-hypothesized` edge as a finding or unresolved risk.
+14. Make sure that each decision version has a status and set class.
+15. Give decision conflicts and exclusions.
+    Do not resolve them without an author decision.
+16. Make sure that `unreviewed = 0` and `Unaccounted decisions: 0`.
 
-End Review and completed non-prose-only Revise reports with a coverage receipt.
-Do not emit a terminal receipt while any requested finding is `pending
-clarification`:
+If either last count is false or unknown, use result `incomplete`.
+End Review and completed non-prose-only Revise with a coverage receipt.
+Do not give a terminal receipt during any requested `pending clarification` item.
 
 ```text
 Scope fingerprint: <objects and stable boundaries>
@@ -252,8 +332,8 @@ Unreviewed: 0
 Result: <clear within scope | actionable issues remain | blocked | incomplete>
 ```
 
-Omit levels and the intellectual-move dependency line when they do not exist, but
-retain higher levels that are unavailable as `not assessable`. Then emit the
-decision coverage receipt defined by the decision-record rules. A receipt proves
-bounded execution only; it does not establish paper acceptance, novelty over
-uninspected literature, or correctness outside the authorized evidence.
+Omit levels and the intellectual-move dependency line only when they do not exist.
+Keep unavailable higher levels as `not assessable`.
+Then give the decision coverage receipt from the decision-record rules.
+A receipt proves only execution in scope.
+It does not show acceptance, novelty over unread literature, or correctness not in the permitted evidence.

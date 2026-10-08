@@ -1,55 +1,57 @@
 # Interface, Boundary, Authority, and Path Claims
 
-Use this shared contract when a paper's argument depends on an interface,
-virtualization or protection boundary, customization or independent
-implementation, isolation, or a direct/delegated execution path. It specializes
-the [writing core](writing-core.md); it is a conditional reasoning aid, not a
-required paragraph template or a venue rule.
+For an interface, boundary, customization, implementation freedom, isolation, or direct/delegated path argument, use this shared contract.
+It adds conditional reasoning checks to the [writing core](writing-core.md).
+It is not a required paragraph template or venue rule.
 
 ## Keep a three-axis ledger
 
-Recover three independent axes before accepting a compound boundary claim:
+Before acceptance of a compound boundary claim, find its three independent axes:
 
-| Axis | Recover from the scoped material | What it can support |
+| Axis | Information from scoped material | Possible claim |
 |---|---|---|
-| **Semantic commitments** | The objects, operations, state transitions, errors, authority rules, and lifecycle behavior fixed by the interface. | Which abstractions a client may implement, replace, or omit above that declared contract. |
-| **Protection and authority** | The principals, protected objects, trust assumptions, admission rules, grants, checks, allocation, binding, revocation, reclamation, and enforcement points. | Memory soundness, resource authorization, fault containment, and lifecycle properties under named assumptions. |
-| **Execution path** | The transitions, copies, emulation, mediation, delegation, and resource work performed by a particular operation. | A path-level cost model or prediction, and only with evidence an observed end-to-end effect. |
+| **Semantic commitments** | Objects, operations, state transitions, errors, authority rules, and lifecycle behavior fixed by the interface | Abstractions that a client can implement, replace, or omit above that contract |
+| **Protection and authority** | Principals, protected objects, trust assumptions, admission rules, grants, checks, allocation, binding, revocation, reclamation, and enforcement points | Memory soundness, resource authorization, fault containment, and lifecycle properties in named assumptions |
+| **Execution path** | Transitions, copies, emulation, mediation, delegation, and resource work for a specified operation | Path cost or prediction, and an observed end-to-end effect only with evidence |
 
-No axis determines any of the others. A lower-level interface is not
-semantics-free; a shared address space does not establish isolation, policy
-freedom, or lower end-to-end cost; and a hardware protection domain does not
-state which abstractions a client can replace. When a claim crosses axes, anchor
-each edge and apply the writing core's source-status, causal-layer, and
-counterfactual tests. Mark an axis `not claimed` rather than inventing an
-obligation the passage does not rely on.
+No axis determines another.
+A lower-level interface has semantics.
+A shared address space alone does not show isolation, policy freedom, or lower end-to-end cost.
+A hardware protection domain does not identify the abstractions that a client can replace.
+
+If a claim crosses axes, give an anchor for each edge.
+Apply the writing core's source-status, causal-layer, and counterfactual tests.
+If the passage does not rely on an axis, set it to `not claimed`.
+Do not invent an obligation for that axis.
 
 ## Bound semantic freedom and customization
 
-An interface commits to more than a privilege level. Identify the client-visible
-objects and behavior that remain fixed, then state what can vary only above that
-contract. A client that needs an absent lower-level operation, state transition,
-or failure behavior needs an adapter or a changed mediator; calling the interface
-`resource-level`, `low-level`, `policy-neutral`, or `general` does not prove its
-coverage.
+An interface specifies more than a privilege level.
+Find the client-visible objects and behavior that stay fixed.
+Then show what can vary above that contract.
+If a necessary operation, transition, or failure behavior is absent, the client must have an adapter or changed mediator.
+`resource-level`, `low-level`, `policy-neutral`, and `general` do not prove interface coverage.
 
-For `customizable`, `independent`, `pluggable`, `extensible`, or equivalent claims,
-recover the **actor, artifact, stage, and control**:
+For `customizable`, `independent`, `pluggable`, `extensible`, or equivalent claims, record **actor, artifact, stage, and control**:
 
-- who changes the system: source author, operator, runtime deployer, tenant, or
-  untrusted client;
-- what changes: configuration, policy, extension, linked component, loadable
-  artifact, mediator, or complete implementation;
-- when it changes: source/build time, deployment, instance creation, or runtime;
-- whose rebuild, installation, approval, or privilege is required.
+- Actor: source author, operator, runtime deployer, tenant, or untrusted client
+- Artifact: configuration, policy, extension, linked component, loadable artifact, mediator, or full implementation
+- Stage: source/build time, deployment, instance creation, or runtime
+- Control: whose rebuild, installation, approval, or privilege is necessary for the change.
 
-Source-fork customization, host-compiled extension, per-instance configuration,
-and tenant-supplied runtime replacement are distinct capabilities. State the one
-the evidence supports and preserve deployment-model qualifications.
+Keep these different capabilities:
+
+- Source-fork customization
+- Host-compiled extension
+- Per-instance configuration
+- Tenant-supplied runtime replacement.
+
+Use the capability that the evidence supports.
+Keep its deployment-model qualifications.
 
 ## Attribute protection through a responsibility chain
 
-For an isolation or authority claim, reconstruct the narrowest sufficient chain:
+For an isolation or authority claim, reconstruct the shortest sufficient chain:
 
 ```text
 protected object or invariant
@@ -58,23 +60,23 @@ protected object or invariant
   -> resource-specific enforcement and fault behavior
 ```
 
-Assign every step to the mechanism that actually supplies it. A language,
-type system, capability representation, or hardware substrate may remove one
-bypass class without establishing complete authorization, lifecycle, fault
-containment, or availability. A trusted mediator must identify the state-changing
-events it decides; a backend must explain how those decisions remain effective
-for CPU, memory, storage, devices, or other claimed resources.
+Give each step to the mechanism that supplies it.
+A language, type system, capability representation, or hardware substrate can remove one bypass class.
+That result does not show full authorization, lifecycle protection, fault containment, or availability.
+Find the state-changing events that a trusted mediator decides.
+For each claimed resource, give the explanation for the backend's continued enforcement of those decisions.
 
-A direct or delegated data path is neither inherently protected nor inherently
-unprotected. Recover how authority is established before delegation, what
-persistent capability or backend rule constrains each operation, and how
-revocation, termination, failure, and cleanup restore the invariant. Conversely,
-`the host mediates every operation` is too broad when some paths are delegated;
-name the control events and continuing enforcement instead.
+A direct or delegated data path does not show protection or its absence by itself.
+Find how the system gives authority before delegation.
+Find the capability that stays available or backend rule that constrains each operation.
+Find how revocation, termination, failure, and cleanup restore the invariant.
+
+`the host mediates every operation` is too broad when some paths use delegation.
+Instead, give the control events and continued enforcement.
 
 ## Compare boundaries at the licensed commitment
 
-For each alternative in a boundary comparison, use one parallel tuple:
+For each alternative, use the same comparison tuple:
 
 ```text
 exposed or mediated interface
@@ -82,62 +84,74 @@ exposed or mediated interface
   -> one consequence material to the current question
 ```
 
-Then classify the bridge:
+Put the bridge in one of these classes:
 
-- A **`negative gap`** says prior approaches cannot, do not, or fundamentally
-  fail to provide a target property. It requires a fair common axis, a shared
-  assumption, mechanism, or constraint that causes the bounded failure, and
-  evidence for the claims about the named alternatives.
-- A **`distinct question`** maps supported placements and asks whether another
-  contract or division of responsibility is possible. It needs a parallel map
-  and a question that follows from it, but no invented common failure. This local
-  bridge establishes neither prior-work absence nor novelty; assess those claims
-  separately wherever the manuscript makes them.
+- **`negative gap`:** Prior approaches cannot, do not, or fundamentally fail to supply a target property.
+  For this claim, give a fair common axis and evidence about each named alternative.
+  Give the shared assumption, mechanism, or constraint that causes the bounded failure.
+- **`distinct question`:** Different placements suggest a possible alternative contract or responsibility division.
+  For this claim, give a parallel map and a question that comes from it.
+  Do not invent a common failure.
+  It shows neither prior-work absence nor novelty.
 
-A descriptive taxonomy may stop without either bridge. Do not promote it into a
-gap, and do not demand a root cause for a failure the passage does not claim.
+Examine absence and novelty claims independently wherever the manuscript makes them.
+A descriptive taxonomy can stop without either bridge.
+Do not convert it into a gap.
+Do not demand a root cause for a failure that the passage does not claim.
 
-Treat `tradeoff`, `tension`, `fundamental`, `impossible`, and equivalent wording as
-causal claims. Operationalize each objective, identify the constraint connecting
-them, state the assumption domain, test nearby counterexamples or alternative
-mechanisms, and name the decisive evidence. When the sources establish only a
-conditional interaction, preserve it as a bounded tension rather than a universal
-law.
+Treat `tradeoff`, `tension`, `fundamental`, `impossible`, and equivalent words as causal claims.
+Give a definition of each objective with a measurement or another test.
+Find the connecting constraint and its assumption domain.
+Examine counterexamples and alternative mechanisms in the same problem domain.
+Give the decisive evidence.
 
-## Keep path facts separate from measured outcomes
+If sources show only a conditional interaction, keep it as a bounded tension.
+Do not make it a universal law.
 
-Trace the exact operation before writing a cost consequence. Removing an address-
-space switch, transition, copy, or emulation step can support a path-level fact or
-prediction while scheduling, authorization, queueing, resource work, and workload
-mix still determine the end-to-end result. A measured improvement requires a
-matched semantic guarantee, baseline, resources, workload, metric, aggregation,
-and material uncertainty. Evidence for one path does not transfer to unrelated
-operations or the whole system.
+## Keep path facts and measured outcomes as different categories
+
+Before a cost claim, find each step in the specified operation.
+Removal of an address-space switch, transition, copy, or emulation step can show a path fact or prediction.
+Scheduling, authorization, queueing, resource work, and workload mix determine the end-to-end result.
+
+For a measured improvement, give these matched comparison attributes:
+
+- Semantic guarantee and baseline
+- Resources and workload
+- Metric and aggregation
+- Important uncertainty.
+
+Evidence for one path does not apply automatically to other operations or the full system.
 
 ## Match explanation depth to the section
 
-An abstract or introduction supplies the causal core needed to understand the
-claim: the visible object or contract, the consequential division of
-responsibility, and the relevant property and boundary. Name the mechanism
-categories there when that division is the intellectual contribution. Defer
-resource-specific data structures, drivers, state machines, and backend inventories
-to Overview or Design unless they establish the central causal step. This is a
-reader-obligation test, not a fixed sentence count or section order.
+An abstract or introduction gives the causal core necessary to understand its claim:
+
+- The visible object or contract
+- The consequential responsibility division
+- The related property and boundary.
+
+If that division is the intellectual contribution, give the mechanism categories there.
+Put resource-specified data structures, drivers, state machines, and backend inventories in Overview or Design.
+Keep a detail before the principle only when it shows the central causal step.
+This is a reader-obligation test, not a fixed sentence count or section order.
 
 ## Review and revision actions
 
-Review builds only the axis rows triggered by the manuscript's claims, keeps
-organization, technical support, and external truth separate, and locates every
-invalid cross-axis edge at its original endpoints. A missing edge becomes a
-finding or unresolved risk with the action class from the [shared workflow
-contract](review-revise-contract.md), not a reviewer-supplied explanation.
+Review makes only the axis rows necessary for manuscript claims.
+It keeps organization, technical support, and external truth as different categories.
+It locates each invalid cross-axis edge at its initial endpoints.
+A missing edge becomes a finding or unresolved risk.
+Use the action class from the [shared workflow contract](review-revise-contract.md).
+Do not supply the explanation as reviewer evidence.
 
-Revise preserves supported axis-specific propositions and may separate a
-conflated sentence inside its authorized paragraph when the supplied evidence
-fixes the attribution unambiguously. It does not turn interface placement into
-customization, a protection mechanism into complete isolation, or a path fact
-into an end-to-end result. If a repair would change whether the author intends a
-negative gap, universal claim, tradeoff, customization model, or other scientific
-claim strength, obtain the author's decision through the shared clarification
-loop. That decision can authorize narrowing or withdrawal; it does not substitute
-for evidence needed to support a strengthened or newly factual claim.
+Revise keeps propositions in each axis when evidence supports them.
+Divide a conflated sentence in its permitted paragraph only when supplied evidence fixes attribution without ambiguity.
+Do not convert interface placement into customization.
+Do not convert one protection mechanism into full isolation.
+Do not convert a path fact into an end-to-end result.
+
+If a repair changes scientific intent or claim strength, use the shared clarification loop.
+Examples include a negative gap, universal claim, trade-off, or customization model.
+An author decision can give permission for narrowing or withdrawal.
+It does not replace evidence for a stronger or new factual claim.

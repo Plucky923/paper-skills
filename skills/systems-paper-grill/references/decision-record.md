@@ -1,68 +1,87 @@
 # Paper Decision Record
 
-Use one author-authorized *paper-decisions.md* per paper. It is an append-preserving
-decision ledger: the current decision is derived from the complete version
-history, never substituted for that history. The record belongs to the paper,
-not to the installed skills or this skill-source repository.
+Use one author-authorized *paper-decisions.md* for each paper.
+Keep the full version history in this decision ledger.
+Find the effective decision from that history.
+Keep the record with the paper.
+Do not put the record in the installed skills or this skill-source repository.
 
-## Resolve the record before completion
+## Find the record before completion
 
-An explicitly named paper project authorizes the default record at that project's
-root. If the file is absent, report that its history contains zero versions and
-continue; Review and Revise keep it absent, while Grill creates it when the first
-substantive decision must be persisted. For pasted text, an ambiguous project, or
-a manuscript-only path with no established record location, ask for the record
-path or ask the author to explicitly confirm no prior decision history for this
-scope. Filesystem accessibility alone does not select a paper project.
+For a paper project with an author-supplied name, use *paper-decisions.md* at the project root.
+If there is no record, give zero history in the report.
+If there is no record, do not write one during Review and Revise.
+If there is no record, write it before the first Grill decision with changed decision content.
 
-Read the complete authorized record before classifying or changing any entry.
-Preserve unrelated entries and author text. A standalone or embedded Grill may
-discuss while the record path is unresolved, but it cannot declare a substantive
-decision complete or return control to Revise until that decision is persisted
-and read back from an authorized path. An explicit no-history confirmation lets
-Review or Revise account for zero prior versions; it does not waive persistence
-for a new substantive Grill decision.
+For pasted text or unknown project ownership, get the record path or author's no-history confirmation for the supplied scope.
+For a manuscript-only path without a record path, get that path or the author's no-history confirmation.
+Filesystem access does not give paper-project permission.
+
+Before classification or entry changes, read the full authorized record.
+Keep unrelated entries and author text.
+While the record path is unknown, let standalone or embedded Grill continue.
+Before completion of a changed decision, save the decision at an authorized path.
+Read that saved decision again.
+Before you let Revise continue, make sure these persistence and read-back checks show correct saved content.
+
+No-history confirmation gives Review or Revise zero previous versions.
+After that confirmation, save each Grill state with changed decision content before completion.
+No-history confirmation does not remove the persistence requirement.
 
 ## Versioned full snapshots
 
-Use a versioned full snapshot for each substantive state. Give each issue a
-stable lineage such as `D7` and each substantive state a
-monotonically increasing version such as `D7.v1`, `D7.v2`. Every version is a
-complete snapshot: source finding and unit IDs, original anchor, problem,
-decision, reason, allowed edit, evidence state and basis, confirmation basis, and
-resolution test. It must make sense without replaying deltas or chat turns.
+For each state with changed decision content, write a versioned full snapshot.
+Give each issue a stable lineage, such as `D7`.
+For each decision-content change, give a higher version ID than all previous versions in the same lineage.
+For example, use `D7.v1`, then `D7.v2`.
+Include all these fields in each snapshot:
 
-Use exactly one lifecycle status per version:
+- Source finding and unit IDs
+- Source anchor
+- Problem
+- Decision
+- Reason
+- Allowed edit
+- Evidence state and basis
+- Confirmation basis
+- Resolution test.
 
-- `pending`: the proposal or answer is incomplete or not explicitly confirmed;
-- `confirmed`: the author explicitly confirmed the snapshot's meaning and allowed
-  action;
-- `rejected`: the author declined that candidate;
-- `superseded`: a later version replaced this snapshot while retaining it as
-  history.
+Make sure that each snapshot makes sense without previous changes or chat turns.
 
-Use the applicable same-lineage relations with exact version IDs:
+For each version, use one lifecycle status only:
 
-- `Proposes replacement for`: a pending candidate's target; it has no authority
-  effect;
-- `Supersedes`: the prior snapshot replaced by this confirmed version;
-- `Superseded by`: the reciprocal pointer on the replaced snapshot.
+- `pending`: The proposal or answer is not full or has no author confirmation.
+- `confirmed`: The author gave confirmation of the snapshot's meaning and permitted action.
+- `rejected`: The author rejected that candidate.
+- `superseded`: A version that follows replaced this snapshot but kept it in the history.
 
-An existing unversioned entry such as `D0` is a valid legacy snapshot. Preserve
-and report its literal ID. If it later evolves, append `D0.v2` and link the legacy
-entry as the first snapshot rather than renaming or rewriting it.
+For same-lineage relations, use the literal version IDs:
 
-The snapshot payload is immutable after it is written. A lifecycle-only response
-that confirms or rejects the exact pending payload may update that candidate's
-status, confirmation basis, and lifecycle links. A substantive change to meaning,
-reason, evidence, allowed edit, scope, anchor, or resolution test creates a new
-complete version. Never reuse an ID. Rejected and superseded versions stay
-terminal; renewed consideration creates another version. Do not add dates,
-version headings outside the entry ID, a changelog, or a chronological transcript.
+- `Proposes replacement for`: The pending candidate's target. This relation gives no authority.
+- `Supersedes`: The previous snapshot that this confirmed version replaced.
+- `Superseded by`: The reciprocal pointer on the replaced snapshot.
+
+An unversioned entry in the record, such as `D0`, is a permitted legacy snapshot.
+Keep its literal ID.
+Include that ID in the decision report.
+If legacy decision content changes, add `D0.v2`.
+Connect that version to the legacy entry as the first snapshot.
+Keep the legacy entry's name and core text.
+
+After a write, keep the snapshot payload immutable.
+For confirmation or rejection of the same pending payload, update only its status, confirmation basis, and lifecycle links.
+If decision content changes, write a new full version.
+Decision content includes meaning, reason, evidence, allowed edit, scope, anchor, and resolution test.
+Do not reuse an ID.
+
+Keep rejected and superseded versions terminal.
+For reconsideration, write a new version.
+Do not put dates, other version headings, changelogs, or chronological transcripts in the ledger.
+Use the entry ID as the only version heading.
 
 ## State transitions and authority
 
-A new pending candidate never displaces a confirmed head:
+Keep the confirmed head effective while a pending candidate is present.
 
 ```text
 D7.v1 confirmed
@@ -76,103 +95,138 @@ D7.v1 confirmed
        D7.v2 = rejected; D7.v1 remains confirmed and effective
 ```
 
-If an author answer materially changes a pending candidate, append a full new
-snapshot. Earlier pending alternatives remain visible; mark one rejected only
-when the author rejects it, or superseded only when the newer snapshot actually
-replaces it. Multiple pending alternatives do not affect the confirmed head.
-Before confirming a successor, ensure its target is still the one effective
-confirmed head and ask the author to resolve any competing or stale candidate
-that would make the intended replacement ambiguous.
+If an author answer changes a pending candidate's decision content, add a full new snapshot.
+Keep previous pending alternatives in the record.
+Only after the author's rejection, give an alternative the `rejected` status.
+Only after a newer snapshot replaces it, give an alternative the `superseded` status.
+Multiple pending alternatives do not change the confirmed head.
 
-When replacing a confirmed head, update both sides in the same filesystem write
-and read back both entries. A crash or failed write must leave the prior file as
-the authority; do not report the promotion complete from an in-memory draft.
-Core text and original confirmation basis of the older confirmed snapshot remain
-unchanged; update only its lifecycle status and `Superseded by` pointer.
+Before successor confirmation, make sure that its target is the one effective confirmed head.
+If competing or stale candidates make the replacement not clear, get the author's decision before confirmation.
 
-## Record decisions rather than transcripts
+When a confirmed head changes, update the reciprocal links in one atomic filesystem write.
+Read each changed entry again.
+On a crash or failed write, keep the previous file as authority.
+Do not give an in-memory draft as evidence of a saved promotion.
 
-Each snapshot states a decision, reason, and open question once. Preserve the
-source finding's repair boundary and observable resolution test. Keep diagnosis,
-intended meaning or role, scientific evidence, and edit authority distinct when
-more than one matters. Structural permission names the exact split, merge, move,
-or purpose change, source unit, destination, and resulting role. A placement
-question stays pending.
+Keep the previous confirmed snapshot's core text and initial confirmation basis the same.
+Update only its lifecycle status and `Superseded by` pointer.
 
-For an intellectual-move fan-out issue, record the common changed constraint or
-boundary and one compact edge per advertised outcome, including causal layer,
-source or author basis, counterfactual, and allowed location. An answer confirming
-the common move does not confirm every outcome edge.
+## Record decisions
 
-Track evidence as `supported`, `missing`, or `conflicting`, with its concrete
-basis. A confirmed intention with missing evidence is not an executable factual
-addition. Author-supplied implementation facts can be attributed as such;
-agreement with an assistant hypothesis does not establish an experiment, proof,
-or result. Keep materially rejected alternatives when doing so prevents their
-reintroduction. Routine grammar fixes need no entry unless they clarify an agreed
-edit.
+Record each decision, reason, and open question one time in each snapshot.
+Keep the source finding's repair boundary and resolution test with a result that readers can see.
+Do not use diagnosis, intended meaning or role, scientific evidence, or edit authority as evidence for a different type.
+For structural permission, record the operation given by the author:
 
-Record durable paper decisions, not transient session restrictions. Grill's
-read-only manuscript boundary belongs in its instructions; the record states an
-allowed future edit. A completed discussion still does not authorize an edit
-outside the active Revise request.
+- Split
+- Merge
+- Move
+- Purpose change.
 
-## Derive the decision sets
+Record the source unit, destination, and the role after the change.
+Keep a placement question pending.
 
-Review and Revise account for the record before judging or editing. Derive these
-sets from literal entries rather than a cached current-head list:
+For an intellectual-move fan-out issue, record the same changed constraint or boundary.
+Record one edge with a short description for each claimed outcome.
+Include its causal layer, source or author basis, counterfactual, and permitted location.
+Confirmation of the same move gives no confirmation of the outcome edges.
 
-1. **All versions:** every literal ID, including pending, confirmed, rejected,
-   superseded, and legacy entries.
-2. **Effective heads:** confirmed versions not validly superseded by a confirmed
-   same-lineage successor.
-3. **Applicable heads:** effective heads whose manuscript scope and meaning-based
-   anchor match the current authorized material.
-4. **Executable heads:** applicable heads whose evidence is compatible, whose
-   links are conflict-free, and whose allowed action covers the current operation.
+For evidence, use `supported`, `missing`, or `conflicting` with a basis in source evidence.
+If evidence is missing, do not add a fact from confirmed intention.
+Give the author as the source of author-supplied implementation facts.
+Agreement with an assistant hypothesis does not supply an experiment, proof, or result.
+When necessary to prevent reintroduction, keep alternatives with author rejection.
 
-Only executable heads may constrain a manuscript change. During read-only Review,
-an applicable confirmed intention may inform interpretation, but cannot clear a
-scientific defect, supply missing evidence, or authorize an edit. Pending,
-rejected, superseded, stale, out-of-scope, evidence-conflicting, or structurally
-conflicted versions remain history rather than authority.
+For grammar fixes, give a decision entry only if the fix makes a confirmed edit clear.
+Record paper decisions applicable after the session.
+Do not put temporary session restrictions in the record.
+Keep Grill's read-only manuscript boundary in its instructions.
+Record the permitted future edit in the decision record.
+Completed Grill gives no permission for edits not in the active Revise request.
 
-The ledger is editorial input, never manuscript text and never higher authority
-than a newer explicit author correction in the current request. A direct edit
-instruction can authorize its named change without pretending it was prior
-history. If that correction is settled through Grill, persist it as a new version
-before Grill completes or an embedded Revise resumes.
+## Find the decision sets
 
-Match locations using anchors and meaning; paragraph numbers can change. If the
-current text already satisfies an executable decision, preserve it. Never broaden
-a confirmed local edit into a paper-wide rewrite.
+Before manuscript judgment or edits, give a classification to each version in the full record.
+Find these sets from literal entries:
 
-Treat duplicate IDs, unknown statuses, missing link targets, cross-lineage links,
-cycles, nonreciprocal confirmed supersession, a supposedly superseded head whose
-successor is not confirmed, or more than one effective confirmed head in a
-lineage as conflicts. Do not choose by file order, highest version, or timestamp.
-Account for every version, make the affected lineage non-executable, and ask only
-for the smallest repair to the record or author decision. Review stays read-only;
-Revise leaves affected prose unchanged.
+1. **All versions:** Each literal ID: pending, confirmed, rejected, superseded, and legacy entries.
+2. **Effective heads:** Confirmed versions without correct supersession by a confirmed same-lineage successor.
+3. **Applicable heads:** Effective heads with manuscript scope and meaning-based anchors that agree with the authorized source text.
+4. **Executable heads:** Applicable heads with evidence compatibility, conflict-free links, and permission for the requested operation.
+
+Do not use a cached head list to find these sets.
+Use only executable heads as authority for manuscript changes.
+During read-only Review, use applicable confirmed intention only for text interpretation.
+Do not use that intention as evidence for a scientific defect's resolution.
+Do not use it as missing evidence or edit permission.
+
+Keep these versions as history, not revision authority:
+
+- Pending
+- Rejected
+- Superseded
+- Stale
+- Out of scope
+- Evidence-conflicting
+- Structurally conflicting.
+
+Use the ledger as editorial input.
+Do not put the ledger in manuscript prose.
+When this request corrects the ledger, obey the author's correction.
+An edit instruction gives permission for its given change.
+Do not record that instruction as history before this request.
+
+After the author gives confirmation of that correction through Grill, save it as a new version before Grill completion.
+Before an embedded Revise resumes, complete the persistence and read-back checks for each authorized record update.
+If the request excludes persistence, retain the answer in conversation as current-request authority and resume the same scoped revision.
+Keep chat-only answers separate from saved decision history.
+
+Find locations through anchors and meaning.
+Paragraph numbers can change.
+If the text agrees with an executable decision, keep it the same.
+Keep each confirmed edit in its authorized local boundary.
+
+Give these cases the conflict classification:
+
+- Duplicate IDs
+- Unknown statuses
+- Missing link targets
+- Cross-lineage links
+- Cycles
+- Nonreciprocal confirmed supersession
+- A superseded head without a confirmed successor
+- Multiple effective confirmed heads in one lineage.
+
+Do not select revision authority by file order, highest version, or timestamp.
+Give each version a classification.
+Keep the affected lineage non-executable.
+Get the smallest necessary repair to the record or author decision.
+For Review, keep the record read-only.
+For Revise, keep affected manuscript prose the same.
 
 ## Decision coverage receipt
 
-Every Review and every Revise response reports decision accounting separately
-from manuscript-unit coverage. Include it even when the author requests prose
-only; in that mode place one compact line after the manuscript. Report:
+For each Review and Revise response, give decision accounting in a different receipt from manuscript-unit coverage.
+For prose-only output, put one short receipt line after the manuscript.
+Honor an explicit manuscript-body-only request or receipt exclusion; keep decision accounting internal.
+Use this receipt schema:
 
 ```text
 Decision coverage: record=<authorized path | absent at named project | author-confirmed none | unresolved>; all=<literal IDs>; status=<pending:n, confirmed:n, rejected:n, superseded:n, unknown:n>; effective=<IDs>; applicable=<IDs>; executable=<IDs>; not applicable=<ID:reason | none>; conflicts=<ID/relation:reason | none>; Unaccounted decisions: 0
 ```
 
-`Unaccounted decisions: 0` means every version read was classified; it does not
-mean every decision is valid or applied. When the record location or contents are
-still unavailable, ask for them and report `Unaccounted decisions: unknown`
-instead of claiming completion. A non-terminal Revise clarification pause may
-still give this accounting receipt; it is not a finding-closure or manuscript
-coverage completion receipt.
+`Unaccounted decisions: 0` shows that each version read has a classification.
+It does not show that each decision is correct or used.
+When the record path or content is not available, get it from the author.
+Give `Unaccounted decisions: unknown` in the receipt.
+Do not claim completion.
 
-Revise, not Grill, assigns finding closure after the post-edit full-scope audit.
-Review does not mutate the record. Revise does not rewrite it to match its output.
-A newly discovered conflict returns to Grill or the author; no stage silently
-repairs decision history.
+During a Revise clarification pause, give decision accounting for the versions read.
+Do not use that accounting as terminal finding closure or manuscript coverage receipts.
+
+After the full post-edit audit, let Revise give each finding its closure state.
+For Review, keep the record the same.
+For Revise, do not change decision history to agree with manuscript output.
+When you find a new conflict, give it to Grill or the author.
+Do not repair decision history without the author's decision.

@@ -1,79 +1,72 @@
 # Thesis, Claim Hierarchy, and Reader Memory
 
-Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) and [positive contracts](../../systems-paper-revise/references/paper-archetypes.md) first. This file audits whether the scoped material delivers one memorable decision case whose design and evidence follow from its thesis; it adds review attacks and diagnostic maps rather than a second writing model.
+First, read the [systems-writing core](../../systems-paper-revise/references/writing-core.md) and [positive contracts](../../systems-paper-revise/references/paper-archetypes.md). This file gives decision-case checks within scope. It adds reviewer attacks and diagnostic maps. It does not give another writing model.
 
 ## TH-01 — The paper has one controlling thesis
 
-- **Check:** Recover the consequential problem or question, failed assumption/binding tension, intellectual move, resulting capability or finding, decisive evidence, and boundary. The thesis may span several sentences; it fails when reconstruction requires choosing among incompatible stories or listing components.
+- **Check:** Find the consequential problem or question, failed assumption or limiting tension, intellectual move, capability or finding, decisive evidence, and boundary. The thesis can use multiple sentences. It fails if reconstruction makes a choice between incompatible stories or a component list necessary.
 - **Reviewer attack:** “I understand what was built, but not the proposition this paper asks me to believe.”
-- **Severity:** `S1`; `S2` when present but difficult to recover.
-- **Exception:** A measurement or experience paper may center a finding or lesson rather than a new mechanism.
+- **Severity:** `S1`. Use `S2` when the thesis exists but is difficult to find.
+- **Exception:** A measurement or experience paper can have a finding or lesson as its central contribution.
 
 ## TH-02 — Supporting claims form a hierarchy
 
-- **Check:** Build a tree with one controlling thesis, a small decision-relevant set of supporting claims, the mechanisms or analyses that discharge them, and evidence for each. Separate primary contributions from enabling engineering, implementation facts, and incidental optimizations.
+- **Check:** Make a tree with one controlling thesis and a small set of supporting claims related to the decision. Add their mechanisms or analyses. Add evidence for each claim. Keep primary contributions, enabling engineering, implementation facts, and incidental optimizations as different levels in the tree.
 - **Reviewer attack:** “The contribution list is flat, so I cannot tell which failure would invalidate the paper.”
-- **Severity:** `S1` when the central case depends on the ambiguity; otherwise `S2`.
-- **Exception:** Do not force an arbitrary claim count; require only the distinctions needed to expose which failure would invalidate the thesis.
+- **Severity:** `S1` when the ambiguity controls the central case. For other cases, `S2`.
+- **Exception:** No fixed claim count applies. Only distinctions that show the thesis-invalidating failure are necessary in the hierarchy.
 
 ## TH-03 — The thesis predicts the design
 
-- **Check:** Hide component names and ask what requirements follow from the paper's stated problem and intellectual move. Then verify the actual major mechanisms discharge those requirements. Give each recovered central node and dependency the source status defined by the writing core; a requirement supplied by the reviewer rather than the prose remains a missing edge. A central idea that cannot explain the design is usually a slogan or retrospective summary.
+- **Check:** Hide component names. Find the requirements that result from the paper's problem and intellectual move. Make sure that the primary mechanisms in the paper satisfy them. For each central node and dependency, give the writing core's source status. Keep a reviewer-supplied requirement as a missing edge. A central idea without a relation to the design is usually a slogan or retrospective summary.
 - **Reviewer attack:** “The claimed insight could introduce many unrelated systems and does not explain this design.”
 - **Severity:** `S1`.
 
-## TH-03A — A memorable reconstruction is not mistaken for authored clarity
+## TH-03A — Reviewer reconstruction does not show authored clarity
 
-- **Check:** After writing the shortest coherent thesis in reviewer language,
-  compare every node and edge with the original anchors. Apply the
-  [source-grounded fan-out test](../../systems-paper-revise/references/writing-core.md#source-grounded-intellectual-move-fan-out)
-  whenever one move is meant to explain several primary outcomes. Report each
-  reviewer-hypothesized bridge; do not use the completed reconstruction itself as
-  evidence that the reader could recover it from the manuscript.
-- **Reviewer attack:** “The reviewer can invent a strong story for this system,
-  but the paper does not actually make that story available to the reader.”
-- **Severity:** `S1` when the missing edge controls the contribution; otherwise
-  `S2`.
+- **Check:** Write the shortest coherent thesis in reviewer language. Compare each node and edge with original anchors. If one move supposedly causes multiple primary outcomes, use the [source-grounded fan-out test](../../systems-paper-revise/references/writing-core.md#source-grounded-intellectual-move-fan-out). Record each reviewer-hypothesized bridge. Do not use a full reviewer reconstruction as evidence for manuscript clarity.
+- **Reviewer attack:** “The reviewer can invent a strong story for this system, but the paper does not actually make that story available to the reader.”
+- **Severity:** `S1` when the missing edge controls the contribution. For other cases, `S2`.
 
 ## TH-04 — The thesis predicts the decisive evidence
 
-- **Check:** Before reading the evaluation, derive what observations would make the central thesis credible or false. Compare this set with the actual headline results. Evidence quantity cannot compensate for omission of the decisive test.
+- **Check:** Before the evaluation, find the observations that would show or contradict the central thesis. Compare them with headline results. Large evidence quantity does not replace a missing decisive test.
 - **Reviewer attack:** “The paper evaluates what is easy to measure, not what its thesis requires.”
-- **Severity:** `S0` for a central unsupported conclusion; otherwise `S1`.
+- **Severity:** `S0` for a central conclusion without evidence. For other cases, `S1`.
 
-## TH-05 — Motivation evidence arrives before the inference that needs it
+## TH-05 — Motivation evidence occurs before the dependent inference
 
-- **Check:** Locate evidence for problem prevalence, bottleneck, failed assumption, operational cost, or counterexample. Verify it appears early enough to license the design requirement or claim it motivates. A later evaluation cannot retroactively make an unsupported introduction premise easy to follow.
+- **Check:** Find evidence for prevalence, bottlenecks, failed assumptions, operational cost, or counterexamples. Make sure that it occurs before the design requirement or claim that must have it. Later evaluation does not remove the reader's earlier uncertainty about an unsupported introduction premise.
 - **Reviewer attack:** “The system is derived from a premise that is asserted first and only investigated much later.”
-- **Severity:** `S1` when the premise controls the design; `S2` for avoidable evidence debt.
-- **Exception:** Full methodology or result detail may remain later; the early text needs only enough evidence and a precise pointer to support the inference.
+- **Severity:** `S1` when the premise controls the design. Use `S2` for unnecessary evidence debt.
+- **Exception:** Full method or result details can occur subsequently. Text before the full detail must have sufficient evidence and an accurate reference for the inference.
 
-## TH-06 — Headline results mirror the contribution hierarchy
+## TH-06 — Headline results reflect the contribution hierarchy
 
-- **Check:** Match each primary supporting claim to one decisive result, proof, study finding, or production observation. Abstract and introduction results should foreground these items rather than whichever numbers are largest. Record costs and boundary conditions beside the result they constrain.
+- **Check:** Connect each primary supporting claim to a decisive result, proof, study finding, or production observation. Give these items prominence in abstract and introduction results. Do not select prominence from numerical size alone. Record each cost and condition beside its constrained result.
 - **Reviewer attack:** “The strongest advertised number is impressive but does not validate the paper's main contribution.”
-- **Severity:** `S1`; `S2` for imbalanced emphasis.
+- **Severity:** `S1`. Use `S2` for emphasis imbalance.
 
 ## TH-07 — The paper passes a reader-memory test
 
-After the abstract and introduction, a technically literate systems reader should be able to state, without copying prose:
+After the abstract and introduction, a technically literate systems reader can give these items without copied prose:
 
-1. the problem or question and why it matters;
-2. the failed assumption, binding constraint, or surprising observation;
-3. the intellectual move;
-4. the primary deliverable or finding;
-5. the strongest supporting evidence;
-6. the most important boundary;
-7. the precise delta from the closest alternative.
+1. Problem or question and its importance.
+2. Failed assumption, limiting constraint, or surprising observation.
+3. Intellectual move.
+4. Primary deliverable or finding.
+5. Strongest supporting evidence.
+6. Most important boundary.
+7. Accurate difference from the closest alternative.
 
-Failure is not merely stylistic: it predicts that later mechanisms and experiments will be interpreted as unrelated details. Do not require specialized mechanism detail in this retelling.
+Failure predicts that the reader will treat later mechanisms and experiments as unrelated details. It is more than a style defect. Keep specialized mechanism details outside this retelling.
 
-## TH-08 — Attention follows novelty and uncertainty
+## TH-08 — Explanation reflects novelty and uncertainty
 
-- **Check:** Compare space and repetition with decision importance. Give more explanation to the new abstraction, counterintuitive constraint, critical mechanism, closest-work delta, decisive experiment, and material limitation. Compress standard background, commodity implementation, repeated motivation, and results that do not change the conclusion.
+- **Check:** Compare space and repetition with decision importance. Give more explanation to new abstractions, unexpected constraints, and mechanisms important to the claim. Give more explanation to closest-work differences, decisive experiments, and limitations that affect conclusions. Reduce standard background, commodity implementation, repeated motivation, and results without consequences for the conclusion.
 - **Reviewer attack:** “The paper spends pages on implementation inventory while the novel or vulnerable inference is compressed into a sentence.”
-- **Severity:** `S2`; `S1` when the central idea or evidence is effectively hidden.
-- **Exception:** Reproducibility-critical detail may belong in the paper or appendix even when not narratively central; placement should separate audit depth from the main reading path.
+- **Severity:** `S2`. Use `S1` when the central idea or evidence is effectively hidden.
+- **Exception:** Reproducibility details can belong in the paper or appendix without a central narrative role. Audit detail can have a different location outside the primary reading sequence.
 
 ## Internal maps
 
@@ -88,11 +81,11 @@ Failure is not merely stylistic: it predicts that later mechanisms and experimen
 
 ### Headline-evidence map
 
-| Decision-relevant claim | Predicted decisive test | Actual evidence | Headline emphasis | Boundary/cost | Gap |
+| Decision-related claim | Predicted decisive test | Evidence in the paper | Headline emphasis | Boundary/cost | Gap |
 |---|---|---|---|---|---|
 
-The maps are diagnostic. Do not paste them into the manuscript unless the user asks for them.
+These maps are diagnostic aids. Keep them outside the manuscript during Review. For requested manuscript insertion, use Revise with the applicable edit authority.
 
 ## Sources
 
-These rules synthesize [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], [SYSTEMS-GUIDE], and observed thesis/evidence alignment in [FIVE-VENUE-CORPUS]. The memory test and map are author-side diagnostics, not official review forms.
+These rules use [LEVIN-REDELL], [OSDI-CFP], [SOSP-CFP], and [SYSTEMS-GUIDE]. They also use observed thesis-evidence agreement in [FIVE-VENUE-CORPUS]. The memory test and maps are author-side diagnostics. They are not official review forms.

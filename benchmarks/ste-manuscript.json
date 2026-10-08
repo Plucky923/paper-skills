@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "kind": "ste-manuscript",
+  "source": {
+    "url": "https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf",
+    "issue": 9,
+    "release_date": "2025-01-15",
+    "verified_date": "2026-10-04",
+    "sha256": "d1f4ea9e7cd6e46b47aa9057209f99e78c0e9cfc4e27a5b07895b05c1a166431"
+  },
+  "application": "Original systems-paper cases derived from selected clarity rules. Scientific meaning and authorized paragraph boundaries govern revision; dictionary and sentence-length quotas do not apply.",
+  "fixtures": [
+    {
+      "path": "benchmarks/fixtures/43-ste-clarity-preservation.json",
+      "rules": ["1.11", "3.6", "6.1"],
+      "purpose": "Combined alias, actor, condition, cache-lifetime, and modality preservation."
+    },
+    {
+      "path": "benchmarks/fixtures/44-ste-terms-and-context.json",
+      "rules": ["1.2", "1.3", "1.11"],
+      "purpose": "Stable object names and context-sensitive meanings with domain-term preservation controls."
+    },
+    {
+      "path": "benchmarks/fixtures/45-ste-noun-clusters.json",
+      "rules": ["2.1", "2.2", "6.1"],
+      "purpose": "Recover noun-group relations and actions while preserving formal names and modifier attachment."
+    },
+    {
+      "path": "benchmarks/fixtures/46-ste-condition-scope.json",
+      "rules": ["5.4", "6.1"],
+      "purpose": "Preserve conditions, quantifiers, negation, exceptions, and modifier scope."
+    },
+    {
+      "path": "benchmarks/fixtures/47-ste-action-order.json",
+      "rules": ["5.2", "6.1"],
+      "purpose": "Preserve ordered and simultaneous actions when separating overloaded claims."
+    },
+    {
+      "path": "benchmarks/fixtures/48-ste-unknown-actor.json",
+      "rules": ["3.6", "6.1"],
+      "purpose": "Distinguish unknown causes from known actors without inventing causal responsibility."
+    },
+    {
+      "path": "benchmarks/fixtures/49-ste-information-order.json",
+      "rules": ["6.1", "6.2", "6.5"],
+      "purpose": "Introduce concepts before dependent information and retain adequate long prose within one paragraph."
+    }
+  ]
+}

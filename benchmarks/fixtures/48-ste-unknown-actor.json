@@ -1,0 +1,132 @@
+{
+  "id": "ste-unknown-actor",
+  "title": "Preserve unknown-cause corruption and adequate passive prose while identifying a supplied important actor",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请用 systems-paper-revise 润色下面的英文稿件，保留作者确认的技术含义、条件和主张强度。不要搜索外部资料，不要添加未提供的机制或结果。把诊断置于稿件之外，并附独立的 decision coverage receipt。只修改下面的一个原段；可以在原段内调整句子，不得移动或拆分段落。\n\nThe frame was damaged during transfer. The checksum is verified on arrival, and it rejects the frame only if the checksum does not match. The frame's 16-byte header is copied into a fixed-size buffer before decoding.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "actor and reference clarification supported by the author-confirmed facts",
+      "local sentence repairs inside the one original paragraph"
+    ],
+    "excluded": [
+      "moving or splitting the paragraph",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented damaging or copying actors",
+      "new causal, rejection, or decoding claims",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt and a separate decision coverage receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "The supplied trace places frame corruption within the transfer interval. It does not identify the cause or the actor responsible for the corruption.",
+      "The receive verifier checks the frame checksum on arrival. The receive verifier is also the actor that rejects the frame.",
+      "A checksum mismatch is necessary for rejection. The supplied facts do not state that every mismatching frame is rejected.",
+      "The frame has a 16-byte header. That header is copied into a fixed-size buffer before decoding.",
+      "The supplied material does not identify the header-copying actor. The paragraph concerns the header preparation and its order, not a claim about that actor."
+    ]
+  },
+  "protected_tokens": [
+    "frame",
+    "during transfer",
+    "receive verifier",
+    "checksum",
+    "on arrival",
+    "only if",
+    "16-byte",
+    "header",
+    "fixed-size buffer",
+    "before decoding"
+  ],
+  "forbidden_actions": [
+    "attribute the corruption to the transfer process or any named component without evidence",
+    "replace an unknown damaging actor with the sender, receiver, transport, device, or frame itself",
+    "invent a copying actor for the header",
+    "leave checksum verification or rejection assigned to an ambiguous it",
+    "turn the rejection necessary condition into an unconditional or sufficient condition",
+    "change the header size, destination, or preparation-before-decoding order",
+    "reject all passive sentences or add an unsupported mechanism",
+    "split the paragraph, inspect excluded material, or change persistent state"
+  ],
+  "hard_gates": [
+    "Corruption remains an observation in the transfer interval with an unknown cause and damaging actor. The revision does not state that transfer caused it.",
+    "The receive verifier is the clear actor for checksum verification and rejection, and checksum mismatch remains only a necessary rejection condition.",
+    "The original first corruption sentence and original last header-preparation sentence remain unchanged as preservation controls. They may move within the original paragraph; neither gains an invented actor.",
+    "The output keeps one paragraph, uses only supplied facts, and includes separate zero-history decision accounting without creating a record."
+  ],
+  "expected_behavior": [
+    "Return one conservative revised paragraph before any receipt or diagnostic.",
+    "Keep the corruption observation and its unknown causal attribution distinct from the known receiver-side verification actions.",
+    "Use the supplied receive-verifier role to resolve the checksum-action actor reference.",
+    "Keep the original first corruption sentence and original last header-preparation sentence unchanged. Local placement may change within the original paragraph.",
+    "Preserve the rejection condition and header-preparation contract without new evidence, mechanisms or results.",
+    "Give the independent decision receipt for the author-confirmed absent history."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Keeps one manuscript paragraph with diagnostics and receipts outside it.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Preserves the observed corruption within the transfer interval.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Does not turn the transfer interval into a claim that transfer caused the corruption.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Does not invent an identity for the damaging actor.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Keeps the original first sentence, the passive corruption statement, unchanged within the paragraph; its local placement may change.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Makes the receive verifier the clear checksum-verification actor.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Makes the receive verifier the clear rejection actor.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Preserves checksum mismatch as necessary for rejection without claiming that it is sufficient.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keeps the original last sentence, the passive header-preparation statement, unchanged within the paragraph; its local placement may change.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Preserves the 16-byte header, fixed-size destination buffer and preparation before decoding.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Uses only supplied evidence and does not manufacture a blocker merely because the damaging or copying actor is unspecified.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Gives a separate zero-history decision coverage receipt without fabricated decision IDs or an unnecessary history question.",
+      "points": 1
+    }
+  ]
+}

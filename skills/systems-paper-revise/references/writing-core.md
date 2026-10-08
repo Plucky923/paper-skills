@@ -1,20 +1,45 @@
 # Canonical Systems-Writing Core
 
-Review, Grill, and Revise use this single quality standard for the same scoped prose, including requested drafting. Other references specialize its criteria or govern actions; they do not redefine what counts as clear, precise, logically supported writing. Use the [coverage contract](coverage-contract.md) for the mandatory top-down audit and visible accounting, and the [shared workflow contract](review-revise-contract.md) for consistent judgments and discussion of uncertain logic.
+Review, Grill, and Revise use this single quality standard for the same scoped prose, including requested drafts.
+Other references add specialized checks or control actions.
+They do not change the meaning of clear, accurate writing with valid logic and evidence.
+Use the [coverage contract](coverage-contract.md) for the required top-down audit and visible accounting.
+Use the [shared workflow contract](review-revise-contract.md) for judgments that agree and uncertain-logic discussion.
 
 ## Top-systems calibration and editing authority
 
-The stable common core for OSDI-, SOSP-, EuroSys-, ATC-, and ASPLOS-caliber systems writing is a significant and well-bounded problem or question, a clear advance over the relevant baseline, technically convincing realization or method, evidence matched to the claim, honest costs and limitations, correctness, and warranted conclusions. OSDI's [review criteria](https://www.usenix.org/conference/osdi27/call-for-papers) and the [systems-paper writing guide](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html) calibrate this core. Apply it through the contribution archetype and each unit's actual role; a background paragraph need not become a miniature introduction or evaluation.
+The stable standard for OSDI, SOSP, EuroSys, ATC, and ASPLOS writing has these elements:
 
-Accepted-paper patterns calibrate functional expectations rather than impose one fixed template. When the user names a venue, track, cycle, or submission-policy question, add the current official overlay through Review's [venue rules](../../systems-paper-review/references/venue-overlays.md). Never freeze a page limit, anonymity rule, review stage, or preliminary call into this stable writing standard.
+- An important bounded problem or question
+- A clear advance over the related baseline
+- A technical realization or method with evidence for its claimed behavior
+- Evidence matched to each claim
+- Accurate costs and limitations
+- Correctness and conclusions supported by evidence.
 
-Paragraph-local revision is this project's author-specified editing boundary, not an OSDI submission rule. Writing criteria diagnose quality; they do not authorize adding research content or restructuring existing paragraphs. Apply the [revision protocol](revision-protocol.md) for editing authority and verify live venue rules only when making a submission-policy judgment.
+OSDI's [review criteria](https://www.usenix.org/conference/osdi27/call-for-papers) and the [systems-paper writing guide](https://www.usenix.org/legacy/publications/library/proceedings/dsl97/good_paper.html) give the calibration.
+Apply it through contribution type and each unit's delivered role.
+A background paragraph can keep its background role without an introduction or evaluation role.
 
-Judge quality independently of permission to edit: an unsupported inference remains a scientific gap even when its original wording must be retained, and a merely different phrasing is not a defect. The shared contract governs how Review and Revise act on that judgment.
+Accepted-paper patterns give functional expectations.
+They do not impose one fixed template.
+For a named venue, track, cycle, or submission-policy question, add the applicable official overlay through [venue rules](../../systems-paper-review/references/venue-overlays.md).
+Keep page limits, anonymity rules, review stages, and preliminary calls out of this stable standard.
+
+Paragraph-local revision is the author's editing limit for this project.
+It is not an OSDI submission rule.
+Quality criteria do not give permission for new research content or paragraph restructuring.
+Use the [revision protocol](revision-protocol.md) for edit permission.
+For submission-policy judgments, do a check of applicable venue rules.
+
+Examine quality independently from edit permission.
+An unsupported inference stays a scientific gap even when its initial words must stay.
+A different expression alone is not a defect.
+Use the shared contract for action on that judgment.
 
 ## The decision case
 
-A systems paper asks a reader to accept a bounded scientific advance:
+A systems paper gives a bounded scientific advance for the reader's acceptance:
 
 ```text
 important problem or question under stated conditions
@@ -25,58 +50,73 @@ important problem or question under stated conditions
   → cost, assumption, limitation, and transferable consequence
 ```
 
-This is a dependency spine, not a required sentence or section order. A text unit includes only the roles needed for its local obligation. Route the spine through [paper-archetypes.md](paper-archetypes.md) when the contribution is not a conventional system mechanism or when the contribution type is uncertain.
+This is a dependency spine, not a required sentence or section order.
+Include only the roles necessary for each text unit's local obligation.
+For unconventional or unclear contribution types, use [paper-archetypes.md](paper-archetypes.md).
 
-Write for two depths of reading along the same claim hierarchy:
+Use two reading depths along the same claim hierarchy:
 
-- A broad systems reader should recover the problem, delta, intellectual move, credible evidence, and main boundary from the title, abstract, introduction, overview, headline results, and conclusion.
-- A domain expert should be able to validate that account through the model, assumptions, invariants, lifecycle, implementation status, experimental controls, and failure cases.
+- A broad systems reader can find the problem, delta, intellectual move, evidence with correct methodology, and primary boundary.
+  Give these elements in the title, abstract, introduction, overview, headline results, and conclusion.
+- A domain expert can validate that account through the model, assumptions, invariants, lifecycle, implementation status, experimental controls, and failure cases.
 
-The first two pages are a useful stress test for every venue, not a universal submission rule: can a reader accurately retell the decision case without inventing a missing link? Apply a hard page-specific rule only after checking the named venue and cycle.
+The first two pages give a test for each venue.
+They are not a universal submission rule.
+Can a reader accurately retell the decision case without inventing a missing link?
+Apply a requirement for specified pages only after verification of the named venue and cycle.
 
 ## High-level causal compression
 
-`High-level` means preserving the causal structure while suppressing detail that does not affect the reader's current decision. At the highest useful level, make these elements recoverable:
+`High-level` prose keeps causal structure and omits detail irrelevant to the reader's decision at this point.
+At the highest level that answers the reader's question, make these elements clear:
 
-1. **Object and condition:** the system, workload, model, population, or stage to which the statement applies.
-2. **Constraint or unknown:** the relation that defeats the old approach or prevents a conclusion.
-3. **Intellectual move:** the principle, changed boundary, method, or finding that changes the problem.
-4. **Realization:** enough mechanism, analysis, or study design to explain why the move is credible.
-5. **Consequence and evidence:** the property or conclusion that follows and the evidence that supports it.
-6. **Boundary:** the cost, assumption, comparison scope, or failure condition that limits the conclusion.
+1. **Object and condition:** The system, workload, model, population, or stage to which the statement applies
+2. **Constraint or unknown:** The relation that defeats the old approach or prevents a conclusion
+3. **Intellectual move:** The principle, boundary change, method, or finding that changes the problem
+4. **Realization:** Sufficient mechanism, analysis, or study design to show evidence for the move
+5. **Consequence and evidence:** The resulting property or conclusion and its evidence
+6. **Boundary:** The cost, assumption, comparison scope, or failure condition that limits the conclusion.
 
-A paragraph needs only the elements relevant to its promised and delivered role. A recoverable implicit link can remain implicit. Do not add sentences to expose every step or complete all six elements; an absent scientific premise needs author evidence, not editorial reconstruction.
+Give a paragraph only elements related to its promised and delivered role.
+A clear implicit link can stay implicit.
+Do not add sentences only to expose each step or fill all six elements.
+For a missing scientific premise, get author evidence.
+Do not supply reviewer reconstruction as that evidence.
 
-When the evidence identifies a binding constraint or failure relation, keep that relation recoverable instead of replacing it with a weaker benefit paraphrase. Preserve the affected operation, the condition or frequency, and the bottleneck or failure when those facts explain why the intellectual move is necessary.
+If evidence gives a binding constraint or failure relation, keep that relation clear.
+Do not replace it with a weaker benefit expression.
+Keep the affected operation, condition or frequency, and bottleneck or failure when they give the reason for the move's necessity.
+An operation's placement at one component does not imply that it is serialized or invoked for each request.
+Keep supplied serialization, synchronization, frequency, or cross-layer dependencies explicit in the causal compression.
 
-Apply four tests to a principle-level statement:
+Do four tests of each principle-level statement:
 
-- **Distinction:** If unrelated systems or methods can replace the nouns without changing the proposition, the statement is too generic.
-- **Prediction:** The statement should predict at least one major design, study, or proof choice; otherwise it is detached from the work.
-- **Falsification:** A reader should be able to name a condition or observation under which the statement fails or narrows.
-- **Evidence:** The scoped material should contain a proof, analysis, experiment, or observation capable of supporting the stated consequence.
+- **Distinction:** Replace its nouns with unrelated systems or methods as an internal test.
+  If the proposition stays unchanged, it is too generic.
+- **Prediction:** Find at least one important design, study, or proof choice that the statement predicts.
+  Without such a choice, the principle is detached from the work.
+- **Falsification:** Find a condition or observation in which the statement fails or narrows.
+- **Evidence:** Find scoped proof, analysis, experiment, or observation that can support the stated consequence.
 
 ## Source-grounded intellectual-move fan-out
 
-Reconstruction is a diagnostic instrument, not an editorial repair. For every
-central node and causal edge that Review recovers, record one source status:
+Reconstruction is a diagnostic tool, not an editorial repair.
+Give each central node and causal edge one source status:
 
-- **stated:** the prose explicitly supplies the node or relation; anchor it to
-  the shortest original span;
-- **text-licensed:** the relation follows from premises and a dependency that the
-  scoped text supplies, even if it is not restated word for word; anchor both
-  endpoints and name the inference;
-- **reviewer-hypothesized:** the relation is a plausible way to make the story
-  coherent, but the scoped text does not supply a required premise or causal
-  edge.
+- **stated:** The prose clearly gives the node or relation.
+  Use the shortest initial span as its anchor.
+- **text-licensed:** The relation comes from premises and a dependency in the scoped text.
+  The source can supply it without word-for-word repetition.
+  Give the two endpoint anchors and the inference.
+- **reviewer-hypothesized:** The relation could give the account a clear dependency chain.
+  But the scoped text lacks a necessary premise or causal edge.
 
-A reviewer-hypothesized bridge does not make the manuscript clear. Review reports
-the exact missing edge, Grill asks the author to confirm or replace it, and Revise
-keeps it out of prose until it is supported by the source or an evidence-compatible
-author decision.
+A `reviewer-hypothesized` bridge does not make the manuscript clear.
+Review gives the specified missing edge.
+Grill requests the author's confirmation or replacement and evidence.
+Revise keeps it out of prose until scoped evidence or an evidence-compatible author decision supplies it.
 
-When a passage presents two or more primary outcomes as consequences of one
-insight, changed boundary, or design choice, build this **fan-out map**:
+If one insight, boundary change, or design choice yields several primary outcomes, make this **fan-out map**:
 
 ```text
 problem or binding constraint -> intellectual move
@@ -85,43 +125,57 @@ intellectual move -> outcome B, through <causal layer and mechanism>
 intellectual move -> outcome C, through <causal layer and mechanism>
 ```
 
-The exact number of outcomes is whatever the manuscript claims. Give every edge
-its source status and original-text anchors. Source status records provenance,
-not validity: a sentence that merely asserts `X provides Y` is `stated` but can
-still omit the causal layer, mechanism, or premise that makes the edge credible.
-The unification passes only when the shared move is itself source-grounded and
-each advertised outcome has an anchored dependency whose causal layer and
-counterfactual are recoverable. A shared system name, paragraph, component, or
-nearby list is co-occurrence, not a causal relation.
+Use the number of outcomes claimed by the manuscript.
+Give each edge its source status and initial-text anchors.
+Source status records provenance, not validity.
+`X provides Y` is `stated`, but it can lack the necessary causal layer, mechanism, or premise.
 
-Apply two checks to each fan-out edge:
+The shared-move account passes only when the move comes from source evidence.
+Each advertised outcome must have an anchored dependency with a clear causal layer and counterfactual.
+A shared system name, paragraph, component, or list in the same region shows co-occurrence.
+It does not show causality.
 
-1. **Causal-layer attribution:** assign the narrowest layer that supplies the
-   step—enabling substrate, changed abstraction or authority boundary, runtime
-   enforcement and lifecycle, execution-path organization, or empirical
-   condition. Do not credit one layer with a compound property that still needs
-   another layer. For example, an enforcement-friendly language can remove a
-   bypass class without by itself establishing authorization, isolation,
-   availability, or end-to-end performance.
-2. **Counterfactual:** hold the other stated assumptions fixed and remove the
-   proposed intellectual move or the named layer. State which outcome or
-   mechanism ceases to hold. If the text supplies no answer, the edge is
-   reviewer-hypothesized; if an outcome survives independently, it is not evidence
-   that the move unifies that outcome.
+Do two checks of each fan-out edge:
 
-Several independent contributions are legitimate. Do not force them under a
-single insight when the manuscript presents them separately. The fan-out test is
-required when the paper claims, implies, or relies on one move explaining several
-headline properties; it determines whether the prose delivers that promise or
-only places independent mechanisms under one label.
+1. **Causal-layer attribution:** Give the step to the narrowest layer that supplies it.
+   Possible layers include enabling substrate, abstraction/authority boundary, runtime enforcement/lifecycle, execution-path organization, and empirical condition.
+   Do not credit one layer with a compound property that depends on another layer.
+   An enforcement-friendly language can remove a bypass class.
+   Alone, it does not show authorization, isolation, availability, or end-to-end performance.
+   When the source requires several properties, explain each remaining obligation after an enabling property is supplied.
+   Keep object-level requirements separate from proof work and from uncertain term equivalences.
+   Do not infer that one fulfilled property satisfies or removes another independent duty.
+2. **Counterfactual:** Keep the other stated assumptions fixed.
+   Remove the proposed move or named layer as an internal reasoning test.
+   Find the outcome or mechanism that no longer holds.
+   If the source gives no answer, the edge is `reviewer-hypothesized`.
+   If the outcome holds independently, it is not evidence for the move's unification of that outcome.
 
-Keep three levels distinct:
+A paper can have several independent contributions.
+Do not force them below one insight when the manuscript presents them independently.
+The fan-out test applies when a paper claims, implies, or relies on one move for several headline properties.
+It checks if prose completes that promised role or only groups independent mechanisms below one label.
+This test governs causal outcome claims.
+For an identified paragraph-local hierarchy defect below a supplied principle, apply the organization rule in [positioning-and-insight.md](positioning-and-insight.md).
+That rule organizes stated design membership while keeping unproved outcome relations unresolved.
 
-- A **principle** changes the design or reasoning space: what constraint, boundary, dependency, or assumption is changed and why that matters.
-- A **mechanism or method** realizes the principle through an operation, state transition, algorithm, proof rule, sampling choice, or intervention.
-- An **implementation detail** records the concrete realization: data structure, API, thread, parameter, tool, or code path.
+Keep these three levels as different categories:
 
-When information order causes a specific comprehension problem, expose the existing governing relation at the point where the reader needs it. Preserve an already clear progression and the author's emphasis. A principle-first alternative to adequate prose is optional. Moving detail between paragraphs or sections requires explicit restructuring authority.
+- A **principle** changes a design or reasoning constraint, boundary, dependency, or assumption.
+  It gives the reason that the change matters.
+- A **mechanism or method** carries out the principle through an operation, state transition, algorithm, proof rule, sampling choice, or intervention.
+- An **implementation detail** gives the specified realization: data structure, API, thread, parameter, tool, or code path.
+
+If information order causes a specified comprehension defect, expose the existing controlling relation where it is necessary for comprehension.
+Keep a clear progression and author emphasis.
+A principle-first alternative to sufficient prose is optional.
+Get clear restructuring permission for cross-paragraph or cross-section detail movement.
+
+When repetition is an identified defect, separate the distinct premises from repeated statements of the same limitation or requirement.
+If the source supplies a limitation and its design consequence, combine them into one progression.
+Keep every distinct premise, condition, and consequence; remove only their repeated expression.
+Check that the revised passage advances the argument rather than restating the same requirement with a new connective.
+This repair applies to the identified repetition, while adequate surrounding prose stays unchanged.
 
 Calibration:
 
@@ -133,260 +187,397 @@ Calibration:
 >
 > **Decision:** Keep this adequate description. It does not establish reduced coordination overhead, latency, or a correctness guarantee. Adding one of those claims would change the scientific content.
 
-These synthetic examples illustrate editing decisions. A component inventory without a supplied causal relation cannot be turned into a supported principle merely by rephrasing it.
+These synthetic examples show editing decisions.
+A component inventory without a supplied causal relation cannot become a supported principle through word changes alone.
 
 ## Paragraphs as inference units
 
-A paragraph performs one local reasoning obligation: it leaves the reader with one usable update about a problem, premise, mechanism, finding, evidence, or boundary.
+A paragraph completes one local reasoning obligation.
+It gives the reader one usable update about a problem, premise, mechanism, finding, evidence, or boundary.
 
-- The **opening region** makes the obligation discoverable. It may state the claim immediately or use a short bridge from the preceding paragraph before doing so.
-- The **development** supplies only the definitions, reasons, mechanisms, evidence, comparisons, and qualifications needed to discharge that obligation.
-- The **ending region** resolves the obligation or transfers it to the next necessary question. It may close with a result, implication, requirement, limitation, or unambiguous handoff; it need not summarize the opening.
+- The **opening region** makes the obligation clear.
+  It can give the claim immediately or first use a short bridge from the preceding paragraph.
+- The **development** supplies only necessary definitions, reasons, mechanisms, evidence, comparisons, and qualifications.
+- The **ending region** answers the obligation or transfers it to the next necessary question.
+  It can give a result, implication, requirement, limitation, or clear handoff.
+  It can end without repetition of the opening.
 
-The first and last sentences carry high informational weight, but they are not fixed slots. Mathematical continuations, compact bridge paragraphs, lists, and tightly connected derivations may close implicitly. Judge whether the obligation is discoverable and resolved, not whether a topic-sentence template appears.
+First and last sentences carry high information weight.
+They are not fixed slots.
+Mathematical continuations, bridge paragraphs, lists, and close derivations can end without a stated closing takeaway.
+Examine if the obligation is clear and met.
+A topic-sentence template is not required.
 
-Let reasoning determine paragraph length. Diagnose structure with these signals:
+Let reasoning determine manuscript paragraph length.
+Use these diagnostic signals:
 
-- **Overfull:** the paragraph establishes two independent conclusions or mixes context, mechanism, evidence, and a new limitation without hierarchy.
-- **Fragmented:** adjacent short paragraphs each contain only setup, one number, or an empty transition and cannot support a claim alone.
-- **Level jumping:** principle, source-code detail, and system-level consequence alternate without a stated relation.
-- **Citation inventory:** names and citations accumulate without a comparison axis or author inference.
-- **Overcompressed:** a shorter version has lost a condition, causal bridge, evidence scope, or boundary.
+- **Overfull:** Two independent conclusions, or context/mechanism/evidence/new-limitation mixtures without hierarchy
+- **Fragmented:** Short neighboring paragraphs contain only setup, one number, or an empty transition
+- **Level jumping:** Principle, source-code detail, and system consequence alternate without a stated relation
+- **Citation inventory:** Names and citations collect without a comparison axis or author inference
+- **Overcompressed:** A shorter version loses a condition, causal bridge, evidence scope, or boundary.
 
-Overfull and fragmented are diagnoses, not automatic permission to split or merge paragraphs. In paragraph-local revision, preserve the boundaries and improve internal hierarchy where possible. If that cannot resolve the problem, identify the required structural change separately. Split or merge paragraphs only when the author explicitly requests restructuring, and then let reasoning roles rather than sentence counts determine the boundary.
+Overfull and fragmented states do not give permission for automatic paragraph splitting or combination.
+During paragraph-local revision, keep boundaries and improve internal hierarchy where possible.
+If that is insufficient, give the necessary structural change independently.
+Split or combine paragraphs only for a clear restructuring request.
+Then use reasoning roles, not sentence counts, to select boundaries.
+A direct request to reorganize named overfull or fragmented paragraphs is such a request.
+Verify the resulting boundaries; sentence compression alone cannot complete a required boundary repair.
 
-As an internal test, complete: `This paragraph makes the reader believe ___ because ___.` Two unrelated answers indicate competing obligations; no answer indicates that its argumentative job is unclear. Neither diagnosis licenses a new purpose or invented content.
+Do this internal test: `This paragraph makes the reader believe ___ because ___.`
+Two unrelated answers show competing obligations.
+No answer shows an unclear argument role.
+Neither result gives permission for a new purpose or invented content.
 
 ## Role, payoff, and evidence-state gates
 
-Apply these gates independently. A scientific-support risk does not clear an
-argument-role defect, and a clean rhetorical structure does not establish the
-science.
+Apply these checks independently.
+A scientific-support risk does not clear an argument-role defect.
+A sound rhetorical structure does not show scientific truth.
 
 ### Promise versus delivery
 
-A paragraph can signal its intended job through a heading, roadmap, opening
-claim, explicit phrase such as `our key insight`, or author-supplied intent.
-Record that promised role separately from the role delivered by its sentences.
-If an alleged insight paragraph mainly inventories operations, checks, or data
-structures, report the mismatch; calling it an overview or mechanism paragraph
-describes the symptom but does not repair the promise. When no role is observable
-inside the authorized scope, mark intended role not assessable and still classify
-the delivered role.
+A heading, roadmap, opening claim, clear phrase, or author intent can signal a paragraph's promised role.
+A clear phrase can be `our key insight`.
+Record that role independently from the delivered role.
+If an insight paragraph mainly lists operations, checks, or data structures, give the mismatch.
+Calling it overview or mechanism gives the symptom.
+It does not complete the insight role.
+
+If no role signal exists in scope, set intended role to `not assessable`.
+Still find the delivered role.
 
 ### One obligation and one payoff
 
-Complete the `believe ___ because ___` test, then ask whether every sentence helps
-establish that same update. A connective such as `also`, `however`, or `therefore`
-does not subordinate an independent question. In particular, an evaluation plan
-and a newly introduced architectural challenge normally create separate reader
-obligations unless the latter is explicitly part of the former's evidence logic.
-Diagnose the split even when paragraph-local editing authority prevents moving it.
+Do the `believe ___ because ___` test.
+Examine if each sentence helps show that update.
+`also`, `however`, or `therefore` does not make an independent question subordinate.
+An evaluation plan and a new architecture challenge usually give separate obligations.
+They share one obligation only when the challenge clearly belongs to the plan's evidence logic.
+Give that split diagnosis even when edit permission prevents movement.
 
-For the ending region, state the exact information it adds and run a deletion
-test: if removing it loses no supported conclusion, boundary, design obligation,
-or necessary handoff, it is redundant or formulaic. A
-`limitation -> requirement` ending is valid only when the limitation is established
-and the requirement is a design-specific consequence, not a third restatement of
-the same absence. Also run a mechanical-inversion test: deletion may remove the
-explicit sentence while losing no reader update when the ending merely negates,
-positivizes, or changes `does not provide X` into `must provide X`. To pass, the
-payoff must add a supported consequence, constraint, choice, scope boundary, or
-handoff beyond that mechanically recoverable requirement. The ending need not use
-any fixed contrast or conclusion phrase.
+For the ending, give its specified new information.
+Do a deletion test.
+If deletion loses no supported conclusion, boundary, design obligation, or necessary handoff, the ending is redundant or formulaic.
+A `limitation -> requirement` ending has a shown limitation and a consequence of that design.
+A repeated absence is not sufficient for that requirement.
 
-### Keep claim kinds aligned
+Also do a mechanical-inversion test.
+`does not provide X` changed to `must provide X` can repeat the same information.
+An ending that only negates or makes a statement positive can have the same problem.
+A passing payoff adds a supported consequence, constraint, choice, boundary, or handoff beyond that mechanical requirement.
+A fixed contrast or conclusion phrase is not necessary.
 
-Distinguish a system property from the epistemic work used to establish it. A
-claim that one property is necessary but insufficient should name the other
-property or invariant that remains unsatisfied; phrasing it as a property that
-"cannot replace an argument/proof" mixes object-level behavior with manuscript
-evidence unless the sentence is explicitly discussing proof obligations. Review
-the necessity claim and the category mismatch separately. Revise may repair a
-meaning-equivalent category mismatch while leaving a disputed necessity claim
-blocked. When the same sentence or immediately preceding context already names
-the remaining object-level properties, aligning the sentence to those properties
-does not require the author to choose a new scientific meaning: preserve the
-necessity claim at its original strength, repair the category locally, and keep
-the necessity evidence explicitly unresolved. Do not leave the category defect
-unchanged merely because the independent necessity claim is blocked.
+### Compare the same kinds of claim
+
+Keep a system property and the evidence work that shows it as different categories.
+For a necessary-but-insufficient property claim, give the remaining property or invariant.
+`cannot replace an argument/proof` compares behavior with manuscript evidence.
+That comparison fits only when the sentence clearly discusses proof obligations.
+Review the necessity claim and category defect independently.
+
+Revise can fix a meaning-equivalent category defect while the necessity claim stays blocked.
+If the sentence or immediate preceding context names the remaining properties, use those object-level properties in the comparison.
+Keep the necessity claim at its initial strength.
+Keep its evidence gap clear.
+Do not leave the independent category defect merely because necessity evidence is unavailable.
 
 ### Related work must earn the research gap
 
-When a comparison comes from repository, build, or artifact inspection, apply the
-[positioning and intellectual-move contract](positioning-and-insight.md). Distill
-the evidence into the exact actor, deployment-control, interface, or capability
-fact that matters to the comparison; an audit trail is not automatically the
-right manuscript abstraction. Treat `A, B, and C have not appeared together` as
-a conjunctive gap that still needs population coverage, parallel cells, and a
-causal bridge. Hedging or narrowing the named examples does not supply that
-bridge.
+For repository, build, or artifact comparisons, apply [positioning-and-insight.md](positioning-and-insight.md).
+Give the specified actor, deployment-control, interface, or capability fact related to the comparison.
+An audit trail is not automatically the proper manuscript abstraction.
+For `A, B, and C have not appeared together`, give population coverage, parallel cells, and a causal bridge.
+Hedges or fewer named examples do not supply that bridge.
 
-Use one decision-relevant comparison dimension at a time. Grammatical parallelism
-is insufficient when the compared predicates describe different dimensions or
-levels. When the paragraph claims that prior designs fail to meet a new
-requirement, recover this chain:
+Use one decision-related comparison dimension at a time.
+Grammatical parallelism is insufficient when predicates compare different dimensions or levels.
+If prior designs fail a new requirement, find this chain:
 
 ```text
 fair comparison axis -> shared assumption/mechanism/constraint
   -> why it prevents the target property -> bounded unmet requirement
 ```
 
-A boundary comparison may instead make a weaker **distinct-question bridge**:
-parallel placements can motivate asking whether another contract or division of
-responsibility is possible without claiming that the named alternatives fail.
-Apply the [interface-boundary contract](interface-boundaries.md). This bridge
-needs a coherent comparison axis and a bounded question that follows from it, but
-it establishes neither prior-work absence nor novelty.
+A boundary comparison can instead use a **distinct-question bridge**.
+Parallel placements can motivate another contract or responsibility division without a failure claim about the alternatives.
+Apply [interface-boundaries.md](interface-boundaries.md).
+For this bridge, give a clear comparison axis and bounded resulting question.
+It shows neither prior-work absence nor novelty.
 
-A list of different boundaries or supported objects establishes descriptive
-contrast, not a shared root cause. If the prose uses that list to assert a
-negative gap and the authorized material supplies no common cause, Review reports
-the missing causal bridge and Revise requests author input; neither invents it.
-If it poses only a distinct question, do not demand a cause for a failure it does
-not claim. A pure survey paragraph may stop at a coherent comparison axis. Verify
-negative prior-work claims separately; missing literature evidence must not hide
-the visible organizational defect. Apply the visible `classification -> claimed
-gap or distinct question` test even when the excerpt's incoming antecedent or
-cited sources are unavailable, and keep scope/evidence blockers separate.
+Different boundaries or objects show descriptive contrast, not a shared root cause.
+If that list leads to a negative gap without a supplied common cause, Review gives the missing causal bridge.
+Revise requests author input.
+Neither invents the cause.
+If prose only gives a distinct question, do not demand a cause for an unclaimed failure.
+A survey paragraph can stop at a clear comparison axis.
+
+Do a check of negative prior-work claims independently.
+Missing literature evidence must not hide an organization defect visible in the prose.
+Do the `classification -> claimed gap or distinct question` test even without the excerpt's incoming antecedent or citations.
+Keep scope and evidence blockers as different categories.
 
 ### Observations are intellectual updates, not requirement labels
 
-Apply the [positioning and intellectual-move contract](positioning-and-insight.md)
-when a paragraph promises an Observation, Insight, Requirement, or Design
-objective. An observation or insight needs a source-grounded, non-definitional
-relation that changes the reasoning space and predicts a design or evidence
-consequence. A generic statement of what an interface or deployment step
-`determines`, a list of desired properties, or a requirement restated from the
-heading does not discharge that role. Keep evidence observation, interpretation,
-insight, requirement, objective, and mechanism distinct; report or clarify a role
-mismatch rather than filling it with a reviewer-invented principle.
+For Observation, Insight, Requirement, or Design objective promises, apply [positioning-and-insight.md](positioning-and-insight.md).
+For an observation or insight, give a source-grounded relation in addition to a definition.
+That relation changes reasoning and predicts a design or evidence consequence.
+A generic `determines` statement, desired-property list, or heading restatement does not complete that role.
+
+Keep evidence observation, interpretation, insight, requirement, objective, and mechanism as different categories.
+Give role mismatches or make them clear.
+Do not fill them with reviewer-invented principles.
 
 ### Completed-paper prose answers with evidence
 
-In a completed-paper context, a sentence such as `performance must be evaluated`
-is a plan or placeholder, not an evidence-derived payoff. For a request to review
-manuscript or paper prose, use research-paper context as the default unless the
-user or text identifies a proposal, roadmap, plan, or future-work document. If
-the lifecycle truly remains ambiguous, report the completed-paper interpretation
-as a conditional risk and ask which state applies; do not mark the placeholder as
-a clean result. If authorized results
-are available, state the bounded observed answer with its metric, baseline,
-conditions, and material uncertainty. If they are unavailable, keep the evidence
-state honest and request the actual result; an instruction to assume experiments
-exist supplies no outcome. Proposal, roadmap, and future-work contexts may
-legitimately state planned evaluation. Do not make completed-paper prose appear
-answered by deleting the comparison question, workload dependence, residual-cost
-boundary, or other scientific proposition that the missing result was meant to
-resolve. Author dissatisfaction with a placeholder, or an instruction to derive
-from assumed experiments, is not authority to withdraw those propositions. When
-the result-dependent payoff cannot be replaced from authorized evidence, keep the
-affected passage unchanged and report the result tuple required; remove a pure
-editorial TODO only when it carries no scientific content and its withdrawal is
-explicitly authorized.
+In a completed paper, `performance must be evaluated` gives a plan or placeholder.
+It does not give an evidence-derived payoff.
+For manuscript-review requests, use completed research-paper context by default.
+Use proposal, roadmap, plan, or future-work context when the user or text identifies it.
 
-### Place material boundaries near the claims they govern
+If lifecycle stays unclear, give the completed-paper reading as a conditional risk.
+Request the intended lifecycle state.
+Do not pass the placeholder as a result.
 
-A limitation that materially narrows the central contribution's supported users,
-workloads, deployment model, semantics, or applicability should be recoverable in
-the abstract or introduction at the depth needed to prevent an overbroad first
-impression; detailed consequences may remain in Discussion or Limitations. This
-is a conditional placement judgment, not automatic permission to move text. With
-only an isolated limitation paragraph, identify the affected claim and mark the
-exact placement or wording not assessable until the relevant broad-reader claim
-and surrounding introduction are in scope. This conditional judgment is itself
-required whenever the visible boundary appears material; do not wait for an
-explicit placement question, and do not omit it merely because the Introduction
-is outside the frozen scope.
+If permitted results exist, give the bounded observed answer.
+Include metric, baseline, conditions, and important uncertainty.
+If results are unavailable, keep the evidence state accurate.
+Request the result that the experiment supplied.
+An instruction to assume experiments exist supplies no outcome.
+Proposals, roadmaps, and future work can give planned evaluation.
+
+Do not delete the comparison question, workload dependence, residual-cost boundary, or other proposition that the missing result must answer.
+Dissatisfaction with a placeholder gives no withdrawal permission for those propositions.
+Neither does an instruction to derive from assumed experiments.
+If permitted evidence cannot replace the result-dependent payoff, keep the affected passage unchanged.
+Give the necessary result tuple.
+Remove a pure editorial TODO only when it has no scientific content and clear withdrawal permission exists.
+
+### Place important boundaries near the claims they govern
+
+A limitation can change important parts of the contribution's users, workloads, deployment model, semantics, or applicability.
+Make the boundary clear in the abstract or introduction to prevent an overbroad first impression.
+Detailed consequences can stay in Discussion or Limitations.
+This placement judgment is conditional.
+It does not give permission for text movement automatically.
+
+For an isolated limitation paragraph, identify the affected broad-reader claim.
+Set specified placement or wording to `not assessable` until that claim and its surrounding introduction are in scope.
+Give this conditional judgment when the visible boundary seems important.
+Give that judgment without waiting for a clear placement question.
+Do not omit it only because the Introduction is not in scope.
 
 ## Identify roles and inspect links
 
-Anchor analysis to the original text: number prose paragraphs `P1`, `P2`, and sentences within them `P1.S1`, `P1.S2`. Use the author's labels or section/path anchors when available. Source-file wraps are not paragraph breaks; LaTeX paragraphs, lists, headings, display equations, and citation abbreviations require document-aware interpretation. If extraction makes boundaries uncertain, use short quotations instead of invented numbering.
+Use initial-text anchors.
+Give prose paragraphs IDs `P1`, `P2`, and sentences IDs `P1.S1`, `P1.S2`.
+Use author labels or section/path anchors when available.
+Source-file wraps are not paragraph breaks.
+Read LaTeX paragraphs, lists, headings, display equations, and citation abbreviations according to their document syntax.
+If extraction makes boundaries unclear, use short quotations instead of invented numbers.
 
-For every supplied paragraph, identify its promised role when observable and its delivered topic, role, claim or question, supporting content, and closing takeaway. Roles include background, problem, gap, principle, mechanism, implementation, evidence, comparison, limitation, or transition. These are reading aids, not mandatory headings or slots to fill. Record uncertainty, mixed roles, or promise-versus-delivery mismatch instead of silently replacing the author's intention.
+For each paragraph, find its observable promised role and delivered content.
+Record topic, role, claim/question, support, and closing takeaway.
+Roles include background, problem, gap, principle, mechanism, implementation, evidence, comparison, limitation, and transition.
+These are reading aids, not required headings or slots.
+Record uncertainty, mixed roles, and promise-versus-delivery mismatch.
+Do not replace author intent without an author decision.
 
-Inspect every adjacent sentence pair and any explicit longer dependency. What does the first establish, what does the second need, and is their actual relation explanation, evidence, consequence, contrast, condition, example, qualification, or continuation? Check referents, objects, assumptions, comparison scope, and claim strength. A connective cannot repair an unsupported inference; logical continuity does not require every pair to be causal or contain a transition word.
+Examine each adjacent sentence pair and clear longer dependency.
+Find the first sentence's conclusion and the second sentence's necessary premises.
+Find their relation: explanation, evidence, consequence, contrast, condition, example, qualification, or continuation.
 
-For every adjacent pair of supplied paragraphs, compare their roles and inspect the closing claim of the first against the opening premise or question of the second. Follow additional nonadjacent dependencies when the text names them. Check missing premises, unsupported shifts of topic or abstraction, repeated reasoning, inconsistent assumptions, and conclusions that exceed the earlier evidence. A declared topic change or an already clear handoff is not a defect. If only one paragraph is in scope, cross-paragraph logic is not assessable.
+Do a check of referents, objects, assumptions, comparison scope, and claim strength.
+A connective cannot repair an unsupported inference.
+A correct relation can be noncausal or have no transition word.
 
-Describe a faulty link by both original endpoints and the missing or invalid relation. Refer to the specific supporting sentences when a paragraph-level break is not located exactly at the last/first sentence. Keep these anchors in review findings or blocker notes, not inside revised manuscript prose.
+For each adjacent paragraph pair, compare roles and the first paragraph's closing claim with the second's opening premise/question.
+Examine named nonadjacent dependencies too.
+Do a check of missing premises, unsupported topic/abstraction changes, repeated reasoning, inconsistent assumptions, and overbroad conclusions.
+A stated topic change or clear handoff is not a defect.
+For one scoped paragraph, cross-paragraph logic is not assessable.
+
+Give each faulty link's initial endpoints and missing or invalid relation.
+If the defect is in a paragraph, use the supporting sentences in the scoped text as anchors.
+Keep these anchors in findings or blocker notes.
+Do not put them in revised manuscript prose.
+
+## STE-derived clarity for research prose
+
+Use [ASD-STE100](https://www.asd-ste100.org/about_STE.html) clarity rules for term, sentence, and paragraph checks.
+Prefer familiar words and direct verbs when technical relations and evidence strength stay unchanged.
+Replace nominalizations or unclear noun groups when they hide actors, actions, or relations.
+Keep domain terms, official names, and identifiers that carry the specified technical meaning.
+
+Two text types have different obligations in this skill.
+The English skill instructions themselves use STE procedural and descriptive rules.
+Use a maximum of 20 words per procedural sentence.
+Give one instruction per sentence, except for simultaneous actions.
+Use imperative verbs and put prerequisite conditions first.
+
+For skill descriptions, use a maximum of 25 words per sentence and six sentences per paragraph.
+Use active voice.
+Rule 3.6 lets you use descriptive passive voice only when the agent is unknown.
+Do not use semicolons in authored prose.
+Count words according to Section 8.
+Use its rules for parentheses, quotations, identifiers, titles, and hyphens.
+
+For research manuscripts, the application is an adaptation, not a claim of full STE compliance.
+STE combines writing rules with a controlled dictionary.
+Its [FAQ](https://www.asd-ste100.org/STE_faq.html) lets writers use clarity principles in other contexts.
+The manuscript's 25-word and six-sentence limits are inspection prompts, not quotas.
+Find ambiguity in the scoped text, overload, or competing obligations.
+Keep necessary qualifications, modality, dependencies, and paragraph-local edit limits.
+
+Sufficient manuscript prose can stay unchanged.
+A manuscript passive can keep an object/result focus that fits its role, without an invented actor.
+This manuscript choice does not make a Rule 3.6 exception for skill instructions.
+Do not call a word STE-approved without an official dictionary check of its part of speech and meaning.
+
+When an explanation is requested, distinguish supplied dictionary evidence from project terminology.
+Keep each approval claim within the entry's part of speech and meaning.
+Report original and revised word or sentence counts when explaining a limit-related repair.
+The [source registry](../../systems-paper-review/references/source-registry.md) records provenance and adaptation limits in [ASD-STE100].
 
 ## Sentence information structure
 
-Give each sentence one **dominant assertion**. Conditions, reasons, contrasts, and qualifications may remain in the same sentence when they directly organize that assertion. Split a sentence when it asks the reader to accept two independent claims, not merely because it is long.
+Give each manuscript sentence one **dominant assertion**.
+Keep conditions, reasons, contrasts, and qualifications in that sentence when they directly organize its assertion.
+If readers must accept two claims independently, divide the sentence.
+Length alone is not the manuscript defect.
 
-- Anchor the sentence in information already available to the reader, then place the consequential new information where it receives emphasis.
-- Expose the technically important actor and action early enough to prevent ambiguity. Use `we` for author choices, the system or mechanism for system actions, and passive voice when the affected object or result is the legitimate focus.
-- Keep a modifier, quantifier, negation, comparison, and condition adjacent to the proposition it limits.
-- Coordinate items at the same grammatical and conceptual level. Separate an idea, an implementation, and an evaluation result rather than presenting them as parallel contributions.
-- Repeat a precise technical term when a synonym would blur identity. Replace a pronoun or bare `this` when more than one antecedent is plausible.
+- Start with information available to the reader.
+  Put important new information where it gets emphasis.
+  Give referents and dependencies before dependent information.
+  Several new terms are defective only when readers must guess their relations.
+- Make the technically important actor and action clear before ambiguity can occur.
+  Use `we` for author choices and the system/mechanism for system actions.
+  In manuscripts, use passive voice when object/result focus is justified.
+  Get the actor from scoped evidence.
+  If an important actor is unknown, request clarification instead of inventing one.
+- Keep modifiers, quantifiers, negation, comparisons, and conditions close to the propositions they limit.
+- Put items at the same grammatical and conceptual level.
+  Do not list an idea, implementation, and evaluation result as equivalent contributions.
+- Repeat the same technical term when a synonym changes identity.
+  Replace a pronoun or bare `this` when several antecedents are plausible.
 
-Prefer a simple clause structure when it preserves the relation. Complexity is justified when it makes one exact dependency easier to see.
+Prefer simple clauses when they keep the relation.
+Complexity helps when it makes one specified dependency clearer.
+After splitting or simplification, compare actor, action, object, condition, ordering, negation, modality, comparison, and causal/evidential relation with the initial.
+Each qualification must apply to the same proposition.
+Short sentences are not clearer when they lose those bindings.
 
 ## Logical and lexical precision
 
-Separate propositions that require different evidence:
+Do term checks in the two directions.
+Keep one stable name for each concept.
+Keep each term's intended meaning in its specified context.
+Keep clear aliases, subtypes, and contextual distinctions.
+Combine names only when scoped text or author-confirmed meaning shows identity.
+Words that look the same do not show the same mechanisms, properties, or metrics.
 
-- An **observation** reports what the data or artifact shows.
-- An **explanation** attributes that observation to a cause.
-- A **design prediction** states what should follow from a mechanism or principle.
-- A **conclusion** states what the complete evidence licenses.
+If a distinction is missing, put it in `author clarification`.
+Do not remove distinctions during revision for verbal simplicity.
+Divide propositions with different evidence requirements:
 
-Temporal correlation alone does not establish the explanation; a mechanism prediction alone does not establish the conclusion. Keep `necessary` and `sufficient` distinct: `X requires Y` makes Y necessary, whereas `Y guarantees X` makes Y sufficient under stated assumptions.
+- An **observation** gives what data or an artifact shows.
+- An **explanation** gives a cause for that observation.
+- A **design prediction** gives an expected consequence of a mechanism or principle.
+- A **conclusion** gives what the full evidence supports.
 
-Use transitions only for real relations: cause, consequence, contrast, condition, example, qualification, or handoff. The premises before `therefore` must license its conclusion; the clauses around `however` must actually contrast.
+Temporal correlation alone does not show explanation.
+A mechanism prediction alone does not show conclusion.
+Keep different meanings for `necessary` and `sufficient`.
+`X requires Y` makes Y necessary.
+`Y guarantees X` makes Y sufficient when the stated assumptions hold.
 
-Comparisons preserve problem equivalence. Name the entities, objective, metric, semantic guarantee, resources, conditions, and baseline that make the comparison meaningful. If a benefit comes from weaker semantics or a shifted cost, attach that difference to the result.
+Use transitions only for supported cause, consequence, contrast, condition, example, qualification, or handoff relations.
+Premises before `therefore` must support its conclusion.
+Clauses around `however` must have a supported contrast.
 
-Keep conclusions within the measurement object: a microbenchmark measures an operation, a simulation supports claims inside its model, a mean does not describe a tail, one deployment establishes a bounded feasibility result, and an executable artifact does not by itself reproduce every paper claim.
+Keep comparison problems equivalent.
+Give the entities, objective, metric, semantic guarantee, resources, conditions, and baseline necessary for a comparison that answers the claim.
+If weaker semantics or transferred cost causes a benefit, put that difference beside the result.
 
-Choose verbs by technical relation and evidence strength:
+Keep conclusions in the measurement object:
+
+- A microbenchmark measures an operation.
+- A simulation shows claims in its model.
+- A mean does not give a tail.
+- One deployment shows bounded feasibility.
+- An executable artifact alone does not reproduce each paper claim.
+
+Select manuscript verbs by technical relation and evidence strength.
+The quoted forms below are scientific terms for analysis, not a list of STE-approved verbs:
 
 | Verb class | Commitment |
 |---|---|
-| `observes`, `measures`, `finds` | Reports evidence without silently asserting its cause. |
-| `suggests`, `indicates` | Draws a bounded inference while alternatives remain. |
-| `shows`, `demonstrates`, `establishes` | Claims the cited evidence directly supports the stated conclusion. |
-| `implements`, `builds` | Claims the named realization exists; its implemented extent must be clear. |
-| `enforces`, `guarantees`, `ensures` | Claims a property holds through an invariant, proof, or exhaustive enforcement under explicit assumptions. |
-| `allows`, `enables` | Claims a rule permits an action or a necessary obstacle has been removed; name the action and obstacle. |
-| `reduces`, `improves` | Claims a measured direction; name the metric, baseline, conditions, and magnitude when material. |
-| `avoids`, `eliminates` | Claims an operation or failure no longer occurs within an explicit scope. |
+| `observes`, `measures`, `finds` | Gives evidence without a claim of causality. |
+| `suggests`, `indicates` | Gives a bounded inference with alternatives open. |
+| `shows`, `demonstrates`, `establishes` | Claims direct evidence for the stated conclusion. |
+| `implements`, `builds` | Claims that the realization exists. Its implemented extent must be clear. |
+| `enforces`, `guarantees`, `ensures` | Claims an invariant, proof, or exhaustive enforcement with clear assumptions. |
+| `allows`, `enables` | Claims permission for an action or removal of a necessary obstacle. Give the action and obstacle. |
+| `reduces`, `improves` | Claims a measured direction. Give metric, baseline, conditions, and important magnitude. |
+| `avoids`, `eliminates` | Claims operation/failure absence in clear scope. |
 
-Words such as `novel`, `first`, `efficient`, `lightweight`, `scalable`, `practical`, `secure`, `robust`, `significant`, `optimal`, `fundamental`, `all`, and `never` are claims, not decoration. Check their delta, metric, model, population, or exhaustive boundary. During revision, missing support calls for a separate issue note and an author decision about the claim; do not invent support or silently substitute a weaker property. For new drafting, select only properties the supplied evidence supports.
+Treat these manuscript words as claims, not decoration:
+
+- `novel`, `first`, `efficient`, `lightweight`
+- `scalable`, `practical`, `secure`, `robust`
+- `significant`, `optimal`, `fundamental`, `all`, `never`.
+
+Do a check of their delta, metric, model, population, or exhaustive boundary.
+For revision, give missing support as a different issue and get the author's claim decision.
+Do not invent evidence.
+Do not use a weaker property without an author decision.
+For new drafts, select only properties supported by supplied evidence.
 
 ## Section contracts and reader layers
 
-Use section names as containers for reasoning jobs, not as mandatory templates:
+Section names contain reasoning obligations.
+They are not required templates.
 
 | Unit | Reader obligation |
 |---|---|
-| Title | Identify the object and distinctive advance without exceeding the paper's strongest supported conclusion. |
-| Abstract | Deliver the smallest self-contained decision case appropriate to the contribution type, including decisive bounded evidence rather than a component or section inventory. |
-| Introduction | Establish stakes, the decisive gap or question, the intellectual move, the concrete deliverable, implementation reality, and an evidence preview before demanding detailed mechanism knowledge. |
-| Background | Teach only prerequisites used by a later claim, constraint, or design choice. |
-| Motivation | Convert a credible observation or prior limitation into a fair, causal research requirement. |
-| Overview | Show the model, governing principle, main dependencies, and important boundary before implementation inventory. |
-| Design / method | Explain why each major choice follows, how it operates, which alternative it rejects, and which property or limitation results. |
-| Implementation | Distinguish what exists, what is reused, what is incomplete, and which realization choices affect a claim. |
-| Evaluation | Organize evidence around recoverable questions: end-to-end effect, attribution, cost, robustness, fairness, correctness or reality, and limits as applicable. |
-| Figure / table / caption | Give the visual one argumentative job. A caption identifies the object and setting, states the supported takeaway, and preserves the material boundary. |
-| Related work | Locate the delta along decision-relevant dimensions such as assumption, mechanism, guarantee, deployment condition, cost, or evidence. |
-| Limitations | Expose conditions most likely to change a central conclusion, near the claims they constrain. |
-| Conclusion | Compress the established thesis, transferable insight, demonstrated outcome, and boundary without introducing a new technical claim. |
+| Title | Identify the object and distinctive advance in the strongest supported conclusion. |
+| Abstract | Give the smallest self-contained decision case for the contribution type. Include decisive bounded evidence rather than a component/section inventory. |
+| Introduction | Give stakes, gap/question, intellectual move, deliverable, implementation status, and evidence preview before detailed mechanism knowledge is necessary. |
+| Background | Give only prerequisites used by subsequent claims, constraints, or design choices. |
+| Motivation | Use an observation or limitation with evidence to give a fair causal research requirement. |
+| Overview | Give the model, principle, primary dependencies, and important boundary before the implementation inventory. |
+| Design / method | Give each important choice's reason, operation, rejected alternative, and resulting property or limitation. |
+| Implementation | Distinguish existing, reused, and incomplete parts. Give realization choices that affect claims. |
+| Evaluation | Organize evidence around related end-to-end, attribution, cost, robustness, fairness, correctness/reality, and limit questions. |
+| Figure / table / caption | Give one visual argument role. Give object, setting, supported takeaway, and important boundary in the caption. |
+| Related work | Locate the delta in related assumptions, mechanisms, guarantees, deployment conditions, costs, or evidence. |
+| Limitations | Give conditions most likely to change a central conclusion, near the affected claims. |
+| Conclusion | Give the shown thesis, usable insight, demonstrated outcome, and boundary without new technical claims. |
 
 ## Concision
 
-Concision preserves scientific judgment while reducing reading cost. Retain, in order of importance:
+Concision keeps scientific judgment and reduces reading cost.
+Keep these items in this importance order:
 
-1. the controlling claim and its boundary;
-2. premises required for that claim;
-3. decisive causal or deductive links;
-4. evidence that changes credibility;
-5. definitions required to understand those items.
+1. The controlling claim and boundary
+2. Premises necessary for that claim
+3. Decisive causal or deductive links
+4. Evidence that changes credibility
+5. Definitions necessary for those items.
 
-Within an existing paragraph, remove verbal redundancy and empty metadiscourse while preserving its substantive information and role. Make an implicit relation explicit only when that paragraph supports it; missing scientific premises require evidence or author input. Content deletion, transfer, or expansion beyond this boundary belongs to explicitly authorized composition or restructuring, not routine concision.
+In an existing paragraph, remove verbal redundancy and empty metadiscourse.
+Keep substantive information and role.
+Make an implicit relation clear only when that paragraph supports it.
+For missing scientific premises, get evidence or author input.
+Get clear composition or restructuring permission for content deletion, movement, or expansion beyond that limit.
 
-Remove duplicate status markers when one precise construction already carries the full meaning: for example, `we plan to evaluate` already marks an evaluation as future, so `in future work` is redundant unless its timing or placement matters. After deletion, the proposition must remain unambiguously planned, conditional, inferred, or established as before.
+Remove duplicate status words when one expression carries the full meaning.
+`we plan to evaluate` identifies future evaluation.
+`in future work` is redundant unless its timing or placement matters.
+After deletion, keep the proposition clearly planned, conditional, inferred, or shown as before.
 
-A claim may recur at different depths when its function changes: the abstract states it, the introduction derives it, the design realizes it, the evaluation tests it, and the conclusion transfers its lesson. Prefer a shorter phrasing when repairing actual redundancy; a merely shorter alternative to adequate prose remains optional.
+A claim can recur at different depths when its function changes.
+The abstract states it, introduction derives it, design carries it out, evaluation does its test, and conclusion gives its lesson.
+Use shorter words for redundancy repairs with evidence in the text.
+A shorter alternative to sufficient prose stays optional.

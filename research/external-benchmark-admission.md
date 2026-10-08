@@ -1,8 +1,14 @@
 # External benchmark admission
 
-A source is admitted only when its task matches the skill, candidate-visible
-inputs are sufficient, references remain isolated, evaluation is interpretable,
-and the intended use respects the source's terms. The
+A source is admitted only when all these conditions hold:
+
+- Its task matches the skill.
+- Candidate-visible inputs are sufficient.
+- References remain isolated.
+- Evaluation is interpretable.
+- The intended use respects the source's terms.
+
+The
 [machine-readable policy](../benchmarks/external/admission.json) admits only
 ParaRev paragraph revision and ParaReval judge calibration. Neither is an
 official leaderboard replica or a systems-venue acceptance test.
@@ -87,5 +93,9 @@ verify and prepare data. Source revisions and SHA-256 digests, admission/task
 checks, candidate/reference separation, frozen skill content and ordered
 per-call evidence are required for reproducibility. The runner supplies only
 the selected revise instructions for paragraph editing and no writing skill for
-judge calibration. Expanding this set requires the same input, scope, rights
+judge calibration. Cross-skill references and research reports are not supplied.
+Their required reads therefore remain unavailable in this restricted adapter.
+Do not use its results to claim coverage of the complete installed workflow.
+
+Expanding this set requires the same input, scope, rights
 and evaluation checks before enabling another adapter.

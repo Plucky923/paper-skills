@@ -1,0 +1,82 @@
+{
+  "id": "ste-clarity-preservation",
+  "title": "Apply clarity principles while preserving technical distinctions, qualifiers, and adequate passive prose",
+  "skills": ["systems-paper-revise"],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请根据作者确认的事实 revise 下面这一段，修复含混的执行者、术语漂移和过载的因果句。你可以在原段内拆分或重组句子，但要保持一个段落，保留条件、操作顺序和主张强度；已合格的句子应保留。不要搜索外部资料，不要添加未提供的机制或结果。\n\nWhen a request reaches a paused queue, its ticket is checked before it is admitted, and it adds the request to that queue only if the token is valid, so caching this check until the queue resumes avoids a second token lookup for that request and may reduce admission overhead. The token identifies the request's permission to enter the queue; the queue holds accepted requests until execution resumes. The 64-byte descriptor is copied into an aligned buffer before submission.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "terminology and actor clarification supported by the author-confirmed facts",
+      "sentence splitting or reorganization inside the one original paragraph"
+    ],
+    "excluded": [
+      "splitting or moving the paragraph",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented mechanisms, actors, measurements, or guarantees",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "The admission scheduler checks an admission token before admitting the associated request to its paused queue. It adds the request to that queue only if the token is valid.",
+      "In this paragraph, ticket and token are aliases for the same admission token. Admission token is the author's canonical term; ticket is not a separate object or state.",
+      "A request is a work item, an admission token represents its permission to enter a queue, and a queue holds accepted requests. These three concepts are distinct and must not be renamed into one concept.",
+      "The admission scheduler caches the validation result for that request until its queue resumes. The supplied design trace shows that this avoids a second token lookup for that request within this interval, not all token lookups throughout the system.",
+      "Avoiding that second lookup may reduce admission overhead. No overhead measurement or general performance guarantee has been supplied, and the author intends the possibility claim to remain a possibility.",
+      "The queue holds accepted requests until execution resumes.",
+      "Before submission, the 64-byte descriptor is copied into an aligned buffer. The paragraph is concerned with the descriptor's preparation, not the actor that copies it; that actor is unspecified and immaterial here. The existing object-focused passive sentence is adequate."
+    ]
+  },
+  "protected_tokens": [
+    "request",
+    "queue",
+    "token",
+    "paused",
+    "only if",
+    "may",
+    "64-byte",
+    "aligned buffer",
+    "before submission"
+  ],
+  "forbidden_actions": [
+    "treat request, queue, and admission token as interchangeable concepts",
+    "retain ticket as an unexplained alternative name for the admission token",
+    "invent an actor for descriptor copying",
+    "remove the valid-token condition, the paused-queue context, or the check-before-admission order",
+    "extend the cached result beyond this request and the interval before its queue resumes",
+    "claim that caching removes all token lookups or guarantees lower admission overhead",
+    "apply a mechanical word quota or reject all passive voice",
+    "split the paragraph, inspect external material, or invent evidence"
+  ],
+  "hard_gates": [
+    "The revision identifies the admission scheduler as the token-checking and request-admission actor, uses a stable term for the established alias identity, and preserves request, queue, and token as distinct concepts.",
+    "The paused-queue context, valid-token condition, check-before-admission order, request-specific cache lifetime, and second-lookup scope all survive sentence splitting or reorganization.",
+    "The overhead claim remains a possibility, and the descriptor's size, alignment, and preparation-before-submission facts remain intact without an invented copying actor.",
+    "The output remains one paragraph, uses only supplied evidence, and does not treat adequate passive voice as a mandatory defect."
+  ],
+  "expected_behavior": [
+    "Return one conservative revised paragraph before the change receipt.",
+    "Replace the unexplained ticket/token alternation with the canonical admission-token term without conflating the token with the request or queue.",
+    "Make the scheduler's checking and admission actions explicit rather than leaving their actor in an ambiguous passive or pronoun.",
+    "Separate the overloaded sentence into independently understandable claims while retaining the condition, temporal order, cache interval, causal connection, and bounded performance possibility.",
+    "Retain adequate statements, including the object-focused descriptor sentence, without manufacturing a stylistic problem or unspecified actor.",
+    "Explain completed local repairs without requiring an unnecessary clarification or claiming measured performance improvement."
+  ],
+  "rubric": [
+    {"id": "R1", "criterion": "Returns exactly one revised manuscript paragraph with any diagnostics outside it.", "points": 1},
+    {"id": "R2", "criterion": "Resolves ticket/token alias drift through a consistent admission-token term.", "points": 1},
+    {"id": "R3", "criterion": "Keeps request, queue, and admission token semantically distinct.", "points": 1},
+    {"id": "R4", "criterion": "Identifies the admission scheduler as both the token-checking and request-admission actor and removes the ambiguous actor reference.", "points": 1},
+    {"id": "R5", "criterion": "Preserves the paused-queue context and admission only if the token is valid.", "points": 1},
+    {"id": "R6", "criterion": "Preserves token checking before request admission and accepted requests waiting until execution resumes.", "points": 1},
+    {"id": "R7", "criterion": "Limits caching to this request and the interval before its queue resumes.", "points": 1},
+    {"id": "R8", "criterion": "Preserves the supported avoided second token lookup and its causal relation to caching without generalizing it to all lookups.", "points": 1},
+    {"id": "R9", "criterion": "Retains the possibility of lower admission overhead without adding a measurement or guarantee.", "points": 1},
+    {"id": "R10", "criterion": "Separates the overloaded causal sentence into readable claims whose conditions and referents remain explicit, without relying on a fixed word count.", "points": 1},
+    {"id": "R11", "criterion": "Preserves the adequate descriptor statement and its size, alignment, and submission order without inventing a copying actor or imposing active voice.", "points": 1},
+    {"id": "R12", "criterion": "Uses only author-confirmed evidence, preserves adequate prose, and reports local repairs without an unsupported blocker.", "points": 1}
+  ]
+}

@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面内容改得简洁、严谨，只给英文论文正文。\n\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请把下面内容改得简洁、严谨，只给英文论文正文；若仍有未解决科学问题，附上必要的最小问题说明，最后附单行简短决策覆盖凭据；不要附加其他说明。\n\nEach worker keep a local queue. A background thread submits queued requests in batches.\n\nWe measured mean latency under one workload. Therefore, batching guarantees lower tail latency for every workload.",
   "scope": {
     "authorized": [
       "the supplied two manuscript paragraphs"

@@ -1,0 +1,135 @@
+{
+  "id": "ste-information-order",
+  "title": "Repair local concept and reference order without paragraph movement or mechanical shortening of adequate technical prose",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请用 systems-paper-revise 润色下面的英文稿件，保留作者确认的技术含义、条件和主张强度。不要搜索外部资料，不要添加未提供的机制或结果。把诊断置于稿件之外，并附独立的 decision coverage receipt。本次只授权在下面这个原段内重排句子及修复局部措辞；不授权移动内容到其他段落，也不授权拆分、合并或改变段落主题。\n\nIt compares this value with the lease epoch before accepting a renewal. The renewal carries a client epoch supplied by the renewing client. The admission worker performs this comparison. A lease epoch is a strictly monotonically increasing counter attached to an ownership lease. The client epoch is a copy of the lease epoch that the client received when acquiring that lease. The renewal is accepted only if these epochs are equal. Even when the renewal waits behind unrelated requests, the worker compares the client epoch with the lease epoch stored for the same ownership lease before accepting that renewal.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "sentence reordering and local wording repairs inside the one original paragraph",
+      "reference clarification supported by the author-confirmed facts"
+    ],
+    "excluded": [
+      "moving content to another paragraph",
+      "splitting or combining paragraphs",
+      "changing the paragraph topic",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented lease mechanisms, guarantees, measurements, or results",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt and a separate decision coverage receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "The paragraph describes the admission worker's lease-renewal comparison. The admission worker is the actor denoted by It and the worker.",
+      "An ownership lease has a lease epoch. A lease epoch is a strictly monotonically increasing counter attached to that lease.",
+      "A renewing client supplies a client epoch in its renewal. The client epoch copies the lease epoch received by that client when acquiring the same ownership lease.",
+      "The admission worker compares that client epoch with the lease epoch stored for the same ownership lease before accepting the renewal. The initial phrase this value denotes the client epoch.",
+      "Equality of the client epoch and lease epoch is necessary for acceptance. The supplied facts do not state that equality alone is sufficient for acceptance.",
+      "The worker still performs this comparison when the renewal waits behind unrelated requests. That waiting condition does not change the lease identity or the comparison-before-acceptance order."
+    ]
+  },
+  "protected_tokens": [
+    "admission worker",
+    "renewal",
+    "client epoch",
+    "lease epoch",
+    "strictly monotonically increasing counter",
+    "ownership lease",
+    "only if",
+    "unrelated requests",
+    "same ownership lease",
+    "before accepting"
+  ],
+  "forbidden_actions": [
+    "move a definition or other content outside the original paragraph",
+    "split or combine paragraphs to meet a sentence-count target",
+    "rename client epoch and lease epoch into one indistinguishable object",
+    "replace the formal counter term with an informal synonym that changes its mathematical meaning",
+    "turn epoch equality into sufficient or unconditional acceptance",
+    "drop the waiting condition or the same-lease comparison scope",
+    "split or rewrite an adequate sentence solely because it exceeds 25 words",
+    "invent a renewal protocol, measurement, enforcement mechanism, or guarantee",
+    "inspect excluded material or change persistent state"
+  ],
+  "hard_gates": [
+    "Local information order makes the admission worker and both epoch concepts usable before dependent references, while keeping one original paragraph and its single renewal-comparison topic.",
+    "The client epoch stays the value received at acquisition of the same ownership lease; it does not become the live lease counter or a copy from another lease. The formal strictly monotonically increasing counter meaning survives.",
+    "Epoch equality remains necessary rather than sufficient for acceptance. The waiting condition, same-lease comparison and comparison-before-acceptance order remain intact.",
+    "The original final sentence remains unchanged as a preservation control; it may move within the original paragraph. No unprovided mechanism or result enters the prose, and the output gives separate zero-history decision accounting."
+  ],
+  "expected_behavior": [
+    "Return one conservative revised paragraph before any receipt or diagnostic.",
+    "Use local sentence order and supplied referents to make the renewal comparison understandable without cross-paragraph restructuring.",
+    "Keep the lease epoch, client snapshot and ownership-lease identity distinct and retain the formal counter concept.",
+    "Keep the acceptance condition and waiting-case comparison contract at their supplied strength.",
+    "Keep the original final sentence unchanged as the longer-sentence preservation control. It may move within the original paragraph; do not impose a manuscript word or paragraph-sentence quota.",
+    "Give the independent decision receipt for the author-confirmed absent history."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Keeps one original manuscript paragraph and its renewal-comparison topic without transferring content elsewhere.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Introduces the lease-epoch concept before a comparison or reference that requires its definition.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Introduces the client epoch and its renewal-carried role before a dependent value reference.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Makes the admission worker the clear comparison actor and keeps comparison before acceptance.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Keeps the two epoch roles and the ownership lease as distinct concepts with stable names.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Keeps the client epoch as the copy received when acquiring that same lease, rather than the current live counter.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Preserves the formal strictly monotonically increasing counter meaning without replacing it with an imprecise everyday synonym.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Preserves epoch equality as necessary for acceptance without strengthening it to sufficiency.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keeps the longer sentence's waiting condition and same-lease comparison scope attached to the correct action.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Keeps the original final 28-word sentence unchanged within the original paragraph; its local placement may change.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Uses only the supplied facts without inventing renewal mechanisms, measurements, guarantees or external evidence.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Gives a separate zero-history decision coverage receipt without fabricated decision IDs or an unnecessary record-path question.",
+      "points": 1
+    }
+  ]
+}

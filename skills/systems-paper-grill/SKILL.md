@@ -1,15 +1,29 @@
 ---
 name: systems-paper-grill
-description: Grill the author about a systems-paper argument until its meaning, logic, and evidence are clear. Use for paper discussions or unresolved Review and Revise questions; record decisions without editing manuscript prose.
+description: Get author answers about systems-paper arguments. Use for paper questions and Review or Revise questions about meaning or evidence. Save decisions without manuscript edits.
 ---
 
 # Systems Paper Grill
 
-Interview the author relentlessly until you reach a shared understanding of the supplied paper argument. Map this as a **decision tree**: every decision branches into the decisions that hang off it. Stay within the passage or question the author supplied; Review findings are useful input, not a prerequisite.
+Get the author's confirmation that your description agrees with the author's meaning, logic, and evidence.
+Continue until each in-scope branch has a terminal state permitted by the conditions below.
+Keep all questions in the supplied passage or question.
+When available, use Review findings as input.
+Review findings are not necessary.
 
-Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the author's answers before the next round.
+Use a **decision tree** to show the prerequisite decisions.
+Each branch contains a decision and its dependent decisions.
+Give questions in **rounds**.
+Use the **frontier** for each round.
+The frontier contains all decisions with completed prerequisites.
 
-Format a round like so, in the author's language:
+Give each frontier question in the same round.
+Give each question a number.
+Give your recommendation and its reason for each question.
+Use the author's language.
+Wait for the author's answers before the next round.
+
+Use this round format:
 
 ```text
 ❓ Q1 — <question title>: <question grounded in the supplied passage>
@@ -21,93 +35,166 @@ Format a round like so, in the author's language:
 ➡️ <your recommended answer and its basis>
 ```
 
-Each round the author answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
+After each round, find the next frontier from the author's answers.
+Before the prerequisite decision is completed, do not give its dependent question.
 
-Finding _facts_ in authorized material is your job. Read the supplied material yourself; delegate independent lookups when useful and available. A running lookup is an unsettled prerequisite: only its downstream questions wait, while the rest of the frontier can proceed. Ask for missing author knowledge or permission to inspect additional material. The _decisions_ are the author's: put each to them and wait. Recommendations and hypothetical examples are not established system facts.
+Find facts in authorized sources.
+Read the supplied sources.
+Quote each supplied factual premise in the decision tree and record with its source-unit ID.
+Keep proposed interpretations separate and pending.
+Before each round, compare the questions and record against those quotations.
+Check the actor, action, conditions, temporal order, and evidence status.
+When agents can help with lookups without dependencies on your work, use available agents.
+While a search continues, do not give questions with that search as a prerequisite.
+Continue with the other frontier questions.
 
-The discussion is done when every branch within the agreed scope is settled, requires an external unavailable prerequisite, or the author explicitly declines, cannot supply, or confirms unavailable the needed input, and the author confirms the shared understanding. Do not silently assume an answer or repeatedly reconfirm an unchanged explicit decision. A scientific claim that remains unsupported after this gate stays unresolved; it is not a reason to keep asking equivalent questions.
+Get missing information from the author.
+Before you examine other sources, get the author's permission.
+Get each decision from the author.
+Wait for the author's decision.
+Do not use recommendations and hypothetical examples as system facts.
 
-When Revise invokes this questioning behavior for an active repair queue, treat
-it as an **embedded clarification loop**. The original revision request remains
-authority only for that frozen edit scope. Ask the whole ready frontier, wait,
-and return the settled answers to Revise so it can resume the same revision
-automatically; do not require the author to issue a second revise command. Do not
-call an unanswered item blocked or emit Revise's terminal closure receipt. A
-question becomes terminal only if it needs an external unavailable prerequisite,
-or the author declines, cannot supply, or confirms unavailable the requested
-input. Standalone Grill remains manuscript-read-only and does not itself resume
-an edit that was never requested.
+Before completion, get the author's confirmation of the same meaning, logic, and evidence.
+Make sure that each in-scope branch has one of these states:
 
-## Separate feedback from authority
+- The decision has the author's answer and confirmation.
+- An external prerequisite is not available.
+- The author rejects the request for necessary input.
+- The author cannot supply the necessary input.
+- The author gives confirmation that the necessary input is not available.
 
-Classify each author utterance before advancing the tree: diagnosis or
-dissatisfaction, intended meaning/role, scientific evidence, or edit authority.
-These may arrive together, but none implies the others. A question such as
-`should this be a Challenge paragraph?` is a placement hypothesis; keep it
-pending until the author explicitly authorizes the split/merge/move or purpose
-change and names the target boundary. An instruction to assume experiments exist
-does not supply their outcome.
+After Grill completion, keep scientific claims without evidence as issues with missing evidence.
+Do not give the same question again to get evidence that is not available.
+Without a decision-content change, do not get confirmation again for a decision with author confirmation.
 
-Use the smallest frontier question that unlocks the actual repair:
+## Continue an active revision
 
-- for a related-work gap, ask which shared assumption, mechanism, or constraint
-  causes the prior approaches to miss the target property, or whether the author
-  intends only a descriptive scope difference;
-- for one claimed insight with several primary outcomes, first ask for the common
-  changed constraint, assumption, or boundary; only after that answer is settled,
-  ask how each named outcome follows, which causal layer supplies the edge, and
-  what would fail if the move or layer were removed. Do not treat the assistant's
-  coherent reconstruction as the author's answer;
-- for an insight paragraph dominated by mechanisms, ask which principle is the
-  intended takeaway and whether substantive detail may move to a named paragraph
-  or section;
-- for an evidence-derived conclusion, ask for metric, baseline, conditions,
-  observed result, and material uncertainty rather than asking whether an
-  experiment exists;
-- for a proposed structural repair, ask for the exact operation, source unit,
-  destination, and the role each resulting paragraph should perform;
-- for an Introduction limitation, ask which broad-reader claim it constrains and
-  whether the author wants a concise early disclosure, leaving detailed treatment
-  in its current location.
+When Revise starts Grill for an active repair queue, use an **embedded clarification loop**.
+Keep the initial revision request as edit authority for its initial scope only.
+Give all frontier questions.
+Wait for the author's answers.
+After record checks show correct saved content, let Revise continue the same revision without a second request.
+A second revise command from the author is not necessary.
 
-Skip a question when the author has already supplied its exact answer. Ordinary
-meaning-preserving wording or category repairs remain Revise work and should not
-be routed through Grill.
+For items with missing answers, keep the `pending clarification` state.
+Do not give items with missing answers the `blocked` state.
+Do not give Revise's terminal closure receipt.
+The completion conditions above are necessary for a question's terminal state.
+Without an active revision request, keep the manuscript the same.
+
+## Feedback and authority
+
+For each author statement, select all applicable types:
+
+- Diagnosis or dissatisfaction
+- Intended meaning or role
+- Scientific evidence
+- Edit authority.
+
+These types can occur together.
+One type does not supply a different type.
+A question such as `should this be a Challenge paragraph?` is a placement hypothesis.
+Keep that question pending until the author confirms the decision.
+For a structural change, get permission for the operation and its target boundary.
+The assumption of experiments does not supply their results.
+
+Use the smallest frontier question that supplies the necessary repair input.
+
+- For a related-work gap, get the same assumption, mechanism, or constraint that prevents the target property.
+  For a scope comparison, get the author's decision about a descriptive difference or a negative gap.
+- For one insight with multiple primary outcomes, first get the same changed constraint, assumption, or boundary.
+  After this answer is completed, get the relation from that change to each outcome.
+  For each relation, get the causal layer that supplies it.
+  Get the failure condition if the move or layer is removed.
+  Do not use the assistant's reconstruction as the author's answer.
+- For an insight paragraph with mechanisms as its primary content, get the author's principle.
+  For scientific detail, get permission for a move to a paragraph or section with an author-supplied name.
+- For an evidence-derived conclusion, get the metric, baseline, conditions, observed result, and uncertainty important to the conclusion.
+  The existence of an experiment does not supply this evidence.
+- For a structural repair, get the operation, source unit, and destination from the author.
+  Get the role of each paragraph after the change.
+- For an Introduction limitation, get the broad-reader claim and the limitation's effect on its scope.
+  Get the author's decision about a short disclosure before the detailed limitation text.
+  Without permission for a move, keep the full limitation text at the same location.
+
+When the author supplies the same answer, do not give that question again.
+Let Revise do meaning-preserving wording and category repairs.
 
 ## Apply the paper standard
 
-Before discussing the text, read the [coverage contract](../systems-paper-revise/references/coverage-contract.md), [writing core](../systems-paper-revise/references/writing-core.md), and [shared workflow contract](../systems-paper-revise/references/review-revise-contract.md). Read the [Chinese calibration](../systems-paper-revise/references/chinese-writing.md) for Chinese prose or translation, and [paper archetypes](../systems-paper-revise/references/paper-archetypes.md) when contribution framing matters.
+Before Grill, read the [coverage contract](../systems-paper-revise/references/coverage-contract.md).
+Read the [writing core](../systems-paper-revise/references/writing-core.md).
+Read the [shared workflow contract](../systems-paper-revise/references/review-revise-contract.md).
+For Chinese prose or translation, read the [Chinese calibration](../systems-paper-revise/references/chinese-writing.md).
+For contribution framing, read [paper archetypes](../systems-paper-revise/references/paper-archetypes.md).
 
-When Review findings are supplied, accept the precise items classified `author clarification` or `author evidence`, plus older findings genuinely dependent on author intent or author-supplied evidence. Preserve their finding and section/paragraph/sentence/lexical unit IDs, original anchors, evidence state, repair boundary, and resolution test. Do not rerun the full paper audit or ask the author to reconfirm passed units. When discussion starts without Review, assign stable local issue and unit anchors for the supplied scope.
+For supplied Review findings, use items with the action class `author clarification` or `author evidence`.
+For previous findings, use those for which author intent or author-supplied evidence is necessary.
+Keep their finding IDs and section, paragraph, sentence, and lexical unit IDs.
+Keep their source anchors, evidence states, repair boundaries, and resolution tests.
+Do not do the full paper audit again.
+Do not get confirmation again for units with `pass` status.
 
-Ground questions in the relevant quotations and sentence or paragraph pair. Resolve what the author means, how the inference follows, what evidence supports it, and—when structure is at issue—which exact operation and destination are authorized. Distinguish a defect from an uncertain intention or optional wording. Ordinary grammar corrections do not require an interview. Author confirmation settles only the named intended meaning and allowed edits, not the truth of an unsupported experiment or guarantee. A pending issue never becomes revision authority.
+Without Review findings, give stable local issue IDs and unit anchors to the supplied scope.
+For each question, use quotations from its source units or sentence or paragraph pairs.
+Get the author's meaning.
+Get the premises and relation for the inference.
+Get the evidence for that inference.
+For structural changes, get permission for the operation and destination given by the author.
 
-For a multi-outcome insight, preserve Review's source-grounded fan-out map. Keep
-`reviewer-hypothesized` edges pending until the author supplies or selects the
-missing relation, then record the common move, every named outcome, its causal
-layer, evidence state, counterfactual, and permitted manuscript location. An
-answer that only repeats the outcome or system name does not settle the edge.
+For intent without author confirmation, do not give the defect classification.
+Do not give optional wording the defect classification.
+Let Revise do grammar corrections.
+Author confirmation supplies only the given meaning and permitted edits.
+Author confirmation does not supply evidence for an experiment or guarantee.
+A pending issue gives no revision authority.
 
-Challenge a term that conflicts with an already agreed definition; ask whether the meaning changed rather than silently choosing a synonym. When a distinction is unclear, test it with a concrete hypothetical boundary case. Save the resolved definition and any misleading terms to avoid alongside the relevant decision. A hypothetical case tests the argument; it is not a new implementation fact or measured result.
+For a multi-outcome insight, keep Review's source-grounded fan-out map.
+Keep `reviewer-hypothesized` edges pending until the author supplies or selects the missing relation.
+After that answer, record the same move and each outcome given by the author.
+Record each outcome's causal layer, evidence state, counterfactual, and permitted manuscript location.
+An answer with only the outcome or system name does not complete the edge.
+
+Use the definition with author confirmation as the reference.
+When a term does not agree with that definition, get the author's decision about the changed meaning.
+Before that decision is completed, keep the term with author confirmation.
+When a distinction is not clear, do a test with a hypothetical boundary case.
+Save the definition with author confirmation in the same decision.
+Save terms with incorrect meanings in that decision as terms with no permitted use.
+
+A hypothetical case is an argument test, not an implementation fact or measured result.
 
 ## Record as you go
 
-Read and follow the [decision-record rules](references/decision-record.md). Read
-the complete authorized history before classification. Save each substantive
-intermediate state as a versioned full snapshot; a pending candidate never
-displaces the effective confirmed head. When a successor is confirmed, update
-both sides of its supersession link in one write. Preserve existing unrelated and
-legacy decisions. Manage the record yourself rather than asking the author to
-fill in a form.
+Read the [decision-record rules](references/decision-record.md).
+Obey these rules.
+Before classification, read the full authorized history.
+Save each state with changed decision content as a versioned full snapshot.
 
-Write only the authorized paper decision record; keep the manuscript and other
-files unchanged. A named paper project with no record starts with zero history.
-For pasted or ambiguously owned text, ask for the path; chat can hold interim
-state, but no substantive decision is complete until it is persisted and the
-changed entries, reciprocal links, and unrelated records are read back. Briefly
-finish standalone Grill with what was agreed, what remains open, the source
-finding/unit IDs, and the saved record location. In an embedded loop, return
-control to the already-active Revise flow only after this persistence gate, so it
-can resume the same revision automatically. Revise applies the executable,
-evidence-compatible decisions and owns closure. Grill itself does not rewrite the
-paper or claim a finding closed.
+Keep the effective confirmed head while candidates are pending.
+When the successor gets author confirmation, update the two supersession links in one write.
+Keep unrelated and legacy decisions.
+Write the record.
+Do not give the author a form to complete.
+
+Write only the authorized paper decision record.
+Keep the manuscript and other files the same.
+A paper project with a given name and no record has zero history.
+For pasted text or unknown project ownership, get the record path from the author.
+Keep state in chat while the path is unknown.
+
+Before you complete a changed decision, save it at the authorized path.
+Read the changed entries again.
+Read their reciprocal links again.
+Read unrelated records again.
+Make sure that the saved record keeps all necessary content.
+
+At standalone Grill completion, give a short report of completed decisions and unresolved items.
+Give each unresolved item its permitted terminal state.
+Include the source finding and unit IDs.
+Include the saved record location.
+
+In an embedded loop, let Revise continue only after these record checks show correct saved content.
+Revise uses executable decisions with evidence that agrees with the authorized sources.
+Revise gives each finding its closure state.
+Do not use Grill for manuscript edits or finding closure.

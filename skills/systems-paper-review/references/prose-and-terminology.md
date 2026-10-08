@@ -1,391 +1,392 @@
 # Prose, Terminology, and Language Precision
 
-Read the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md) before auditing high-level, paragraph, sentence, logic, or concision quality. For Chinese or Chinese-to-English text, also read the canonical [Chinese calibration](../../systems-paper-revise/references/chinese-writing.md). This file adds review-specific checks and severity; surface polish cannot repair an unsupported claim, and review never supplies replacement prose.
+Before high-level or local prose checks, read the [systems-writing core](../../systems-paper-revise/references/writing-core.md). For Chinese or Chinese-to-English text, also read [Chinese calibration](../../systems-paper-revise/references/chinese-writing.md).
 
-Under the shared [coverage contract](../../systems-paper-revise/references/coverage-contract.md),
-sentence and lexical review is exhaustive within the frozen scope, not a search
-for suspicious examples. Inventory every sentence, every adjacent sentence pair,
-and every reader-visible lexical occurrence before judging. For Chinese and mixed
-technical prose, use the smallest semantically stable word, term, punctuation, or
-code/math span and disclose ambiguous segmentation rather than fabricating a
-token count. Every occurrence is checked in its proposition; a repeated term can
-pass in one location and fail in another because its referent, scope, or evidence
-commitment differs.
+This file adds review checks and severity. Fluent prose cannot replace missing scientific evidence. Review gives no replacement prose.
+
+The [coverage contract](../../systems-paper-revise/references/coverage-contract.md) makes full sentence and lexical coverage necessary within the defined scope. Before judgment, make the inventory of sentences, adjacent sentence pairs, and visible lexical occurrences.
+
+For Chinese or mixed prose, use the smallest unit with stable meaning. It can be a word, term, punctuation, or code or math span. Give segmentation ambiguity. Do not invent token counts.
+
+Examine each occurrence in its proposition. The same term can pass at one location and fail at another. Its referent, scope, or evidence commitment can differ.
 
 ## Terminology and claim language
 
-## PT-01 — Nonstandard terms are defined for the intended reader
+## PT-01 — Nonstandard terms have definitions for the intended reader
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “A non-specialist systems reviewer cannot recover the paper's meaning without importing subfield-specific knowledge.”
-- **Check:** At first substantive use, inspect acronyms, coined names, overloaded common words, metrics, roles, and domain terms. A definition should state the differentiating meaning without recursively introducing unexplained terms.
-- **Severity:** `S2`; `S1` if a central claim becomes ambiguous; `S3` locally.
-- **Exceptions / false positives:** Widely standard terms for the target audience need no textbook definition; an intuitive use may precede a precise formalization if signposted.
-- **Repair direction:** Add a minimal local definition, example, or contrast; avoid definition chains.
+- **Check:** At the first use that affects meaning, examine acronyms, new names, overloaded words, metrics, roles, and domain terms. Make sure that definitions give the distinguishing meaning without further unexplained terms.
+- **Severity:** `S2`. `S1` if a central claim becomes ambiguous. `S3` locally.
+- **Exceptions / false positives:** Standard audience terms do not make textbook definitions necessary. Intuitive use can precede formal definitions with a clear signal.
+- **Repair direction:** Give a minimal local definition, example, or contrast. Do not use chains of unexplained definitions.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
-## PT-02 — One concept has one stable name
+## PT-02 — Concept names and term meanings stay unchanged
 
-- **Nature:** Hard internal-consistency condition when names alter meaning; otherwise best practice.
-- **Reviewer attack:** “I cannot tell whether two labels denote the same mechanism or different ones.”
-- **Check:** Track system name, component, actor, stage, metric, property, dataset, and baseline aliases. Distinguish deliberate hierarchy from accidental synonym rotation.
-- **Severity:** `S1` if technical identity is unclear; `S2` recurring; `S3` isolated.
-- **Exceptions / false positives:** Synonyms can improve ordinary prose, but technical terms should remain stable. Do not vary a precise term merely to avoid repetition.
-- **Repair direction:** Select a canonical term and explicitly define any hierarchy/alias.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
+- **Nature:** Condition for internal consistency when names alter meaning. For other cases, best practice.
+- **Reviewer attack:** “I cannot tell whether two labels denote the same mechanism, or whether the same label has changed its meaning.”
+- **Check:** Record concept-to-name and term-to-meaning relations for systems, components, actors, stages, metrics, properties, datasets, and baselines. Give both source anchors for suspected name or meaning changes. Do a check of differences between clear aliases, hierarchies, defined contextual meanings, and accidental identity changes.
+- **Severity:** `S1` if technical identity is unclear. `S2` recurring. `S3` isolated.
+- **Exceptions / false positives:** General prose can use synonyms. Technical terms must keep unchanged identities. Different concepts, clear aliases, and contextual meanings stay different. Similarity alone gives no identity evidence.
+- **Repair direction:** Select the term for the source-established identity. Give clear hierarchies or aliases. If identity or distinction is unknown, give the author a clarification question. Recommend different terms for different concepts.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [ASD-STE100] as adapted for research prose.
 
 ## PT-03 — Paired and categorical terms use symmetric dimensions
 
-- **Nature:** Hard precision condition.
+- **Nature:** Condition for precision.
 - **Reviewer attack:** “The categories compare different dimensions—such as offline versus runtime—so the partition is neither exhaustive nor interpretable.”
-- **Check:** Test pairs/sets for a common axis, mutual exclusivity where claimed, coverage, and consistent granularity: online/offline, static/dynamic, local/remote, trusted/untrusted, etc.
-- **Severity:** `S2`; `S1` when taxonomy supports novelty or evaluation.
-- **Exceptions / false positives:** Natural systems categories may overlap; state that they are examples or independent dimensions.
-- **Repair direction:** Rename by one dimension, use a two-dimensional taxonomy, or remove false opposition.
+- **Check:** Examine each pair or set for a common axis, claimed mutual exclusion, coverage, and the same granularity. Include online/offline, static/dynamic, local/remote, and trusted/untrusted as applicable.
+- **Severity:** `S2`. `S1` when taxonomy supports novelty or evaluation.
+- **Exceptions / false positives:** System categories can overlap. The text must give example status or different dimensions.
+- **Repair direction:** Give repair options: names from one dimension, a two-dimensional taxonomy, or removal of a false opposition.
 - **Sources:** [USER-NOTES], [ERNST].
 
-## PT-04 — Acronyms and abbreviations follow actual conventions
+## PT-04 — Acronyms and abbreviations obey the conventions in use
 
-- **Nature:** General best practice; venue/style specifics vary.
+- **Nature:** General best practice. Venue/style specifics vary.
 - **Reviewer attack:** “The paper invents or punctuates abbreviations inconsistently, increasing ambiguity.”
-- **Check:** Define nonstandard acronyms once; use official abbreviations; preserve capitalization; distinguish abbreviations (`Fig.`) from initialisms (`CPU`). Do not require periods universally.
-- **Severity:** `S2` for ambiguity/inconsistency; `S3` surface; venue violation per overlay.
-- **Exceptions / false positives:** Well-known audience acronyms may be used without expansion if venue style permits. Avoid defining an acronym used only once or twice.
-- **Repair direction:** Use the official/full term, define once, and standardize.
+- **Check:** Give nonstandard acronyms one definition. Use official abbreviations. Keep capitalization. Keep abbreviations such as `Fig.` different from initialisms such as `CPU`. Make periods necessary only where applicable.
+- **Severity:** `S2` for ambiguity/inconsistency. `S3` surface. Venue violation per overlay.
+- **Exceptions / false positives:** Known audience acronyms can have no expansion with venue-style permission for that form. Acronyms with only one or two uses can stay as full terms.
+- **Repair direction:** Use the official or full term. Give one definition. Use it with the same meaning subsequently.
 - **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## PT-05 — Quantifiers are bounded and auditable
 
-- **Nature:** Hard accuracy condition.
+- **Nature:** Condition for accuracy.
 - **Reviewer attack:** “Words such as `some`, `several`, `various`, `many`, `most`, or Chinese equivalents hide an unsupported population or quantity.”
-- **Check:** Ask whether the quantity matters to the inference. Identify population, numerator/denominator, range, or representative examples. Do not mechanically replace every indefinite quantifier with a number.
-- **Severity:** `S1` for a claim-driving ambiguity; `S2` otherwise; `S3` if harmless.
-- **Exceptions / false positives:** Indefinite quantifiers are valid when exact count is unknown/irrelevant and no stronger inference follows.
-- **Repair direction:** Provide measured quantity/range, name examples, bound the population, or delete the unnecessary quantifier.
+- **Check:** Examine the quantity's consequence for the inference. Find population, numerator, denominator, range, or representative examples. Make numerical replacements necessary only for meaning.
+- **Severity:** `S1` for a claim-driving ambiguity. `S2` in other cases. `S3` if harmless.
+- **Exceptions / false positives:** Indefinite quantifiers can be correct with unknown or irrelevant counts and no stronger inference.
+- **Repair direction:** Give repair options: measured quantities or ranges, named examples, population boundaries, or removal of an unnecessary quantifier.
 - **Sources:** [USER-NOTES], [ERNST], [BRANDON-EVIDENCE].
 
 ## PT-06 — Epistemic strength matches evidence
 
-- **Nature:** Hard accuracy condition.
+- **Nature:** Condition for accuracy.
 - **Reviewer attack:** “The authors claim to ensure/determine/prove when they only observe, or hedge a conclusion that their evidence directly establishes.”
-- **Check:** Apply the evidence-verb distinctions in the canonical [systems-writing core](../../systems-paper-revise/references/writing-core.md). Calibrate `show`, `demonstrate`, `establish`, `prove`, `ensure`, `guarantee`, `suggest`, `indicate`, `observe`, and Chinese equivalents against evidence type, inference, assumptions, and scope.
-- **Severity:** `S0`/`S1` for unsupported guarantee or proof; `S2` for recurring miscalibration.
-- **Exceptions / false positives:** `We assume` is correct when declaring a model assumption; it is not weak wording to delete. Appropriate uncertainty is scientific precision.
-- **Repair direction:** Change verb/quantifier, state evidence and conditions, or add the missing validation.
+- **Check:** Use the [writing core](../../systems-paper-revise/references/writing-core.md) evidence-verb distinctions. Compare `show`, `demonstrate`, `establish`, `prove`, `ensure`, `guarantee`, `suggest`, `indicate`, `observe`, and Chinese equivalents with evidence. Include inference, assumptions, and scope in that comparison.
+- **Severity:** `S0`/`S1` for unsupported guarantee or proof. `S2` for recurring miscalibration.
+- **Exceptions / false positives:** `We assume` correctly gives a model assumption. Uncertainty that agrees with evidence gives scientific precision.
+- **Repair direction:** Give repair options: changed verbs or quantifiers, clear evidence and conditions, or missing validation.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [SIGPLAN-EMPIRICAL].
 
-## PT-06A — Technical verbs name the exact mechanism relation
+## PT-06A — Technical verbs give the accurate mechanism relation
 
-- **Nature:** Hard precision condition when the verb carries a technical claim.
+- **Nature:** Condition for precision when the verb carries a technical claim.
 - **Reviewer attack:** “The prose says the system `supports`, `enables`, `handles`, or `eliminates` something without identifying the changed operation, enforcement path, or remaining condition.”
-- **Check:** Recover the actor, action, object, condition, and consequence. Distinguish implementation from enforcement; permission from causation; removal from displacement off a common or critical path; measured reduction from a guarantee; and an observed association from a mechanism claim. Treat the canonical precision-verb table as semantic distinctions, not a replacement-word list.
-- **Severity:** `S0`/`S1` when a central guarantee or causal claim is false; `S2` for recurring ambiguity; `S3` locally.
-- **Exceptions / false positives:** A compact technical verb is sufficient when its relation and boundary were defined nearby.
-- **Repair direction:** Name the narrowest supported relation and move the condition next to it.
+- **Check:** Find the actor, action, object, condition, and consequence. Do a check of the difference between implementation and enforcement. Do a check of the difference between permission and causation. Do a check of the difference between removal and transfer outside a common or critical path. Do a check of the difference between measured reduction and guarantees. Do a check of the difference between observed association and mechanism claims.
+
+  Use the precision-verb table for meaning distinctions, not automatic word replacements.
+- **Severity:** `S0`/`S1` when a central guarantee or causal claim is false. `S2` for recurring ambiguity. `S3` locally.
+- **Exceptions / false positives:** A short mechanism verb can be sufficient if a definition near it gives its relation and boundary.
+- **Repair direction:** Give the narrowest relation with evidence. Put its condition beside it.
 - **Sources:** [FIVE-VENUE-CORPUS], [SIGPLAN-EMPIRICAL].
 
-## PT-07 — Loaded adjectives and emotional adverbs have evidence or are removed
+## PT-07 — Adjectives and emotional adverbs must have evidence
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “Marketing or emotional language substitutes for measured importance or surprise.”
-- **Check:** Inspect `novel`, `simple`, `easy`, `efficient`, `significant`, `dramatic`, `surprising`, `unfortunately`, `overwhelmingly`, and equivalents. Ask what metric or comparison supplies content.
-- **Severity:** `S2` if it overstates a scientific claim; `S3` style.
-- **Exceptions / false positives:** `Surprisingly` can signal a result that contradicts an explicit hypothesis, and `significant` can be statistically defined; state why.
-- **Repair direction:** Replace with the measured property or remove.
+- **Check:** Examine `novel`, `simple`, `easy`, `efficient`, `significant`, `dramatic`, `surprising`, `unfortunately`, `overwhelmingly`, and equivalents. Find the metric or comparison that gives each word content.
+- **Severity:** `S2` if it overstates a scientific claim. `S3` style.
+- **Exceptions / false positives:** `Surprisingly` can show a result contrary to a clear hypothesis. `significant` can have a statistical definition. Each use must give its basis.
+- **Repair direction:** Replace the word with the measured property or remove it.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
-## PT-08 — Numbers include scale, comparator, and appropriate precision
+## PT-08 — Numbers include scale, comparator, and precision sufficient for interpretation
 
-- **Nature:** Hard interpretability condition for decision-relevant values.
+- **Nature:** Condition for interpretability for decision-related values.
 - **Reviewer attack:** “A number is presented without saying whether it is large, small, costly, or meaningful, or with precision unsupported by measurement.”
-- **Check:** For each nontrivial value, identify unit, baseline/denominator, variability/tolerance, practical threshold, and consistent significant digits. Do not require commentary for identifiers, counts obvious from context, or routine constants.
-- **Severity:** `S1` for a misleading headline number; `S2` for missing context; `S3` for rounding inconsistency.
-- **Exceptions / false positives:** Exact integer facts and parameter settings may need no “large/small” interpretation.
-- **Repair direction:** Add comparator/absolute value/range and reduce false precision; preserve raw evidence.
+- **Check:** For each nontrivial value, find units, baseline or denominator, variability or tolerance, and practical thresholds. Examine the rule for significant digits. Make commentary necessary only for interpretation. Commentary can be unnecessary for identifiers, obvious counts, or usual constants.
+- **Severity:** `S1` for a misleading headline number. `S2` for missing context. `S3` for rounding inconsistency.
+- **Exceptions / false positives:** Exact integer facts and parameter settings do not always make magnitude interpretation necessary.
+- **Repair direction:** Give comparators, absolute values, or ranges. Remove false precision. Keep raw evidence.
 - **Sources:** [USER-NOTES] as normalized, [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
-## PT-09 — Units and notation are semantically and typographically consistent
+## PT-09 — Units and notation agree in meaning and typography
 
-- **Nature:** Hard correctness condition plus template preference.
+- **Nature:** Condition for correctness plus template preference.
 - **Reviewer attack:** “Values cannot be compared because units, prefixes, capitalization, or spacing change.”
-- **Check:** Verify SI/binary prefixes, bit/byte, time/rate, percent/percentage points, unit conversion, pluralization, and math/text notation. In LaTeX, `~` is a nonbreaking space—not a visible tilde—and may be correct depending on macro/template.
-- **Severity:** `S1` for numerical meaning error; `S2` recurring ambiguity; `S3` typography.
-- **Exceptions / false positives:** Follow field/venue convention for spaces between number and unit; do not ban `~` universally.
-- **Repair direction:** Choose canonical units/macros, convert accurately, and apply consistent spacing.
+- **Check:** Examine SI or binary prefixes, bits or bytes, time or rate, percentages or percentage points, conversion, plural forms, and notation. In LaTeX, `~` makes a nonbreaking space. It is not a visible tilde. Its correctness depends on the macro and template.
+- **Severity:** `S1` for numerical meaning error. `S2` recurring ambiguity. `S3` typography.
+- **Exceptions / false positives:** Number-unit spacing depends on field and venue conventions. `~` is not universally incorrect.
+- **Repair direction:** Select standard units or macros. Convert values correctly. Use the same spacing.
 - **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
-## PT-10 — `e.g.` and `i.e.` retain distinct meanings
+## PT-10 — `e.g.` and `i.e.` keep different meanings
 
-- **Nature:** Hard semantic condition.
+- **Nature:** Condition for meaning.
 - **Reviewer attack:** “An example is presented as an exhaustive restatement, or a definition as one optional example.”
-- **Check:** `e.g.` introduces nonexhaustive examples; `i.e.` restates/equates. Inspect punctuation under venue/language style and whether the surrounding logic matches.
-- **Severity:** `S2` if scope changes; `S3` otherwise.
-- **Exceptions / false positives:** Plain `for example` or `that is` may be clearer, especially in Chinese/English mixed prose.
-- **Repair direction:** Select the correct relation or write it explicitly.
+- **Check:** `e.g.` gives non-exhaustive examples. `i.e.` gives an equivalent restatement. Examine punctuation and surrounding logic for the applicable venue and language style.
+- **Severity:** `S2` if scope changes. `S3` in other cases.
+- **Exceptions / false positives:** Plain `for example` or `that is` can be clearer in mixed Chinese and English prose.
+- **Repair direction:** Select the correct relation or give it clearly.
 - **Sources:** [USER-NOTES], [ERNST].
 
-## PT-10A — High-level wording remains specific and discriminating
+## PT-10A — High-level wording gives specified relations and boundaries
 
 - **Nature:** General systems-writing principle with claim-precision consequences.
 - **Reviewer attack:** “The prose sounds abstract, but it could describe almost any system and does not explain why this design follows.”
-- **Check:** Apply all four canonical high-level tests: substitution, prediction, boundary/counterexample, and evidence. Record the exact relation that is missing rather than merely calling the prose vague.
-- **Severity:** `S1` when the central idea or design derivation is unrecoverable; `S2` when a paragraph loses specificity; `S3` for one vague sentence.
-- **Exceptions / false positives:** A short roadmap may remain broad when adjacent text immediately supplies the discriminating relation. A technical term may compactly encode a previously defined relation.
-- **Repair direction:** Restore the shortest supported causal relation at the appropriate abstraction level; retain lower-level detail only where it changes a decision, property, or boundary.
+- **Check:** Apply the four high-level tests: substitution, prediction, boundary or counterexample, and evidence. Record the missing relation at the specified endpoints. A vague criticism alone is insufficient.
+- **Severity:** `S1` when the central idea or design derivation is unrecoverable. `S2` when a paragraph loses specificity. `S3` for one vague sentence.
+- **Exceptions / false positives:** A short roadmap can be broad if adjacent text immediately gives the distinguishing relation. A technical term can encode a relation with a previous definition.
+- **Repair direction:** Give the shortest causal relation with evidence at the applicable abstraction level. Keep low-level details only for consequential decisions, properties, or boundaries.
 - **Sources:** [USER-NOTES], [FIVE-VENUE-CORPUS].
 
 ## PT-10B — Evidence provenance is distilled at the manuscript's comparison level
 
 - **Nature:** General systems-writing principle with evidence-scope consequences.
 - **Reviewer attack:** “The sentence narrates what the authors found in a repository or build instead of stating the prior system capability that matters to this comparison.”
-- **Check:** For repository, artifact, build, link, or configuration facts used in positioning, apply the shared [artifact-to-capability distillation](../../systems-paper-revise/references/positioning-and-insight.md). Recover actor, object, stage, required control, and comparison-axis consequence. Keep the raw observation distinct from the inference, and test whether the implementation detail itself is material to the argument.
-- **Severity:** `S1` when an unsupported inference carries the gap; `S2` when forensic detail obscures a comparison; `S3` for a local abstraction mismatch.
-- **Exceptions / false positives:** Concrete build or artifact detail is appropriate when it is the mechanism under study, establishes implementation reality, or is necessary to bound the claim. A citation or evidence note may preserve provenance without centering it in the argumentative sentence.
-- **Repair direction:** State the narrowest supported capability or limitation and retain its deployment qualification. Missing inference or alternative deployment paths require evidence rather than editorial abstraction.
+- **Check:** For artifact facts in prior-work positioning, use [artifact-to-capability distillation](../../systems-paper-revise/references/positioning-and-insight.md). Find actor, object, stage, required control, and comparison-axis consequence. Do a check of the difference between raw observations and inference. Examine the implementation detail's materiality to the argument.
+- **Severity:** `S1` when an unsupported inference carries the gap. `S2` when forensic detail obscures a comparison. `S3` for a local abstraction mismatch.
+- **Exceptions / false positives:** Build or artifact detail can be the studied mechanism, implementation evidence, or a necessary claim boundary. Citations or evidence notes can give provenance without a central sentence role.
+- **Repair direction:** Give the narrowest capability or limitation with evidence. Keep its deployment qualification. Missing inference or alternative deployment paths make evidence necessary.
 - **Sources:** [SYSTEMS-GUIDE], [FIVE-VENUE-CORPUS].
 
 ## Sentence logic and grammar
 
-## PT-11 — Every sentence has one dominant assertion
+## PT-11 — Each sentence has one dominant assertion
 
-- **Nature:** Hard readability/grammar condition.
+- **Nature:** Condition for readability and grammar.
 - **Reviewer attack:** “I cannot determine actor, action, object, condition, contrast, or main assertion.”
-- **Check:** Locate the dominant assertion and the conditions, reasons, contrasts, or qualifications subordinate to it. Flag fragments, run-ons, unrelated co-dominant claims, overloaded embeddings, ambiguous coordination, missing actors/actions, and relations that must be guessed. Length alone is not evidence of failure.
-- **Severity:** `S1` if a central technical statement has multiple readings; `S2` recurring; `S3` local grammar.
-- **Exceptions / false positives:** Long sentences are not defects by length alone; complex structure is justified when it mirrors a precise relationship clearly.
-- **Repair direction:** Split independent assertions, restore the actor/relation, or reorder the sentence so the main claim governs its qualifications.
-- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
+- **Check:** Find the primary assertion and its conditions, reasons, contrasts, and qualifications. Find fragments, run-ons, unrelated primary claims, excessive embedding, unclear coordination, missing actors, missing actions, and guessed relations. List new entities, relations, and abstraction changes. Examine definition and dependency sequence. Length alone does not show failure.
+  Check `and` and `or` against the source's independent requirements. Grammatical coordination can still suggest that one duty replaces another. Identify each required duty and distinguish it from the evidence needed to establish it.
+- **Severity:** `S1` if a central technical statement has multiple readings. `S2` recurring. `S3` local grammar.
+- **Exceptions / false positives:** Length alone does not make a sentence defective. Sentence structure can clearly represent an accurate relation.
+- **Repair direction:** Divide independent assertions. Give source-established actors and relations. If this helps interpretation, put the primary claim before its qualifications. After division, compare each original proposition's conditions, quantifiers, modality, negation, sequence, and causal or evidential relations.
+- **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE], [ASD-STE100] as adapted for research prose.
 
 ## PT-12 — Modifiers have unambiguous attachment and scope
 
-- **Nature:** Hard semantic condition.
+- **Nature:** Condition for meaning.
 - **Reviewer attack:** “`which`, an adverb, prepositional phrase, participle, or relative clause can modify more than one candidate.”
-- **Check:** Test proximity and meaning for each modifier; inspect misplaced `only`, `also`, `respectively`, negation, and dangling participles. The nearest-noun idea is a clarity heuristic, not a universal grammar law.
-- **Severity:** `S1` if technical meaning changes; `S2`/`S3` otherwise.
-- **Exceptions / false positives:** Grammar and semantics can unambiguously select a non-nearest antecedent; do not flag proximity alone.
-- **Repair direction:** Move modifier, name antecedent, repeat noun, or split sentence.
+- **Check:** Examine each modifier's position and meaning. Find misplaced `only`, `also`, `respectively`, negation, and dangling participles. Nearest-noun attachment is a clarity aid. It is not a universal grammar rule.
+- **Severity:** `S1` if technical meaning changes. `S2`/`S3` in other cases.
+- **Exceptions / false positives:** Grammar and meaning can select a distant antecedent without ambiguity. Distance alone does not give a defect.
+- **Repair direction:** Give repair options: changed modifier position, a named antecedent, a repeated noun, or different sentences.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-13 — Pronouns and demonstratives have unique antecedents
 
-- **Nature:** Hard clarity condition.
+- **Nature:** Condition for clarity.
 - **Reviewer attack:** “`it`, `this`, `that`, `they`, `these results`, or a Chinese zero pronoun could refer to multiple mechanisms or findings.”
-- **Check:** Resolve every pronoun/demonstrative locally. Flag vague `This shows...` when the referenced observation/inference is unclear.
-- **Severity:** `S1` if claim meaning changes; `S2`/`S3` otherwise.
-- **Exceptions / false positives:** Immediate singular antecedents need no noun repetition.
-- **Repair direction:** Replace with a precise noun phrase or state the proposition being referenced.
+- **Check:** Find each pronoun's or demonstrative's local antecedent. Find unclear `This shows...` uses without a definite observation or inference.
+- **Severity:** `S1` if claim meaning changes. `S2`/`S3` in other cases.
+- **Exceptions / false positives:** Immediate singular antecedents do not make noun repetition necessary.
+- **Repair direction:** Give an accurate noun phrase or the referenced proposition.
 - **Sources:** [ERNST], [HEISER-STYLE], [USER-NOTES].
 
 ## PT-14 — Articles, countability, number, and agreement are correct in English
 
-- **Nature:** Hard grammar condition.
+- **Nature:** Condition for grammar.
 - **Reviewer attack:** “Frequent article/count/agreement errors reduce confidence and sometimes change whether a class or instance is meant.”
-- **Check:** Inspect singular count nouns, generic/definite reference, mass nouns, subject–verb agreement, pronoun agreement, and `data`/collective usage under chosen style.
-- **Severity:** `S2` if recurring/ambiguous; `S3` local.
-- **Exceptions / false positives:** Not every bare noun is wrong; mass, plural generic, proper, and attributive nouns are valid.
-- **Repair direction:** Add/remove article, pluralize, or choose the correct mass/count construction without changing referent.
+- **Check:** Examine singular count nouns, generic or definite references, mass nouns, subject-verb agreement, pronoun agreement, and `data` or collective-noun use. Use the selected style.
+- **Severity:** `S2` if recurring/ambiguous. `S3` local.
+- **Exceptions / false positives:** Bare nouns can be correct as mass nouns, generic plurals, proper nouns, or noun modifiers.
+- **Repair direction:** Give repair options: article addition or removal, plural forms, or the correct mass/count construction. Keep the referent unchanged.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
-## PT-15 — Coordination and parallelism preserve category and scope
+## PT-15 — Coordination and parallelism keep category and scope
 
-- **Nature:** Hard semantic/grammar condition.
+- **Nature:** Condition for meaning and grammar.
 - **Reviewer attack:** “A list combines unlike grammatical or conceptual units, so operators and comparisons have uncertain scope.”
-- **Check:** Examine `and/or`, series punctuation, paired constructions, comparison targets, bullet syntax, and whether shared modifiers apply to all items. Require a common conceptual dimension as well as grammatical symmetry: a list that mixes interface level, hosted object, and implementation organization is not parallel merely because every item is a verb phrase. Oxford comma is a clarity device, not universally mandatory.
-- **Severity:** `S1` for altered technical logic; `S2`/`S3` otherwise.
-- **Exceptions / false positives:** Venue style may choose punctuation; meaning governs.
-- **Repair direction:** Make elements grammatically/conceptually parallel and repeat ambiguous operators.
+- **Check:** Examine `and/or`, series punctuation, paired constructions, comparison targets, bullets, and shared-modifier scope. Make sure that conceptual and grammatical symmetry are present. Interface level, hosted object, and implementation organization are different axes. Verb phrases alone do not make that list parallel. The Oxford comma is a clarity aid, not a universal requirement.
+- **Severity:** `S1` for altered technical logic. `S2`/`S3` in other cases.
+- **Exceptions / false positives:** Venue style can select punctuation. Meaning controls the judgment.
+- **Repair direction:** Make elements conceptually and grammatically parallel. Repeat operators where their scope has ambiguity.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
-## PT-16 — Comparison has an explicit and like-for-like target
+## PT-16 — Comparison has a clear and like-for-like target
 
-- **Nature:** Hard semantic condition.
+- **Nature:** Condition for meaning.
 - **Reviewer attack:** “`faster`, `lower`, `better`, `similar`, or `X than Y` compares different objects, metrics, conditions, or omitted baseline.”
-- **Check:** Identify compared entities, metric, direction, conditions, and reference point. Inspect `only X% lower`, percentage-vs-percentage-point, and ratio ambiguity.
-- **Severity:** `S1` for headline result; `S2` otherwise.
-- **Exceptions / false positives:** A target can be inherited from an immediately clear sentence/figure.
-- **Repair direction:** State both targets and metric under matched conditions; correct arithmetic language.
+- **Check:** Find compared entities, metric, direction, conditions, and reference point. Examine `only X% lower`, percentages, percentage points, and ratio ambiguity.
+- **Severity:** `S1` for headline result. `S2` in other cases.
+- **Exceptions / false positives:** An immediately clear sentence or figure can give the comparison target.
+- **Repair direction:** Give both targets and the metric in equivalent conditions. Correct arithmetic language.
 - **Sources:** [USER-NOTES], [SIGPLAN-EMPIRICAL], [ERNST].
 
 ## PT-16A — Necessary and sufficient conditions are not interchanged
 
-- **Nature:** Hard logical condition.
+- **Nature:** Condition for logic.
 - **Reviewer attack:** “The manuscript moves from `X requires Y` to `Y guarantees X`, or from co-occurrence to sufficiency, without ruling out other mechanisms.”
-- **Check:** For `requires`, identify evidence that the condition is necessary; for `ensures` or `guarantees`, identify the assumptions and enforcement/proof that make it sufficient. Treat `helps`, `permits`, and `is associated with` as weaker relations and verify the conclusion does not silently strengthen them.
-- **Severity:** `S0`/`S1` when the error supports a central design or correctness claim; `S2` locally.
-- **Repair direction:** Use the weakest accurate relation, add the missing premise/evidence, or narrow the conclusion.
+- **Check:** For `requires`, find evidence for necessity. For `ensures` or `guarantees`, find assumptions and enforcement or proof for sufficiency. Keep `helps`, `permits`, and `is associated with` as weaker relations. Make sure that conclusions do not strengthen them without explanation.
+- **Severity:** `S0`/`S1` when the error supports a central design or correctness claim. `S2` locally.
+- **Repair direction:** Give the evidence-supported relation as a repair option. Give missing premises or evidence. Put necessary limits on the conclusion.
 - **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## PT-16B — System properties and proof obligations stay at the same explanatory level
 
-- **Nature:** Hard logical/semantic condition when the mismatch changes the claim; otherwise clarity.
+- **Nature:** Condition for logic and meaning when the mismatch changes the claim. For other cases, clarity.
 - **Reviewer attack:** “The sentence says a runtime property cannot replace a proof, so I cannot tell whether the remaining obligation is another system property, an enforcement mechanism, or merely an author task.”
-- **Check:** Distinguish object-level claims about execution, interfaces, authorization, equivalence, or isolation from epistemic claims about evidence, proof, and argument. When the point is necessary-but-insufficient, identify both properties and audit the necessity claim separately. When the text is explicitly enumerating proof obligations, epistemic wording may be correct.
-- **Severity:** `S1` when the category shift obscures a central correctness claim; `S2` locally.
-- **Repair direction:** Express the remaining object-level property or explicitly frame both items as proof obligations. A wording repair must not silently weaken an unsupported necessity claim.
+- **Check:** Do a check of the difference between system properties and evidence, proof, or argument obligations. Include execution, interface, authorization, equivalence, and isolation properties. For necessary-but-insufficient claims, find both properties. Examine necessity in different checks. Clear proof-obligation lists can correctly use epistemic wording.
+- **Severity:** `S1` when the category shift obscures a central correctness claim. `S2` locally.
+- **Repair direction:** Give the remaining object-level property or clear proof-obligation framing for both items. Keep unsupported necessity visible during wording repair.
 - **Sources:** [USER-NOTES], [SYSTEMS-GUIDE].
 
-## PT-17 — Tense follows knowledge status, not a rigid section rule
+## PT-17 — Tense agrees with knowledge status
 
 - **Nature:** General best practice / house style.
 - **Reviewer attack:** “Tense makes completed experiments sound ongoing, established facts temporary, or proposed behavior already observed.”
-- **Check:** Use present for paper content, definitions, algorithms as described, and enduring interpretation; past for completed experimental actions/observations; future for genuinely future work. Maintain consistency around one event.
-- **Severity:** `S2` if status is misleading; `S3` otherwise.
-- **Exceptions / false positives:** Disciplines and venues vary. Evaluation need not be mechanically all past tense, and design need not be mechanically all present tense.
-- **Repair direction:** Align tense with temporal/epistemic status.
+- **Check:** Use present tense for paper content, definitions, described algorithms, and enduring interpretations. Use past tense for finished experimental actions or observations. Use future tense for future work. Use the same tense for one event.
+- **Severity:** `S2` if status is misleading. `S3` in other cases.
+- **Exceptions / false positives:** Disciplines and venues differ. Evaluation does not always use past tense. Design does not always use present tense.
+- **Repair direction:** Use tense that agrees with temporal and epistemic status.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
 ## PT-18 — Active/passive voice identifies the important agent
 
 - **Nature:** Diagnostic heuristic, not a ban.
 - **Reviewer attack:** “Passive wording hides who performs, configures, trusts, observes, or decides a technically important action.”
-- **Check:** Flag passive only when the missing agent matters, the sentence becomes vague, or repeated passives obscure workflow. Preserve passive when object/result is the legitimate focus or actor is obvious/irrelevant.
-- **Severity:** `S2` if responsibility is technically ambiguous; `S3`/`S4` style.
-- **Exceptions / false positives:** Methods/design sections may use passive voice correctly. Do not rewrite merely to satisfy an active-voice quota.
-- **Repair direction:** Name the actor or use active voice where it clarifies responsibility.
-- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
+- **Check:** Record a passive-voice defect only if the missing actor matters, ambiguity results, or repeated passives hide workflow. Keep research-prose passive voice for a correct object or result focus, or an obvious or irrelevant actor.
+- **Severity:** `S2` if responsibility is technically ambiguous. `S3`/`S4` style.
+- **Exceptions / false positives:** Methods and design sections can correctly use passive voice. Active-voice quotas do not apply to manuscript prose.
+- **Repair direction:** Give the source-established actor. Use active voice where it makes responsibility clear. An unknown actor that affects meaning makes author clarification necessary. Keep invented actors outside language repair.
+- **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE], [ASD-STE100] as adapted for research prose.
 
-## PT-19 — First-person `we` is used purposefully
+## PT-19 — First-person `we` has a clear function
 
 - **Nature:** Style choice with clarity implications.
 - **Reviewer attack:** “Repetitive `we` narration foregrounds authors rather than system behavior,” or conversely, “agentless prose hides an author choice.”
-- **Check:** Preserve `we` for author actions, design decisions, observations, and paper organization when natural. Flag redundant `we can see`, `we believe` without epistemic role, or cases where the system/mechanism is the actual actor.
-- **Severity:** `S2` if agency/claim basis is unclear; `S3`/`S4` style.
-- **Exceptions / false positives:** `We propose`, `we implement`, and `we evaluate` are standard academic constructions; do not ban them.
-- **Repair direction:** Use the true agent or direct claim; retain `we` where it clarifies author responsibility.
+- **Check:** Keep `we` for author actions, design decisions, observations, and paper organization. Find redundant `we can see` or `we believe` without an epistemic function. Find sentences whose actor is the system or mechanism.
+- **Severity:** `S2` if agency/claim basis is unclear. `S3`/`S4` style.
+- **Exceptions / false positives:** `We propose`, `we implement`, and `we evaluate` are standard academic constructions. They are permitted.
+- **Repair direction:** Use the actor that does the action or give the claim directly. Keep `we` where it makes author responsibility clear.
 - **Sources:** [USER-NOTES] as normalized, [ERNST], [HEISER-STYLE].
 
-## PT-20 — Sentence economy preserves necessary logic
+## PT-20 — Sentence economy keeps necessary logic
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “Padded noun phrases, weak verb phrases, metadiscourse, and repeated qualifiers obscure the technical point,” or “overcompression removes conditions.”
-- **Check:** Apply the canonical concision priority: preserve claim and boundary, necessary premise, decisive causal link, credibility-changing evidence, then required definition. Inspect nominalizations, weak verb phrases, redundant framing, metadiscourse, and avoidable jargon. For a paragraph ending, name the exact conclusion, boundary, obligation, or handoff lost under deletion; if none is lost, flag the redundant payoff even when its transition words are logically valid. Repetition is justified when each layer adds a distinct function—for example conclusion in the abstract, derivation in the introduction, realization in design, and support in evaluation; flag only repetition that adds no role.
-- **Severity:** `S2` recurring; `S3` local.
-- **Exceptions / false positives:** Terminological repetition often improves precision; not every phrasal verb has an exact simple replacement.
-- **Repair direction:** Put the main actor/action relation early, use the exact technical verb, and remove text that performs no reasoning role while preserving all semantic constraints.
+- **Check:** Use the concision priority in order: claim and boundary, necessary premise, decisive causal link, credibility-changing evidence, required definition. Examine nominalizations, weak verb phrases, repeated framing, metadiscourse, and unnecessary jargon. For an ending, record the lost conclusion, boundary, obligation, or handoff if removed. Without information loss, record a redundant payoff even with correct transition words.
+
+  Repetition is permitted across different functions. Examples include abstract conclusions, introduction derivations, design realization, and evaluation evidence. Record repetition only without a new function.
+- **Severity:** `S2` recurring. `S3` local.
+- **Exceptions / false positives:** Term repetition often helps precision. Some phrasal verbs have no accurate alternative with one word.
+- **Repair direction:** Put the primary actor and action first. Use the accurate mechanism relation. Remove words without a reasoning function. Keep all meaning constraints.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
-## PT-21 — Transitions express real relations, not variety for its own sake
+## PT-21 — Transitions give relations with evidence
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “`however`, `therefore`, or a synonym signals a relation the neighboring claims do not support.”
-- **Check:** Validate contrast, cause, consequence, concession, example, and sequence. Do not replace repeated `however` with `nevertheless` merely for lexical variety if the structure itself repeats. Treat `however X does not Y; therefore Z is still required` as a relation to test, not a preferred systems-paper ending: the requirement must add a design-specific consequence beyond restating `not Y`.
-- **Severity:** `S2` for false logic; `S3` for repetition.
-- **Exceptions / false positives:** Repetition of a precise transition is preferable to an inaccurate synonym.
-- **Repair direction:** Repair underlying organization or choose the exact relation; omit transition if adjacency is sufficient.
+- **Check:** Examine contrast, cause, consequence, concession, example, and sequence. Keep transition meanings unchanged. Synonym changes alone do not repair repeated structure. Examine `however X does not Y; therefore Z is still required` as a relation. Its requirement must give a design-specific consequence beyond repeated `not Y`.
+- **Severity:** `S2` for false logic. `S3` for repetition.
+- **Exceptions / false positives:** A repeated transition with the correct meaning is better than a synonym with the wrong meaning.
+- **Repair direction:** Repair the organization or give the accurate relation. If adjacency is sufficient, remove the transition.
 - **Sources:** [USER-NOTES] as normalized, [ERNST].
 
 ## PT-22 — Punctuation reflects logical structure
 
-- **Nature:** Hard grammar/meaning condition plus style conventions.
+- **Nature:** Condition for grammar and meaning, with style conventions.
 - **Reviewer attack:** “Comma, semicolon, colon, dash, parentheses, or quote usage obscures clause boundaries or scope.”
-- **Check:** A semicolon normally joins related independent clauses; colon introduces an elaboration/list after a complete lead-in under common English style; parentheses should contain genuinely secondary material; punctuation with citations/quotes follows template.
-- **Severity:** `S2` if meaning changes; `S3` otherwise.
-- **Exceptions / false positives:** Publisher and language conventions vary; verify venue/template before enforcing typography.
-- **Repair direction:** Match punctuation to clause relation or split sentence.
+- **Check:** In common English, a semicolon joins related independent clauses. A colon gives elaboration or a list after a full lead-in. Parentheses contain secondary material. Citation and quotation punctuation depends on the template.
+- **Severity:** `S2` if meaning changes. `S3` in other cases.
+- **Exceptions / false positives:** Publisher and language conventions differ. Before typography judgments, examine venue and template rules.
+- **Repair direction:** Use punctuation for the clause relation in the source or divide the sentence.
 - **Sources:** [USER-NOTES], [ERNST], [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
-## PT-23 — Compound modifiers and collocations are idiomatic and exact
+## PT-23 — Compound modifiers and collocations are idiomatic and accurate
 
-- **Nature:** General best practice; grammar where ambiguity arises.
+- **Nature:** General best practice. Grammar where ambiguity arises.
 - **Reviewer attack:** “Nonidiomatic word combinations or missing hyphenation make the property or attachment unclear.”
-- **Check:** Distinguish attributive `high-performance system` from predicative/noun `high performance`; inspect verb–noun polarity (`incur overhead`, not usually `incur benefit`), prepositions, and domain-standard collocations.
-- **Severity:** `S2` if meaning is wrong; `S3` style/grammar.
-- **Exceptions / false positives:** Compound hyphenation varies by dictionary/template and may be omitted after adverbs ending in `-ly`.
-- **Repair direction:** Use established field wording or direct construction; preserve technical nuance.
+- **Check:** Keep attributive `high-performance system` different from predicative or noun `high performance`. Examine verb-noun polarity, prepositions, and standard domain collocations. Compare `incur overhead` with the usually incorrect `incur benefit`.
+- **Severity:** `S2` if meaning is wrong. `S3` style/grammar.
+- **Exceptions / false positives:** Compound hyphens depend on dictionaries and templates. Compounds after `-ly` adverbs can have no hyphen.
+- **Repair direction:** Use standard field terms or direct constructions. Keep technical distinctions.
 - **Sources:** [USER-NOTES], [ERNST], [HEISER-STYLE].
 
-## PT-24 — Number spelling follows a declared style, not a universal ten rule
+## PT-24 — Number spelling obeys its style rule
 
 - **Nature:** House style / venue preference.
 - **Reviewer attack:** “Number styling is inconsistent or hard to scan.”
-- **Check:** Follow current venue/publisher or document convention for numbers in prose. Always preserve numerals for measurements, parameters, equations, identifiers, units, tables, and comparisons where clearer.
-- **Severity:** `S3` for inconsistency; `S4` preference; venue violation per overlay.
-- **Exceptions / false positives:** “Spell integers below ten” is common but not universal and can conflict with technical parallelism.
-- **Repair direction:** Apply one documented style consistently without changing numerical value.
+- **Check:** Obey the venue, publisher, or document convention for prose numbers. If numerals help interpretation, keep them for measurements, parameters, equations, identifiers, units, tables, and comparisons.
+- **Severity:** `S3` for inconsistency. `S4` preference. Venue violation per overlay.
+- **Exceptions / false positives:** “Spell integers below ten” is common but not universal. It can conflict with parallel technical notation.
+- **Repair direction:** Use one documented style throughout. Keep numerical values unchanged.
 - **Sources:** [USER-NOTES] as normalized, [ACM-TEMPLATE], [USENIX-TEMPLATE].
 
 ## Chinese-specific checks
 
-Use the canonical [Chinese systems-writing calibration](../../systems-paper-revise/references/chinese-writing.md) as the source of truth. The checks below determine whether a defect is visible and consequential within the authorized review scope.
+Use [Chinese systems-writing calibration](../../systems-paper-revise/references/chinese-writing.md) as the source of truth. Examine visible defects and their consequences within the authorized scope.
 
-## PT-25 — Chinese technical prose makes agents and logical relations explicit
+## PT-25 — Chinese technical prose makes agents and logical relations clear
 
-- **Nature:** Hard clarity condition.
+- **Nature:** Condition for clarity.
 - **Reviewer attack:** “省略主语、指代或连接关系后，无法判断是谁执行、什么导致什么，或结论适用于哪一层。”
-- **Check:** Inspect zero subjects, repeated `其/该/这`, long modifier chains before `的`, topic shifts, and English technical terms inserted without grammatical integration. For every `通过—从而—进而—最终` chain, verify each arrow separately and distinguish mechanism prediction from measured result. Flag empty `针对……问题，提出……方法` shells when the sentence supplies neither the concrete failure nor the technical change.
-- **Severity:** `S1` if technical meaning changes; `S2` recurring; `S3` local.
-- **Exceptions / false positives:** Chinese legitimately omits recoverable subjects and uses topic-comment structure; flag only real ambiguity/cost.
-- **Repair direction:** Name the actor/object, shorten modifier chains, split propositions, and state causal/conditional relation.
+- **Check:** Examine omitted subjects, repeated `其/该/这`, long modifiers before `的`, topic changes, and English terms without grammatical integration. For each `通过—从而—进而—最终` chain, examine each arrow in different checks. Do a check of the difference between mechanism predictions and measured results. Find `针对……问题，提出……方法` sentences without specified failure conditions or technical changes.
+- **Severity:** `S1` if technical meaning changes. `S2` recurring. `S3` local.
+- **Exceptions / false positives:** Chinese can correctly have no subject with a clear referent. Topic-comment structure is permitted. Give findings only for ambiguity or reading cost with evidence.
+- **Repair direction:** Give the actor and object. Use shorter modifier chains. Divide propositions. Give clear causal or conditional relations.
 - **Sources:** [USER-NOTES], generalized reader-oriented principles from [ERNST].
 
-## PT-25A — Chinese-to-English review preserves logic rather than word order
+## PT-25A — Chinese-to-English review keeps logic rather than word order
 
-- **Nature:** Hard meaning-preservation condition when translation is in scope.
+- **Nature:** Condition for meaning preservation when translation is in scope.
 - **Reviewer attack:** “The English is grammatical but preserves an omitted Chinese actor, ambiguous `从而`, or inflated evidence claim.”
-- **Check:** Compare source and translation for actor, dominant assertion, condition, causal arrows, evidence strength, quantifier, and boundary. Literal order is irrelevant; proposition equivalence is decisive.
-- **Severity:** `S0`/`S1` when technical meaning changes; `S2` for a recurring ambiguity; `S3` locally.
-- **Exceptions / false positives:** Review only the supplied translation unless the user explicitly requests a new translation; this read-only skill identifies the required logical repair but does not draft it.
-- **Repair direction:** Name the lost or strengthened proposition and the relation that must be restored.
+- **Check:** Compare source and translation for actor, primary assertion, conditions, causal arrows, evidence strength, quantifiers, and boundaries. Proposition equivalence controls the judgment. Literal order does not.
+- **Severity:** `S0`/`S1` when technical meaning changes. `S2` for a recurring ambiguity. `S3` locally.
+- **Exceptions / false positives:** Use only the supplied translation unless the user authorizes a new translation. This read-only skill gives the logical repair requirement. It gives no replacement translation.
+- **Repair direction:** Record the lost or stronger proposition. Give the necessary restored relation.
 - **Sources:** [FIVE-VENUE-CORPUS], [USER-NOTES].
 
-## PT-26 — Chinese–English terminology mixing is controlled
+## PT-26 — Chinese and English terms have clear equivalence
 
 - **Nature:** General best practice / house style.
 - **Reviewer attack:** “The paper alternates Chinese translation, English term, acronym, and code identifier without clear equivalence.”
-- **Check:** Define translation/English/acronym at first use; preserve code/system identifiers exactly; choose one later form; distinguish a borrowed technical term from casual English filler such as `flow`, `point`, or `work` when a precise Chinese term exists.
-- **Severity:** `S2` for conceptual ambiguity; `S3` style.
-- **Exceptions / false positives:** Deliberately bilingual drafts may retain both languages; consistency still matters.
-- **Repair direction:** Declare equivalence once and use the canonical form appropriate to audience.
+- **Check:** Give the Chinese term, English term, and acronym their first-use equivalence. Keep code and system identifiers unchanged. Select one subsequent form. Keep technical terms different from casual `flow`, `point`, or `work` where accurate Chinese terms are available.
+- **Severity:** `S2` for conceptual ambiguity. `S3` style.
+- **Exceptions / false positives:** Bilingual drafts can keep both languages. Consistency still applies.
+- **Repair direction:** Give one equivalence declaration. Use the standard form for the audience.
 - **Sources:** [USER-NOTES], [ERNST].
 
-## PT-27 — Chinese punctuation and enumeration preserve hierarchy
+## PT-27 — Chinese punctuation and enumeration keep hierarchy
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “顿号、逗号、分号、冒号、括号或多级编号无法反映项目层级和句间关系。”
-- **Check:** Inspect list levels, full-width/half-width punctuation consistency, semicolon use among complex parallel items, colon lead-ins, parenthetical overload, and punctuation around English/math/code.
-- **Severity:** `S2` if logical grouping changes; `S3` typography.
-- **Exceptions / false positives:** Follow publisher/template style for mixed punctuation.
-- **Repair direction:** Make hierarchy explicit and normalize punctuation without altering technical tokens.
-- **Sources:** [USER-NOTES], house style unless venue specifies otherwise.
+- **Check:** Examine list levels, full-width or half-width punctuation, and semicolons between complex parallel items. Examine colon lead-ins, excessive parentheses, and English, math, or code punctuation.
+- **Severity:** `S2` if logical grouping changes. `S3` typography.
+- **Exceptions / false positives:** Obey publisher or template conventions for mixed punctuation.
+- **Repair direction:** Show the hierarchy. Use the same punctuation rules. Keep technical tokens unchanged.
+- **Sources:** [USER-NOTES], house style if the venue gives no different rule.
 
 ## Local prose audit sequence
 
-Complete this sequence only after the higher assessable paper, section, and
-paragraph levels have been checked. Lower-level fluency cannot clear an upper-level
-role or evidence failure.
+First, complete checks at the higher assessable paper, section, and paragraph levels. Lower-level fluency cannot remove higher-level role or evidence failures.
 
-For every sentence in scope:
+For each sentence in scope, use these steps:
 
-1. State its proposition and evidence status.
-2. If it is high-level, apply substitution, prediction, boundary/counterexample, and evidence tests.
-3. Resolve technical terms, referents, agents, units, quantifiers, mechanism verbs, and epistemic strength.
-4. Validate modifier, negation, comparison, coordination, condition, necessary/sufficient relation, and inter-sentence logic.
-5. Check grammar/punctuation in the source language.
-6. Apply the deletion test only after all meaning is accounted for.
+1. Record its proposition and evidence status.
+2. For high-level sentences, apply substitution, prediction, boundary or counterexample, and evidence tests.
+3. Find terms, referents, actors, units, quantifiers, mechanism verbs, and epistemic strength.
+4. Examine modifiers, negation, comparisons, coordination, conditions, necessity, sufficiency, and inter-sentence logic.
+5. Examine source-language grammar and punctuation.
+6. After full meaning accounting, apply the deletion test.
 
-For every lexical occurrence in scope:
+For each lexical occurrence in scope, use these steps:
 
-1. identify its sentence-local function and technical identity;
-2. check definition/first use, referent, quantifier, modifier and negation scope,
-   comparison target, technical verb commitment, and epistemic strength when
-   applicable;
-3. check collocation, tense, article/count/agreement, punctuation, unit, notation,
-   and source-language form when applicable;
-4. assign the shared coverage state and link any finding ID. Give every
-   risk-bearing occurrence its own row; exact contiguous passed ranges may be
-   compressed only as allowed by the shared coverage contract.
+1. Record its sentence-local function and technical identity.
+2. Examine applicable definitions, first uses, referents, quantifiers, modifiers, negation, comparisons, mechanism commitments, and epistemic strength.
+3. Examine applicable collocations, tense, articles, countability, agreement, punctuation, units, notation, and source-language forms.
+4. Give the shared coverage state.
+5. Give any finding ID.
+6. Give each risk-bearing occurrence a different row.
+7. Compress passed ranges only with the shared coverage contract's permission.
 
-For every paragraph in scope:
+For each paragraph in scope, use these steps:
 
-1. Record any signaled or author-supplied role, then independently state the delivered role and local claim.
-2. Complete `the reader should believe ___ because ___`; record a second independent answer as a competing obligation rather than hiding it with a connective.
-3. Label each sentence as claim, reason, mechanism, evidence, qualification, example, or transition.
-4. Read the first and last sentences together: record the opening promise, the closing answer, implication, boundary, or handoff, and the exact information lost if the ending is deleted.
-5. Flag promise-versus-delivery mismatch, missing or unrelated roles, circular explanation, unsupported inference, premature mechanism detail, and a closing sentence that strands or merely repeats the local claim.
-6. Audit argument role/organization and scientific evidence independently; record both when both fail.
-7. Treat rendered line count and one-word final lines as layout diagnostics, not universal writing defects.
+1. Record its signaled or author-supplied role.
+2. Independently record its delivered role and local claim.
+3. Complete `the reader should believe ___ because ___`.
+4. Record a second independent answer as a competing obligation.
+5. Give each sentence its role: claim, reason, mechanism, evidence, qualification, example, or transition.
+6. Read the first and last sentences together.
+7. Record the opening promise and closing answer, implication, boundary, or handoff.
+8. Record the information lost without the ending.
+9. Find role mismatches, missing or unrelated functions, circular reasoning, and unsupported inferences. Find mechanism detail before its motivating relation and stranded or repeated closing claims.
+10. Examine argument organization and scientific evidence in different checks.
+11. Record both dimensions if both fail.
+12. Treat rendered line count and one-word final lines as layout diagnostics.
 
-After the last sentence and lexical occurrence, reconcile terminology, referents,
-numbers, conditions, claim strength, and evidence status across the complete
-frozen scope. Record the last inspected units and totals in the shared coverage
-receipt; do not infer completion from the absence of another finding.
+After the last sentence and lexical occurrence, compare terms, referents, numbers, conditions, claim strength, and evidence status throughout scope. Record the last units and totals in the shared receipt. An absence of further findings does not show completion.

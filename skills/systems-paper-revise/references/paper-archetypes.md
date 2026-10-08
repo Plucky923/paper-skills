@@ -1,22 +1,27 @@
 # Positive Contracts by Contribution Type
 
-Read this reference when the paper's contribution type changes what must be argued. Select the primary contract from the strongest supported acceptance claim, then use secondary contributions only to support it. These are dependency relations, not fixed sentence or section orders.
+Read this reference when contribution type changes the required argument.
+Select the primary contract from the strongest acceptance claim that evidence supports.
+Use secondary contributions only to support that claim.
+These contracts give dependencies, not fixed sentence or section orders.
 
 ## Route the contribution
 
-Ask which proposition would remain scientifically valuable if the artifact name and largest performance number disappeared:
+Find the scientifically valuable proposition that stays without the artifact name and largest performance number.
+Use these contribution types:
 
-- a new system boundary, interface, or abstraction;
-- a performance result caused by a co-design;
-- a correctness, verification, or security guarantee;
-- a measurement, characterization, or negative finding;
-- a production intervention or transferable operational lesson;
-- a study whose findings derive a tool;
-- a benchmark, dataset, simulator, or testing infrastructure;
-- a formal or analytical method;
-- a bounded case study or guideline.
+- A new system boundary, interface, or abstraction
+- A performance result caused by co-design
+- A correctness, verification, or security guarantee
+- A measurement, characterization, or negative finding
+- A production intervention or operational lesson that other systems can use
+- A study whose findings yield a tool
+- A benchmark, dataset, simulator, or testing infrastructure
+- A formal or analytical method
+- A bounded case study or guideline.
 
-When two answers imply different audiences, evidence, or thesis hierarchies, preserve both as author choices rather than selecting the more marketable one.
+If two answers imply different audiences, evidence, or thesis hierarchies, keep the two as author choices.
+Do not select the answer that is easier to market.
 
 ## New system, abstraction, or interface
 
@@ -30,12 +35,15 @@ newly important setting or requirement
   → benefit, compatibility, cost, and limits
 ```
 
-The contribution is the changed relationship and what follows from it, not the API name or number of components. Explain enough mechanism to show that the abstraction is realizable and that its property is not merely definitional.
+The contribution is the changed relation and its consequences.
+An API name or component count alone does not supply that contribution.
+Give sufficient mechanism information to show that the abstraction can operate.
+Show that the abstraction's definition alone is not sufficient for its claimed property.
 
-For an interface or boundary contribution, apply the [interface-boundary
-contract](interface-boundaries.md). Identify the interface's semantic commitments,
-what a client may vary above them, the protection/authority division, and any
-separate execution-path claim; none of those axes substitutes for another.
+For an interface or boundary contribution, apply the [interface-boundary contract](interface-boundaries.md).
+Find the interface's semantic commitments and the choices that a client can make above them.
+Find the protection/authority division and any different execution-path claim.
+One axis does not replace another.
 
 ## Performance system or co-design
 
@@ -49,7 +57,9 @@ consequential workload or bottleneck
   → attribution, shifted costs, and operating range
 ```
 
-Show why the mechanisms need one another. A collection of individually useful optimizations does not establish co-design, and a microbenchmark gain does not establish the end-to-end claim.
+Show the dependency between the mechanisms.
+A benefit from each optimization alone does not show co-design.
+A microbenchmark gain does not show the end-to-end claim.
 
 ## Verification, correctness, or security
 
@@ -62,7 +72,9 @@ failure or assurance gap
   → usability, implementation status, and overhead
 ```
 
-Keep `proves`, `checks`, `detects`, `prevents`, and `observes` distinct. A proof does not establish practical deployment; evaluation scale does not replace a correctness argument.
+Keep different meanings for `proves`, `checks`, `detects`, `prevents`, and `observes`.
+A proof does not show deployment with its use conditions.
+Evaluation scale does not replace a correctness argument.
 
 ## Measurement, characterization, or negative result
 
@@ -75,7 +87,10 @@ important unknown or disputed assumption
   → consequence for design, operation, or future studies
 ```
 
-The contribution may be a taxonomy, asymmetry, limit, or absence of an expected effect. It need not contain a new mechanism or causal root cause. Establish representativeness, measurement validity, and the population to which the conclusion transfers.
+The contribution can be a taxonomy, asymmetry, limit, or absence of an expected effect.
+A new mechanism or causal root cause is not necessary.
+Show representativeness and measurement validity.
+Identify the population to which the conclusion applies.
 
 ## Operational or experience paper
 
@@ -88,7 +103,9 @@ production setting and stakes
   → transferable lesson and unresolved limit
 ```
 
-Scale and longitudinal deployment data are evidence when they establish the phenomenon, intervention, or SLO outcome. Convert experience into knowledge another system can apply under stated conditions; deployment alone is not the lesson.
+Scale and longitudinal deployment data are evidence when they show the phenomenon, intervention, or SLO outcome.
+Show the lesson that another system can use when the stated conditions hold.
+Deployment alone is not that lesson.
 
 ## Hybrid study plus tool
 
@@ -101,7 +118,10 @@ observed incidents or phenomena
   → controlled or deployed validation
 ```
 
-Make the derivation visible: each major tool capability should answer a study-derived requirement. A study followed by an unrelated artifact remains two claims rather than one coherent hybrid contribution.
+Make the derivation clear.
+Connect each important tool capability to a requirement from the study.
+A study followed by an unrelated artifact gives two claims.
+It does not give one hybrid contribution with a clear derivation.
 
 ## Benchmark, dataset, simulator, or testing infrastructure
 
@@ -114,7 +134,9 @@ measurement or validation deficit
   → conclusions or failures newly exposed
 ```
 
-State what the infrastructure makes measurable that was not measurable before. Evaluate both the scientific adequacy of the representation and the practical cost of using it; popularity or size alone is not validation.
+Show what the infrastructure makes measurable that was not measurable before.
+Do a check of the representation's scientific adequacy and the cost to use it.
+Popularity or size alone is not validation.
 
 ## Formal or analytical method
 
@@ -127,7 +149,9 @@ property or analysis obstacle
   → applicability and failure boundary
 ```
 
-Keep theorem-level guarantees separate from implementation and empirical claims. If the method is intentionally incomplete or approximate, make the trade-off part of the contribution rather than hiding it in limitations.
+Keep theorem-level guarantees, implementation claims, and empirical claims as different categories.
+If the method is intentionally incomplete or approximate, make the trade-off part of the contribution.
+Do not hide it only in limitations.
 
 ## Case study or guideline
 
@@ -140,11 +164,14 @@ decision faced in a bounded setting
   → conditions under which the lesson transfers
 ```
 
-A case study earns general interest by identifying a stable mechanism or decision boundary, not by treating one instance as a universal population. Separate observations in the case from the inference that other systems may reuse.
+Show the stable mechanism or decision boundary that makes the case interesting to other systems.
+One instance does not represent a universal population.
+Keep case observations and the inference that other systems can use them as different categories.
 
 ## Mixed contributions
 
-Use one controlling thesis. Place each secondary contribution beneath the claim it supports:
+Use one controlling thesis.
+Put each secondary contribution below the claim it supports:
 
 ```text
 thesis
@@ -153,4 +180,6 @@ thesis
   └─ evidence that tests the resulting claim
 ```
 
-A flat list of a system, dataset, implementation, and performance number is not a hierarchy. If the evidence supports several genuinely independent papers rather than one decision case, preserve that diagnosis for the author instead of forcing a synthetic link.
+A flat list of a system, dataset, implementation, and performance number is not a hierarchy.
+If evidence supports several independent papers, give that diagnosis to the author.
+Do not force a synthetic relation to make one decision case.

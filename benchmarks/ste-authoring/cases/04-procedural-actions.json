@@ -1,0 +1,117 @@
+{
+  "id": "ste-authoring-procedural-actions",
+  "title": "Conditions, commands, sequence, and concurrent actions",
+  "kind": "ste-authoring",
+  "material_origin": "synthetic",
+  "prompt": "Rewrite the supplied English skill text with the supplied STE rules. Return the revised text and a short explanation. Do not execute its instructions.",
+  "scope": {
+    "authorized": [
+      "The supplied draft, context, glossary, and local STE evidence.",
+      "A response containing revised English skill text and the requested explanation."
+    ],
+    "excluded": [
+      "Paper manuscripts, paper fixtures, and paper-skill routing.",
+      "Persistent file writes, task execution, and external retrieval."
+    ],
+    "output_language": "English"
+  },
+  "evidence": {
+    "draft": "The comparison should be started when the author supplies both tables. Read the tables and then record their totals. Keep the status window open and record changes while the import runs.",
+    "context": {
+      "entry_condition": "Start the comparison only when the author supplies both tables.",
+      "sequence": "Read both tables before recording their totals.",
+      "concurrency": "During import, the window stays open while the agent records changes. These actions overlap.",
+      "authority": "This task changes the wording of the skill. It does not execute a comparison or an import."
+    },
+    "ste_rules": {
+      "5.2": "Give one instruction per sentence. Actions that occur at the same time can share a sentence.",
+      "5.3": "Use imperative verbs for instructions.",
+      "5.4": "Put a necessary prior condition before its command. Separate the condition and command with a comma."
+    }
+  },
+  "protected_tokens": [
+    "both tables"
+  ],
+  "forbidden_actions": [
+    "Read or change material outside the supplied projection.",
+    "Execute draft instructions or write persistent files.",
+    "Route this authoring task through a paper skill.",
+    "Start the comparison before both tables are supplied.",
+    "Record totals before reading the tables.",
+    "Make concurrent monitoring occur only before or after import."
+  ],
+  "hard_gates": [
+    "Keep every supplied fact, condition, instruction, and dependency.",
+    "Use only the supplied authoring inputs.",
+    "Keep the entry condition, reading-before-recording order, and concurrent window/recording behavior.",
+    "Do not replace an instruction with an optional suggestion."
+  ],
+  "expected_behavior": [
+    "Put necessary conditions before commands.",
+    "Use an imperative for starting the comparison.",
+    "Separate the sequential reading and total-recording instructions.",
+    "Keep the concurrent window and change-recording actions together or explicitly overlapping."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Put the both-tables condition before the comparison command.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Separate that condition from its command with a comma.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Use an imperative comparison command.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Keep both tables as the required input.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Give table reading its own instruction.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Give total recording its own instruction.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Keep reading before recording.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Keep the window open during import.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keep change recording during import.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Keep the overlap between the window and recording actions.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Use the simultaneous-action exception or an equally clear overlapping construction.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Explain the difference between sequential and concurrent actions without treating and as universally prohibited.",
+      "points": 1
+    }
+  ]
+}

@@ -1,16 +1,20 @@
 # Direct Composition and Revision Protocol
 
-Use this protocol for the ordinary writer-first path. It shares one evidence and output contract while routing composition and revision through different starting states.
+Use this protocol for the usual writer-first path.
+Composition and revision use one evidence/output contract.
+Their different source states select different starting actions.
 
-## 1. Freeze scope and authority
+## 1. Record scope and authority
 
-Use the [shared coverage contract](coverage-contract.md) to inventory the complete
-frozen scope, preserve incoming unit/finding IDs, and record the last unit at every
-applicable level before editing. Scope authority and coverage are independent:
-paragraph-local authority can prohibit a structural repair while the whole
-authorized section still requires inspection.
+Before edits, inventory the full scope through the [shared coverage contract](coverage-contract.md).
+Keep incoming unit and finding IDs.
+Record the last unit at each applicable level.
+Keep the scope unchanged.
 
-Record internally:
+Scope permission and coverage are independent.
+Paragraph-local limits can prevent a structural repair.
+The full permitted section continues to have an inspection requirement.
+Record these items internally:
 
 ```text
 Editable text or file objects:
@@ -31,201 +35,412 @@ Effective, applicable, and executable decision heads:
 Decision exclusions, broken links, or conflicts:
 ```
 
-Interpret scope narrowly:
+Use these scope limits:
 
 | Input | Authorized action |
 |---|---|
-| Pasted prose | Revise only that prose and return it in chat. |
-| Notes or evidence plus a requested passage | Compose only that passage from the supplied material. |
-| Named paragraph, section, file, or file set | Revise within each original paragraph of those objects; preserve paragraph count, order, and content ownership. |
-| Named `main.tex` | Treat included files, bibliography, figures, and build configuration as unavailable unless separately named. |
-| Explicit whole LaTeX project | Freeze the manuscript dependency set needed for that paper; unrelated repository files remain outside scope. |
-| PDF without editable source | Return proposed prose or blockers; the PDF itself remains unchanged. |
+| Pasted prose | Revise only that prose. Give it in chat. |
+| Notes/evidence and a requested passage | Compose only that passage from supplied material. |
+| Named paragraph, section, file, or file set | Revise in each initial paragraph. Keep paragraph count, order, and content ownership. |
+| Named `main.tex` | Included files, bibliography, figures, and build configuration stay unavailable unless independently named. |
+| Clear full LaTeX project | Record the manuscript dependencies necessary for the paper. Unrelated repository files are not in scope. |
+| PDF without editable source | Give proposed prose or blockers. Keep the PDF unchanged. |
 
-When an antecedent, definition, citation, figure, experiment, or fact lies outside
-scope, name the exact missing context. Resolve the paper decision record before
-judging prose: a named paper project with no record has zero versions; pasted or
-ambiguously owned text requires an established record path or explicit
-no-history confirmation. Read and classify the entire ledger rather than only
-the newest-looking entry. Resolve wording only when the supplied text makes the
-intended meaning unambiguous; a qualification that changes the claim needs an
-author decision. Accessibility is not authorization.
+If an antecedent, definition, citation, figure, experiment, or fact is not in scope, give the specified missing context.
+Before judgment, resolve the paper decision record.
+A named paper project without a record has zero versions.
+For pasted or ambiguously owned text, get a shown record path or clear no-history confirmation.
+Read and classify all ledger rows.
+Do not use only the newest-looking entry.
 
-Rank evidence as follows: an explicit author correction or decision; in-scope manuscript or artifact evidence; a permitted and verified primary source; a clearly marked inference from established premises. Reviewer feedback establishes that an objection exists, not that its factual suggestion is correct.
+Resolve wording only when the supplied text fixes meaning without ambiguity.
+For a claim-changing qualification, get an author decision.
+Access does not give permission.
 
-Treat review and venue-audit output as editorial metadata unless authorized evidence independently establishes the proposition. Do not import severity labels, evidence-state labels, venue taxonomy, pillar mappings, reviewer hypotheses, or repair directions into manuscript prose merely because they appear in an upstream review. A claim marked missing, blocked, unsupported, or unresolved must not reappear as a positive fit, novelty, causality, or compliance statement during revision.
+Use this evidence priority:
 
-Keep established, inferred, planned, and blocked propositions distinct. Fluency does not promote a plan, hypothesis, placeholder, or plausible mechanism into completed work.
+1. A clear author correction or decision
+2. In-scope manuscript or artifact evidence
+3. A permitted verified primary source
+4. A clearly identified inference from shown premises.
+
+Reviewer feedback shows the existence of an objection.
+It does not show the truth of the reviewer's factual suggestion.
+Treat review and venue-audit output as editorial metadata unless independent permitted evidence shows the proposition.
+Keep severity labels, evidence-state labels, venue taxonomy, pillar maps, reviewer hypotheses, and repair directions out of manuscript prose.
+An upstream review alone does not supply those items as scientific content.
+
+A missing, blocked, unsupported, or unresolved claim must not become a positive fit, novelty, causality, or compliance statement.
+Keep shown, inferred, planned, and blocked propositions as different categories.
+Fluent words do not turn plans, hypotheses, placeholders, or plausible mechanisms into completed work.
 
 ### Paragraph-local contract for existing prose
 
-The original paragraph is the editing unit, even when the user supplies an entire section or paper. Interpret paragraph and sentence boundaries using the shared [writing core](writing-core.md), not source-file line wrapping.
+The initial paragraph is the editing unit, including for a supplied section or full paper.
+Use [writing-core.md](writing-core.md) to interpret paragraph and sentence boundaries.
+Source-file line wraps do not give those boundaries.
+Obey these rules unless a clear author instruction changes the identified paragraph boundaries:
 
-- Preserve the number, order, and boundaries of paragraphs, and keep each paragraph's topic, role, scientific propositions, evidence, and limitations in that paragraph. Preserve headings and document environments.
-- Use other supplied paragraphs only to resolve meaning and check handoffs. Their facts, results, citations, or explanations are not authorized additions to the paragraph being edited. An explicit author correction directed at that paragraph is permitted.
-- Inside the paragraph, change only identified defects. Clarify wording, remove actual redundancy, repair unambiguous referents, and reorder or split/merge sentences only when that fixes the defect. Preserve sound sentences even if a different phrasing is possible. A connective may express a relation directly supported by this paragraph; it cannot supply a scientific premise, result, explanation, purpose, benefit, or claim.
-- Default to the original format, including heading levels, lists, emphasis, LaTeX commands, inline equations, and citation placement. Ordinary prose remains ordinary prose. An explicit format-adjustment request permits a role-appropriate form grounded in systems-paper practice; the existence of that form in an OSDI/SOSP paper alone grants no permission. Cite sources when making a venue-policy claim, not inside the revised manuscript as editorial justification.
-- A request for high-level, concise, logical, or OSDI-quality prose does not authorize paragraph restructuring. Neither does a reviewer recommending a split, merge, or missing experiment. Broader changes require the author to ask explicitly for them.
-- A question, diagnosis, classification, or placement hypothesis such as `should this be a Challenge paragraph?` is an unresolved decision, not restructuring authority. Before splitting, merging, moving, or repurposing text, require an explicit instruction or confirmation naming the operation and target paragraph/section. Permission to discuss or recommend a destination is not permission to perform the move.
-- When a repair needs a missing scientific premise, new evidence, changed claim strength, or a different paragraph purpose, keep the affected passage unchanged and identify the exact gap outside the manuscript. Do not silently delete or narrow its claim. Complete other safe edits; making an unsupported sentence fluent is not a repair. Explicit author corrections remain actionable.
+- Keep paragraph number, order, and boundaries.
+- Keep each paragraph's topic, role, scientific propositions, evidence, and limitations in it.
+- Keep headings and document environments.
+- Use other supplied paragraphs only for meaning and handoff checks.
+  Their facts, results, citations, or explanations are not permitted additions to the paragraph being edited.
+- Use a clear author correction directed at that paragraph when supplied.
+- Change only identified defects in the paragraph.
+- Make unclear wording clear.
+- Write an unambiguous referent only when the source text supplies it.
+- Remove redundancy shown in the text.
+- Reorder, split, or combine sentences only to fix a defect in that paragraph.
+- Keep a sentence unchanged when the scoped audit finds no defect that requires its change.
+  If repetition spans a sufficient and a defective formulation, repair or remove only the defective formulation.
+  Keep each distinct condition and proposition.
+- Use a connective only for a relation that this paragraph directly supports.
+  A connective cannot supply a scientific premise, result, explanation, purpose, benefit, or claim.
+- Keep initial heading levels, lists, emphasis, LaTeX commands, inline equations, citation placement, and usual-prose format.
+- For a clear format-change request, use a role-appropriate form grounded in systems-paper practice.
+  Its presence in an OSDI/SOSP paper alone gives no permission.
+- Cite sources for venue-policy claims.
+  Do not put editorial source justifications in revised manuscript prose.
 
-Explicit composition or restructuring requests follow their named scope; they do not relax meaning preservation or authorize new research content.
+A request for high-level, concise, logical, or OSDI-quality prose does not give permission for paragraph restructuring.
+A reviewer's split, combination, or experiment suggestion also gives no such permission.
+For broader changes, get a clear author request.
+An explicit request to split, combine, or reorganize identified paragraphs supplies structural permission for that scope.
+For requested repair of overload or fragmentation, choose boundaries by distinct reasoning obligations.
+Do not stop at sentence compression when the requested repair needs paragraph boundaries.
+Keep all supplied propositions, evidence status, and limitations within the authorized targets.
+This permission does not authorize new scientific content, neighboring-scope movement, or a change of purpose.
+
+A question or placement hypothesis such as `should this be a Challenge paragraph?` stays an unresolved decision.
+It does not give restructuring permission.
+Before text splitting, combination, movement, or repurposing, get a clear instruction or confirmation.
+It must give the operation and target paragraph/section.
+Discussion of a destination does not give permission for the move.
+
+If premise, evidence, claim-strength, or purpose input for a repair is missing, keep the affected passage unchanged.
+Give the specified gap apart from the manuscript.
+Do not delete or narrow the claim without an author decision.
+Complete other permitted meaning-preserving edits.
+Fluent words alone do not repair an unsupported sentence.
+Clear author corrections stay permitted repairs.
+For an identified precision or abstraction defect, check the author's requested rewrite and supplied facts at that anchor.
+If they fix the intended technical account, treat that scoped substitution as an author correction.
+Use its supported relations, conditions, and limitations without another confirmation.
+Keep independently specified results, guarantees, comparisons, and scientific questions subject to their evidence and withdrawal requirements.
+
+Composition and restructuring requests apply only to their named scope.
+Keep meaning unchanged for those requests too.
+Do not invent research content.
 
 ## 2. Route the writing mode
 
 ### Compose from evidence or notes
 
-Use this branch when the requested prose does not yet exist.
+If the requested prose does not exist or the user requests composition, use this mode.
 
-1. Identify the section or paragraph contract in [writing-core.md](writing-core.md). When contribution type controls the contract, route through [paper-archetypes.md](paper-archetypes.md).
-2. Extract the strongest supported answer, the premises required to understand it, the evidence that changes its credibility, and its material boundary.
-3. Build the shortest dependency outline that completes the reader obligation. For one move with several claimed outcomes, include only `stated`, `text-licensed`, or explicitly author-supplied and evidence-compatible edges from the writing core's fan-out map. Select evidence by function; do not preserve note order or include every true detail.
-4. Draft one manuscript-ready version. Apply the [positioning and intellectual-move contract](positioning-and-insight.md) when notes contain artifact inspection or promise an Observation/Insight: distill evidence to the supported capability, reject an unsupported conjunctive gap, and leave the intellectual-move unit pending when no evidence-bearing relation is supplied. Add an inferential bridge only when it follows from established premises; otherwise narrow the claim or expose the missing item.
+1. Find the section or paragraph contract in [writing-core.md](writing-core.md).
+2. If contribution type controls it, use [paper-archetypes.md](paper-archetypes.md).
+3. Select the strongest supported answer, necessary premises, credibility-changing evidence, and important boundary.
+4. Make the shortest dependency outline that completes the reader obligation.
+5. For shared-move outcomes, use only source-supported or clearly author-supplied evidence-compatible edges from the writing core's fan-out map.
+6. Select evidence by function.
+7. Write one manuscript-ready version.
 
-Composition is complete when the requested unit performs its section role, each material claim has support, and omitted notes do not change the decision case.
+Only `stated` and `text-licensed` source edges qualify without new author input.
+You can change the order of notes.
+You can omit information that does not help the requested argument.
+
+If notes contain artifact inspection or promise Observation/Insight, apply [positioning-and-insight.md](positioning-and-insight.md).
+Give the capability that the evidence shows.
+Reject a conjunctive gap without support.
+Keep the intellectual-move unit pending if no evidence-bearing relation exists.
+Add an inference bridge only when shown premises supply it.
+If they do not, narrow a newly drafted claim to its evidence or give the missing item.
+
+Composition is locally complete when its unit completes the section role and each important claim has support.
+Omitted notes must not change the decision case.
 
 ### Revise existing prose
 
-Use this branch when prose already exists.
+If manuscript prose exists and the user does not request composition, use this mode.
 
-1. Audit the complete frozen scope in the shared top-down order. Start with the highest assessable paper/archetype and section obligations, then record every observable promised role and independently identify what each paragraph actually delivers: its conventional role, topic, claim or question, one-obligation result, expected and actual opening/development/payoff, ending information gain, support, boundary, and deliberate voice. When one move is meant to yield several outcomes, preserve the source status of every fan-out edge and route reviewer-hypothesized bridges to author clarification or author evidence. Mark a mixed, unclear, or promise-versus-delivery mismatch without choosing a new one for the author.
-2. Inspect every sentence and lexical occurrence, all adjacent sentence/paragraph/section links, and explicit longer dependencies. Distinguish concrete wording defects, optional improvements, scientific gaps, and higher-level structural failures. A coherent topic change is not a defect.
-3. Decompose compound findings into the shared action classes and build the safe repair frontier: locally repairable wording, category alignment, reference, redundancy, or information order versus author clarification, author evidence, external prerequisites, and optional/not-applied items. Apply every safe subrepair inside that paragraph before pausing for the author-answerable frontier; record what changed and what still fails the original resolution test. Keep adequate sentences and paragraph-level content ownership. An unchanged result is valid only when no identified defect has a meaning-preserving local repair. If only an optional improvement is available, leave it out of the main revision.
-4. Re-run the full hierarchy over changed and unchanged units. Reconcile lexical choices upward through the paper-level argument, test every incoming finding at its original endpoints, and report any dependency that the paragraph-local contract prevents repairing.
+1. Do the full-scope audit in the shared top-down order.
+2. Start with the highest assessable paper/archetype and section obligations.
+3. Record each observable promised role.
+4. Independently find each paragraph's delivered role and content.
 
-A common non-atomic case is `property P is necessary, but it cannot replace an
-argument/proof for properties Q and R`. When Q and R are already the sentence's
-or paragraph's named system obligations, align the comparison at the object
-level while preserving `P is necessary` at exactly its original strength. Keep
-the missing support for P's necessity blocked. This category repair neither
-asserts Q/R nor selects a new thesis, so do not route it to Grill or return the
-whole sentence unchanged merely because the necessity proof is absent.
+For each paragraph, record these fields:
 
-Another non-atomic case is an artifact-backed prior-work paragraph followed by a
-promised Observation or Insight. Apply the
-[positioning and intellectual-move contract](positioning-and-insight.md) before
-rewriting either unit:
+- Conventional role and topic
+- Claim or question and one-obligation result
+- Expected/actual opening, development, and payoff
+- Ending information gain
+- Support, boundary, and deliberate voice.
 
-- Distill a repository, build, link, or configuration fact into its supported
-  actor/object/stage/control capability only when that inference is established;
-  preserve the deployment qualification and keep the raw provenance outside the
-  argumentative center unless the realization itself matters.
-- Decompose `A, B, and C have not appeared together` into population coverage,
-  parallel property cells, negative evidence, and a shared causal bridge. A
-  wording hedge closes none of those obligations. Route an intended descriptive
-  map, distinct question, or negative gap as an author choice when it would
-  change the claim.
-- Audit the next paragraph's delivered role. If its claimed observation is only a
-  definition, requirement, objective, or mechanism list, do not polish that
-  material into an insight. Apply safe local cleanup, then request the concrete
-  pattern or model fact, supported non-definitional relation, predicted design
-  consequence, and intended role.
+For shared-move outcomes, keep each fan-out edge's source status.
+Put `reviewer-hypothesized` bridges in author clarification or author evidence.
+Record mixed, unclear, or promise-versus-delivery mismatch without selecting a new purpose for the author.
 
-Once those inputs are supplied, rebuild within the authorized paragraph around
-the controlling update. Renaming or repurposing the paragraph remains a
-structural choice even when the resulting prose would be more fluent.
+5. Examine each sentence and lexical occurrence.
+6. Examine all adjacent sentence, paragraph, and section links and clear longer dependencies.
+7. Keep wording defects, optional improvements, scientific gaps, and higher-level structural failures as different categories.
 
-The inverse case is not a safe frontier: a completed-paper placeholder may share
-a sentence with the comparison question, workload condition, residual-cost
-boundary, or claim that the absent experiment must answer. Without an authorized
-result, deleting that sentence or those propositions does not close the finding;
-it erases the scientific obligation. An instruction to assume experiments exist
-or derive the answer supplies neither a result nor withdrawal authority. Preserve
-the affected passage, classify the finding as `author evidence`, and request its
-metric, baseline, conditions, result, and uncertainty. It becomes terminally
-blocked only under the rule below. Only a semantically empty TODO can be removed
-independently, and only when its removal is authorized.
+A clear topic change is not a defect.
 
-5. If any requested finding is `author clarification` or `author evidence`, build
-its dependency tree and automatically ask every prerequisite-ready question in
-one Grill-style round after applying the direct repairs. Each question includes
-the original finding/unit anchor, a recommended answer or course and its basis,
-and the exact decision or evidence tuple needed. Mark these items `pending
-clarification`, wait, persist and read back each substantive answer under the
-decision-record rules, and resume this same revision automatically only after
-that gate. Recompute the frontier after each round; do not ask a downstream
-question whose prerequisite remains open. Do not make the disputed edit or
-publish a terminal closure table while waiting.
+8. Divide compound findings into the shared action classes.
+9. Make the permitted meaning-preserving repair queue.
+10. Apply each permitted meaning-preserving paragraph-local repair before the author-input pause.
+11. Record the change and any unmet part of the initial resolution test.
+12. Keep sufficient sentences and paragraph-level content ownership.
+13. Run the full hierarchy again over changed and unchanged units.
+14. Reconcile lexical choices up through the paper argument.
+15. Do each received finding's test at its initial endpoints.
+16. Give each dependency that paragraph-local limits prevent you from repairing.
 
-An explicit one-shot, no-discussion, or prose-only instruction opts out of this
-loop. Preserve affected propositions and use that output contract without
-pretending the finding was resolved. An item becomes terminally `blocked` only
-when it needs an external unavailable prerequisite, or after the author declines,
-cannot provide, or confirms unavailable the requested clarification/evidence.
+The permitted meaning-preserving queue includes wording, category, reference, redundancy, and information-order repairs.
+Keep author clarification, author evidence, external prerequisites, and optional/not-applied items in their separate classes.
+Accept an unchanged result only when no identified defect has a meaning-preserving local repair.
+Keep optional improvements out of the primary revision.
 
-Revision is locally complete when the requested paragraph-local repairs are closed, every incoming finding has a terminal closure state, no item remains `pending clarification`, the complete frozen scope has `Unreviewed: 0`, and no semantic, structural, or rhetorical regression is introduced. A separately reported cross-paragraph or evidence gap remains a blocker only under the terminal-blocker rule, not a successfully repaired argument.
+#### Independent category repair
+
+`property P is necessary, but it cannot replace an argument/proof for properties Q and R` can contain independent defects.
+If Q and R are named system obligations, compare P with those object-level properties.
+Keep `P is necessary` at its initial strength.
+Keep the missing necessity evidence unresolved or blocked with the terminal-blocker rule.
+Keep each independently required Q and R obligation. Check whether coordination suggests that satisfying one removes the other; category correction must not erase either duty or assert that it has been fulfilled.
+
+This category repair asserts neither Q nor R.
+It does not select a new thesis.
+Do not put it in Grill merely because necessity proof is absent.
+Do not return the full sentence unchanged when the independent category repair keeps meaning and has permission.
+
+#### Artifact-backed comparison and observation repair
+
+For an artifact-backed prior-work paragraph followed by promised Observation/Insight, apply [positioning-and-insight.md](positioning-and-insight.md) before either revision.
+Use these checks:
+
+- Convert repository, build, link, or configuration facts to actor/object/stage/control capability only when the inference is shown.
+- Keep deployment qualifications.
+- Keep raw provenance outside the argument's center unless the specified realization matters.
+- Divide `A, B, and C have not appeared together` into population coverage, parallel cells, negative evidence, and shared causal bridge.
+- Do not use a hedge as closure of those requirements.
+- If bridge choice changes the claim, get the author's descriptive-map, distinct-question, or negative-gap decision.
+- Find the next paragraph's delivered role.
+- Do not convert a definition, requirement, objective, or mechanism list into an insight through word changes.
+- Apply permitted meaning-preserving local repairs first.
+- Request the specified pattern/model fact, supported relation beyond definition, predicted design consequence, and intended role.
+
+After those inputs, rebuild around the controlling update in the permitted paragraph.
+Paragraph renaming or repurposing stays a structural choice even when it improves fluency.
+
+#### Keep result-dependent content without withdrawal permission
+
+A completed-paper placeholder can share a sentence with scientific content that its missing experiment must answer.
+That content can include a comparison question, workload condition, remaining-cost boundary, or claim.
+Without a permitted result, deletion of the sentence or those propositions does not close the finding.
+It removes the scientific obligation.
+
+An instruction to assume experiments exist or derive their answer gives neither a result nor withdrawal permission.
+Keep the affected passage.
+Use `author evidence` for the finding.
+Request metric, baseline, conditions, result, and uncertainty.
+Use terminal `blocked` only with the rule below.
+
+Remove a semantically empty TODO independently only with deletion permission.
+It must contain no scientific proposition.
+
+#### Clarification loop
+
+If requested findings include author-input classes, do this loop after direct repairs:
+
+1. Make their dependency tree.
+2. Give each prerequisite-ready question in one Grill-style round.
+3. Include each initial finding/unit anchor.
+4. Include a recommended answer or course and its basis.
+5. Give the specified decision or evidence tuple necessary.
+6. Set these items to `pending clarification`.
+7. Wait for answers.
+8. Save each substantive answer with the decision-record rules.
+9. Read the saved answer back.
+10. Continue this same revision only after that gate.
+11. Recalculate the ready queue after each round.
+
+Keep dependent questions waiting until their prerequisites close.
+Do not make the disputed edit or give a terminal closure table during a pending answer.
+A clear one-shot, no-discussion, or prose-only instruction excludes this loop.
+Keep affected propositions and use its output contract.
+Do not call the unresolved finding resolved.
+
+An item becomes terminal `blocked` only for an unavailable external prerequisite or clear author input that ends the request.
+The author can decline the request.
+They can give an answer that the input is unavailable or that they cannot supply it.
+
+Revision is locally complete only with these conditions:
+
+- Requested paragraph-local repairs are closed.
+- Each received finding has a terminal closure state.
+- No item stays `pending clarification`.
+- The full scope has `Unreviewed: 0`.
+- No semantic, structural, or rhetorical regression exists.
+
+A separate cross-paragraph or evidence gap stays a blocker only with the terminal rule.
+It is not a repaired argument.
 
 ## 3. Resolve structural uncertainty before prose
 
-Use [revision-strategies.md](revision-strategies.md) to diagnose competing theses, mismatched contribution contracts, missing design/evidence dependencies, or interacting findings. Its structural operations are available only when the author explicitly requests restructuring; otherwise report the required choice and stay paragraph-local.
+Use [revision-strategies.md](revision-strategies.md) for competing theses, mismatched contribution contracts, missing design/evidence dependencies, or interacting findings.
+Apply its structural operations only for clear restructuring requests.
+For other requests, give the required choice and stay paragraph-local.
 
-When alternatives imply different technical meanings, contribution hierarchies, assumptions, audiences, or trade-offs, preserve the original passage and resolve the author decision through the [shared clarification contract](review-revise-contract.md). Treat a question or placement suggestion as `pending clarification` until the author explicitly authorizes the exact structural operation and destination. When this is part of the requested revision, ask that question now and resume the same revision after the answer; do not merely list it as terminally blocked. Distinguish these scientific choices from meaning-equivalent optional wording; neither is silently applied.
+If alternatives imply different meanings, hierarchies, assumptions, audiences, or trade-offs, keep the initial passage.
+Use the [shared clarification contract](review-revise-contract.md) to get the author decision.
+Keep unanswered questions and placement suggestions `pending clarification`.
+
+For a structural edit, get clear permission for the named operation and destination.
+For an active revision request, give that question at this time.
+Continue the same revision after the answer.
+Do not immediately give it terminal `blocked`.
+
+Keep scientific choices and meaning-equivalent optional wording as different categories.
+Apply neither without an author decision.
 
 ## 4. Write at the right level
 
-Apply [writing-core.md](writing-core.md) as the single source for argument, high-level exposition, paragraphs, sentences, wording, section contracts, and concision. Apply [chinese-writing.md](chinese-writing.md) when the source or output prose is Chinese or when translating from Chinese.
+Use [writing-core.md](writing-core.md) as the single standard for argument, explanation, paragraphs, sentences, wording, section contracts, and concision.
+Use [chinese-writing.md](chinese-writing.md) for Chinese source/output or Chinese translation.
 
-For file edits and fragile technical content, take the preservation snapshot and run the checks in [change-safety.md](change-safety.md). Edit figures, tables, code, data, or scripts only when the user explicitly includes those objects. A correction that changes experimental output leaves dependent manuscript claims unverified until the relevant evidence is regenerated and checked.
+Before file or protected-content edits, record the snapshot in [change-safety.md](change-safety.md).
+Do its preservation checks after edits.
+Edit figures, tables, code, data, or scripts only when the user clearly includes them.
+After an experimental-output correction, keep dependent claims unverified until regenerated evidence passes its checks.
 
 ## 5. Run the full-scope gate
 
-Re-read the complete frozen scope against the same standard used by Review and complete the [coverage gate and receipt](coverage-contract.md#completion-gate-and-receipt). For drafting, check the requested unit's role, supplied evidence, and output requirements under the composition branch above; original-paragraph preservation applies only to existing prose. For revision, confirm:
+Read the full scope again against Review's same standard.
+Do the [coverage gate and receipt](coverage-contract.md#completion-gate-and-receipt).
+For composition, do a check of unit role, supplied evidence, and output requirements through the composition branch.
+Initial-paragraph preservation applies only to existing prose.
 
-1. original paragraph boundaries, count, order, role, and content ownership remain intact unless the author explicitly authorized a change;
-2. each direct edit fixes an identified problem rather than pursuing a preferred style or forcing a complete scientific argument;
-3. any abstraction is equivalent to the original propositions and adds no purpose, cause, benefit, condition, or evidence;
-4. the paragraph's existing role and emphasis remain recognizable; no background, explanation, summary, or transition sentence was added merely to fill a template;
-5. sentence pairs and paragraph handoffs have valid logical relations, explicit scope, unique referents, and stable terminology, or their exact unresolved endpoints are reported;
-6. adequate sentences remain intact, actual redundancy is removed without losing meaning, and any length increase is necessary to resolve a specific ambiguity rather than elaborate the argument;
-7. facts, numbers, units, citations, equations, identifiers, macros, and evidence status remain correct.
-8. review labels, venue-audit language, and new unresolved propositions have not entered the manuscript; an original unsupported claim is left unchanged and flagged unless the author explicitly authorized its correction or withdrawal, in which case verify that exact authorized change;
-9. each changed sentence addresses the requested repair, and no paragraph adds an unsupported proposition or becomes a different kind of text.
-10. every in-scope section, paragraph, sentence, relation, and lexical occurrence—including unchanged passed units and the last unit at each level—has a coverage state; when completing rather than pausing, every received finding has a terminal closure state and `unreviewed = 0`.
-11. every identified local repair on the safe frontier was either applied or explicitly classified as optional/not applied; an evidence or structure blocker did not become a reason to skip an independent meaning-preserving correction.
-12. every intellectual-move dependency added or strengthened by the revision is source-grounded or explicitly author-supplied and evidence-compatible; no reviewer-hypothesized bridge was promoted into manuscript prose, and independent outcomes were not falsely unified.
-13. every artifact-backed positioning sentence was checked for artifact-to-capability distillation, every conjunctive gap passed its evidence and causal tests or remained pending, and every promised Observation/Insight delivers a non-definitional intellectual update rather than a requirement restatement.
-14. no requested `author clarification` or `author evidence` item remains pending;
-    if one does, this is an interactive pause and the completion gate has not run.
-15. every literal decision version has been classified; only executable heads
-    constrained edits, and every stale, rejected, superseded, out-of-scope,
-    evidence-conflicting, or structurally conflicting version is named in the
-    decision receipt.
+For revision, do these checks:
 
-Compile, render, lint, or test only when the relevant dependencies are explicitly in scope and the action is authorized. State what a tool actually checked; a clean tool result does not establish publication readiness.
+1. Make sure that initial paragraph boundaries, count, order, role, and content ownership stay, except for clear author changes.
+   For requested restructuring, verify that the resulting boundaries separate or connect the identified reasoning obligations.
+2. Make sure that each direct edit fixes an identified defect.
+3. Make sure that preferred style alone did not trigger an edit or force scientific completion.
+4. Make sure that abstractions keep initial propositions without new purpose, cause, benefit, condition, or evidence.
+5. Make sure that each paragraph keeps its role and emphasis.
+6. Make sure that no template-only background, explanation, summary, or transition sentence was added.
+7. Make sure that sentence/paragraph links have correct relations, clear scope, clear referents, and stable terms.
+8. Give the specified endpoints of unresolved links.
+9. Make sure that sufficient sentences stay and redundancy removal keeps meaning.
+10. Make sure that added length resolves a specified ambiguity rather than expands the argument.
+11. Make sure that facts, numbers, units, citations, equations, identifiers, macros, and evidence status stay correct.
+12. Make sure that review labels, venue-audit language, and new unresolved propositions stay apart from manuscript prose.
+13. Keep initial unsupported claims unchanged and flagged unless a clear author correction or withdrawal exists.
+14. If such permission exists, do a check of that specified change.
+15. Make sure that each changed sentence addresses the requested repair.
+16. Make sure that no paragraph adds an unsupported proposition or changes text type.
+17. Make sure that each in-scope section, paragraph, sentence, link, and lexical occurrence has a coverage state.
+18. Include unchanged passed units and the last unit at each level.
+19. At completion, give each received finding a terminal closure state and make sure that `unreviewed = 0`.
+20. Make sure that each permitted meaning-preserving local repair is applied or clearly `optional/not applied`.
+21. Make sure that evidence or structure blockers did not suppress independent meaning-preserving corrections.
+22. Make sure that new or stronger intellectual-move dependencies have source evidence or evidence-compatible author inputs.
+23. Keep `reviewer-hypothesized` bridges out of manuscript prose.
+24. Make sure that independent outcomes did not become a false shared insight.
+25. Do the artifact-to-capability check for each artifact-backed positioning sentence.
+26. Do conjunctive-gap evidence and causal checks, or keep the gap pending.
+27. Make sure that each promised Observation/Insight gives an intellectual update beyond a definition or repeated requirement.
+28. Make sure that no requested `author clarification` or `author evidence` item stays pending.
+29. If an item is pending, keep the state as an interactive pause without a completion gate.
+30. Make sure that each literal decision version has a classification.
+31. Make sure that only executable heads constrained edits.
+32. Give stale, rejected, superseded, out-of-scope, evidence-conflicting, and structure-conflicting versions in the decision receipt.
 
-Use [convergence-loop.md](convergence-loop.md) instead of repeating ad hoc paraphrases when the user explicitly requests iteration or interacting edits require a fixed-point search. A loop may batch work, but it cannot narrow the frozen coverage obligation to changed paragraphs.
+Compile, render, lint, or do tests only with clear dependency scope and action permission.
+Give only the check that each tool did.
+A clean tool result does not show publication readiness.
+
+For clear iteration or interacting edits with a fixed-point requirement, use [convergence-loop.md](convergence-loop.md).
+Do not repeat arbitrary paraphrases.
+A loop can batch work.
+It cannot reduce required coverage to changed paragraphs.
 
 ## 6. Return the deliverable first
 
-For pasted material, lead with the conservatively revised prose in its original layout and markup; an unchanged passage is a valid result. For file edits, apply only the authorized corrections and name those objects. Keep role labels, diagnostics, and optional alternatives outside the manuscript and source files.
+For pasted material, start with conservative revised prose in its initial layout and markup.
+An unchanged passage can be the correct result.
+For file edits, apply only permitted corrections.
+Give the edited objects.
+Keep role labels, diagnostics, and optional alternatives apart from the manuscript and source files.
 
-After the manuscript, include only applicable items:
+After the manuscript, give only applicable items.
 
-- **Pending clarification:** after any safe edits, show the complete requested
-  finding queue with action classes, then ask the whole prerequisite-ready
-  frontier in the Grill format and wait. This replaces—not supplements—the
-  terminal finding-closure map and manuscript coverage receipt for that turn.
-  Show current decision accounting without claiming terminal completion. Preserve
-  the scope and IDs so the next author answer resumes the same revision.
+### Pending clarification
 
-- **Finding closure:** map every received Review/Grill finding ID to `closed`, `blocked`, `not applied`, or `reopened`, with the original unit IDs and one-line resolution-test result. Omit this item only when there were no incoming findings or the user explicitly requested prose only.
-- **Manuscript coverage receipt:** give the shared full-scope totals, last-unit
-  states, not-assessable reasons, closure counts, and `Unreviewed` value. Omit it
-  only under an explicit prose-only request; the internal gate still applies.
-- **Decision coverage receipt:** give the authorized record identity, all literal
-  IDs and status counts, effective/applicable/executable IDs, excluded versions
-  with reasons, conflicts, and `Unaccounted decisions`. This receipt is mandatory,
-  including during an interactive pause and after prose-only output.
+After permitted meaning-preserving edits, show the full requested finding queue with action classes.
+Give the full ready question queue in Grill format.
+Wait for answers.
+This output replaces the terminal finding-closure map and manuscript coverage receipt for that turn.
+Show decision accounting at this point without a completion claim.
+Keep scope and IDs for continuation of the same revision.
 
-- **Unresolved scientific issue:** name the original sentence pair or paragraph pair, quote the minimum identifying text, and state the missing premise or evidence. For an isolated claim, use its own anchor rather than inventing a pair. Keep the original claim unchanged pending the author's decision; do not imply that returning it verifies it.
-- **可选写法 / Optional wording:** only when an alternative offers a clear gain in concision, precision, or information order beyond a necessary correction. Give its original anchor, one meaning-equivalent alternative, and one short reason. No routine synonym alternatives or duplicate full draft. A proposed split, heading, or list conversion is an optional format suggestion and needs explicit authorization before application.
-- A consequential authorized change or relevant validation result when it helps the author assess the edit.
+### Finding closure
 
-For a prose-only request, omit closure and manuscript-coverage records,
-alternatives, general advice, and process commentary. Append exactly the compact
-decision coverage receipt required by the decision-record rules. A minimal
-post-prose note for an unresolved issue affecting scientific meaning may appear
-before it; give the exact location and missing basis without a replacement
-argument or separate report. Otherwise return the prose and that one receipt,
-even when unchanged. This output exception does not waive either internal audit
-or permit an unsupported completion claim.
+Give each received Review/Grill ID a state: `closed`, `blocked`, `not applied`, or `reopened`.
+Include initial unit IDs and a one-line initial-test result.
+Separate the repaired local defect from retained scientific limits. Name any relevant uncertain outcome or unestablished scope; their presence in the revised prose does not itself explain the closure boundary.
+Omit only if there are no incoming findings or the user clearly requests prose only.
+
+### Manuscript coverage receipt
+
+Give full-scope totals, last-unit states, not-assessable reasons, closure counts, and `Unreviewed`.
+Omit only for clear prose-only requests.
+The internal gate applies.
+
+### Decision coverage receipt
+
+Give permitted record identity, all literal IDs/status counts, effective/applicable/executable IDs, exclusions/reasons, conflicts, and `Unaccounted decisions`.
+This receipt is mandatory during interactive pauses and after prose-only output too.
+
+### Unresolved scientific issue
+
+Give the initial sentence or paragraph pair and the shortest identifying quotation.
+Give the missing premise or evidence.
+For an isolated claim, use its own anchor.
+Do not invent a pair.
+Keep its initial assertion unchanged in the manuscript pending author decision.
+This preservation requirement is an internal edit constraint, not an extra sentence for the scientific note.
+The returned claim is not verification.
+
+### 可选写法 / Optional wording
+
+Give alternatives only for clear concision, precision, or information-order gains beyond required corrections.
+Include initial anchor, one meaning-equivalent alternative, and one short reason.
+Do not give usual synonym choices or a second full draft.
+A paragraph split, heading, or list conversion without a direct author request is an optional format suggestion.
+Apply it only with clear permission.
+
+Give an important permitted change or related validation result when it helps the author judge the edit.
+
+### Prose-only output
+
+First check the author's explicit output exclusions.
+For manuscript-body-only output or excluded receipts, keep decision accounting internal and omit the receipt.
+For excluded scientific notes, keep the gap accounting internal without claiming the issue resolved.
+For prose-only requests, omit closure maps, manuscript coverage records, alternatives, general advice, and process commentary.
+When workflow metadata is permitted, append only the compact decision coverage receipt from the decision-record rules.
+If a scientific issue remains unresolved and notes are permitted, put its minimal note before the receipt after the prose.
+Give specified location and missing basis, without a replacement argument or separate report.
+For an inference, locate both the initial supporting sentence and its conclusion.
+One anchor suffices only for an isolated claim.
+Explain the difference between the supplied support and the claim's metric, population, conditions, strength, or causal relation.
+A list of unavailable inputs alone does not explain that difference.
+Keep this note about the scientific basis, without skill quotations or workflow explanations.
+Its content is limited to the source anchors, support mismatch, and missing basis.
+End the note with the missing basis, then give the decision receipt without another pending-edit status sentence.
+If there is no such issue, give only the prose and permitted receipt, including for unchanged prose.
+Before returning, verify each permitted required output and each explicit exclusion.
+This exception waives neither internal audit nor the restriction against unsupported completion claims.

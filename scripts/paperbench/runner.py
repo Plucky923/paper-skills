@@ -139,8 +139,10 @@ def make_prompt(case_input, task, condition, bundle):
     )
     if condition == "skill":
         intro += (
-            "Apply systems-paper-revise. This closed-book adapter supplies the frozen skill documents below in full; "
-            "treat required reads as already supplied, follow their task routing, and do not fetch files. "
+            "Apply systems-paper-revise using the frozen revise documents below. "
+            "Linked cross-skill and research documents are not supplied. "
+            "Treat required context from those documents as unavailable and do not fetch files. "
+            "Follow the supplied documents' task routing. "
             "This is a text-only test, not a filesystem or venue-verification task.\n"
         )
         intro += "<frozen_skill_documents>\n"

@@ -1,6 +1,6 @@
 # Skill 与论文决策如何演化：现有做法调研
 
-核验日期：2026-09-06
+初次调研核验日期：2026-09-06。外部实现和 Git 版本的描述均指该快照；本地契约以链接的 skill 文件为准。
 
 ## 结论
 
@@ -9,7 +9,9 @@
 1. **Skill 源码进化**是一次受控的软件发布。规则、引用文件和脚本在 Git 中修改；候选版本经过结构校验和行为回归测试后，作为一个完整版本发布或安装。运行时可以指向最新版本，也可以固定在已验证版本上。
 2. **Skill 产生的决策进化**是项目状态的演化。旧决定不被重写成“仿佛一开始就这样”；新的完整决定通过稳定 ID 和 `supersedes` / `superseded by` 关系接替旧决定。待确认候选不会提前取代当前已确认决定，被拒候选也保留为历史。
 
-两者之间应只有受控反馈关系：真实使用暴露缺陷，缺陷变成可复现 fixture，fixture 驱动一个窄小的 skill 修改；某篇论文的具体决定本身不能自动上升为所有论文都必须遵守的新规则。OpenAI 当前的 skill-creator 也要求根据真实使用或已展示的失败迭代，并偏好窄修复而不是为每个例子累积普遍规则；结构 validator 不能证明 skill 做出了正确判断，行为验证应检查可观察结果而不是匹配固定措辞。该结论来自本机当前系统 skill `~/.codex/skills/.system/skill-creator/SKILL.md`，并与 OpenAI 关于测试触发行为、保持单一职责和显式输入输出的公开建议一致。[OpenAI Build skills](https://developers.openai.com/codex/skills)
+两者通过受控反馈联系。真实使用暴露缺陷，缺陷形成可复现 fixture，fixture 驱动范围明确的 skill 修改。某篇论文的决定不能自动成为所有论文的通用规则。
+
+初次调研读取的 OpenAI skill-creator 要求根据真实使用或已展示的失败迭代，优先修复具体问题。结构 validator 不能证明判断正确；行为验证应检查可观察结果，而非固定措辞。该结论来自当时本机的系统 skill `~/.codex/skills/.system/skill-creator/SKILL.md`，并与 OpenAI 关于测试触发行为、保持单一职责和显式输入输出的公开建议一致。[OpenAI Build skills](https://developers.openai.com/codex/skills)
 
 因此，本项目最合适的模型不是“把 `paper-decisions.md` 继续原地改成最新状态”，也不是“每轮 Grill 写一份聊天日志”，而是：
 
@@ -55,7 +57,7 @@ Anthropic 的实现给出更完整的部署纪律：新版本是完整快照而�
 
 ### 1.3 本仓库已经具备正确的 skill 演化骨架
 
-本仓库从 `2862b45` 到当前 `d411793` 的 Git 历史显示，三个 paper skills 通过连续的窄提交演化；最近几次修改都同时更新相应 reference、fixture、validator 或 unit test。现有 [benchmark protocol](../benchmarks/README.md) 已要求：
+初次调研核对了从 `2862b45` 到 `d411793` 的 Git 历史。三个 paper skills 通过范围明确的提交演化；该快照中的最近几次修改同时更新了相应 reference、fixture、validator 或 unit test。[benchmark protocol](../benchmarks/README.md) 要求：
 
 - 冻结不可变 baseline 和 candidate skill tree；
 - 每个候选调用使用新上下文并保持 A/B 盲测；
@@ -168,13 +170,13 @@ Review 和 Revise 每次必须先完整读取授权记录并构造四个集合�
 - 冲突或断链；
 - `Unaccounted decisions: 0`。
 
-即使用户要求只返回修改后正文，也保留一行最小 receipt。这里的零表示所有已读取版本都已分类，不表示所有决定都有效或都被应用。
+仅需正文时，作者允许流程元数据才附一行最小 receipt。明确要求正文内容或排除回执时，仍完成全历史核算，但不输出回执。这里的零表示所有已读取版本都已分类，不表示所有决定都有效或都被应用。
 
 ### 3.4 Grill 的持久化完成门
 
 Grill 可以在一次回答逐渐清楚时连续产生 pending 版本，但每个版本只在作者输入造成实质性状态或内容变化时创建；重复确认和纯措辞变化不创建新版本。
 
-对于任何实质性决定：
+对于作者允许保存的实质性决定：
 
 1. 找到或取得授权的 record path；
 2. 读取全历史和当前有效 head；
@@ -183,13 +185,13 @@ Grill 可以在一次回答逐渐清楚时连续产生 pending 版本，但每�
 5. 验证作者回答、双向 link、证据边界和未相关内容均保留；
 6. 只有此后才能宣布 standalone Grill 完成，或把控制权交还 embedded Revise。
 
-明确论文项目但记录尚不存在时，报告历史为零并创建首个实质性版本。只有粘贴文字或归属不明时，必须先取得 path，或由作者明确确认本次无历史记录；不能把决定永久留在 chat-only 状态并声称流程完成。
+明确论文项目但记录尚不存在时，报告历史为零，并在获准保存时创建首个实质性版本。只有粘贴文字或归属不明时，必须先取得 path，或由作者明确确认本次无历史记录。独立 Grill 须完成获准的记录保存才能宣告完成。若本次嵌入式澄清明确排除持久化，则把会话确认用于同一次修改，不冒充已保存历史。
 
 ### 3.5 Skill 自身的升级门
 
 把新契约加入三个 skills 时，应沿用本仓库已有演化机制：
 
-1. 先冻结当前 `d411793` 加现有工作树为 candidate 的真实基线边界，保留用户未提交修改；
+1. 冻结开始修改前的完整版本作为 baseline，包含当时的未提交内容；在独立目录生成 candidate，不覆盖用户工作。初次调研时的提交为 `d411793`，后续迭代须使用各自的真实基线；
 2. 新增至少三类 cold-start fixtures：历史全量核算、confirmed 被 pending candidate 挑战但仍有效、confirmed successor 原子接替旧版本；
 3. 再加入 rejected candidate、断链/conflict、prose-only 最小 receipt、Grill 未持久化不得完成等负例；
 4. validator 检查状态词、关系字段、必读路由、receipt marker 和 fixture schema，但不把字符串存在当成行为正确；
@@ -219,4 +221,4 @@ Grill 可以在一次回答逐渐清楚时连续产生 pending 版本，但每�
 
 实现前不需要再选择多文件 ADR、issue tracker 或数据库；对当前三-skill 工作流，一个授权的 Markdown 账本足够。需要锁定的新语义只有一项：**每次实质性演化生成完整新版本；pending successor 不取代旧 confirmed head，只有 confirmed successor 才以双向链接原子接替。**
 
-实施状态：上述语义已落实到三个 skills、记录模板、共享工作流与覆盖契约，并由新增的全历史、接替链和冲突/prose-only 三类 fixtures 覆盖。结构校验和单元测试能证明契约、路由与 fixture 完整性；完整 baseline/candidate 盲评仍按 benchmark acceptance 流程单独执行，不能由这些确定性检查替代。
+实施状态：上述语义已落实到三个 skills、记录模板、共享工作流与覆盖契约，并由全历史、接替链和冲突/prose-only 三类 fixtures 覆盖。结构校验和单元测试检查契约、路由与 fixture 完整性；它们不证明完整行为验收已通过。完整 baseline/candidate 盲评仍须按 benchmark acceptance 流程单独执行。

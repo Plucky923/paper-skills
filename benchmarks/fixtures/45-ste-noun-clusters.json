@@ -1,0 +1,131 @@
+{
+  "id": "ste-noun-clusters",
+  "title": "Expand unclear noun groups and nominalizations while preserving technical names and quantity attachments",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请根据作者确认的事实润色下面的英文系统论文正文，使表达清楚、准确。可以在原段内调整句子，但保持一个段落及其技术含义、条件和主张强度；已合格的正文应保留。不要搜索外部资料，不要添加未提供的事实。请先给英文正文，再给简短的中文修改说明和必要的 decision receipt。\n\nThe DMA ring buffer entry owner lifetime association records the worker as owner until completion. The worker performs the copying of a 64-byte descriptor into a 128-byte buffer and the recording of its 64-byte alignment. Each descriptor refers to one I/O request. Vector Delta Version Index preserves insertion order for records with the same key.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "meaning-preserving local revisions supported by the author-confirmed facts",
+      "sentence-level reorganization inside the one original paragraph"
+    ],
+    "excluded": [
+      "splitting or moving the paragraph",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented mechanisms, actors, measurements, or guarantees",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "Ownership relation: each entry in the DMA ring buffer has a worker as its owner. The association lasts until that entry completes.",
+      "Descriptor preparation: the worker copies the descriptor into the buffer and records the buffer's alignment. No order between these two preparation actions is specified.",
+      "Quantities: descriptor size is 64 bytes; buffer capacity is 128 bytes; the buffer's base address is aligned to a 64-byte boundary. No alignment requirement for the descriptor itself is supplied.",
+      "Each descriptor refers to one I/O request.",
+      "Vector Delta Version Index is the formal name of the index. Its ordering property applies to records with the same key.",
+      "No buffer-ownership rule, persistence property, throughput result, or other ordering guarantee is supplied."
+    ]
+  },
+  "protected_tokens": [
+    "DMA ring buffer",
+    "worker",
+    "until completion",
+    "64-byte",
+    "128-byte",
+    "descriptor",
+    "buffer",
+    "I/O request",
+    "Vector Delta Version Index",
+    "same key"
+  ],
+  "forbidden_actions": [
+    "retain the unclear multiword ownership relation merely because its individual words are technical",
+    "turn Vector Delta Version Index into a generic phrase or split its formal name to satisfy a noun-count rule",
+    "assign the worker ownership of the whole buffer instead of each ring entry",
+    "drop the ownership lifetime or change its completion event",
+    "swap descriptor size, buffer capacity, and buffer alignment or infer descriptor alignment",
+    "invent an ordering dependency between copying and recording",
+    "rewrite the adequate descriptor-request or same-key ordering sentences without a concrete defect",
+    "split the paragraph, access external material, invent a result, or omit the mandatory compact decision receipt"
+  ],
+  "hard_gates": [
+    "The ownership statement clearly relates each DMA ring buffer entry to its worker and preserves that entry's completion as the end of the association.",
+    "The worker copies the 64-byte descriptor into a buffer of 128 bytes and records the buffer's alignment to a 64-byte boundary. Size, capacity, and alignment remain attached to their respective objects; no descriptor-alignment fact or copy-record ordering is added.",
+    "The two adequate sentences beginning Each descriptor and Vector Delta Version Index remain unchanged. The formal index name, one-request relation, and same-key ordering boundary survive.",
+    "The manuscript remains one paragraph and introduces no ownership, persistence, performance, or global-ordering claim beyond the supplied facts. A separate compact zero-history decision receipt follows."
+  ],
+  "expected_behavior": [
+    "Replace the unclear ownership noun group with an explicit entry-owner-lifetime relation.",
+    "Use direct worker actions instead of unnecessary copying and recording nominalizations.",
+    "Preserve the established technical noun DMA ring buffer and the formal name Vector Delta Version Index.",
+    "Resolve the alignment referent using the supplied quantity facts rather than guessing from the nearest noun.",
+    "Keep the adequate control sentences unchanged and report only the completed local repairs."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Returns exactly one English manuscript paragraph before separate commentary and metadata.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Expands the unclear ownership noun group into an understandable relation without treating all technical nouns as defects.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Keeps each DMA ring buffer entry, its worker owner, and that entry's completion as the association boundary.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Replaces unnecessary copying and recording nominalizations with direct worker actions.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Preserves the worker's descriptor-to-buffer copying relation and invents no copy-record ordering.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Keeps 64 bytes as descriptor size.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Keeps 128 bytes as buffer capacity.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Keeps 64-byte alignment attached to the buffer and does not infer descriptor alignment.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Preserves the worker's recording of buffer alignment as a separate action rather than dropping it or inventing an alignment mechanism.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Keeps Each descriptor refers to one I/O request. unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Keeps Vector Delta Version Index preserves insertion order for records with the same key. unchanged, including the formal name and same-key boundary.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Appends the mandatory compact zero-history decision receipt and keeps it outside the manuscript.",
+      "points": 1
+    }
+  ]
+}

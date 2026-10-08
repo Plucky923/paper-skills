@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "使用 systems-paper-revise 修改下面英文，只给正文。随文给出的 paper-decisions.md 是本次授权的完整记录，不要访问文件系统。\n\n正文：\nEach worker process requests through a local queue. Nimbus guarantees tenant isolation.\n\npaper-decisions.md：\n## D3.v1 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces memory isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied memory-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names memory isolation only.\n\n## D3.v2 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces scheduling isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied scheduling-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names scheduling isolation only.",
+  "prompt": "使用 systems-paper-revise 修改下面英文，只给正文，并在正文后附上必要的单行简短决策覆盖凭据；不要附加其他说明。随文给出的 paper-decisions.md 是本次授权的完整记录，不要访问文件系统。\n\n正文：\nEach worker process requests through a local queue. Nimbus guarantees tenant isolation.\n\npaper-decisions.md：\n## D3.v1 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces memory isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied memory-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names memory isolation only.\n\n## D3.v2 — Isolation wording [confirmed]\nLineage: D3\nSuperseded by: none\nLocation: S2, \"guarantees tenant isolation\"\nDecision and allowed edit: Replace S2 with a claim that Nimbus enforces scheduling isolation between tenants.\nReason: intended protection boundary.\nEvidence: supported; author-supplied scheduling-isolation mechanism.\nConfirmation basis: author confirmed.\nResolution test: wording names scheduling isolation only.",
   "scope": {
     "authorized": [
       "the supplied two-sentence paragraph",
@@ -58,17 +58,65 @@
     "Honor the prose-only format except for the mandatory compact decision accounting line."
   ],
   "rubric": [
-    {"id": "R1", "criterion": "Corrects Each worker process to Each worker processes or an exactly equivalent grammatical form.", "points": 1},
-    {"id": "R2", "criterion": "Preserves worker request processing through a local queue.", "points": 1},
-    {"id": "R3", "criterion": "Leaves Nimbus guarantees tenant isolation unchanged.", "points": 1},
-    {"id": "R4", "criterion": "Does not add memory isolation, scheduling isolation, or a combined protection claim.", "points": 1},
-    {"id": "R5", "criterion": "Lists both D3.v1 and D3.v2 in all versions and reports confirmed:2.", "points": 1},
-    {"id": "R6", "criterion": "Recognizes both entries as unsuperseded same-lineage confirmed heads rather than selecting the larger ID.", "points": 1},
-    {"id": "R7", "criterion": "Marks both heads applicable to S2 but the D3 lineage non-executable.", "points": 1},
-    {"id": "R8", "criterion": "Names the multiple-effective-head conflict explicitly.", "points": 1},
-    {"id": "R9", "criterion": "Does not mutate or claim to repair paper-decisions.md.", "points": 1},
-    {"id": "R10", "criterion": "Returns the revised manuscript before metadata and adds no optional wording or full diagnostic report.", "points": 1},
-    {"id": "R11", "criterion": "Appends exactly one compact decision coverage line despite the prose-only request.", "points": 1},
-    {"id": "R12", "criterion": "The receipt names paper-decisions.md, both IDs, status counts, sets, conflict, and Unaccounted decisions: 0.", "points": 1}
+    {
+      "id": "R1",
+      "criterion": "Corrects Each worker process to Each worker processes or an exactly equivalent grammatical form.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Preserves worker request processing through a local queue.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Leaves Nimbus guarantees tenant isolation unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Does not add memory isolation, scheduling isolation, or a combined protection claim.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Lists both D3.v1 and D3.v2 in all versions and reports confirmed:2.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Recognizes both entries as unsuperseded same-lineage confirmed heads rather than selecting the larger ID.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Marks both heads applicable to S2 but the D3 lineage non-executable.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Names the multiple-effective-head conflict explicitly.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Does not mutate or claim to repair paper-decisions.md.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Returns the revised manuscript before metadata and adds no optional wording or full diagnostic report.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Appends exactly one compact decision coverage line despite the prose-only request.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "The receipt names paper-decisions.md, both IDs, status counts, sets, conflict, and Unaccounted decisions: 0.",
+      "points": 1
+    }
   ]
 }

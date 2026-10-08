@@ -24,6 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = REPO_ROOT / "skills"
 BUNDLE_MANIFEST = REPO_ROOT / "benchmarks" / "bundle.json"
 FIXTURES_ROOT = REPO_ROOT / "benchmarks" / "fixtures"
+TASK_INPUT_AUTHORITY_PATH = "benchmarks/task-input-authority.json"
 
 PAPER_SKILLS = ["systems-paper-review", "systems-paper-revise"]
 EXPECTED_SKILLS = PAPER_SKILLS + ["systems-paper-grill"]
@@ -59,7 +60,7 @@ EXPECTED_PROVENANCE_FILES = [
     }
 ]
 EXPECTED_ACCEPTANCE = {
-    "fixture_count": 42,
+    "fixture_count": 49,
     "minimum_score_per_fixture": 10,
     "allow_regression": False,
     "require_all_hard_gates": True,
@@ -261,6 +262,8 @@ def check_bundle(
         "behavioral_acceptance",
         "canonical_references",
     }
+    if "task_input_authority" in manifest:
+        expected_manifest_fields.add("task_input_authority")
     actual_manifest_fields = set(manifest)
     if actual_manifest_fields != expected_manifest_fields:
         report.error(
@@ -672,8 +675,8 @@ def check_coverage_contract(report: Report) -> None:
         "every lexical occurrence",
         "bottom-up consistency",
         "signaled/intended role",
-        "payoff/handoff and its information gain",
-        "argument role/organization",
+        "payoff/handoff, information gain",
+        "Argument role/organization",
         "reviewer-hypothesized",
         "Intellectual-move dependencies",
         "causal layer",
@@ -711,7 +714,7 @@ def check_interactive_clarification_contract(report: Report) -> None:
             "`external blocker`",
             "`optional/not applied`",
             "`pending clarification`",
-            "resumes the same revision automatically",
+            "Continue the same revision automatically",
         ),
         "skills/systems-paper-review/SKILL.md": (
             "next-action class",
@@ -719,12 +722,12 @@ def check_interactive_clarification_contract(report: Report) -> None:
         ),
         "skills/systems-paper-revise/SKILL.md": (
             "primary repair queue",
-            "automatically enter a Grill-style clarification round",
-            "Do not issue a terminal closure map",
+            "give one Grill-style round for each prerequisite-ready",
+            "do not give a terminal closure map",
         ),
         "skills/systems-paper-grill/SKILL.md": (
             "embedded clarification loop",
-            "resume the same revision automatically",
+            "continue the same revision without a second request",
         ),
     }
     for relative, literals in required_by_path.items():
@@ -750,24 +753,24 @@ def check_interface_boundary_contract(report: Report) -> None:
             "actor, artifact, stage, and control",
             "`negative gap`",
             "`distinct question`",
-            "path-level cost model or prediction",
+            "show a path fact or prediction",
             "claim strength",
         ),
         "skills/systems-paper-review/SKILL.md": (
             "interface-boundary contract",
-            "direct/delegated execution paths",
+            "direct or delegated execution paths",
         ),
         "skills/systems-paper-revise/SKILL.md": (
-            "interface-boundary contract",
-            "direct/delegated execution-path claims",
+            "references/interface-boundaries.md",
+            "direct/delegated path claim",
         ),
         "skills/systems-paper-review/references/review-protocol.md": (
-            "distinct-question bridge",
-            "boundary-axis ledger",
+            "For different questions, make sure that the map is parallel and the question is bounded",
+            "semantic-commitment, protection/authority, and execution-path ledger",
         ),
         "skills/systems-paper-revise/references/revision-strategies.md": (
             "three-axis ledger",
-            "claim-strength change",
+            "claim strength",
         ),
     }
     for relative, literals in required_by_path.items():
@@ -791,18 +794,18 @@ def check_positioning_insight_contract(report: Report) -> None:
             "artifact-to-capability distillation",
             "conjunctive gap",
             "Evidence observation",
-            "non-definitional",
+            "Find an inference beyond actor renaming, term explanation, or premise repetition",
             "prediction",
             "`author evidence`",
             "`author clarification`",
         ),
         "skills/systems-paper-review/SKILL.md": (
             "positioning and intellectual-move contract",
-            "Artifact-backed prior-work positioning",
+            "prior-work positioning with artifact evidence",
         ),
         "skills/systems-paper-revise/SKILL.md": (
-            "positioning and intellectual-move contract",
-            "artifact-backed prior-work comparisons",
+            "references/positioning-and-insight.md",
+            "Artifact-backed prior-work comparison",
         ),
         "skills/systems-paper-review/references/review-protocol.md": (
             "artifact-to-capability distillation",
@@ -818,12 +821,12 @@ def check_positioning_insight_contract(report: Report) -> None:
             "Evidence provenance",
         ),
         "skills/systems-paper-revise/references/revision-protocol.md": (
-            "artifact-to-capability distillation",
-            "every promised Observation/Insight",
+            "artifact-to-capability check",
+            "each promised Observation/Insight",
         ),
         "skills/systems-paper-revise/references/revision-strategies.md": (
             "artifact-to-capability distillation",
-            "fluent requirement prose is not an",
+            "Fluent requirement prose is not an",
         ),
     }
     for relative, literals in required_by_path.items():
@@ -849,16 +852,16 @@ def check_decision_history_contract(report: Report) -> None:
             "`rejected`",
             "`superseded`",
             "`Proposes replacement for`",
-            "A new pending candidate never displaces a confirmed head",
+            "Keep the confirmed head effective while a pending candidate is present",
             "one atomic record update",
             "**All versions:**",
             "**Effective heads:**",
             "**Applicable heads:**",
             "**Executable heads:**",
-            "duplicate IDs",
-            "nonreciprocal confirmed supersession",
+            "Duplicate IDs",
+            "Nonreciprocal confirmed supersession",
             "Unaccounted decisions: 0",
-            "no prior decision history",
+            "zero history",
         ),
         "skills/systems-paper-grill/assets/paper-decisions-template.md": (
             "## D1.v1",
@@ -870,24 +873,27 @@ def check_decision_history_contract(report: Report) -> None:
             "Confirmation basis:",
         ),
         "skills/systems-paper-grill/SKILL.md": (
-            "complete authorized history",
-            "pending candidate never",
-            "both sides of its supersession link in one write",
-            "persistence gate",
+            "full authorized history",
+            "Keep the effective confirmed head while candidates are pending",
+            "update the two supersession links in one write",
+            "Before you complete a changed decision, save it at the authorized path",
+            "Read the changed entries again",
+            "Read their reciprocal links again",
+            "Read unrelated records again",
         ),
         "skills/systems-paper-revise/references/review-revise-contract.md": (
-            "Read every decision version",
+            "Read each decision version",
             "all, effective, applicable, and executable",
             "Unaccounted decisions: 0",
             "prose-only Revise",
         ),
         "skills/systems-paper-review/SKILL.md": (
-            "derive its effective, applicable, and executable sets",
+            "find the effective, applicable, and executable decision sets",
             "Unaccounted decisions: 0",
         ),
         "skills/systems-paper-revise/SKILL.md": (
-            "read every version",
-            "explicit no-history confirmation",
+            "Read each decision version",
+            "the author's confirmation of no history",
             "one-line decision coverage",
         ),
     }
@@ -977,6 +983,170 @@ def check_workflow_case(fixture: dict, path: Path, report: Report) -> None:
         report.error(f"{rel(path)}: workflow initial files must contain non-empty text")
     if fixture.get("skills") != WORKFLOW_SKILLS:
         report.error(f"{rel(path)}: workflow must route Review, Grill, Revise in that order")
+
+
+def check_task_input_authority(
+    manifest: dict[str, object], report: Report, authoring_case_count: int = 6
+) -> dict[str, object]:
+    """Check a declared prompt-only amendment against its original fixture bytes."""
+    if "task_input_authority" not in manifest:
+        return {"status": "legacy_without_marker", "record_count": 0}
+    result: dict[str, object] = {"status": "invalid", "record_count": 0}
+    if manifest["task_input_authority"] != TASK_INPUT_AUTHORITY_PATH:
+        report.error(f"task_input_authority must name {TASK_INPUT_AUTHORITY_PATH!r}")
+        return result
+    path = REPO_ROOT / TASK_INPUT_AUTHORITY_PATH
+    try:
+        path.resolve().relative_to(REPO_ROOT.resolve())
+        raw = path.read_bytes()
+    except (OSError, ValueError) as exc:
+        report.error(f"{rel(path)}: required task-input authority record unavailable: {exc}")
+        return result
+    result["record_sha256"] = hashlib.sha256(raw).hexdigest()
+    initial_errors = len(report.errors)
+
+    def strict_json(text: str | bytes) -> object:
+        def unique_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
+            obj: dict[str, object] = {}
+            for key, value in pairs:
+                if key in obj:
+                    raise ValueError(f"duplicate JSON field {key!r}")
+                obj[key] = value
+            return obj
+
+        def invalid_constant(value: str) -> object:
+            raise ValueError(f"invalid JSON constant {value}")
+
+        return json.loads(text, object_pairs_hook=unique_object, parse_constant=invalid_constant)
+
+    def non_prompt_hash(fixture: dict[str, object]) -> str:
+        canonical = json.dumps(
+            {key: value for key, value in fixture.items() if key != "prompt"},
+            ensure_ascii=False, sort_keys=True, separators=(",", ":"),
+        ).encode("utf-8")
+        return hashlib.sha256(canonical).hexdigest()
+
+    try:
+        authority = strict_json(raw)
+    except (UnicodeError, ValueError) as exc:
+        report.error(f"{rel(path)}: invalid authority JSON: {exc}")
+        return result
+    fields = {"schema_version", "revision", "created_at_utc", "manuscript_case_count",
+              "authoring_case_count", "changed_cases", "unchanged_contract_fields",
+              "scope", "author_priority", "records"}
+    if not isinstance(authority, dict) or set(authority) != fields:
+        report.error(f"{rel(path)}: authority fields must be exactly {sorted(fields)!r}")
+        return result
+    expected_count = EXPECTED_ACCEPTANCE["fixture_count"]
+    for field, expected in (("schema_version", 1), ("manuscript_case_count", expected_count),
+                            ("authoring_case_count", authoring_case_count)):
+        if type(authority[field]) is not int or authority[field] != expected:
+            report.error(f"{rel(path)}: {field} must be {expected}")
+    for field in ("revision", "created_at_utc", "scope", "author_priority"):
+        if not isinstance(authority[field], str) or not authority[field].strip():
+            report.error(f"{rel(path)}: {field} must be a non-empty string")
+    contract_fields = authority["unchanged_contract_fields"]
+    expected_contract_fields = FIXTURE_BASE_FIELDS - {"material_origin"}
+    if (not isinstance(contract_fields, list)
+            or any(not isinstance(field, str) for field in contract_fields)
+            or len(contract_fields) != len(set(contract_fields))
+            or set(contract_fields) != expected_contract_fields):
+        report.error(f"{rel(path)}: unchanged_contract_fields must list the complete contract")
+    changed = authority["changed_cases"]
+    if (not isinstance(changed, list)
+            or any(type(number) is not int or not 1 <= number <= expected_count for number in changed)
+            or len(changed) != len(set(changed))):
+        report.error(f"{rel(path)}: changed_cases must contain unique fixture numbers")
+        changed = []
+    records = authority["records"]
+    if not isinstance(records, list) or len(records) != expected_count:
+        report.error(f"{rel(path)}: records must contain all {expected_count} fixtures")
+        return result
+    result["record_count"] = len(records)
+    expected_paths = {fixture.relative_to(REPO_ROOT).as_posix()
+                      for fixture in FIXTURES_ROOT.glob("*.json")}
+    seen_numbers: set[int] = set()
+    seen_paths: set[str] = set()
+    seen_ids: set[str] = set()
+    actual_changed: set[int] = set()
+    original_byte_checks = 0
+    base_fields = {"number", "case_id", "path", "original_file_sha256", "current_file_sha256",
+                   "changed_fields", "non_prompt_fields_sha256"}
+    for entry in records:
+        if not isinstance(entry, dict):
+            report.error(f"{rel(path)}: each authority record must be an object")
+            continue
+        changed_fields = entry.get("changed_fields")
+        if changed_fields not in ([], ["prompt"]):
+            report.error(f"{rel(path)}: changed_fields permits only prompt")
+            continue
+        amended = changed_fields == ["prompt"]
+        entry_fields = base_fields | ({"original_prompt", "current_prompt", "reason", "original_fixture_text"} if amended else set())
+        if set(entry) != entry_fields:
+            report.error(f"{rel(path)}: unexpected or missing authority entry fields")
+            continue
+        number, fixture_path, case_id = entry["number"], entry["path"], entry["case_id"]
+        if (type(number) is not int or not 1 <= number <= expected_count
+                or not isinstance(fixture_path, str) or fixture_path not in expected_paths
+                or not isinstance(case_id, str) or not case_id):
+            report.error(f"{rel(path)}: invalid fixture identity in authority record")
+            continue
+        if number in seen_numbers or fixture_path in seen_paths or case_id in seen_ids:
+            report.error(f"{rel(path)}: duplicate fixture authority entry")
+        seen_numbers.add(number)
+        seen_paths.add(fixture_path)
+        seen_ids.add(case_id)
+        fixture_file = REPO_ROOT / fixture_path
+        if not fixture_file.name.startswith(f"{number:02d}-"):
+            report.error(f"{fixture_path}: authority number does not match filename")
+        for field in ("original_file_sha256", "current_file_sha256", "non_prompt_fields_sha256"):
+            if not isinstance(entry[field], str) or not re.fullmatch(r"[0-9a-f]{64}", entry[field]):
+                report.error(f"{fixture_path}: invalid {field}")
+        try:
+            fixture_file.resolve().relative_to(REPO_ROOT.resolve())
+            current_bytes = fixture_file.read_bytes()
+            current = strict_json(current_bytes)
+            if not isinstance(current, dict):
+                raise ValueError("fixture JSON root must be an object")
+            if current.get("id") != case_id:
+                report.error(f"{fixture_path}: authority case_id does not match fixture")
+            if hashlib.sha256(current_bytes).hexdigest() != entry["current_file_sha256"]:
+                report.error(f"{fixture_path}: current fixture SHA mismatch")
+            if non_prompt_hash(current) != entry["non_prompt_fields_sha256"]:
+                report.error(f"{fixture_path}: non-prompt canonical SHA mismatch")
+            if not amended:
+                if entry["original_file_sha256"] != entry["current_file_sha256"]:
+                    report.error(f"{fixture_path}: unrecorded fixture change")
+                continue
+            actual_changed.add(number)
+            for field in ("original_prompt", "current_prompt", "reason", "original_fixture_text"):
+                if not isinstance(entry[field], str) or not entry[field]:
+                    raise ValueError(f"{field} must be a non-empty string")
+            if current.get("prompt") != entry["current_prompt"]:
+                report.error(f"{fixture_path}: current prompt does not match authority")
+            if entry["original_prompt"] == entry["current_prompt"]:
+                report.error(f"{fixture_path}: recorded prompt change is empty")
+            original_bytes = entry["original_fixture_text"].encode("utf-8")
+            if hashlib.sha256(original_bytes).hexdigest() != entry["original_file_sha256"]:
+                report.error(f"{fixture_path}: original fixture SHA mismatch")
+            else:
+                original_byte_checks += 1
+            original = strict_json(original_bytes)
+            if not isinstance(original, dict) or original.get("prompt") != entry["original_prompt"]:
+                raise ValueError("original prompt does not match original fixture text")
+            if non_prompt_hash(original) != non_prompt_hash(current):
+                report.error(f"{fixture_path}: amendment changed non-prompt fixture fields")
+        except (OSError, UnicodeError, ValueError, TypeError) as exc:
+            report.error(f"{fixture_path}: invalid task-input authority: {exc}")
+    if seen_numbers != set(range(1, expected_count + 1)) or seen_paths != expected_paths:
+        report.error(f"{rel(path)}: authority records do not cover every fixture exactly once")
+    if actual_changed != set(changed):
+        report.error(f"{rel(path)}: changed_cases does not match recorded prompt amendments")
+    result["changed_cases"] = sorted(actual_changed)
+    result["original_byte_checks"] = original_byte_checks
+    if len(report.errors) == initial_errors:
+        result["status"] = "checked"
+    return result
 
 
 def check_fixtures(report: Report) -> int:
@@ -1475,6 +1645,13 @@ def main() -> int:
         check_positioning_insight_contract(report)
         check_decision_history_contract(report)
     fixture_count = check_fixtures(report)
+    from ste_benchmarks import validate_suites
+    try:
+        ste_manuscript_count, ste_authoring_count = validate_suites(REPO_ROOT)
+    except (ValueError, OSError, KeyError, TypeError) as exc:
+        report.error(f"STE benchmark packaging: {exc}")
+        ste_manuscript_count, ste_authoring_count = 0, 0
+    task_input_authority = check_task_input_authority(manifest, report, ste_authoring_count)
     installed_mapping_count = 0
     if args.install_root is not None:
         installed_mapping_count = check_install_root(args.install_root, manifest, report)
@@ -1485,13 +1662,23 @@ def main() -> int:
         print(f"ERROR: {message}")
     print(
         f"Checked {len(skill_dirs)} skills, {len(canonical_paths)} canonical references, "
-        f"{len(provenance_paths)} provenance file, and {fixture_count} benchmark fixtures"
+        f"{len(provenance_paths)} provenance file, and {fixture_count} benchmark fixtures "
+        f"({ste_manuscript_count} STE manuscript cases); {ste_authoring_count} separate STE authoring cases"
         + (
             f"; byte-checked {installed_mapping_count} installed mappings."
             if args.install_root is not None
             else "."
         )
     )
+    if task_input_authority["status"] == "legacy_without_marker":
+        print("Task-input authority: legacy bundle without marker; record check not required.")
+    else:
+        print(
+            f"Task-input authority: {task_input_authority['status']}; "
+            f"{task_input_authority['record_count']} records; "
+            f"sha256={task_input_authority.get('record_sha256', 'unavailable')}; "
+            f"original byte checks={task_input_authority.get('original_byte_checks', 0)}."
+        )
     if report.errors:
         print(f"FAILED with {len(report.errors)} error(s) and {len(report.warnings)} warning(s).")
         return 1

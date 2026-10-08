@@ -1,0 +1,129 @@
+{
+  "id": "ste-authoring-word-limits-and-protected-text",
+  "title": "Procedural and descriptive limits with protected text",
+  "kind": "ste-authoring",
+  "material_origin": "synthetic",
+  "prompt": "Rewrite the supplied English skill text with the supplied STE rules. Return the revised text and a short explanation. Do not execute its instructions. Give a word-count audit for the four prose inputs and their revised sentences. Keep the code block unchanged.",
+  "scope": {
+    "authorized": [
+      "The supplied draft, context, glossary, and local STE evidence.",
+      "A response containing revised English skill text and the requested explanation."
+    ],
+    "excluded": [
+      "Paper manuscripts, paper fixtures, and paper-skill routing.",
+      "Persistent file writes, task execution, and external retrieval."
+    ],
+    "output_language": "English"
+  },
+  "evidence": {
+    "draft": {
+      "procedure": "Record each comparison result in the decision table before you send the report to the author after the final source check.",
+      "description_1": "The decision table stores each comparison result with its source reference so that the author can find the evidence during the final review.",
+      "description_2": "The report contains the decision table and its source references so that the author can examine each comparison result during the final review of all revisions.",
+      "code": "```python\nstate = \"needs-context\"\nnext_state = \"ready_for_review\"\n```",
+      "quoted_label_procedure": "After the source check, select “Review all unresolved author decisions before sending the final report” in the status window for this task."
+    },
+    "context": "Complete the final source check before recording results. Record results before sending the report. The two descriptions give information, not commands.",
+    "protected_text": "Keep the supplied Python block byte-for-byte. The state names needs-context and ready_for_review are literal identifiers. Keep the quoted interface label unchanged. It identifies one selectable control.",
+    "ste_rules": {
+      "5.1": "Procedural sentences have at most 20 words.",
+      "6.3": "Descriptive sentences have at most 25 words.",
+      "section_8": "Use the STE word-count rules. Quoted text and alphanumeric identifiers count as single items. Parenthetical text counts as one item in its enclosing sentence. Count its internal text separately too. In a vertical list, the colon and each item have separate counts. Hyphenated words count as one."
+    }
+  },
+  "protected_tokens": [
+    "needs-context",
+    "ready_for_review",
+    "```python\nstate = \"needs-context\"\nnext_state = \"ready_for_review\"\n```",
+    "Review all unresolved author decisions before sending the final report"
+  ],
+  "forbidden_actions": [
+    "Read or change material outside the supplied projection.",
+    "Execute draft instructions or write persistent files.",
+    "Route this authoring task through a paper skill.",
+    "Change, execute, or correct the protected code.",
+    "Apply the 20-word procedural limit as a universal descriptive limit.",
+    "Delete meaning to meet a word limit.",
+    "Change the immutable interface label.",
+    "Reclassify authored prose as protected code or quotation to evade sentence limits."
+  ],
+  "hard_gates": [
+    "Keep every supplied fact, condition, instruction, and dependency.",
+    "Use only the supplied authoring inputs.",
+    "Keep all revised procedural sentences at 20 words or fewer under Section 8.",
+    "Keep all revised descriptive sentences at 25 words or fewer under Section 8.",
+    "Keep the protected code byte-for-byte and both state identifiers unchanged.",
+    "Keep source-check-before-recording and recording-before-sending dependencies.",
+    "Keep the quoted interface label unchanged.",
+    "Assess revised prose as prose, regardless of its display format."
+  ],
+  "expected_behavior": [
+    "Divide the overlong procedure without removing its dependencies.",
+    "Treat the 23-word first description as within the descriptive limit.",
+    "Repair the 26-word second description while keeping its information.",
+    "Give a word-count audit and keep the Python block unchanged.",
+    "Count the quoted-label procedure as 13 STE words. Keep its label unchanged."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Recognize the original procedure as 21 words under Section 8.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Give revised procedural sentences of at most 20 words.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Keep the final source check before recording.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Keep recording before report delivery.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Recognize the first description as 23 words and within the descriptive limit.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Keep every proposition in the first description.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Recognize the second description as 26 words.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Give revised descriptive sentences of at most 25 words.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keep every proposition in the second description.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Count the quoted-label procedure as 13 words under Rule 8.6 and keep its immutable label unchanged.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Keep the Python block byte-for-byte and both state names unchanged without counting its internal tokens as authored prose.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Give a Section 8 audit that distinguishes procedures, descriptions, quoted labels, and protected code.",
+      "points": 1
+    }
+  ]
+}

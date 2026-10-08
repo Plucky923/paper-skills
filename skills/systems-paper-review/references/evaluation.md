@@ -1,250 +1,251 @@
 # Evaluation Validity and Evidence
 
-Evaluation is an argument from observations to claims. Judge whether the design can answer the stated question, whether measurements are trustworthy, and whether conclusions remain inside the evidence boundary. Do not demand a ritual experiment—ablation, significance test, or benchmark suite—unless it resolves a real claim.
+Evaluation connects observations to claims. Examine whether the design answers the question, measurements have evidence for accuracy, and conclusions stay within evidence boundaries.
 
-## EV-01 — Every central claim has an evidence plan
+Make ablation, significance tests, or benchmark suites necessary only for questions about manuscript claims.
+## EV-01 — Each central claim has an evidence plan
 
-- **Nature:** Hard scientific-validity condition.
+- **Nature:** Condition for scientific validity.
 - **Reviewer attack:** “The paper's strongest contribution is never directly evaluated.”
-- **Check:** Build a claim-to-evidence matrix covering correctness, performance, overhead, scalability, robustness, usability, security, generality, and practicality as claimed. Identify whether support is experiment, proof, analysis, case study, artifact, or external fact. Use the thesis-support hierarchy in [thesis-and-story.md](thesis-and-story.md) to verify that the decisive evidence and headline results cover the primary claims before secondary measurements.
-- **Severity:** `S0` for a central unsupported conclusion; `S1` for partial coverage; `S2` for secondary claims.
-- **Exceptions / false positives:** Some premises may be established by cited primary evidence; verify that the cited source actually supports the same conditions.
-- **Repair direction:** Add an appropriate test using real evidence, replace with a supported claim, or remove it. Do not add invented results.
+- **Check:** Make a claim-to-evidence matrix. Include each claimed correctness, performance, overhead, scalability, robustness, usability, security, generality, and practicality property. Record evidence type: experiment, proof, analysis, case study, artifact, or external fact. Use the [thesis-support hierarchy](thesis-and-story.md). Make sure that decisive evidence and headline results include primary claims before secondary measurements.
+- **Severity:** `S0` for a central conclusion without evidence. Use `S1` for partial coverage. Use `S2` for secondary claims.
+- **Exceptions / false positives:** Cited primary evidence can show premises. The cited source must give the same conditions.
+- **Repair direction:** Give repair options: an applicable test with evidence from observations, a claim with evidence, or claim removal. Use only results with evidence.
 - **Sources:** [OSDI-CFP], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## EV-02 — Evidence is selected by recoverable scientific questions
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “The evaluation is a collection of favorable plots rather than tests of explicit hypotheses or system questions.”
-- **Check:** For each experiment, proof, case study, or operational observation, recover the question, outcomes, relevant conditions/controls, permitted inference, and which claim it can challenge. The question may be explicit or inferable from a tightly coupled finding/intervention narrative. Flag evidence objects with no decision role.
-- **Severity:** `S1` when experiment design cannot establish claims; otherwise `S2`.
-- **Exceptions / false positives:** Do not require an enumerated RQ list or one evaluation section. Exploratory, measurement, and operational studies may pose descriptive questions and interleave method, observation, and intervention, but must still make each inference auditable.
-- **Repair direction:** Organize experiments around questions and remove or demote non-evidentiary plots.
+- **Check:** For each experiment, proof, case study, or operational observation, find its question, outcomes, conditions, controls, permitted inference, and challenged claim. The question can be clear or result from a closely related finding and intervention. Find evidence objects without a decision function.
+- **Severity:** `S1` when the experiment design cannot show claims. For other cases, `S2`.
+- **Exceptions / false positives:** A research-question list or one evaluation section is optional. Exploratory, measurement, and operational studies can interleave descriptive questions, method, observation, and intervention. Each inference must stay auditable.
+- **Repair direction:** Organize experiments by questions. Remove non-evidentiary plots or give them lower prominence.
 - **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [HEISER-BENCH].
 
 ## EV-03 — The study design matches the inference
 
-- **Nature:** Hard scientific-validity condition.
+- **Nature:** Condition for scientific validity.
 - **Reviewer attack:** “The evaluation is observational but the paper draws a causal conclusion,” or “a microbenchmark is used to claim end-to-end benefit.”
-- **Check:** Classify the inference as descriptive, comparative, causal, predictive, correctness, or feasibility. Verify interventions, controls, randomization/pairing, trace provenance, and measurement level support it.
-- **Severity:** `S0` for a central invalid inference; otherwise `S1`.
-- **Exceptions / false positives:** Controlled systems experiments may establish causal effects without population random sampling, but generalization remains bounded to tested conditions.
-- **Repair direction:** Change design, add controls, triangulate evidence, or narrow conclusion type.
+- **Check:** Give each inference its type: descriptive, comparative, causal, predictive, correctness, or feasibility. Compare interventions, controls, randomization or pairing, trace provenance, and measurement level with that inference.
+- **Severity:** `S0` for a central invalid inference. For other cases, `S1`.
+- **Exceptions / false positives:** Controlled systems experiments can show causal effects without random population samples. Generalization stays within tested conditions.
+- **Repair direction:** Give repair options: changed design, added controls, multiple evidence forms, or a narrower conclusion type.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
-## EV-04 — Baselines answer the real comparison
+## EV-04 — Baselines answer the comparison necessary for the decision
 
-- **Nature:** Hard fairness condition.
+- **Nature:** Condition for fairness.
 - **Reviewer attack:** “The paper avoids the strongest, simplest, most current, or operationally relevant alternative.”
-- **Check:** Consider: current state of practice; closest prior research; strong specialized method; simple strawman; ablated current system; oracle/upper bound where meaningful. Require only categories relevant to the claim and deployment choice.
-- **Severity:** `S1`; `S0` if omission makes the headline advantage knowingly misleading.
-- **Exceptions / false positives:** An unavailable/proprietary baseline can be excluded with evidence, limitations, and a defensible substitute; do not demand every cited work.
-- **Repair direction:** Add/configure the missing comparator, justify exclusion, or narrow comparative claims.
+- **Check:** Examine applicable baseline classes. Include practice in use, closest prior research, and strong specialized methods. Include strawman baselines with few mechanisms, system ablations, and meaningful oracles or upper bounds. Make only classes related to the claim and deployment choice necessary.
+- **Severity:** `S1`. Use `S0` when baseline omission makes the headline advantage knowingly misleading.
+- **Exceptions / false positives:** Unavailable or proprietary baselines can be excluded with evidence, limitations, and a defensible substitute. Each cited work is not mandatory.
+- **Repair direction:** Give repair options: a configured missing comparator, exclusion rationale, or narrower comparative claims.
 - **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [OSDI-CFP].
 
 ## EV-05 — Baseline configurations are fair and reproducible
 
-- **Nature:** Hard fairness condition.
+- **Nature:** Condition for fairness.
 - **Reviewer attack:** “The proposed system is tuned while baselines use defaults, obsolete versions, weaker hardware, fewer resources, or incompatible goals.”
-- **Check:** Compare versions, patches, hardware allocation, parallelism, compilation, warmup, tuning budget, parameter search, stopping criteria, feature set, and correctness target. Verify authors did not tune on test data.
-- **Severity:** `S0` for material manipulation; otherwise `S1`.
-- **Exceptions / false positives:** Default settings may represent real practice if justified and sensitivity is checked where defaults matter.
-- **Repair direction:** Equalize resources/effort/objective, disclose settings, add sensitivity, or qualify the comparison.
+- **Check:** Compare versions, patches, hardware allocation, parallelism, compilation, warmup, tuning budgets, parameter search, stopping criteria, features, and correctness targets. Make sure that tuning does not use test data.
+- **Severity:** `S0` for manipulation that changes conclusions. For other cases, `S1`.
+- **Exceptions / false positives:** Default settings can represent practice in use with rationale. Defaults that affect conclusions make sensitivity checks necessary.
+- **Repair direction:** Make resources, effort, and objectives equal. Give settings. Add sensitivity evidence or limits on the comparison.
 - **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL].
 
 ## EV-06 — Workloads represent the claim domain
 
-- **Nature:** Hard external-validity condition for broad claims.
+- **Nature:** Condition for external validity in broad claims.
 - **Reviewer attack:** “The result depends on toy, outdated, cherry-picked, or nonrepresentative workloads.”
-- **Check:** Inspect workload source, versions, scale, diversity, realism, skew, arrival pattern, read/write mix, failure conditions, hardware/software interaction, and known bias. Compare tested domain with quantifiers in the claim.
-- **Severity:** `S1`; `S0` if the selected workload contradicts the advertised use case.
-- **Exceptions / false positives:** A microbenchmark is valid for isolating a mechanism when clearly labeled and paired with evidence adequate for end-to-end claims.
-- **Repair direction:** Add representative/diverse cases, justify scope, or narrow generalization.
+- **Check:** Examine workload sources, versions, scale, diversity, realism, skew, arrival patterns, and read/write mix. Examine failures, hardware/software interactions, and known bias. Compare the tested domain with claim quantifiers.
+- **Severity:** `S1`. Use `S0` when the selected workload contradicts the advertised use case.
+- **Exceptions / false positives:** A microbenchmark can isolate a mechanism with a clear label. End-to-end claims must still have sufficient end-to-end evidence.
+- **Repair direction:** Give repair options: representative or diverse cases, scope rationale, or narrower generalization.
 - **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE].
 
 ## EV-07 — Calibration, training, tuning, and evaluation data are separated
 
-- **Nature:** Hard validity condition when adaptation or search is involved.
+- **Nature:** Condition for validity with adaptation or search.
 - **Reviewer attack:** “The method overfits the workloads or traces used to select its rules, parameters, prompts, thresholds, or model.”
-- **Check:** Track provenance and partition of training, profiling, tuning, validation, test, and case-study data. Check repeated test-set feedback and leakage through handcrafted choices.
-- **Severity:** `S0` for central leaked results; otherwise `S1`.
-- **Exceptions / false positives:** Online/adaptive systems may learn from deployment traffic, but evaluation must model that lifecycle and use future/held-out outcomes appropriately.
-- **Repair direction:** Create disjoint evaluation, nested selection, temporal split, or explicitly characterize in-sample behavior.
+- **Check:** Record provenance and partitions for training, profiling, tuning, validation, test, and case-study data. Find repeated test-set feedback and leakage through handcrafted choices.
+- **Severity:** `S0` for central results with data leakage. For other cases, `S1`.
+- **Exceptions / false positives:** Online or adaptive systems can learn from deployment traffic. Evaluation must include that lifecycle and applicable future or held-out outcomes.
+- **Repair direction:** Give repair options: disjoint evaluation, nested selection, temporal partitions, or a clear in-sample behavior account.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-08 — Metrics correspond to user/system objectives
 
-- **Nature:** Hard construct-validity condition.
+- **Nature:** Condition for construct validity.
 - **Reviewer attack:** “The chosen proxy improves while the outcome users or operators care about may not.”
-- **Check:** Define each metric, direction, unit, aggregation, and relationship to objective. Watch proxy metrics, ratios without denominators, averages hiding tails, throughput without latency, and accuracy without cost/error asymmetry.
-- **Severity:** `S1`; `S0` if the headline conclusion uses an invalid metric.
-- **Exceptions / false positives:** Proxy metrics are acceptable when validated or clearly framed as proxies.
-- **Repair direction:** Report direct outcomes or validate the proxy; add complementary metrics and bounds.
+- **Check:** Give each metric's definition, direction, unit, aggregation, and relation to the objective. Examine proxies, denominator omissions, averages that hide tails, and throughput without latency. Examine accuracy without cost or error asymmetry.
+- **Severity:** `S1`. Use `S0` for a headline conclusion with an invalid metric.
+- **Exceptions / false positives:** Proxies are permitted with validation or clear proxy status.
+- **Repair direction:** Give direct outcomes or proxy validation. Add complementary metrics and boundaries.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [ERNST].
 
-## EV-09 — Numerators, denominators, aggregation, and units are explicit
+## EV-09 — Numerators, denominators, aggregation, and units are clear
 
-- **Nature:** Hard interpretability condition.
+- **Nature:** Condition for interpretability.
 - **Reviewer attack:** “The reported percentage or average has no auditable population, weighting, or unit.”
-- **Check:** Recover sample unit, denominator, inclusion/exclusion, weighting, macro/micro averaging, percentile definition, time window, and unit conversion. Recompute simple values when data are in scope.
-- **Severity:** `S1` for headline ambiguity/error; `S2`/`S3` locally.
-- **Exceptions / false positives:** Space-constrained captions may defer details to setup, but the paper must provide them somewhere in scope for a full review.
-- **Repair direction:** Define population/formula/unit, show absolute values alongside ratios when useful, and correct arithmetic.
+- **Check:** Find sample units, denominators, inclusion and exclusion, weighting, macro/micro averaging, percentile definitions, time windows, and unit conversions. If data are in scope, calculate values with short formulas again.
+- **Severity:** `S1` for headline ambiguity or error. Use `S2`/`S3` for local findings.
+- **Exceptions / false positives:** Short captions can refer to setup details. A full review must have those details somewhere in scope.
+- **Repair direction:** Give population, formula, and unit. If this helps interpretation, show absolute values beside ratios. Correct arithmetic.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES].
 
-## EV-10 — The measured boundary includes all material costs
+## EV-10 — The measured boundary includes all costs that affect conclusions
 
-- **Nature:** Hard fairness condition.
+- **Nature:** Condition for fairness.
 - **Reviewer attack:** “Speedup/efficiency excludes setup, preprocessing, retraining, migration, recovery, network transfer, client work, hardware cost, or operator labor.”
-- **Check:** Draw the start/end boundary and resource boundary for each measurement. Check amortization, caching, cold/warm state, background work, deferred cleanup, and shifted cost.
-- **Severity:** `S0` if intentionally/m materially misleading; otherwise `S1`.
-- **Exceptions / false positives:** Component measurements can isolate a mechanism if labeled and not promoted to total-system claims.
-- **Repair direction:** Report end-to-end and component costs; justify amortization and deployment frequency; narrow claims.
+- **Check:** Draw measurement start and end boundaries. Draw resource boundaries. Examine amortization, caching, cold and warm state, background work, subsequent cleanup, and transferred costs.
+- **Severity:** `S0` for intentional misrepresentation or misrepresentation that changes conclusions. For other cases, `S1`.
+- **Exceptions / false positives:** Component measurements can isolate mechanisms with clear labels. They do not show total-system claims.
+- **Repair direction:** Give end-to-end and component costs. Give amortization and deployment-frequency rationale. Put necessary limits on claims.
 - **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [LEVIN-REDELL].
 
 ## EV-11 — Measurement procedure controls transient and environmental effects
 
-- **Nature:** Hard measurement-validity condition when effects are material.
+- **Nature:** Condition for measurement validity when effects affect conclusions.
 - **Reviewer attack:** “Results may be artifacts of warmup, caching, frequency scaling, background load, placement, network variance, garbage collection, JIT, or run order.”
-- **Check:** Inspect warmup, steady-state detection, cache policy, randomization/interleaving, pinning/placement, isolation, clock/timer, run length, cooldown, environment monitoring, and outlier policy.
-- **Severity:** `S1` when uncontrolled effects are comparable to claimed gain; otherwise `S2`.
-- **Exceptions / false positives:** Controls depend on system; do not demand CPU pinning for experiments where it is irrelevant.
-- **Repair direction:** Control, randomize, pair, monitor, or explicitly model the factor; repeat under representative conditions.
+- **Check:** Examine warmup, steady-state detection, cache policy, randomization or interleaving, pinning or placement, and isolation. Examine clocks, timers, run length, cooldown, environment monitoring, and outlier policy.
+- **Severity:** `S1` when uncontrolled effects are comparable to the gain. For other cases, `S2`.
+- **Exceptions / false positives:** Controls depend on the system. CPU pinning is unnecessary without an effect on the claim or measurement.
+- **Repair direction:** Give repair options for each factor: control, randomization, pairing, monitoring, or a clear model. Repeat in representative conditions.
 - **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL].
 
 ## EV-12 — Replication and variability are reported
 
-- **Nature:** General best practice; hard when stochastic/noisy results support a claim.
+- **Nature:** General best practice. It is a condition when stochastic or noisy results give evidence for a claim.
 - **Reviewer attack:** “A single run or unreported variability cannot establish that the observed difference is stable.”
-- **Check:** Identify independent repetitions, experimental unit, seeds, within/between-run variance, error bars/intervals, and whether aggregation matches design. Distinguish repeated measurements from independent samples.
-- **Severity:** `S1` when uncertainty could reverse a central conclusion; `S2` otherwise.
-- **Exceptions / false positives:** A deterministic exhaustive proof/check or uniquely expensive full deployment may justify alternatives, but must explain uncertainty and limitations.
-- **Repair direction:** Repeat independent units, report distribution/intervals, expose seeds, or weaken stability claims.
+- **Check:** Find independent repetitions, experimental units, seeds, within-run and between-run variance, error bars or intervals, and agreement between aggregation and design. Do a check of the difference between repeated measurements and independent samples.
+- **Severity:** `S1` when uncertainty could reverse the central conclusion. For other cases, `S2`.
+- **Exceptions / false positives:** Deterministic exhaustive proof or checks can justify other evidence forms. An unusually expensive full deployment can also justify alternatives. Uncertainty and limitations stay necessary.
+- **Repair direction:** Repeat independent units. Give distributions or intervals. Give seeds. Put necessary limits on stability claims.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-13 — Statistical analysis fits the design and question
 
-- **Nature:** Hard when inferential statistics are used; otherwise conditional best practice.
+- **Nature:** Condition when the paper uses inferential statistics. For other cases, a conditional best practice.
 - **Reviewer attack:** “The test assumes independence/normality it does not have, performs uncorrected multiple comparisons, or uses p-values as effect magnitude.”
-- **Check:** Verify experimental unit, paired/unpaired structure, distribution assumptions, repeated measures, censoring, multiple testing, effect size, uncertainty interval, and practical relevance. Check that `significant` is not used ambiguously.
-- **Severity:** `S1` for an invalid central inference; `S2` for incomplete reporting.
-- **Exceptions / false positives:** Statistical significance testing is not mandatory for every deterministic or controlled systems benchmark. Require the uncertainty treatment needed by the actual noise and claim.
-- **Repair direction:** Use an appropriate model/test/interval, report effect size, or make descriptive conclusions.
+- **Check:** Examine experimental units, pairing, distribution assumptions, repeated measures, censoring, multiple tests, effect sizes, uncertainty intervals, and practical relevance. Find ambiguity in `significant`.
+- **Severity:** `S1` for an invalid central inference. Use `S2` for incomplete reporting.
+- **Exceptions / false positives:** Statistical significance tests are not mandatory for each deterministic or controlled benchmark. Uncertainty treatment depends on measurement noise and claims.
+- **Repair direction:** Give an applicable model, test, or interval. Give effect size or descriptive conclusions as applicable.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
-## EV-14 — End-to-end evidence and microanalysis play distinct roles
+## EV-14 — End-to-end evidence and microanalysis play different roles
 
 - **Nature:** General best practice.
 - **Reviewer attack:** “End-to-end plots show an effect but not why; microbenchmarks show a fast primitive but not system benefit.”
-- **Check:** Map end-to-end experiments to practical outcome and component experiments to mechanism/causal explanation. Require both only when both claims are made.
-- **Severity:** `S1` if the missing level leaves the central claim unsupported; otherwise `S2`.
-- **Exceptions / false positives:** A component paper or measurement study may legitimately focus on one level.
-- **Repair direction:** Add the missing evidence level, connect it causally, or narrow contribution.
+- **Check:** Give end-to-end experiments their practical outcome role. Give component experiments their mechanism or causal explanation role. Make both necessary only for claims at both levels.
+- **Severity:** `S1` when the missing level leaves the central claim without evidence. For other cases, `S2`.
+- **Exceptions / false positives:** Component papers and measurement studies can concentrate on one level.
+- **Repair direction:** Give repair options: the missing evidence level, its causal relation, or a narrower contribution.
 - **Sources:** [SYSTEMS-GUIDE], [HEISER-BENCH], [LEVIN-REDELL].
 
 ## EV-15 — Ablation is used when component necessity is claimed
 
-- **Nature:** Conditional best practice, not a universal ritual.
+- **Nature:** Conditional best practice. It is not universal.
 - **Reviewer attack:** “The paper attributes gains to component X without isolating X from co-varying components.”
-- **Check:** Determine whether the paper claims necessity, contribution, interaction, or co-design. If so, inspect removal/substitution/factorial evidence and whether removal preserves a meaningful functioning system.
-- **Severity:** `S1` for unsupported central attribution; `S2` otherwise.
-- **Exceptions / false positives:** Ablation may be infeasible or nonsensical for inseparable invariants, safety mechanisms, or one-piece algorithms; analytical or targeted evidence can substitute.
-- **Repair direction:** Add a valid isolation study, explain inseparability with other evidence, or stop assigning the effect to one component.
+- **Check:** Find claims about necessity, contribution, interaction, or co-design. If present, examine removal, substitution, or factorial evidence. Make sure that removal leaves a meaningful functioning system.
+- **Severity:** `S1` for central attribution without evidence. For other cases, `S2`.
+- **Exceptions / false positives:** Ablation can be impossible or meaningless for inseparable invariants, safety mechanisms, or one-piece algorithms. Analysis or focused evidence can be substitutes.
+- **Repair direction:** Give repair options: a correct isolation study, evidence for inseparability, or removal of single-component attribution.
 - **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [JENSEN-SYSTEMS-SKILL].
 
 ## EV-16 — Sensitivity, scalability, and operating envelope are tested
 
-- **Nature:** Hard for robustness/scalability claims; conditional otherwise.
+- **Nature:** Condition for robustness or scalability claims. For other cases, a conditional check.
 - **Reviewer attack:** “The result holds at one favorable parameter point and may collapse under scale, skew, load, failure, or hardware variation.”
-- **Check:** Select factors from system assumptions and claimed domain. Inspect range, interactions, saturation, phase changes, and failure points—not just more parameter plots.
-- **Severity:** `S1` for unsupported broad claims; `S2` for incomplete characterization.
-- **Exceptions / false positives:** Do not demand sweeping knobs unrelated to the mechanism or intended deployment.
-- **Repair direction:** Test decision-relevant range and boundary; report safe/efficient operating envelope; narrow claims.
+- **Check:** Select factors from system assumptions and claim domain. Examine ranges, interactions, saturation, phase changes, and failure points. Additional parameter plots alone are insufficient.
+- **Severity:** `S1` for broad claims without evidence. Use `S2` for incomplete characterization.
+- **Exceptions / false positives:** Parameter sweeps are not necessary without a mechanism or deployment relation.
+- **Repair direction:** Do tests of ranges and boundaries related to the decision. Give the safe or efficient operating envelope. Put limits on claims.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [OSDI-CFP].
 
 ## EV-17 — Negative, null, and failure results are not hidden
 
-- **Nature:** Hard reporting-integrity condition.
+- **Nature:** Condition for reporting integrity.
 - **Reviewer attack:** “Only favorable workloads/configurations/metrics are shown, so the conclusion may be selected after seeing results.”
-- **Check:** Look for unexplained missing benchmarks, truncated ranges, inconsistent subsets, dropped runs, post-hoc metrics, and absent failure rates. Compare experimental plan, text, tables, and artifact if in scope.
-- **Severity:** `S0` for deceptive selective reporting; `S1` for major unresolved selection risk.
-- **Exceptions / false positives:** Space limits justify summarized complete results or supplements, not silent outcome-based omission.
-- **Repair direction:** Report all prespecified/relevant outcomes and exclusions; analyze failures; qualify the claim.
+- **Check:** Find missing benchmarks without explanations, truncated ranges, inconsistent subsets, dropped runs, post-hoc metrics, and missing failure rates. Compare the plan, text, tables, and artifacts in scope.
+- **Severity:** `S0` for deceptive selective reporting. Use `S1` for primary unresolved selection risk.
+- **Exceptions / false positives:** Full summaries or supplements can satisfy space limits. They do not justify silent omissions based on outcomes.
+- **Repair direction:** Give all prespecified or related outcomes. Give exclusions. Give failure analysis. Put necessary limits on the claim.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH].
 
 ## EV-18 — Graphical presentation preserves quantitative truth
 
-- **Nature:** Hard integrity condition.
+- **Nature:** Condition for integrity.
 - **Reviewer attack:** “Axis truncation, aspect ratio, normalization, log scale, binning, or chart selection exaggerates advantage or hides regressions.”
-- **Check:** Inspect axis origin/range/scale, aspect ratio, units, normalization denominator, uncertainty, missing data, sorting, aggregation, dual axes, color/order, and whether table vs plot choice changes perception. Recompute visual implications when data are in scope.
-- **Severity:** `S0` for materially misleading presentation; `S1` for ambiguous headline plot; `S2` for correct but difficult display.
-- **Exceptions / false positives:** Nonzero axes, log scales, normalized values, and compressed aspect ratios are valid when clearly labeled and suited to the question.
-- **Repair direction:** Choose the representation that answers the research question honestly; disclose transformations; include absolute values or alternate view where needed.
+- **Check:** Examine axis origin, range, scale, aspect ratio, units, normalization denominators, uncertainty, missing data, sorting, and aggregation. Examine dual axes, colors, sequence, and table or plot effects on perception. If data are in scope, calculate the visual implications again.
+- **Severity:** `S0` for misleading presentation that changes conclusions. Use `S1` for an ambiguous headline plot. Use `S2` for correct but difficult displays.
+- **Exceptions / false positives:** Nonzero axes, logarithmic scales, normalized values, and compressed aspect ratios are permitted with clear labels and question-specific rationale.
+- **Repair direction:** Select an accurate representation that answers the research question. Give transformations. Add absolute values or another view where necessary.
 - **Sources:** [HEISER-BENCH], [SIGPLAN-EMPIRICAL], [USER-NOTES] as normalized.
 
 ## EV-19 — Result interpretation separates observation, cause, and speculation
 
-- **Nature:** Hard inference condition.
+- **Nature:** Condition for inference validity.
 - **Reviewer attack:** “The paper observes a correlation or performance change and invents a causal explanation without measurement.”
-- **Check:** Label what was measured, what mechanism evidence supports, what follows logically, and what is hypothesized. Cross-reference design only when it actually predicts the effect.
-- **Severity:** `S1` for a central unsupported explanation; `S2` locally.
-- **Exceptions / false positives:** A plausible explanation is useful when explicitly marked as hypothesis and not used as proof.
-- **Repair direction:** Add diagnostic/ablation evidence, state uncertainty, or remove causal language.
+- **Check:** Do a check of differences between measurements, mechanism evidence, logical consequences, and hypotheses. Refer to design only when it predicts the effect.
+- **Severity:** `S1` for a central explanation without evidence. Use `S2` for local findings.
+- **Exceptions / false positives:** An explanation with evidence can help interpretation if its label clearly shows hypothesis status. It cannot serve as proof.
+- **Repair direction:** Give repair options: diagnostic or ablation evidence, clear uncertainty, or removal of causal language.
 - **Sources:** [SIGPLAN-EMPIRICAL], [SYSTEMS-GUIDE], [ERNST].
 
 ## EV-20 — Practical significance accompanies relative gains
 
-- **Nature:** General best practice; hard when rhetoric depends on magnitude.
+- **Nature:** General best practice. It is a condition when rhetoric depends on magnitude.
 - **Reviewer attack:** “The relative improvement is large only because the baseline value is tiny, or the absolute change does not affect operation.”
-- **Check:** Report absolute and relative values, resource/user consequence, threshold/SLO, effect size, and cost tradeoff. Inspect excessive significant digits and unsupported qualitative labels.
-- **Severity:** `S1` if headline impact is materially overstated; `S2` otherwise.
-- **Exceptions / false positives:** Small absolute changes can matter near hard thresholds; explain the threshold.
-- **Repair direction:** Add absolute scale/context and tradeoff; calibrate adjectives and precision.
+- **Check:** Give absolute and relative values, resource or user consequences, thresholds or SLOs, effect sizes, and cost tradeoffs. Find excessive significant digits and qualitative labels without evidence.
+- **Severity:** `S1` for exaggerated headline impact that changes conclusions. For other cases, `S2`.
+- **Exceptions / false positives:** Small absolute changes can matter near hard thresholds. The threshold must have an explanation.
+- **Repair direction:** Give absolute scale, context, and tradeoff. Make sure that adjectives and precision agree with evidence.
 - **Sources:** [SIGPLAN-EMPIRICAL], [HEISER-BENCH], [USER-NOTES].
 
 ## EV-21 — Reproducibility information is sufficient to audit results
 
-- **Nature:** General best practice; may become venue/artifact requirement.
+- **Nature:** General best practice. It can be a venue or artifact requirement.
 - **Reviewer attack:** “Versions, environment, commands, data provenance, or randomness are insufficient to recreate the reported experiment.”
-- **Check:** Inspect hardware/software versions, topology, build/configuration, workload generation, seeds, commands, run order, repetitions, analysis, figure generation, and deviations from defaults.
-- **Severity:** `S1` when opacity prevents confidence in central measurements; `S2` for missing secondary detail; `S0` for verified submission-rule breach.
-- **Exceptions / false positives:** Security, privacy, licensing, or infrastructure limits may restrict release, but methodology and alternative access/validation should be as complete as possible.
-- **Repair direction:** Add precise environment/procedure and archive inputs/outputs; follow current artifact rules.
+- **Check:** Examine hardware and software versions, topology, builds, configuration, workload generation, seeds, commands, sequence, repetitions, analysis, figure generation, and nondefault settings.
+- **Severity:** `S1` when missing information prevents confidence in central measurements. Use `S2` for missing secondary detail. Use `S0` for a verified submission-rule violation.
+- **Exceptions / false positives:** Security, privacy, licensing, or infrastructure limits can restrict release. Methodology and alternative access or validation must still give the maximum available detail.
+- **Repair direction:** Give accurate environments and procedures. Archive inputs and outputs. Obey artifact rules in effect.
 - **Sources:** [NSDI-ARTIFACT], [ACM-ARTIFACT], [SIGPLAN-EMPIRICAL].
 
 ## EV-22 — Evaluation limitations bound the conclusion
 
-- **Nature:** Hard accuracy condition.
+- **Nature:** Condition for accuracy.
 - **Reviewer attack:** “The conclusion generalizes beyond tested systems, traces, hardware, scale, geography, users, or time.”
-- **Check:** Compare conclusion quantifiers with sample frame and experimental range. Identify threats to construct, internal, external, and conclusion validity that could change the result.
-- **Severity:** `S1`; `S0` if conclusion directly contradicts scope.
-- **Exceptions / false positives:** A limitations section need not enumerate implausible threats; it must surface decision-relevant ones.
-- **Repair direction:** State boundary, justify representativeness, triangulate, or narrow conclusion.
+- **Check:** Compare conclusion quantifiers with the sample frame and experimental range. Find threats to construct, internal, external, or conclusion validity that could change the result.
+- **Severity:** `S1`. Use `S0` when the conclusion directly contradicts scope.
+- **Exceptions / false positives:** Implausible threat lists are not necessary in limitations. They must show threats related to the decision.
+- **Repair direction:** Give repair options: boundaries, representativeness rationale, multiple evidence forms, or a narrower conclusion.
 - **Sources:** [SIGPLAN-EMPIRICAL], [OSDI-CFP].
 
 ## Claim-to-evidence matrix
 
-For every central claim, fill:
+For each central claim, fill this table:
 
 | Claim | Required inference | Evidence object | Comparator/control | Population/conditions | Uncertainty | Result | Valid conclusion | Gap |
 |---|---|---|---|---|---|---|---|---|
 
-Then run three attacks:
+Then apply these three attacks:
 
-1. **Alternative explanation:** What uncontrolled factor could produce the same observation?
-2. **Boundary failure:** What plausible condition lies just outside the tested range?
+1. **Alternative explanation:** What uncontrolled factor could cause the same observation?
+2. **Boundary failure:** What condition with evidence for its possibility lies just outside the tested range?
 3. **Decision reversal:** What missing cost, baseline, uncertainty, or negative case could reverse the practical choice?
 
-## Methods are conditional, not ceremonial
+## Methods depend on claims
 
-Do not declare a defect merely because the evaluation lacks:
+A missing method alone does not show a defect. These items are not universal requirements:
 
-- a fixed number of repetitions;
-- 95% confidence intervals specifically;
-- a p-value;
-- an ablation table;
-- an end-to-end benchmark for a component-only claim;
-- every public benchmark suite;
-- every cited prior system as an executable baseline.
+- A fixed repetition count.
+- Specifically 95% confidence intervals.
+- A p-value.
+- An ablation table.
+- An end-to-end benchmark for a component-only claim.
+- Each public benchmark suite.
+- Each cited prior system as an executable baseline.
 
-Instead, state the inference that is currently unsupported and the least burdensome valid evidence that would support it.
+Record the inference without evidence. Give the correct evidence with the lowest burden that would show it.

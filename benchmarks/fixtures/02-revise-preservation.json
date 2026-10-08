@@ -44,6 +44,6 @@
     {"id": "R9", "criterion": "Does not add a cause for recovery success.", "points": 1},
     {"id": "R10", "criterion": "Does not broaden the result to all requests, systems, or scales.", "points": 1},
     {"id": "R11", "criterion": "Improves economy without dropping a scientific condition.", "points": 1},
-    {"id": "R12", "criterion": "Limits any post-prose note to a material blocker or consequential validation.", "points": 1}
+    {"id": "R12", "criterion": "Limits any post-prose commentary, apart from the mandatory compact decision receipt, to a material blocker or consequential validation.", "points": 1}
   ]
 }

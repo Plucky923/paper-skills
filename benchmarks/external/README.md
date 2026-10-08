@@ -95,7 +95,13 @@ validate a judge, and labels for fixed candidates cannot evaluate newly generate
 task's frozen Markdown instructions for the skill condition. Paragraph revision
 loads the revise skill tree, not the review skill or
 research reports; calibration loads no writing-skill documents. No-skill omits
-the bundle. Eager content loading tests instructions, not native lazy routing.
+the bundle.
+
+Some revise instructions refer to Review documents and research
+reports that this adapter does not supply. Treat those dependencies as unavailable.
+Do not claim that their required reads are complete. This is a restricted test of
+the supplied instructions. It does not test the complete installed workflow or
+native reference loading.
 
 Runs freeze the batch digest, admission digest, CLI/model settings, harness
 hashes, skill snapshot, ordered call schedule, per-call inputs/prompts, event

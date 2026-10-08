@@ -1,112 +1,92 @@
 # Design Derivation and Mechanism Necessity
 
-Use this reference when the scope includes an overview, design, algorithm, system architecture, implementation rationale, or an introduction that derives technical challenges. It connects top-down scientific reasoning to the bottom-up soundness checks in [technical-soundness.md](technical-soundness.md).
+Use this reference for an overview, design, algorithm, architecture, implementation rationale, or introduction with technical challenges. It connects scientific reasoning with the soundness checks in [technical-soundness.md](technical-soundness.md).
 
 ## Required derivation chain
 
-For each major mechanism, reconstruct:
+For each primary mechanism, make a reconstruction of this chain:
 
 `observed failure or desired property → binding constraint → design requirement → mechanism → invariant/effect and tradeoff → decisive test`
 
-The chain is not required as a prose template. It is an audit of whether the mechanism is scientifically motivated, technically sufficient, and empirically testable.
+This chain is an audit aid, not a prose template. It checks the mechanism's scientific motivation, technical sufficiency, and empirical testability.
 
-## DD-01 — The binding constraint is established
+## DD-01 — Evidence shows the limiting constraint
 
-- **Check:** Distinguish a symptom from the constraint that makes obvious solutions fail. Locate measurement, counterexample, model property, theorem, prior-work limitation, or operational evidence that supports it.
+- **Check:** Do a check of the difference between symptoms and limiting constraints. Find evidence from measurements, counterexamples, model properties, theorems, prior-work limitations, or operations.
 - **Reviewer attack:** “The design solves an asserted root cause that the paper never establishes.”
-- **Severity:** `S1`; `S0` when the constraint is contradicted and the design depends on it.
+- **Severity:** `S1`. Use `S0` when evidence contradicts a constraint on which the design depends.
 
-## DD-02 — Requirements are derived rather than announced
+## DD-02 — The problem gives the requirements
 
-- **Check:** For each stated goal, challenge, or desideratum, identify the earlier problem/constraint that necessitates it. Separate essential requirements from preferences and implementation conveniences.
+- **Check:** For each goal, challenge, or desired property, find the earlier problem or constraint that makes it necessary. Do a check of differences between necessary requirements, preferences, and implementation conveniences.
 - **Reviewer attack:** “The requirements are chosen to fit the proposed system rather than derived from the problem.”
-- **Severity:** `S1` for central circularity; otherwise `S2`.
-- **Exception:** Standard requirements may be cited or briefly justified when genuinely shared by the field.
+- **Severity:** `S1` for central circular reasoning. For other cases, `S2`.
+- **Exception:** For standard requirements common to the field, citations or brief rationale can be sufficient.
 
-## DD-03 — Each mechanism discharges a requirement
+## DD-03 — Each mechanism satisfies a requirement
 
-- **Check:** Map every major component or algorithmic step to the requirement it satisfies, including interaction with other mechanisms. Flag orphan components, duplicate mechanisms, and requirements with no implementation path.
+- **Check:** Connect each primary component or algorithm step to its requirement. Include interactions with other mechanisms. Find components without requirements, repeated mechanisms, and requirements without implementation paths.
 - **Reviewer attack:** “This is a component inventory, not a design argument.”
-- **Severity:** `S1` for a missing central link; otherwise `S2`.
+- **Severity:** `S1` for a missing central link. For other cases, `S2`.
 
-## DD-03A — A claimed shared insight has source-grounded causal fan-out
+## DD-03A — A shared insight has source-grounded causal fan-out
 
-- **Check:** When one intellectual move is claimed or implied to produce several
-  primary properties, apply the canonical fan-out test in the
-  [systems-writing core](../../systems-paper-revise/references/writing-core.md#source-grounded-intellectual-move-fan-out).
-  Anchor the shared move and every move-to-property edge, and label each one
-  `stated`, `text-licensed`, or `reviewer-hypothesized`. A reviewer-supplied
-  bridge is a missing dependency even when it yields an elegant reconstruction.
-- **Reviewer attack:** “These benefits share a system name, but the paper never
-  shows that one conceptual change causes all of them.”
-- **Severity:** `S1` when the unified claim carries the contribution; `S2` when
-  the paper could accurately present the items as separate supporting claims.
-- **Exception:** Independent contributions need no artificial common cause when
-  the manuscript presents and evaluates them independently.
+- **Check:** If one intellectual move supposedly causes multiple primary properties, use the [canonical fan-out test](../../systems-paper-revise/references/writing-core.md#source-grounded-intellectual-move-fan-out). Give source anchors for the shared move and each move-to-property edge. Give each one a label: `stated`, `text-licensed`, or `reviewer-hypothesized`. Keep a reviewer-hypothesized bridge as a missing dependency, even if its reconstruction is clear.
+- **Reviewer attack:** “These benefits share a system name, but the paper never shows that one conceptual change causes all of them.”
+- **Severity:** `S1` when the unified claim controls the contribution. Use `S2` when different supporting claims would give an accurate account.
+- **Exception:** An artificial common cause is not necessary for contributions with different manuscript descriptions and evaluations.
 
-## DD-03B — Each property is attributed to its narrowest sufficient layer
+## DD-03B — Each property has its narrowest sufficient layer
 
-- **Check:** Separate enabling substrate, changed abstraction or authority
-  boundary, runtime enforcement and lifecycle, execution path, and empirical
-  condition. For every claimed property, state what each layer establishes and
-  what still depends on another layer. Use the counterfactual in the canonical
-  fan-out test to expose attribution that is merely adjacent in the prose.
-- **Reviewer attack:** “The paper credits the language, interface, or shared
-  runtime with a compound guarantee that actually depends on unmentioned checks,
-  completeness, lifecycle behavior, or workload conditions.”
-- **Severity:** `S0` for a false central guarantee; `S1` for a central missing
-  attribution path; otherwise `S2`.
+- **Check:** Keep these layers different: enabling substrate, abstraction or authority boundary, runtime enforcement and lifecycle, execution path, and empirical conditions. For each property, record each layer's contribution. Record its dependencies on other layers. Use the canonical fan-out counterfactual to find attribution without a causal relation.
+- **Reviewer attack:** “The paper credits the language, interface, or shared runtime with a compound guarantee that actually depends on unmentioned checks, completeness, lifecycle behavior, or workload conditions.”
+- **Severity:** `S0` for a false central guarantee. Use `S1` for a missing central attribution path. For other cases, `S2`.
 
-## DD-03C — Interface, authority, and path axes do not substitute
+## DD-03C — Interface, authority, and path are different axes
 
-- **Check:** For an interface or boundary contribution, apply the shared
-  [interface-boundary contract](../../systems-paper-revise/references/interface-boundaries.md).
-  Build the three-axis ledger for semantic commitments, protection/authority,
-  and execution path; add the actor/artifact/stage/control tuple when
-  customization or independent implementation is claimed. Require an anchored
-  causal edge for every property that crosses axes, while marking an unclaimed
-  axis `not claimed` rather than manufacturing an omission.
-- **Reviewer attack:** “The paper treats a low-level API, protection boundary, or
-  shorter path as if it automatically proved customization, isolation, or
-  end-to-end performance.”
-- **Severity:** `S0` for a false central guarantee; `S1` for a central unsupported
-  edge; otherwise `S2`.
+- **Check:** For interface or boundary contributions, use the [interface-boundary contract](../../systems-paper-revise/references/interface-boundaries.md). Make the three-axis ledger for semantic commitments, protection or authority, and execution path. For customization or independent implementation claims, add the actor/artifact/stage/control tuple. For each property across axes, get a causal edge with a source anchor. Use `not claimed` for an axis without a claim. Do not invent an omission.
+- **Reviewer attack:** “The paper treats a low-level API, protection boundary, or shorter path as if it automatically proved customization, isolation, or end-to-end performance.”
+- **Severity:** `S0` for a false central guarantee. Use `S1` for a central edge without evidence. For other cases, `S2`.
 
-## DD-04 — The mechanism explains the resulting property
+## DD-04 — The mechanism causes the stated property
 
-- **Check:** State the relevant input/state, action or changed abstraction, enforcement point, and property that follows. Identify assumptions and whether the result is guaranteed, detected, enabled, or only observed.
+- **Check:** Record the input or state, action or abstraction change, enforcement point, and resultant property. Record the assumptions. Select the result type: guaranteed, detected, enabled, or only observed.
 - **Reviewer attack:** “The prose says the mechanism ‘ensures’ the property without explaining the causal or enforcement path.”
-- **Severity:** `S0` for a false central guarantee; `S1` for an absent central explanation.
+- **Severity:** `S0` for a false central guarantee. Use `S1` for a missing central explanation.
 
-## DD-05 — Tradeoffs and shifted costs are part of the derivation
+## DD-05 — The derivation includes tradeoffs and transferred costs
 
-- **Check:** Name what the mechanism gives up or moves: generality, latency, throughput, memory, hardware, offline work, operator effort, failure recovery, trust, compatibility, or implementation complexity. Verify the thesis remains meaningful after accounting for it.
+- **Check:** Record each lost property and transferred cost. Include generality, latency, throughput, memory, hardware, offline work, operator effort, recovery, trust, compatibility, and implementation complexity. Make sure that the thesis stays meaningful with these costs.
 - **Reviewer attack:** “The apparent benefit comes from relaxing the problem or moving cost outside the measured boundary.”
-- **Severity:** `S0` when undisclosed and fatal; otherwise `S1`/`S2`.
+- **Severity:** `S0` for an undisclosed fatal cost. For other cases, `S1`/`S2`.
 
-## DD-06 — Alternatives test necessity, not only superiority
+## DD-06 — Alternatives show necessity as well as advantage
 
-- **Check:** Compare with the simplest credible design that shares the same assumptions. Ask which requirement it fails and whether the proposed mechanism is the minimal conceptual change needed. An ablation can show contribution to performance but may not explain design necessity.
+- **Check:** For the same assumptions, compare the mechanism with the alternative that has the least complexity. Make sure that the alternative has evidence for its applicability. Find the requirement that this alternative cannot satisfy. Examine whether the proposed mechanism gives the smallest necessary conceptual change. An ablation can show a performance contribution. It does not necessarily show design necessity.
 - **Reviewer attack:** “A simpler mechanism appears to provide the same property under the paper's assumptions.”
-- **Severity:** `S1`; `S2` when rationale is locally incomplete.
+- **Severity:** `S1`. Use `S2` for incomplete local rationale.
 
-## DD-07 — Evaluation closes the derivation chain
+## DD-07 — Evaluation completes the derivation chain
 
-- **Check:** For every central requirement and claimed property, identify the proof, experiment, negative case, sensitivity test, or field observation that can validate it. End-to-end results establish total effect; attribution or controlled analysis is required only when the paper claims a particular cause.
+- **Check:** For each central requirement and property, find the decisive proof, experiment, negative case, sensitivity test, or field observation. End-to-end results show total effect. If the paper claims a particular cause, get attribution evidence or controlled analysis.
 - **Reviewer attack:** “The mechanism is plausible, but the evidence never tests the reason it was introduced.”
-- **Severity:** `S0`/`S1` by claim centrality.
+- **Severity:** `S0`/`S1`, as determined by claim centrality.
 
 ## Knowledge-state rule
 
-Do not force every principle to precede every technical detail. An early low-level fact is appropriate when it is the evidence that reveals the constraint, makes a counterexample concrete, or defines the target property. Flag detail only when the reader cannot yet know why it matters or when it substitutes for the governing relation.
+Technical details can occur before principles. A low-level fact before the principles can show a constraint or a counterexample with specified conditions. It can also give the target-property definition.
+
+Record a detail defect only if the reader cannot know its relevance or if it replaces the governing relation.
 
 ## Derivation map
 
 | Failure/property | Supporting evidence | Constraint | Requirement | Mechanism | Property/invariant | Tradeoff | Decisive test | Gap |
 |---|---|---|---|---|---|---|---|---|
 
-For multi-mechanism systems, inspect both directions: every requirement needs a discharge, every major mechanism needs a requirement, and every claimed shared move needs an anchored edge to each advertised outcome. Do not treat implementation effort, co-location, or reviewer reconstruction as evidence of conceptual necessity.
+For systems with multiple mechanisms, examine both directions. Make sure that each requirement has a satisfying mechanism. Make sure that each primary mechanism has a requirement. For each shared move, get source anchors for its edge to each advertised outcome.
+
+Do not use implementation effort, co-location, or reviewer reconstruction as evidence for conceptual necessity.
 
 ## Sources
 
-This derivation model operationalizes [LEVIN-REDELL], [SYSTEMS-GUIDE], the system and evidence criteria in [OSDI-CFP] and [SOSP-CFP], and recurring constraint-to-mechanism structures in [FIVE-VENUE-CORPUS].
+This model uses [LEVIN-REDELL] and [SYSTEMS-GUIDE]. It also uses the system and evidence criteria in [OSDI-CFP] and [SOSP-CFP]. Recurring constraint-to-mechanism structures in [FIVE-VENUE-CORPUS] give further evidence.

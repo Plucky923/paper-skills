@@ -5,7 +5,7 @@
     "systems-paper-revise"
   ],
   "material_origin": "synthetic",
-  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请按 OSDI/SOSP 的写作标准修改以下中文论文正文，要求 high-level、简洁且逻辑准确，只给正文，并在正文后附上必要的单行简短决策覆盖凭据；不要附加其他说明。\n\n每个工作线程维护一个本地队列。请求进入该队列，后台线程将队列中的请求批量提交。\n\n对于每个请求，系统都会重新计算放置决策，即每次请求都要重复计算放置决策。",
   "scope": {
     "authorized": [
       "the supplied two manuscript paragraphs"

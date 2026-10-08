@@ -1,0 +1,136 @@
+{
+  "id": "ste-condition-scope",
+  "title": "Repair conditional punctuation without changing necessary conditions, negation, quantifiers, or exceptions",
+  "skills": [
+    "systems-paper-revise"
+  ],
+  "material_origin": "synthetic",
+  "prompt": "我明确确认本次范围没有 paper-decisions.md 或其他未提供的先前决策历史。\n\n请根据作者确认的事实润色下面的英文系统论文正文，使表达清楚、准确。可以在原段内调整句子，但保持一个段落及其技术含义、条件和主张强度；已合格的正文应保留。不要搜索外部资料，不要添加未提供的事实。请先给英文正文，再给简短的中文修改说明和必要的 decision receipt。\n\nThe scheduler accepts a request only if its queue is enabled, and that queue's admission token is valid. After the queue's token is revoked; its descriptor may be reused, only if all requests accepted from that queue before revocation have completed. After one queue is disabled, the scheduler does not reject requests from other enabled queues unless the admission tokens of those queues have expired. Eligible requests may wait for capacity. Revocation does not cancel requests already accepted.",
+  "scope": {
+    "authorized": [
+      "the supplied paragraph only",
+      "meaning-preserving local revisions supported by the author-confirmed facts",
+      "sentence-level reorganization inside the one original paragraph"
+    ],
+    "excluded": [
+      "splitting or moving the paragraph",
+      "neighboring manuscript text or files",
+      "external research",
+      "invented mechanisms, actors, measurements, or guarantees",
+      "persistent-state changes"
+    ],
+    "output_language": "English manuscript prose with a concise Chinese change receipt"
+  },
+  "evidence": {
+    "author_confirmed": [
+      "Each queue has an admission token and a descriptor. The scheduler performs request admission.",
+      "Admission prerequisites: the target queue is enabled and its admission token is valid. An eligible request may still wait for capacity.",
+      "Descriptor reuse requires prior revocation of that queue's token and completion of every request accepted from that queue before revocation. Reuse is permitted after these prerequisites, not required.",
+      "After one queue is disabled, requests from other enabled queues with unexpired tokens are not rejected. Requests from those queues with expired tokens may be rejected.",
+      "Revocation does not cancel requests that were already accepted.",
+      "Disabling a queue and revoking its token are distinct operations. No relation that makes one operation automatically perform the other is supplied."
+    ]
+  },
+  "protected_tokens": [
+    "scheduler",
+    "request",
+    "queue",
+    "admission token",
+    "only if",
+    "may",
+    "all requests",
+    "before revocation",
+    "other enabled queues",
+    "expired",
+    "capacity",
+    "does not cancel"
+  ],
+  "forbidden_actions": [
+    "turn enabled-queue and valid-token prerequisites into a guarantee of immediate acceptance",
+    "leave conditional punctuation that makes the valid-token prerequisite a separate unconditional assertion",
+    "reuse the descriptor before revocation or before every affected request completes",
+    "replace all affected requests with one, some, or only the most recent request",
+    "apply the completion condition to other queues, to future requests, or to revocation itself",
+    "turn permitted descriptor reuse into an automatic or required action",
+    "drop the enabled-other-queue boundary, reverse negation, or remove the expired-token exception",
+    "claim every expired-token request must be rejected when only permission is supplied",
+    "rewrite the three adequate sentences beginning After one queue, Eligible requests, and Revocation without a concrete defect",
+    "split the paragraph, access external material, invent a mechanism, or omit the mandatory compact decision receipt"
+  ],
+  "hard_gates": [
+    "Both queue enablement and token validity remain necessary admission conditions, and neither alone nor together is turned into a sufficient condition for immediate acceptance.",
+    "Descriptor reuse remains permitted only after that queue's token is revoked and all requests accepted from that queue before revocation complete. The original queue, request population, order, and may modality survive any punctuation or sentence change.",
+    "The non-rejection statement remains scoped to requests from other enabled queues after one queue is disabled, with the expired-token exception intact. It neither covers all queues nor guarantees rejection of every expired-token request.",
+    "The three adequate sentences beginning After one queue, Eligible requests, and Revocation remain unchanged. No cancellation, automatic disable-revoke relation, or new admission mechanism is introduced.",
+    "The output remains one manuscript paragraph followed by separate commentary and a compact zero-history decision receipt."
+  ],
+  "expected_behavior": [
+    "Make the two admission prerequisites belong unambiguously to the same only-if condition.",
+    "Repair the semicolon after the dependent revocation clause and keep the completion prerequisite adjacent to permitted descriptor reuse.",
+    "Keep temporal, universal, negative, and exception scopes intact rather than obtaining shorter prose by deleting them.",
+    "Retain the adequate non-rejection, capacity-waiting, and non-cancellation controls unchanged.",
+    "Return the paragraph first and report the local punctuation or condition-binding repairs without manufacturing a scientific change."
+  ],
+  "rubric": [
+    {
+      "id": "R1",
+      "criterion": "Returns exactly one English manuscript paragraph before separate commentary and metadata.",
+      "points": 1
+    },
+    {
+      "id": "R2",
+      "criterion": "Makes queue enablement and token validity unambiguously joint admission prerequisites rather than independent assertions.",
+      "points": 1
+    },
+    {
+      "id": "R3",
+      "criterion": "Preserves only-if necessity without promising immediate admission when both prerequisites hold.",
+      "points": 1
+    },
+    {
+      "id": "R4",
+      "criterion": "Preserves token revocation before permitted reuse of that queue's descriptor.",
+      "points": 1
+    },
+    {
+      "id": "R5",
+      "criterion": "Keeps all requests accepted from that queue before revocation as the completion population.",
+      "points": 1
+    },
+    {
+      "id": "R6",
+      "criterion": "Keeps completion as a prerequisite for descriptor reuse, not for token revocation or other-queue behavior.",
+      "points": 1
+    },
+    {
+      "id": "R7",
+      "criterion": "Keeps descriptor reuse as may or equivalent permission rather than a required or automatic action.",
+      "points": 1
+    },
+    {
+      "id": "R8",
+      "criterion": "Repairs the dependent-clause semicolon and the detached only-if punctuation without losing the temporal or completion relation.",
+      "points": 1
+    },
+    {
+      "id": "R9",
+      "criterion": "Keeps After one queue is disabled, the scheduler does not reject requests from other enabled queues unless the admission tokens of those queues have expired. unchanged, preserving negation and the bounded exception.",
+      "points": 1
+    },
+    {
+      "id": "R10",
+      "criterion": "Keeps Eligible requests may wait for capacity. unchanged, so eligibility is not equated with immediate acceptance.",
+      "points": 1
+    },
+    {
+      "id": "R11",
+      "criterion": "Keeps Revocation does not cancel requests already accepted. unchanged and invents no automatic disable-revoke relation.",
+      "points": 1
+    },
+    {
+      "id": "R12",
+      "criterion": "Appends the mandatory compact zero-history decision receipt and keeps it outside the manuscript.",
+      "points": 1
+    }
+  ]
+}

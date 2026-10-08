@@ -1,4 +1,4 @@
 interface:
   display_name: "Systems Paper Revise"
-  short_description: "Coverage-checked paragraph-local paper revision"
-  default_prompt: "Use $systems-paper-revise to account for every authorized decision version, apply only effective and evidence-compatible confirmed heads plus safe local repairs within each original paragraph, preserve claim strength and format, then re-audit every unit and report manuscript, finding, and decision coverage without inventing support."
+  short_description: "Paper revision in each initial paragraph"
+  default_prompt: "Use $systems-paper-revise to revise each initial paragraph. Keep claim strength and format. Give accounting for each decision version. Apply only executable confirmed decisions and permitted repairs that keep meaning. Audit the full scope again. Give manuscript, finding, and decision coverage without invented support."

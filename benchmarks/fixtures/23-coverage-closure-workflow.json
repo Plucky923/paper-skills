@@ -8,7 +8,7 @@
   ],
   "material_origin": "synthetic",
   "stage_prompts": {
-    "review": "使用 systems-paper-review，只读审查 {project}/manuscript.md。按共享 coverage contract 从章节到段落、句子和词汇逐层检查，给每个单位稳定 ID、每个 finding 稳定 ID、resolution test 和 receipt。需要作者决定的项要明确标记；不要修改文件。",
+    "review": "使用 systems-paper-review，只读审查论文项目 {project} 中的 manuscript.md 和完整 paper-decisions.md。按共享 coverage contract 从章节到段落、句子和词汇逐层检查，给每个单位稳定 ID、每个 finding 稳定 ID、resolution test 和 receipt。需要作者决定的项要明确标记；不要修改文件。",
     "grill_open": "使用 systems-paper-grill，读取 {project}/manuscript.md、review.md 和 paper-decisions.md。只讨论 Review 中标为 author clarification 的 finding，保留其 finding/unit IDs、证据状态和 resolution test，把 pending 结果更新到 paper-decisions.md。不要重新审查全文，不要改正文或 review.md；先提问并等待。",
     "grill_confirm": "我确认第二段只应陈述一次 30-minute run 的观察：我们暂停了 one follower for 10 seconds，期间服务继续响应；这不支持 every network failure 或 unconditional availability。允许把第二段改成这一有边界的观察。保留 Quorum、30-minute、one follower 和 10 seconds；不添加 partition、durability 或 latency 结论。第一段的主谓一致错误可直接修，three replicas 事实保持不变。这是最终决定。请更新 paper-decisions.md，保留 D0 和 Review 的 finding/unit IDs，不改正文。",
     "revise": "使用 systems-paper-revise，在 {project} 中读取 manuscript.md、review.md 和 paper-decisions.md。按已确认决定修改 manuscript.md，保持两个章节、两个段落和内容归属。修改前后都审查完整 scope，不只看改句；给 Review 的每个 finding closed、blocked、not applied 或 reopened 状态，并给 coverage receipt。review.md 和记录只读。",

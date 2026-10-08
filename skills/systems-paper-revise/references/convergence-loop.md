@@ -1,6 +1,7 @@
 # Evidence-Safe Convergence Loop
 
-Use this loop only when the user explicitly requests iterative revision or when several interacting edits make a single writer-first pass unsafe. An ordinary composition or bounded rewrite ends after the lightweight gate in [revision-protocol.md](revision-protocol.md).
+Use this loop only for a clear iteration request or when interacting edits give one writer-first pass unresolved preservation risks.
+Usual composition or bounded revision ends after the gate in [revision-protocol.md](revision-protocol.md).
 
 ## Invariant
 
@@ -15,79 +16,133 @@ freeze scope and evidence
   → hand the final working tree to the human
 ```
 
-The root agent is the sole writer. Reviewer subagents, when used, remain read-only. From the baseline through the final gate, no agent invokes Git or a source-control API, and no agent creates a backup, branch, commit, stash, tag, patch, or diff report. Git review belongs to the human after the loop.
+The root agent is the sole writer.
+Reviewer subagents stay read-only.
+From the baseline through the last gate, do not use Git or a source-control API.
+Do not make a backup, branch, commit, stash, tag, patch, or diff report.
+The human does the Git review after the loop.
 
-## Establish the baseline
+## Show the baseline
 
-1. Freeze the editable objects, explicit exclusions, evidence, author intent, language, and protected content through [revision-protocol.md](revision-protocol.md) and [change-safety.md](change-safety.md).
-2. For existing prose, inventory and audit the complete frozen scope through the [coverage contract](coverage-contract.md), then identify every materially distinct actionable defect. For missing prose, identify every reader obligation the requested unit must discharge.
-3. Separate items that prose can repair from items requiring a new experiment, data, proof, implementation fact, source, outside context, or author choice.
-4. Order actionable items by scientific dependency: truth and claim strength; argument and evidence alignment; structure; terminology and protected content; sentence-level expression.
+1. Give the editable objects, exclusions, evidence, author intent, language, and protected content through [revision-protocol.md](revision-protocol.md) and [change-safety.md](change-safety.md).
+2. Keep that scope and evidence unchanged.
+3. For existing prose, inventory the full scope through the [coverage contract](coverage-contract.md).
+4. Do the full audit.
+5. Find each defect that changes scientific content and has a permitted repair.
+6. For missing prose, find each reader obligation of the requested unit.
+7. Divide prose repairs from items with external input requirements.
 
-Use the sibling [systems-paper-review](../../systems-paper-review/SKILL.md) for an explicitly requested adversarial gate or a full-scope scientific/submission judgment. Otherwise perform the focused internal diagnosis needed for the requested revision.
+External inputs include an experiment, data, proof, implementation fact, source, context not in scope, or author choice.
+Order items with permitted repairs by scientific dependency:
+
+1. Truth and claim strength
+2. Argument and evidence alignment
+3. Structure
+4. Terms and protected content
+5. Sentence expression.
+
+For a clear adversarial gate or full-scope scientific/submission judgment, use [systems-paper-review](../../systems-paper-review/SKILL.md).
+If that condition does not hold, do the focused internal diagnosis necessary for the requested revision.
 
 ## Run one edit round
 
-### Select a coherent batch
+### Select a batch with clear dependencies
 
-Choose the highest-impact repair permitted by the paragraph-local contract and include interacting edits only when each remains inside its original paragraph. Iteration does not grant restructuring authority. A useful batch may clarify an existing condition before its consequence or settle terminology before sentence revision.
+Select the highest-impact repair that the paragraph-local contract gives permission for.
+Include interacting edits only when each stays in its initial paragraph.
+Iteration does not give restructuring permission.
+A batch can make an existing condition clear before its consequence.
+It can also settle terms before sentence revision.
 
-For a structural rebuild explicitly requested by the author, first route the contribution with [paper-archetypes.md](paper-archetypes.md) and apply [revision-strategies.md](revision-strategies.md). Otherwise report the cross-paragraph dependency as blocked and complete only safe local repairs.
+For a clear structural rebuild, first select the contribution type through [paper-archetypes.md](paper-archetypes.md).
+Then apply [revision-strategies.md](revision-strategies.md).
+If that condition does not hold, give the cross-paragraph dependency as a blocker.
+Complete the permitted meaning-preserving local repairs.
 
 ### Write once
 
-The root writes one coherent version through [writing-core.md](writing-core.md). While writing:
+Write one version with clear dependencies through [writing-core.md](writing-core.md).
+Obey these limits:
 
-- remain inside each original paragraph unless restructuring is explicitly authorized;
-- clarify only that paragraph's existing propositions and warranted relations, or an explicit author correction;
-- preserve material premises, evidence, costs, and limitations;
-- preserve paragraph count, order, roles, and content ownership; remove only verbal redundancy during ordinary revision;
-- keep every reviewer subagent idle or read-only.
+- Stay in each initial paragraph unless the author clearly gives permission for restructuring.
+- Make only its existing propositions, supported relations, or a clear author correction clear.
+- Keep important premises, evidence, costs, and limitations.
+- Keep paragraph count, order, roles, and content ownership.
+- During usual revision, remove only verbal redundancy.
+- Keep each reviewer subagent idle or read-only.
 
 ### Check preservation and regression
 
-Run [change-safety.md](change-safety.md), then re-audit the complete frozen scope from the highest assessable level through lexical occurrences and reconcile bottom up. Do not narrow a later round to changed paragraphs. Record internally:
+1. Do the [change-safety.md](change-safety.md) checks.
+2. Audit the full scope again from the highest assessable level through lexical occurrences.
+3. Reconcile the result from lexical occurrences up to the highest level.
+4. Include unchanged paragraphs in all subsequent rounds.
 
-- which obligation or root cause closed and why;
-- which actionable item remains;
-- which item is blocked and by what;
-- any newly introduced or reopened problem;
-- which preservation and tool checks actually passed.
-- every received finding's current closure or `pending clarification` state and the coverage receipt totals when the run is terminal,
-  last-unit states, and unreviewed count.
+Record these items internally:
 
-When independent review is warranted, follow [multi-agent-revision.md](multi-agent-revision.md) and wait for all applicable reviewers before the next write.
+- The closed obligation or root cause and the reason for closure
+- Each remaining item with a permitted repair
+- Each blocker and its missing input
+- Each new or reopened problem
+- The preservation and tool checks that passed
+- Each received finding's closure state or `pending clarification` state
+- At a terminal run, coverage totals, last-unit states, and the unreviewed count.
+
+If independent review is necessary, use [multi-agent-revision.md](multi-agent-revision.md).
+Before the next edit, wait for all applicable reviewers.
 
 ## Continue only on observable progress
 
-Run another round only when a named repair remains and the previous round did at least one of the following:
+Run another round only when a named repair stays and the preceding round made observable progress.
+Progress has at least one of these results:
 
-- discharged a reader obligation;
-- closed a predeclared resolution test;
-- applied an explicit author correction to a claim or closed a concrete wording defect;
-- exposed a premise or dependency needed for the next repair;
-- removed a regression while preserving the earlier improvement.
+- The text completes a reader obligation.
+- A resolution test declared before the edit passes.
+- The text applies a clear author correction or a specified wording repair.
+- A premise or dependency necessary for the next repair is clear.
+- The repair removes a regression and keeps the improvement from the round before this one.
 
-A larger draft, a lower word count, or smoother wording alone is not progress. After an unsuccessful approach, try a distinct evidence-safe repair only when its mechanism and expected resolution test are clear.
+A larger draft, lower word count, or smoother wording alone is not progress.
+After an unsuccessful approach, try another permitted repair that keeps evidence status only with a clear mechanism and resolution test.
 
-## Stop precisely
+## Stop with a specified status
 
 ### Locally complete
 
-Stop as locally complete when every requested obligation is discharged, every received finding has an explicit terminal closure state, no item remains `pending clarification`, every actionable in-scope defect is closed, the complete scope has passed its final top-down and bottom-up audit with `Unreviewed: 0`, preservation checks pass, and no required evidence/context/source/author choice remains unresolved.
+Stop as locally complete only when all these conditions hold:
 
-This status describes only the frozen scope. It does not establish novelty over all literature, artifact correctness in every environment, completion of missing experiments, acceptance, or publication readiness.
+- The text completes each requested obligation.
+- Each received finding has a clear terminal closure state.
+- No item stays `pending clarification`.
+- Each defect with a permitted repair in scope is closed.
+- The full scope passes its last top-down and bottom-up audit with `Unreviewed: 0`.
+- Preservation checks pass.
+- No required evidence, context, source, or author choice stays unresolved.
+
+This status applies only to the frozen scope.
+It does not show novelty over all literature or artifact correctness in each environment.
+It also does not show experiment completion, acceptance, or publication readiness.
 
 ### Blocked
 
-Stop as blocked when no evidence-safe prose edit remains and the outstanding issue requires evidence, context, source verification, or author choice. State the affected claim, the missing item, why prose cannot supply it, and the observable condition that would unblock it.
+Stop as blocked when no permitted meaning-preserving prose edit is available and a required input is unavailable.
+Give the affected claim and the missing evidence, context, source verification, or author choice.
+Give the reason that prose cannot supply it.
+Give the observable condition for continuation.
+For author-input items, apply the shared contract's terminal-blocker rule.
 
 ### No progress or oscillation
 
-Stop when successive admissible revisions recreate the same semantic defect, improve one equal-or-higher-impact problem only by reopening another, or encode different author intent. Restore only the current unsafe edit through direct editing and report the decision needed.
+Stop when successive permitted revisions recreate the same semantic defect.
+Also stop when one improvement reopens an equal-or-higher-impact problem or changes author intent.
+Correct only the last edit that violates the preservation contract directly.
+Give the decision necessary for continuation.
 
-No round count, reviewer score, linter result, or word-count target proves convergence. Once a true fixed point is reached, optional paraphrases do not keep the loop alive.
+A round count, reviewer score, linter result, or word-count target does not prove convergence.
+After a true fixed point, optional paraphrases do not justify another round.
 
 ## Handoff
 
-Follow the output contract in [revision-protocol.md](revision-protocol.md), including optional wording and the minimal scientific-issue exception for prose-only requests. Keep loop bookkeeping internal unless requested.
+Obey the output contract in [revision-protocol.md](revision-protocol.md).
+Include optional wording and the minimal scientific-issue exception for prose-only requests when applicable.
+Keep loop records internal unless the user requests them.
